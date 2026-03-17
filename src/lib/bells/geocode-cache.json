@@ -1,0 +1,26 @@
+{
+  "beyond the battle museum, 625 biglerville road, gettysburg, pa 17325, pennsylvania, usa": {
+    "lat": 39.8416861,
+    "lng": -77.230595
+  },
+  "shoprite of yardley, 1603 big oak road, yardley, pa 19067, pennsylvania, usa": {
+    "lat": 40.1982448,
+    "lng": -74.8632774
+  },
+  "indiana county courthouse, 825 philadelphia st, indiana, pa 15701, pennsylvania, usa": {
+    "lat": 40.6233871,
+    "lng": -79.1551369
+  },
+  "monroe county historical association, 900 main street, stroudsburg, pa 18360, pennsylvania, usa": {
+    "lat": 40.9844412,
+    "lng": -75.1981072
+  },
+  "shoprite of bethlehem, 4701 freemansburg ave., bethlehem, pa 18045, pennsylvania, usa": {
+    "lat": 40.6512675,
+    "lng": -75.2933231
+  },
+  "wayne memorial hospital, 601 park street, honesdale, pa 18431, pennsylvania, usa": {
+    "lat": 41.576065,
+    "lng": -75.2603474
+  }
+}

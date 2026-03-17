@@ -1,0 +1,63 @@
+[
+  {
+    "id": "adams-for-the-people",
+    "county": "ADAMS",
+    "title": "For the People",
+    "artist": "Wendy Allen",
+    "currentAddress": "Beyond the Battle Museum, 625 Biglerville Road, Gettysburg, PA 17325",
+    "sourceSlug": "adams-for-the-people",
+    "lat": 39.8416861,
+    "lng": -77.230595
+  },
+  {
+    "id": "bucks-local-color",
+    "county": "BUCKS",
+    "title": "Local Color",
+    "artist": "James Feehan",
+    "currentAddress": "ShopRite of Yardley, 1603 Big Oak Road, Yardley, PA 19067",
+    "sourceSlug": "bucks-local-color",
+    "lat": 40.1982448,
+    "lng": -74.8632774
+  },
+  {
+    "id": "indiana-a-wonderful-life",
+    "county": "INDIANA",
+    "title": "A Wonderful Life",
+    "artist": "Mark Altrogge",
+    "currentAddress": "Indiana County Courthouse, 825 Philadelphia St, Indiana, PA 15701",
+    "sourceSlug": "indiana-a-wonderful-life",
+    "lat": 40.6233871,
+    "lng": -79.1551369
+  },
+  {
+    "id": "mifflin-mifflin-county-celebrates",
+    "county": "MIFFLIN",
+    "title": "Mifflin County Celebrates",
+    "artist": "Linda Stockman-Connors",
+    "currentAddress": "Monroe County Historical Association, 900 Main Street, Stroudsburg, PA 18360",
+    "sourceSlug": "mifflin-mifflin-county-celebrates",
+    "lat": 40.9844412,
+    "lng": -75.1981072
+  },
+  {
+    "id": "montgomery-valley-forge-bell",
+    "county": "MONTGOMERY",
+    "title": "Valley Forge Bell",
+    "artist": "Keith Garubba",
+    "currentAddress": "ShopRite of Bethlehem, 4701 Freemansburg Ave., Bethlehem, PA 18045",
+    "unveilingAddress": "Canal Park, 463 Mill Street, Danville, PA 17821",
+    "sourceSlug": "montgomery-valley-forge-bell",
+    "lat": 40.6512675,
+    "lng": -75.2933231
+  },
+  {
+    "id": "wayne-honoring-service-advancing-care",
+    "county": "WAYNE",
+    "title": "Honoring Service, Advancing Care",
+    "artist": "Allison LaRussa",
+    "currentAddress": "Wayne Memorial Hospital, 601 Park Street, Honesdale, PA 18431",
+    "sourceSlug": "wayne-honoring-service-advancing-care",
+    "lat": 41.576065,
+    "lng": -75.2603474
+  }
+]
