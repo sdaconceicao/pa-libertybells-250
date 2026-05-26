@@ -1,70 +1,63 @@
 import * as cheerio from 'cheerio'
 import type { RawBell } from './types'
 
-// America250PA Bells page: county name in caps, then "Bell Title", then
-// Artist:, Current Location:, optional Unveiling Location:, Sponsor:.
-// Parse the main content as text and extract blocks by COUNTY lines.
+const FIELD_RE =
+  /^(Artist|Current Location|Unveiling Location|Sponsor):\s*(.*)$/i
+const TITLE_QUOTE_RE = /[""\u201c]([^""\u201d]+)[""\u201d]/
 
-const COUNTY_TITLE_RE = /^([A-Z][A-Za-z\s\-']+COUNTY)\s*[""]([^""]+)[""]\s*$/i
-const KEY_RE = /^(Artist|Current Location|Unveiling Location|Sponsor):\s*(.*)$/i
+function normalizeText(text: string): string {
+  return text.replace(/\s+/g, ' ').trim()
+}
+
+function slugify(county: string, title: string): string {
+  return `${county}-${title}`.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+}
 
 export function parseBells(html: string): RawBell[] {
   const $ = cheerio.load(html)
-  // Prefer main content; fallback to body.
-  const content =
-    $('.mw-parser-output').text() ||
-    $('#bodyContent').text() ||
-    $('main').text() ||
-    $('body').text()
-
-  const lines = content
-    .replace(/\r\n/g, '\n')
-    .split('\n')
-    .map((l) => l.trim())
-    .filter(Boolean)
-
   const bells: RawBell[] = []
-  let i = 0
 
-  while (i < lines.length) {
-    const line = lines[i]
-    const countyTitleMatch = line.match(COUNTY_TITLE_RE)
-    if (!countyTitleMatch) {
-      i++
-      continue
-    }
-
-    const countyRaw = countyTitleMatch[1].trim()
-    const county = countyRaw.replace(/\s+COUNTY$/i, '').trim() || countyRaw
-    const title = countyTitleMatch[2].trim()
-    i++
-
+  $('.gridCell.col').each((_, el) => {
+    const $cell = $(el)
+    let county = ''
+    let title = ''
     let artist: string | undefined
     let currentAddress = ''
     let unveilingAddress: string | undefined
     let sponsor: string | undefined
 
-    while (i < lines.length) {
-      const next = lines[i]
-      if (next.match(COUNTY_TITLE_RE)) break
+    const imageUrl = $cell.find('img').first().attr('src') || undefined
 
-      const keyMatch = next.match(KEY_RE)
-      if (keyMatch) {
-        const key = keyMatch[1].toLowerCase()
-        const value = keyMatch[2].trim()
-        if (key === 'artist') artist = value || undefined
-        else if (key === 'current location') currentAddress = value
-        else if (key === 'unveiling location') unveilingAddress = value || undefined
-        else if (key === 'sponsor') sponsor = value || undefined
+    $cell.find('p').each((__, p) => {
+      const text = normalizeText($(p).text())
+      if (!text || text.startsWith('*')) return
+
+      if (!county && /COUNTY/i.test(text)) {
+        const countyMatch = text.match(/([A-Z][A-Za-z\s\-']+)\s+COUNTY/i)
+        if (countyMatch) county = countyMatch[1].trim()
+
+        const titleMatch = text.match(TITLE_QUOTE_RE)
+        if (titleMatch) title = titleMatch[1].trim()
+        return
       }
-      i++
-    }
 
-    // Use unveiling as address if current is missing so we still geocode
+      const keyMatch = text.match(FIELD_RE)
+      if (!keyMatch) return
+
+      const key = keyMatch[1].toLowerCase()
+      const value = keyMatch[2].trim()
+      if (key === 'artist') artist = value || undefined
+      else if (key === 'current location') currentAddress = value
+      else if (key === 'unveiling location') unveilingAddress = value || undefined
+      else if (key === 'sponsor' && value) sponsor = value
+    })
+
+    if (!county || !title) return
+
     const address = currentAddress || unveilingAddress || ''
-    if (!address) continue
+    if (!address) return
 
-    const id = `${county}-${title}`.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+    const id = slugify(county, title)
     bells.push({
       id,
       county,
@@ -72,11 +65,11 @@ export function parseBells(html: string): RawBell[] {
       artist,
       currentAddress: address,
       unveilingAddress,
-      imageUrl: undefined,
+      imageUrl,
       sponsor,
       sourceSlug: id,
     })
-  }
+  })
 
   return bells
 }

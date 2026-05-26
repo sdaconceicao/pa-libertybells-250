@@ -1,11 +1,19 @@
-import { useEffect, useState } from 'react'
 import { ClientOnly } from '@tanstack/react-router'
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
+import markerIcon from 'leaflet/dist/images/marker-icon.png'
+import markerShadow from 'leaflet/dist/images/marker-shadow.png'
+import { useEffect, useState } from 'react'
 import type { Bell } from '../lib/bells/types'
-import {
-  reverseGeocodeToCity,
-  formatLocalityShort,
-  type ReverseGeocodeResult,
-} from '../lib/bells/reverseGeocode'
+
+function configureLeafletDefaultIcons(L: LModule) {
+  // Leaflet prepends its dist path to icon URLs unless _getIconUrl is removed.
+  delete (L.Icon.Default.prototype as { _getIconUrl?: unknown })._getIconUrl
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: markerIcon2x,
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow,
+  })
+}
 
 type LeafletModule = typeof import('react-leaflet')
 type LModule = typeof import('leaflet')
@@ -41,6 +49,7 @@ function LeafletMap({ bells }: Props) {
         import('leaflet/dist/leaflet.css'),
       ])
       if (!mounted) return
+      configureLeafletDefaultIcons(leafletLib)
       setLeaflet(reactLeaflet)
       setL(leafletLib)
     })()
@@ -58,15 +67,6 @@ function LeafletMap({ bells }: Props) {
   }
 
   const { MapContainer, TileLayer, Marker, Popup } = leaflet
-
-  // Fix default icon paths for Leaflet in bundlers
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ;(L.Icon.Default as any).mergeOptions({
-    iconRetinaUrl:
-      'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-  })
 
   const center: [number, number] = [40.9, -77.8]
 
@@ -98,26 +98,6 @@ function LeafletMap({ bells }: Props) {
 }
 
 function BellPopupContent({ bell }: { bell: Bell }) {
-  const [locality, setLocality] = useState<ReverseGeocodeResult | null | undefined>(undefined)
-
-  useEffect(() => {
-    if (bell.localityLabel) return
-    let cancelled = false
-    reverseGeocodeToCity(bell.lat, bell.lng)
-      .then((result) => {
-        if (!cancelled) setLocality(result ?? null)
-      })
-      .catch(() => {
-        if (!cancelled) setLocality(null)
-      })
-    return () => {
-      cancelled = true
-    }
-  }, [bell.lat, bell.lng, bell.localityLabel])
-
-  const localityShort =
-    bell.localityLabel ?? (locality ? formatLocalityShort(locality) : null)
-
   return (
     <div className="space-y-1 text-sm">
       <h3 className="m-0 text-base font-semibold">
@@ -134,13 +114,16 @@ function BellPopupContent({ bell }: { bell: Bell }) {
       <p className="m-0 text-[var(--sea-ink-soft)]">
         Current location: {bell.currentAddress}
       </p>
-      {localityShort ? (
+      {bell.localityLabel ? (
         <p className="m-0 text-xs text-[var(--sea-ink-soft)]">
-          Locality: {localityShort}
+          Locality: {bell.localityLabel}
         </p>
-      ) : locality === null ? null : (
-        <p className="m-0 text-xs text-[var(--sea-ink-soft)]">Loading locality…</p>
-      )}
+      ) : null}
+      {bell.geocodeQuality === 'approximate' ? (
+        <p className="m-0 text-xs text-amber-700">
+          Approximate map location ({bell.geocodeSource})
+        </p>
+      ) : null}
       {bell.imageUrl ? (
         <img
           src={bell.imageUrl}
@@ -151,4 +134,3 @@ function BellPopupContent({ bell }: { bell: Bell }) {
     </div>
   )
 }
-
