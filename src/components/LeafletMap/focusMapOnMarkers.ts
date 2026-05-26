@@ -1,13 +1,13 @@
+import type { Map as LeafletMapInstance } from 'leaflet'
+import type * as Leaflet from 'leaflet'
 import type { Bell } from '../../lib/bells/types'
-
-type LModule = typeof import('leaflet')
 
 export const DEFAULT_MAP_CENTER: [number, number] = [40.87, -77.79]
 export const DEFAULT_MAP_ZOOM = 7
 
 export function focusMapOnMarkers(
-  map: import('leaflet').Map,
-  L: LModule,
+  map: LeafletMapInstance,
+  L: typeof Leaflet,
   bells: Bell[],
 ) {
   map.invalidateSize()

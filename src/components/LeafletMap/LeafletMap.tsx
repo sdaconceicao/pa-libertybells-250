@@ -1,3 +1,5 @@
+import type { Map as LeafletMapInstance } from 'leaflet'
+import type * as Leaflet from 'leaflet'
 import { useEffect, useRef, useState } from 'react'
 import type { Bell } from '../../lib/bells/types'
 import { BellPopupContent } from '../BellPopupContent/BellPopupContent'
@@ -10,19 +12,17 @@ import {
 } from './focusMapOnMarkers'
 import styles from './LeafletMap.module.css'
 
-type LeafletModule = typeof import('react-leaflet')
-type LModule = typeof import('leaflet')
-type MapRef = import('react-leaflet').MapRef
+type ReactLeafletModule = typeof import('react-leaflet')
 
 type Props = {
   bells: Bell[]
 }
 
 export function LeafletMap({ bells }: Props) {
-  const [leaflet, setLeaflet] = useState<LeafletModule | null>(null)
-  const [L, setL] = useState<LModule | null>(null)
+  const [leaflet, setLeaflet] = useState<ReactLeafletModule | null>(null)
+  const [L, setL] = useState<typeof Leaflet | null>(null)
   const [mapReady, setMapReady] = useState(false)
-  const mapRef = useRef<MapRef>(null)
+  const mapRef = useRef<LeafletMapInstance>(null)
   const shellRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
