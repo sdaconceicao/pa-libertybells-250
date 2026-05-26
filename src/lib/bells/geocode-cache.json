@@ -1,26 +1,625 @@
 {
-  "beyond the battle museum, 625 biglerville road, gettysburg, pa 17325, pennsylvania, usa": {
+  "625 biglerville road, gettysburg, pa 17325": {
     "lat": 39.8416861,
-    "lng": -77.230595
+    "lng": -77.230595,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Gettysburg, PA"
   },
-  "shoprite of yardley, 1603 big oak road, yardley, pa 19067, pennsylvania, usa": {
-    "lat": 40.1982448,
-    "lng": -74.8632774
+  "301 curry hollow road, pittsburgh, pa 15236": {
+    "lat": 40.33614,
+    "lng": -79.972441,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Pittsburgh, PA"
   },
-  "indiana county courthouse, 825 philadelphia st, indiana, pa 15701, pennsylvania, usa": {
+  "1212 smallman street, pittsburgh, pa 15222": {
+    "lat": 40.4464508,
+    "lng": -79.9926773,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Pittsburgh, PA"
+  },
+  "300 north mckean street, kittanning, pa 16201": {
+    "lat": 40.818247,
+    "lng": -79.5209007,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Kittanning, PA"
+  },
+  "200 s. juliana street, bedford, pa 15522": {
+    "lat": 40.017302,
+    "lng": -78.503795,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Bedford, PA"
+  },
+  "1900 centre avenue, reading, pa 19605": {
+    "lat": 40.3657177,
+    "lng": -75.9337357,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Reading, PA"
+  },
+  "4352 e. pleasant valley blvd., tipton, pa 16684": {
+    "lat": 40.6306265,
+    "lng": -78.2915004,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Antis Township, PA"
+  },
+  "301 main street, towanda, pa 18848": {
+    "lat": 41.767185,
+    "lng": -76.443,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Towanda, PA"
+  },
+  "1603 big oak road, yardley, pa 19067": {
+    "lat": 40.1976386,
+    "lng": -74.8732351,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Middletown Township, PA"
+  },
+  "2525 rochester road, cranberry township, pa 16066": {
+    "lat": 40.6987761,
+    "lng": -80.1097118,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Cranberry Township, PA"
+  },
+  "124 w. diamond st., butler, pa 16003": {
+    "lat": 40.8584532,
+    "lng": -79.895787,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Butler, PA"
+  },
+  "24 west fourth street, emporium, pa 15834": {
+    "lat": 41.7764956,
+    "lng": -78.022639,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Coudersport, PA"
+  },
+  "bridge and franklin streets, weissport, pa 18032": {
+    "lat": 40.643736,
+    "lng": -75.459761,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Catasauqua, PA"
+  },
+  "1001 e. college ave., state college, pa 16801": {
+    "lat": 40.8066599,
+    "lng": -77.842139,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "State College, PA"
+  },
+  "251 curtin road, howard, pa 16841": {
+    "lat": 40.9609703,
+    "lng": -77.7414616,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Howard, PA"
+  },
+  "320 west high street, bellefonte, pa 16823": {
+    "lat": 40.9113566,
+    "lng": -77.781803,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Bellefonte, PA"
+  },
+  "28 w. market street, west chester, pa 19382": {
+    "lat": 39.9592188,
+    "lng": -75.605154,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "West Chester, PA"
+  },
+  "clearfield county historical society kerr house museum 104 east pine street, clearfield, pa 16830": {
+    "lat": 41.02447,
+    "lng": -78.439753,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Clearfield, PA"
+  },
+  "230 e. water street, lock haven, pa 17745": {
+    "lat": 41.1378985,
+    "lng": -77.4427558,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Lock Haven, PA"
+  },
+  "620 w 3rd st, bloomsburg, pa 17815": {
+    "lat": 40.960425,
+    "lng": -75.982132,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Hazleton, PA"
+  },
+  "697 terrace street, meadville, pa 16335": {
+    "lat": 41.6444218,
+    "lng": -80.152705,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Meadville, PA"
+  },
+  "carlisle, pa 17103": {
+    "lat": 40.201499,
+    "lng": -77.1890783,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Carlisle, PA"
+  },
+  "101 chocolate world way, hershey, pa 17033": {
+    "lat": 40.2880764,
+    "lng": -76.6610194,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Derry Township, PA"
+  },
+  "5000 state road, drexel hill, pa 19026": {
+    "lat": 39.946228,
+    "lng": -75.323774,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Drexel Hill, PA"
+  },
+  "240 main street, ridgway, pa 15853": {
+    "lat": 41.421696,
+    "lng": -78.730224,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Ridgway, PA"
+  },
+  "420 french st, erie, pa 16507": {
+    "lat": 42.1312436,
+    "lng": -80.0850338,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Erie, PA"
+  },
+  "61 e. main street, uniontown, pa 15401": {
+    "lat": 39.9016595,
+    "lng": -79.7230161,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Uniontown, PA"
+  },
+  "15 s. main street, chambersburg, pa 17201": {
+    "lat": 39.9372039,
+    "lng": -77.6618356,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Chambersburg, PA"
+  },
+  "101 lincoln way w, mcconnellsburg, pa 17233": {
+    "lat": 39.932526,
+    "lng": -77.999249,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "McConnellsburg, PA"
+  },
+  "918 rolling meadows rd, waynesburg, pa": {
+    "lat": 39.8890465,
+    "lng": -80.1243197,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Waynesburg, PA"
+  },
+  "825 philadelphia st, indiana, pa 15701": {
     "lat": 40.6233871,
-    "lng": -79.1551369
+    "lng": -79.1551369,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Indiana, PA"
   },
-  "monroe county historical association, 900 main street, stroudsburg, pa 18360, pennsylvania, usa": {
-    "lat": 40.9844412,
-    "lng": -75.1981072
+  "301 east mahoning street, punxsutawney, pa 15767": {
+    "lat": 40.944443,
+    "lng": -78.9679373,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Punxsutawney, PA"
   },
-  "shoprite of bethlehem, 4701 freemansburg ave., bethlehem, pa 18045, pennsylvania, usa": {
+  "70 mill road, port royal, pa 17082": {
+    "lat": 40.5041252,
+    "lng": -77.413931,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Turbett Township, PA"
+  },
+  "612 jefferson avenue, scranton, pa 18510": {
+    "lat": 41.4112179,
+    "lng": -75.6552881,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Scranton, PA"
+  },
+  "5 s. washington ave., jermyn, pa 18433": {
+    "lat": 41.516247,
+    "lng": -75.547564,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Jermyn, PA"
+  },
+  "881 rockford road, lancaster, pa 17602": {
+    "lat": 40.0201127,
+    "lng": -76.2877217,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Lancaster, PA"
+  },
+  "124 east leasure ave., new castle, pa 16101": {
+    "lat": 41.013002,
+    "lng": -80.34422,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "New Castle, PA"
+  },
+  "115 springwood dr., lebanon, pa 17042": {
+    "lat": 39.7398497,
+    "lng": -76.6982427,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "New Freedom, PA"
+  },
+  "1441 schoenersville road, bethlehem, pa 18018": {
+    "lat": 40.6325259,
+    "lng": -75.387922,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Bethlehem, PA"
+  },
+  "200 old train station road, wilkes-barre, pa 18702": {
+    "lat": 41.2417922,
+    "lng": -75.8801094,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Wilkes-Barre, PA"
+  },
+  "500 west main street, smethport, pa 16749": {
+    "lat": 41.809644,
+    "lng": -78.446876,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Smethport, PA"
+  },
+  "20 north wayne street, lewistown, pa 17044": {
+    "lat": 40.5973066,
+    "lng": -77.5767252,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Lewistown, PA"
+  },
+  "900 main street, stroudsburg, pa 18360": {
+    "lat": 40.9844658,
+    "lng": -75.1981518,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Stroudsburg, PA"
+  },
+  "151 w. main street, trappe, pa 19426": {
+    "lat": 40.1956848,
+    "lng": -75.4678968,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Trappe, PA"
+  },
+  "463 mill street, danville, pa 17821": {
+    "lat": 40.964405,
+    "lng": -76.6162488,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Danville, PA"
+  },
+  "4701 freemansburg ave., bethlehem, pa 18045": {
     "lat": 40.6512675,
-    "lng": -75.2933231
+    "lng": -75.2933231,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Easton, PA"
   },
-  "wayne memorial hospital, 601 park street, honesdale, pa 18431, pennsylvania, usa": {
+  "201 market st., sunbury, pa 17801": {
+    "lat": 40.8624995,
+    "lng": -76.7944955,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Sunbury, PA"
+  },
+  "9 w. main st, new bloomfield, pa 17068": {
+    "lat": 40.4195461,
+    "lng": -77.1874391,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Bloomfield, PA"
+  },
+  "6170 ridge ave., philadelphia, pa 19128": {
+    "lat": 40.0350043,
+    "lng": -75.216943,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "5400 lindbergh blvd., philadelphia, pa 19143": {
+    "lat": 39.933341,
+    "lng": -75.215549,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "7301 germantown ave., philadelphia, pa 19119": {
+    "lat": 40.061908,
+    "lng": -75.1922234,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "7343 frankford ave., philadelphia, pa 19136": {
+    "lat": 40.0373194,
+    "lng": -75.0390904,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "222 n. 20th st., philadelphia, pa 19103": {
+    "lat": 39.9582436,
+    "lng": -75.1730789,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "2739 n. 5th st., philadelphia, pa 19133": {
+    "lat": 39.9931433,
+    "lng": -75.1397718,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "419 s. 6th street, philadelphia, pa 19147": {
+    "lat": 39.9433248,
+    "lng": -75.1517607,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "4231 avenue of the republic, philadelphia, pa 19131": {
+    "lat": 39.9794694,
+    "lng": -75.2091302,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "7959 oxford ave., philadelphia, pa 19111": {
+    "lat": 40.076265,
+    "lng": -75.0849923,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "10th street plaza (10th and vine sts.), philadelphia, pa 19107": {
+    "lat": 39.950283,
+    "lng": -75.157001,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "5001 grant ave., philadelphia, pa 19114": {
+    "lat": 40.0528525,
+    "lng": -74.9827524,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "1401 jfk blvd., philadelphia, pa 19102": {
+    "lat": 39.95354,
+    "lng": -75.164055,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "st. joseph's university, philadelphia, pa 19131": {
+    "lat": 39.9459273,
+    "lng": -75.2066484,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "william h. gray iii 30th street station, philadelphia, pa 19104": {
+    "lat": 39.9559261,
+    "lng": -75.1819978,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "1336 s. 21st st., philadelphia, pa 19146": {
+    "lat": 39.9346205,
+    "lng": -75.17916,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "1 n. independence hall west, philadelphia, pa 19106": {
+    "lat": 39.949223,
+    "lng": -75.150767,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "5501 n. 5th st., philadelphia, pa 19120": {
+    "lat": 40.0350162,
+    "lng": -75.1305745,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "68 w. chelten ave., philadelphia, pa 19144": {
+    "lat": 40.0340605,
+    "lng": -75.1760528,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "201 broad street, milford, pa 18337": {
+    "lat": 41.3221356,
+    "lng": -74.8028666,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Milford, PA"
+  },
+  "one north main street, coudersport, pa 16915": {
+    "lat": 41.773679,
+    "lng": -78.021069,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Coudersport, PA"
+  },
+  "1 n. high street, selinsgrove, pa 17870": {
+    "lat": 40.799721,
+    "lng": -76.863202,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Selinsgrove, PA"
+  },
+  "300 north center avenue, somerset, pa 15501": {
+    "lat": 40.010346,
+    "lng": -79.078453,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Somerset, PA"
+  },
+  "29 mary avenue, eagles mere, pa 17731": {
+    "lat": 41.4097143,
+    "lng": -76.5815911,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Eagles Mere, PA"
+  },
+  "18 monument square, montrose, pa 18801": {
+    "lat": 41.8338383,
+    "lng": -75.876355,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Montrose, PA"
+  },
+  "gate house at smythe park 62 south main street, mansfield, pa 16933": {
+    "lat": 41.806183,
+    "lng": -77.07786,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Mansfield, PA"
+  },
+  "103 s 2nd st, lewisburg, pa 17837": {
+    "lat": 40.9636517,
+    "lng": -76.8823635,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Lewisburg, PA"
+  },
+  "22045 us-route 6, warren, pa 16365": {
+    "lat": 41.846609,
+    "lng": -79.23162,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Warren, PA"
+  },
+  "49 e maiden street, washington, pa 15301": {
+    "lat": 40.16812,
+    "lng": -80.2431516,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Washington, PA"
+  },
+  "601 park street, honesdale, pa 18431": {
     "lat": 41.576065,
-    "lng": -75.2603474
+    "lng": -75.2603474,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Honesdale, PA"
+  },
+  "robert’s trailhead westmoreland heritage trail, murrysville, pa": {
+    "lat": 40.464785,
+    "lng": -79.693224,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Murrysville, PA"
+  },
+  "221 n. main st., greensburg, pa 15601": {
+    "lat": 40.3055905,
+    "lng": -79.5452441,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Greensburg, PA"
+  },
+  "5950 u.s. route 6, tunkhannock, pa 18657": {
+    "lat": 41.55957,
+    "lng": -75.84899,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Tunkhannock, PA"
+  },
+  "2300 north cameron street, harrisburg, pa 17110": {
+    "lat": 40.2857825,
+    "lng": -76.8826151,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Harrisburg, PA"
+  },
+  "3040 cottman avenue, philadelphia, pa 19149": {
+    "lat": 40.0418771,
+    "lng": -75.0500237,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "7182 ogontz ave., philadelphia, pa 19138": {
+    "lat": 40.0639755,
+    "lng": -75.1535632,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "914 s. 9th st., philadelphia, pa 19147": {
+    "lat": 39.938314,
+    "lng": -75.158095,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "5320 city ave., philadelphia, pa 19131": {
+    "lat": 39.9969481,
+    "lng": -75.2347987,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "2955 market st., philadelphia, pa 19104": {
+    "lat": 39.9559261,
+    "lng": -75.1819978,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "4101 old york rd., philadelphia, pa 19140": {
+    "lat": 40.0150785,
+    "lng": -75.1473155,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
+  },
+  "4301 william penn highway, murrysville, pa": {
+    "lat": 40.4270909,
+    "lng": -79.6830514,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Murrysville, PA"
+  },
+  "3952-54 lancaster ave., philadelphia, pa 19104": {
+    "lat": 39.955315,
+    "lng": -75.187227,
+    "source": "opencage",
+    "quality": "exact",
+    "localityLabel": "Philadelphia, PA"
   }
 }

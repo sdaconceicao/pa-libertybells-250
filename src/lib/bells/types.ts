@@ -10,12 +10,22 @@ export type RawBell = {
   sourceSlug: string
 }
 
+export type GeocodeQuality = 'exact' | 'approximate'
+
+export type GeocodeSource =
+  | 'opencage'
+  | 'census'
+  | 'nominatim'
+  | 'override'
+  | 'county_centroid'
+
 export type GeocodedBell = RawBell & {
   lat: number
   lng: number
-  /** Locality string from BigDataCloud reverse geocode (e.g. "Philadelphia, PA") */
+  /** City/locality derived at sync time (e.g. "Philadelphia, PA") */
   localityLabel?: string
+  geocodeQuality?: GeocodeQuality
+  geocodeSource?: GeocodeSource
 }
 
 export type Bell = GeocodedBell
-

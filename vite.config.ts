@@ -17,6 +17,9 @@ const config = defineConfig({
     tanstackStart(),
     viteReact(),
   ],
+  test: {
+    include: ['src/**/*.test.ts'],
+  },
 })
 
 export default config
