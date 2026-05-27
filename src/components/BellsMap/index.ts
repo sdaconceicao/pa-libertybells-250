@@ -1,1 +1,1 @@
-export { BellsMap } from './BellsMap'
+export { BellsMap } from "./BellsMap";

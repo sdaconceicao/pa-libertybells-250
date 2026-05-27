@@ -1,13 +1,13 @@
 .mapShell {
-  width: 100%;
-  height: 100%;
-  min-height: inherit;
-  overflow: hidden;
-  border: 0;
-  background: var(--surface);
+	width: 100%;
+	height: 100%;
+	min-height: inherit;
+	overflow: hidden;
+	border: 0;
+	background: var(--surface);
 }
 
 .mapShell :global(.leaflet-container) {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
