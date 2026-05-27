@@ -15,7 +15,7 @@ on:
 jobs:
   setup:
     name: Setup Environment
-    runs-on: ghcr.io/pnpm/pnpm:11
+    runs-on: ubuntu-latest
     outputs:
       cache-key: ${{ steps.cache-key.outputs.value }}
 
@@ -25,6 +25,12 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ inputs.checkout-ref || github.sha }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11
+          cache: true
 
       - name: Setup Cache
         uses: actions/cache@v5
