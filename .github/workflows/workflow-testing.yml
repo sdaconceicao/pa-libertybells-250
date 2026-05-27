@@ -20,6 +20,12 @@ jobs:
           path: ./*
           key: ${{ inputs.cached-build-id }}
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11
+          cache: true
+
       - name: Run Linting and Formatting
         run: pnpm check
 
