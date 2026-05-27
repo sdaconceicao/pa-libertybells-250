@@ -11,7 +11,7 @@ on:
 jobs:
   testing:
     name: Testing status checks
-    runs-on: ubuntu-latest
+    runs-on: ghcr.io/pnpm/pnpm:11
     steps:
       - name: Restore Build
         uses: actions/cache/restore@v5

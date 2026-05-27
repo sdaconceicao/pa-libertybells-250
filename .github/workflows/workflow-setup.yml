@@ -15,7 +15,7 @@ on:
 jobs:
   setup:
     name: Setup Environment
-    runs-on: ubuntu-latest
+    runs-on: ghcr.io/pnpm/pnpm:11
     outputs:
       cache-key: ${{ steps.cache-key.outputs.value }}
 
