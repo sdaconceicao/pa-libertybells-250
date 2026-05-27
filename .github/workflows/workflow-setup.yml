@@ -1,0 +1,53 @@
+name: Setup Environment
+
+on:
+  workflow_call:
+    inputs:
+      checkout-ref:
+        description: "Optional ref to checkout (for PR workflows)"
+        required: false
+        type: string
+    outputs:
+      cache-key:
+        description: "Cache key for the build"
+        value: ${{ jobs.setup.outputs.cache-key }}
+
+jobs:
+  setup:
+    name: Setup Environment
+    runs-on: ubuntu-latest
+    outputs:
+      cache-key: ${{ steps.cache-key.outputs.value }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.checkout-ref || github.sha }}
+
+      - name: Setup Cache
+        uses: actions/cache@v5
+        id: restore-build
+        with:
+          path: ./*
+          key: cache-${{ runner.os }}-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
+
+      - name: Cache node modules
+        uses: actions/cache@v5
+        id: node_modules
+        with:
+          path: |
+            ./node_modules
+             **/node_modules
+             ~/.pnpm-store
+             ~/.npm
+          key: ds-deps-${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - name: Install dependencies
+        if: steps.node_modules.outputs.cache-hit != 'true'
+        run: pnpm ci
+
+      - name: Set cache key
+        id: cache-key
+        run: echo "value=cache-${{ runner.os }}-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}" >> $GITHUB_OUTPUT

@@ -1,0 +1,30 @@
+name: Testing Typescript
+
+on:
+  workflow_call:
+    inputs:
+      cached-build-id:
+        description: "ID for cached build"
+        required: true
+        type: string
+
+jobs:
+  testing:
+    name: Testing status checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Restore Build
+        uses: actions/cache/restore@v5
+        id: restore-build
+        with:
+          path: ./*
+          key: ${{ inputs.cached-build-id }}
+
+      - name: Run Linting and Formatting
+        run: pnpm check
+
+      - name: Run type checking
+        run: pnpm tsc --noEmit
+
+      - name: Run tests
+        run: pnpm test

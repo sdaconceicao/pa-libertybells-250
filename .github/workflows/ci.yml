@@ -1,0 +1,10 @@
+name: CI Checks
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  checks:
+    name: Status Checks
+    uses: ./.github/workflows/workflow-checks.yml
