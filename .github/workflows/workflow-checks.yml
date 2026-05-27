@@ -1,0 +1,31 @@
+name: TypeScript checks
+
+on:
+  workflow_call:
+    secrets:
+      NPM_REGISTRY_READ_TOKEN:
+        description: "Optional registry token forwarded to setup (e.g. for package preinstall)."
+        required: false
+    inputs:
+      checkout-ref:
+        description: "Git ref (branch, tag, or SHA) passed to actions/checkout in setup. Leave unset to use the default ref for the triggering workflow."
+        required: false
+        type: string
+    outputs:
+      cache-key:
+        description: "Cache key for the workspace build cache (same value passed to the testing job)."
+        value: ${{ jobs.setup.outputs.cache-key }}
+
+jobs:
+  setup:
+    name: Setup Environment
+    uses: ./.github/workflows/workflow-setup.yml
+    with:
+      checkout-ref: ${{ inputs.checkout-ref }}
+
+  testing:
+    name: Lint and Testing
+    needs: setup
+    uses: ./.github/workflows/workflow-testing.yml
+    with:
+      cached-build-id: ${{ needs.setup.outputs.cache-key }}

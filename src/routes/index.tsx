@@ -1,19 +1,19 @@
-import { createFileRoute } from '@tanstack/react-router'
-import bellsData from '../lib/bells/bells.data.json'
-import type { Bell } from '../lib/bells/types'
-import { BellsMap } from '../components/BellsMap'
-import styles from './index.module.css'
+import { createFileRoute } from "@tanstack/react-router";
+import bellsData from "../lib/bells/bells.data.json";
+import type { Bell } from "../lib/bells/types";
+import { BellsMap } from "../components/BellsMap";
+import styles from "./index.module.css";
 
-export const Route = createFileRoute('/')({
-  loader: async () => {
-    // Data is statically generated; just return it typed.
-    return bellsData as Bell[]
-  },
-  component: BellsPage,
-})
+export const Route = createFileRoute("/")({
+	loader: async () => {
+		// Data is statically generated; just return it typed.
+		return bellsData as Bell[];
+	},
+	component: BellsPage,
+});
 
 function BellsPage() {
-  const bells = Route.useLoaderData()
+	const bells = Route.useLoaderData();
 
   return (
     <main className={styles.page}>
