@@ -1,0 +1,10 @@
+name: Pull Request Status Checks
+
+on:
+  pull_request:
+    branches: [development, main]
+
+jobs:
+  checks:
+    name: Status Checks
+    uses: ./.github/workflows/workflow-checks.yml
