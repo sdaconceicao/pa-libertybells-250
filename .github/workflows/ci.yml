@@ -4,6 +4,9 @@ on:
   push:
     branches: [development, main]
 
+permissions:
+  contents: read
+
 jobs:
   checks:
     name: Status Checks

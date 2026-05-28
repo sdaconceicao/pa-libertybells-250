@@ -8,6 +8,8 @@ on:
         required: true
         type: string
 
+permissions:
+  contents: read
 jobs:
   testing:
     name: Testing status checks
