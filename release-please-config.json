@@ -3,7 +3,8 @@
   "versioning": "default",
   "separate-pull-requests": true,
   "pull-request-title-pattern": "chore${scope}: Release ${component} ${version}",
-  "bootstrap-sha": "0dbfc690c887e167708959a0f1a53407d73059c3",
+  "include-component-in-tag": false,
+  "bootstrap-sha": "b277f9a89492e9b5781d8971afcca41a611e3546",
   "packages": {
     ".": {
       "package-name": "bells-across-pa"
