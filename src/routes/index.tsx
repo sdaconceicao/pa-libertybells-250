@@ -53,9 +53,7 @@ function BellsPage() {
 						</article>
 					))}
 					{bells.length === 0 ? (
-						<p className={styles.emptyMessage}>
-							No bells are loaded yet. 
-						</p>
+						<p className={styles.emptyMessage}>No bells are loaded yet.</p>
 					) : null}
 				</aside>
 			</section>
