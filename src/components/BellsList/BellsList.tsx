@@ -8,7 +8,9 @@ type Props = {
 };
 
 export function BellsList({ bells, className }: Props) {
-	const asideClassName = [styles.bellsList, className].filter(Boolean).join(" ");
+	const asideClassName = [styles.bellsList, className]
+		.filter(Boolean)
+		.join(" ");
 
 	return (
 		<aside className={asideClassName}>
