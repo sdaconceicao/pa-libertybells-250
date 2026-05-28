@@ -21,7 +21,7 @@ function BellsPage() {
 				<div className={styles.heroMain}>
 					<p className={styles.kicker}>Bells Across Pennsylvania</p>
 					<h1 className={styles.heroTitle}>
-						Explore the America250PA Bells Across PA trail
+						Explore the America250 PA Bells Across PA trail
 					</h1>
 					<p className={styles.heroDesc}>
 						Each marker represents a commemorative bell installation across
@@ -54,8 +54,7 @@ function BellsPage() {
 					))}
 					{bells.length === 0 ? (
 						<p className={styles.emptyMessage}>
-							No bells are loaded yet. Run <code>npm run sync:bells</code> to
-							fetch and geocode data from America250PA.
+							No bells are loaded yet. 
 						</p>
 					) : null}
 				</aside>
