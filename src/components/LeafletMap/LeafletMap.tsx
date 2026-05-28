@@ -10,15 +10,18 @@ import {
 	DEFAULT_MAP_ZOOM,
 	focusMapOnMarkers,
 } from "./focusMapOnMarkers";
+import { getMapViewportPadding } from "./mapViewportPadding";
 import styles from "./LeafletMap.module.css";
 
 type ReactLeafletModule = typeof import("react-leaflet");
 
 type Props = {
 	bells: Bell[];
+	sidebarOpen: boolean;
+	isMobile: boolean;
 };
 
-export function LeafletMap({ bells }: Props) {
+export function LeafletMap({ bells, sidebarOpen, isMobile }: Props) {
 	const [leaflet, setLeaflet] = useState<ReactLeafletModule | null>(null);
 	const [L, setL] = useState<typeof Leaflet | null>(null);
 	const [mapReady, setMapReady] = useState(false);
@@ -51,7 +54,16 @@ export function LeafletMap({ bells }: Props) {
 		}
 
 		const syncView = () => {
-			focusMapOnMarkers(map, L, bells);
+			const rootFontSize = Number.parseFloat(
+				getComputedStyle(document.documentElement).fontSize,
+			);
+			const padding = getMapViewportPadding({
+				sidebarOpen,
+				isMobile,
+				viewportWidth: window.innerWidth,
+				rootFontSize,
+			});
+			focusMapOnMarkers(map, L, bells, padding);
 		};
 
 		syncView();
@@ -60,17 +72,19 @@ export function LeafletMap({ bells }: Props) {
 			syncView();
 		});
 		observer.observe(shell);
+		window.addEventListener("resize", syncView);
 
 		return () => {
 			observer.disconnect();
+			window.removeEventListener("resize", syncView);
 		};
-	}, [L, mapReady, bells]);
+	}, [L, mapReady, bells, sidebarOpen, isMobile]);
 
 	if (!leaflet || !L) {
 		return <MapLoading />;
 	}
 
-	const { MapContainer, TileLayer, Marker, Popup } = leaflet;
+	const { MapContainer, TileLayer, Marker, Popup, ZoomControl } = leaflet;
 	const initialCenter: [number, number] =
 		bells.length > 0 ? [bells[0].lat, bells[0].lng] : DEFAULT_MAP_CENTER;
 
@@ -82,10 +96,12 @@ export function LeafletMap({ bells }: Props) {
 				zoom={DEFAULT_MAP_ZOOM}
 				style={{ height: "100%", width: "100%" }}
 				scrollWheelZoom
+				zoomControl={false}
 				whenReady={() => {
 					setMapReady(true);
 				}}
 			>
+				<ZoomControl position="bottomright" />
 				<TileLayer
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

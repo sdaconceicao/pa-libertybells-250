@@ -3,6 +3,10 @@ import bellsData from "../lib/bells/bells.data.json";
 import type { Bell } from "../lib/bells/types";
 import { BellsList } from "../components/BellsList/BellsList";
 import { BellsMap } from "../components/BellsMap";
+import { FloatingHeader } from "../components/FloatingHeader/FloatingHeader";
+import { FloatingSidebar } from "../components/FloatingSidebar/FloatingSidebar";
+import { MobileViewToggle } from "../components/MobileViewToggle/MobileViewToggle";
+import { useBellsPageLayout } from "../hooks/useBellsPageLayout";
 import styles from "./index.module.css";
 
 export const Route = createFileRoute("/")({
@@ -15,33 +19,64 @@ export const Route = createFileRoute("/")({
 
 function BellsPage() {
 	const bells = Route.useLoaderData();
+	const {
+		isMobile,
+		sidebarOpen,
+		openSidebar,
+		closeSidebar,
+		mobileView,
+		showMap,
+		showList,
+	} = useBellsPageLayout();
+
+	const showMobileMap = isMobile && mobileView === "map";
+	const showMobileList = isMobile && mobileView === "list";
+	const showDesktopMap = !isMobile;
+	const mapVisible = showMobileMap || showDesktopMap;
 
 	return (
 		<main className={styles.page}>
-			<header className={styles.hero}>
-				<div className={styles.heroMain}>
-					<p className={styles.kicker}>Bells Across Pennsylvania</p>
-					<h1 className={styles.heroTitle}>
-						Explore the America250 PA Bells Across PA trail
-					</h1>
-					<p className={styles.heroDesc}>
-						Each marker represents a commemorative bell installation across
-						Pennsylvania. Click a marker to see its title, county, artist, and
-						current location.
-					</p>
-				</div>
-				<div className={styles.countChip}>
-					Total bells mapped: {bells.length}
-				</div>
-			</header>
+			<div
+				className={[
+					styles.mapLayer,
+					mapVisible ? styles.mapLayerVisible : styles.mapLayerHidden,
+				]
+					.filter(Boolean)
+					.join(" ")}
+				aria-hidden={!mapVisible}
+			>
+				<BellsMap bells={bells} sidebarOpen={sidebarOpen} isMobile={isMobile} />
+			</div>
 
-			<section className={styles.contentRow}>
-				<div className={styles.mapArea}>
-					<BellsMap bells={bells} />
-				</div>
+			{showMobileList ? (
+				<section className={styles.mobileListLayer}>
+					<BellsList bells={bells} className={styles.mobileList} />
+				</section>
+			) : null}
 
-				<BellsList bells={bells} className={styles.sidebar} />
-			</section>
+			<FloatingHeader
+				bellCount={bells.length}
+				sidebarOpen={sidebarOpen}
+				isMobile={isMobile}
+			/>
+
+			{!isMobile ? (
+				<FloatingSidebar
+					isOpen={sidebarOpen}
+					onClose={closeSidebar}
+					onOpen={openSidebar}
+				>
+					<BellsList bells={bells} className={styles.sidebarList} />
+				</FloatingSidebar>
+			) : null}
+
+			{isMobile ? (
+				<MobileViewToggle
+					activeView={mobileView}
+					onShowMap={showMap}
+					onShowList={showList}
+				/>
+			) : null}
 		</main>
 	);
 }
