@@ -1,0 +1,27 @@
+.entry {
+	flex-shrink: 0;
+	padding: 0.75rem;
+	border: 1px solid color-mix(in oklab, var(--line) 70%, var(--lagoon) 30%);
+	border-radius: 0.5rem;
+	background: color-mix(in oklab, var(--surface-strong) 92%, white 8%);
+	font-size: 0.875rem;
+}
+
+.entryTitle {
+	margin: 0;
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: var(--sea-ink);
+}
+
+.entryMeta {
+	margin: 0;
+	font-size: 0.75rem;
+	color: var(--sea-ink-soft);
+}
+
+.entryDetail {
+	margin: 0.25rem 0 0;
+	font-size: 0.75rem;
+	color: var(--sea-ink-soft);
+}

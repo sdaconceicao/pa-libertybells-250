@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import bellsData from "../lib/bells/bells.data.json";
 import type { Bell } from "../lib/bells/types";
+import { BellsList } from "../components/BellsList/BellsList";
 import { BellsMap } from "../components/BellsMap";
 import styles from "./index.module.css";
 
@@ -17,7 +18,7 @@ function BellsPage() {
 
 	return (
 		<main className={styles.page}>
-			<section className={styles.hero}>
+			<header className={styles.hero}>
 				<div className={styles.heroMain}>
 					<p className={styles.kicker}>Bells Across Pennsylvania</p>
 					<h1 className={styles.heroTitle}>
@@ -32,30 +33,14 @@ function BellsPage() {
 				<div className={styles.countChip}>
 					Total bells mapped: {bells.length}
 				</div>
-			</section>
+			</header>
 
 			<section className={styles.contentRow}>
 				<div className={styles.mapArea}>
 					<BellsMap bells={bells} />
 				</div>
 
-				<aside className={styles.sidebar}>
-					{bells.map((bell) => (
-						<article key={bell.id} className={styles.entry}>
-							<h2 className={styles.entryTitle}>{bell.title}</h2>
-							<p className={styles.entryMeta}>{bell.county} County</p>
-							{bell.artist ? (
-								<p className={styles.entryDetail}>Artist: {bell.artist}</p>
-							) : null}
-							<p className={styles.entryDetail}>
-								Current location: {bell.currentAddress}
-							</p>
-						</article>
-					))}
-					{bells.length === 0 ? (
-						<p className={styles.emptyMessage}>No bells are loaded yet.</p>
-					) : null}
-				</aside>
+				<BellsList bells={bells} className={styles.sidebar} />
 			</section>
 		</main>
 	);
