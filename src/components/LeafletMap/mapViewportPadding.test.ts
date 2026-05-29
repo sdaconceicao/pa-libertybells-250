@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+	getFitBoundsPadding,
 	getMapCenterOffset,
 	getMapViewportPadding,
 	getSidebarWidthPx,
@@ -47,6 +48,17 @@ describe("getMapViewportPadding", () => {
 		expect(padding.bottom).toBe(72);
 		expect(padding.left).toBe(16);
 	});
+
+	it("uses symmetric top padding without a header", () => {
+		const padding = getMapViewportPadding({
+			sidebarOpen: false,
+			isMobile: false,
+			viewportWidth: 1280,
+		});
+
+		expect(padding.top).toBe(16);
+		expect(padding.bottom).toBe(16);
+	});
 });
 
 describe("getMapCenterOffset", () => {
@@ -59,5 +71,32 @@ describe("getMapCenterOffset", () => {
 				left: 384,
 			}),
 		).toEqual([184, 32]);
+	});
+
+	it("has no vertical offset when top and bottom padding match", () => {
+		expect(
+			getMapCenterOffset({
+				top: 16,
+				right: 16,
+				bottom: 16,
+				left: 384,
+			}),
+		).toEqual([184, 0]);
+	});
+});
+
+describe("getFitBoundsPadding", () => {
+	it("maps padding to Leaflet [x, y] point order", () => {
+		expect(
+			getFitBoundsPadding({
+				top: 16,
+				right: 24,
+				bottom: 72,
+				left: 368,
+			}),
+		).toEqual({
+			paddingTopLeft: [368, 16],
+			paddingBottomRight: [24, 72],
+		});
 	});
 });

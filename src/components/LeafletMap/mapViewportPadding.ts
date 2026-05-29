@@ -6,8 +6,6 @@ export type MapViewportPadding = {
 };
 
 export const SIDEBAR_WIDTH_REM = 22;
-export const HEADER_TOP_REM = 1;
-export const HEADER_HEIGHT_REM = 3.5;
 export const EDGE_GAP_REM = 1;
 export const SIDEBAR_HANDLE_WIDTH_PX = 20;
 export const MOBILE_TOGGLE_BOTTOM_PX = 72;
@@ -28,7 +26,7 @@ export function getMapViewportPadding(options: {
 }): MapViewportPadding {
 	const rootFontSize = options.rootFontSize ?? 16;
 	const edge = EDGE_GAP_REM * rootFontSize;
-	const top = (HEADER_TOP_REM + HEADER_HEIGHT_REM) * rootFontSize + edge;
+	const top = edge;
 
 	if (options.isMobile) {
 		return {
@@ -58,4 +56,15 @@ export function getMapCenterOffset(
 		(padding.left - padding.right) / 2,
 		(padding.top - padding.bottom) / 2,
 	];
+}
+
+/** Leaflet fitBounds padding points are [x, y] (left/top insets). */
+export function getFitBoundsPadding(padding: MapViewportPadding): {
+	paddingTopLeft: [number, number];
+	paddingBottomRight: [number, number];
+} {
+	return {
+		paddingTopLeft: [padding.left, padding.top],
+		paddingBottomRight: [padding.right, padding.bottom],
+	};
 }

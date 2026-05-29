@@ -3,7 +3,6 @@ import bellsData from "../lib/bells/bells.data.json";
 import type { Bell } from "../lib/bells/types";
 import { BellsList } from "../components/BellsList/BellsList";
 import { BellsMap } from "../components/BellsMap";
-import { FloatingHeader } from "../components/FloatingHeader/FloatingHeader";
 import { FloatingSidebar } from "../components/FloatingSidebar/FloatingSidebar";
 import { MobileViewToggle } from "../components/MobileViewToggle/MobileViewToggle";
 import { useBellsPageLayout } from "../hooks/useBellsPageLayout";
@@ -53,12 +52,6 @@ function BellsPage() {
 					<BellsList bells={bells} className={styles.mobileList} />
 				</section>
 			) : null}
-
-			<FloatingHeader
-				bellCount={bells.length}
-				sidebarOpen={sidebarOpen}
-				isMobile={isMobile}
-			/>
 
 			{!isMobile ? (
 				<FloatingSidebar
