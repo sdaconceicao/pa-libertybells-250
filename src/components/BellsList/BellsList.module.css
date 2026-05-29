@@ -6,11 +6,11 @@
 	overflow-y: auto;
 	overscroll-behavior: contain;
 	padding: 0.75rem;
-	background: var(--surface);
+	background: var(--color-surface);
 }
 
 .emptyMessage {
 	margin: 0;
 	font-size: 0.75rem;
-	color: var(--sea-ink-soft);
+	color: var(--color-text-muted);
 }

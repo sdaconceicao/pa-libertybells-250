@@ -4,7 +4,7 @@
 	height: 100vh;
 	max-height: 100vh;
 	overflow: hidden;
-	background: var(--bg-base);
+	background: var(--color-background);
 }
 
 .mapLayer {
@@ -30,7 +30,7 @@
 	left: 0;
 	z-index: 900;
 	overflow: hidden;
-	background: var(--surface);
+	background: var(--color-surface);
 }
 
 .mobileList {

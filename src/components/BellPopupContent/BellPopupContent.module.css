@@ -13,18 +13,18 @@
 
 .popupCounty {
 	font-size: 0.75rem;
-	color: var(--sea-ink-soft);
+	color: var(--color-text-muted);
 }
 
 .popupMeta {
 	margin: 0;
-	color: var(--sea-ink-soft);
+	color: var(--color-text-muted);
 }
 
 .popupLocality {
 	margin: 0;
 	font-size: 0.75rem;
-	color: var(--sea-ink-soft);
+	color: var(--color-text-muted);
 }
 
 .popupWarning {

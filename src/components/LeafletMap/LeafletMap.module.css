@@ -4,7 +4,7 @@
 	min-height: inherit;
 	overflow: hidden;
 	border: 0;
-	background: var(--bg-base);
+	background: var(--color-background);
 }
 
 .mapShell :global(.leaflet-container) {
