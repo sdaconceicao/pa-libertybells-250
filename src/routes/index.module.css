@@ -1,0 +1,44 @@
+.page {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	max-height: 100vh;
+	overflow: hidden;
+	background: var(--color-background);
+}
+
+.mapLayer {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+}
+
+.mapLayerVisible {
+	visibility: visible;
+}
+
+.mapLayerHidden {
+	visibility: hidden;
+	pointer-events: none;
+}
+
+.mobileListLayer {
+	position: absolute;
+	top: 4.75rem;
+	right: 0;
+	bottom: 4.5rem;
+	left: 0;
+	z-index: 900;
+	overflow: hidden;
+	background: var(--color-surface);
+}
+
+.mobileList {
+	height: 100%;
+	border-top: 0;
+}
+
+.sidebarList {
+	height: 100%;
+	border-top: 0;
+}
