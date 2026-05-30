@@ -1,4 +1,5 @@
 import * as cheerio from "cheerio";
+import { parseBellPlacement } from "./parsePlacement";
 import type { RawBell } from "./types";
 
 const FIELD_RE =
@@ -25,12 +26,17 @@ export function parseBells(html: string): RawBell[] {
 		let currentAddress = "";
 		let unveilingAddress: string | undefined;
 		let sponsor: string | undefined;
+		const footnotes: string[] = [];
 
 		const imageUrl = $cell.find("img").first().attr("src") || undefined;
 
 		$cell.find("p").each((__, p) => {
 			const text = normalizeText($(p).text());
-			if (!text || text.startsWith("*")) return;
+			if (!text) return;
+			if (text.startsWith("*")) {
+				footnotes.push(text.replace(/^\*\s*/, ""));
+				return;
+			}
 
 			if (!county && /COUNTY/i.test(text)) {
 				const countyMatch = text.match(/([A-Z][A-Za-z\s\-']+)\s+COUNTY/i);
@@ -59,6 +65,7 @@ export function parseBells(html: string): RawBell[] {
 		if (!address) return;
 
 		const id = slugify(county, title);
+		const placement = parseBellPlacement(footnotes);
 		bells.push({
 			id,
 			county,
@@ -67,6 +74,7 @@ export function parseBells(html: string): RawBell[] {
 			currentAddress: address,
 			unveilingAddress,
 			imageUrl,
+			...(placement ? { placement } : {}),
 			sponsor,
 			sourceSlug: id,
 		});
