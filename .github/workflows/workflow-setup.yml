@@ -11,7 +11,8 @@ on:
       cache-key:
         description: "Cache key for the build"
         value: ${{ jobs.setup.outputs.cache-key }}
-
+permissions:
+  contents: read
 jobs:
   setup:
     name: Setup Environment

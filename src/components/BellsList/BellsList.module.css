@@ -1,0 +1,16 @@
+.bellsList {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	overflow-x: hidden;
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	padding: 0.75rem;
+	background: var(--color-surface);
+}
+
+.emptyMessage {
+	margin: 0;
+	font-size: 0.75rem;
+	color: var(--color-text-muted);
+}
