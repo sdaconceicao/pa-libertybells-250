@@ -1,3 +1,5 @@
+export type BellPlacement = "indoors" | "outdoors";
+
 export type RawBell = {
 	id: string;
 	county: string;
@@ -6,6 +8,8 @@ export type RawBell = {
 	currentAddress: string;
 	unveilingAddress?: string;
 	imageUrl?: string;
+	/** Parsed from page footnotes; undefined when missing or unrecognized */
+	placement?: BellPlacement;
 	sponsor?: string;
 	sourceSlug: string;
 };
