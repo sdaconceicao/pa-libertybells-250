@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { useMediaQuery } from "./useMediaQuery";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 export type MobileView = "map" | "list";
 

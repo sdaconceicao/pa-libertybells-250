@@ -1,11 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import bellsData from "../lib/bells/bells.data.json";
 import type { Bell } from "../lib/bells/types";
-import { BellsList } from "../components/BellsList/BellsList";
-import { BellsMap } from "../components/BellsMap";
-import { FloatingSidebar } from "../components/FloatingSidebar/FloatingSidebar";
-import { MobileViewToggle } from "../components/MobileViewToggle/MobileViewToggle";
-import { useBellsPageLayout } from "../hooks/useBellsPageLayout";
+import { BellsFilters } from "./-components/BellsFilters/BellsFilters";
+import { BellsList } from "./-components/BellsList/BellsList";
+import { BellsMap } from "./-components/BellsMap";
+import { FloatingSidebar } from "./-components/FloatingSidebar/FloatingSidebar";
+import { MobileViewToggle } from "./-components/MobileViewToggle/MobileViewToggle";
+import { useBellsFilters } from "./-hooks/useBellsFilters";
+import { useBellsPageLayout } from "./-hooks/useBellsPageLayout";
 import styles from "./index.module.css";
 
 export const Route = createFileRoute("/")({
@@ -27,11 +29,38 @@ function BellsPage() {
 		showMap,
 		showList,
 	} = useBellsPageLayout();
+	const {
+		draft,
+		applied,
+		setDraft,
+		applyFilters,
+		clearFilters,
+		countyOptions,
+		filteredBells,
+		hasActiveFilters,
+		resultSummary,
+	} = useBellsFilters(bells);
 
 	const showMobileMap = isMobile && mobileView === "map";
 	const showMobileList = isMobile && mobileView === "list";
 	const showDesktopMap = !isMobile;
 	const mapVisible = showMobileMap || showDesktopMap;
+
+	const listEmptyMessage = hasActiveFilters
+		? "No bells match these filters."
+		: "No bells are loaded yet.";
+
+	const filtersPanel = (
+		<BellsFilters
+			countyOptions={countyOptions}
+			draft={draft}
+			applied={applied}
+			onDraftChange={setDraft}
+			onApply={applyFilters}
+			onClear={clearFilters}
+			resultSummary={resultSummary}
+		/>
+	);
 
 	return (
 		<main className={styles.page}>
@@ -44,12 +73,23 @@ function BellsPage() {
 					.join(" ")}
 				aria-hidden={!mapVisible}
 			>
-				<BellsMap bells={bells} sidebarOpen={sidebarOpen} isMobile={isMobile} />
+				<BellsMap
+					bells={filteredBells}
+					sidebarOpen={sidebarOpen}
+					isMobile={isMobile}
+				/>
 			</div>
 
 			{showMobileList ? (
 				<section className={styles.mobileListLayer}>
-					<BellsList bells={bells} className={styles.mobileList} />
+					<div className={styles.panelStack}>
+						{filtersPanel}
+						<BellsList
+							bells={filteredBells}
+							className={styles.mobileList}
+							emptyMessage={listEmptyMessage}
+						/>
+					</div>
 				</section>
 			) : null}
 
@@ -59,7 +99,14 @@ function BellsPage() {
 					onClose={closeSidebar}
 					onOpen={openSidebar}
 				>
-					<BellsList bells={bells} className={styles.sidebarList} />
+					<div className={styles.panelStack}>
+						{filtersPanel}
+						<BellsList
+							bells={filteredBells}
+							className={styles.sidebarList}
+							emptyMessage={listEmptyMessage}
+						/>
+					</div>
 				</FloatingSidebar>
 			) : null}
 

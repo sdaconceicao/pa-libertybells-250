@@ -1,5 +1,5 @@
 import { List, Map as MapIcon } from "lucide-react";
-import type { MobileView } from "../../hooks/useBellsPageLayout";
+import type { MobileView } from "../../-hooks/useBellsPageLayout";
 import styles from "./MobileViewToggle.module.css";
 
 type Props = {

@@ -1,6 +1,6 @@
 import type { Map as LeafletMapInstance } from "leaflet";
 import type * as Leaflet from "leaflet";
-import type { Bell } from "../../lib/bells/types";
+import type { Bell } from "../../../lib/bells/types";
 import {
 	getFitBoundsPadding,
 	getMapCenterOffset,
