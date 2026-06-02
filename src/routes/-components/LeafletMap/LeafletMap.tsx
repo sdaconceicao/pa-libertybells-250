@@ -1,9 +1,9 @@
 import type { Map as LeafletMapInstance } from "leaflet";
 import type * as Leaflet from "leaflet";
 import { useEffect, useRef, useState } from "react";
-import type { Bell } from "../../lib/bells/types";
-import { BellPopupContent } from "../BellPopupContent/BellPopupContent";
+import type { Bell } from "../../../lib/bells/types";
 import { MapLoading } from "../MapLoading/MapLoading";
+import { BellPopupContent } from "../BellPopupContent/BellPopupContent";
 import { configureLeafletDefaultIcons } from "./configureLeafletIcons";
 import {
 	DEFAULT_MAP_CENTER,

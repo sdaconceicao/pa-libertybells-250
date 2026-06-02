@@ -1,7 +1,7 @@
 import { ClientOnly } from "@tanstack/react-router";
-import type { Bell } from "../../lib/bells/types";
-import { LeafletMap } from "../LeafletMap/LeafletMap";
+import type { Bell } from "../../../lib/bells/types";
 import { MapLoading } from "../MapLoading/MapLoading";
+import { LeafletMap } from "../LeafletMap/LeafletMap";
 
 type Props = {
 	bells: Bell[];
