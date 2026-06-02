@@ -1,5 +1,11 @@
-import type { BellFilters, PlacementFilter } from "../../../lib/bells/filterBells";
-import { filtersAreDefault, filtersEqual } from "../../../lib/bells/filterBells";
+import type {
+	BellFilters,
+	PlacementFilter,
+} from "../../../lib/bells/filterBells";
+import {
+	filtersAreDefault,
+	filtersEqual,
+} from "../../../lib/bells/filterBells";
 import { formatCountyName } from "../../../lib/bells/formatCountyName";
 import { Button } from "../../../components/Button/Button";
 import { MultiSelect } from "../../../components/MultiSelect/MultiSelect";

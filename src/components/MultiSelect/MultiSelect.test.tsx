@@ -27,9 +27,7 @@ describe("MultiSelect", () => {
 	it("shows empty selection label when nothing is selected", () => {
 		render(<MultiSelect {...defaultProps} />);
 
-		expect(
-			screen.getByRole("button", { name: "All counties" }),
-		).not.toBeNull();
+		expect(screen.getByRole("button", { name: "All counties" })).not.toBeNull();
 	});
 
 	it("shows the selected option label when one value is selected", () => {
@@ -146,9 +144,7 @@ describe("MultiSelect", () => {
 			target: { value: "zzzz" },
 		});
 
-		expect(
-			screen.getByText("No counties match your search."),
-		).not.toBeNull();
+		expect(screen.getByText("No counties match your search.")).not.toBeNull();
 	});
 
 	it("closes when clicking outside or pressing Escape", () => {
