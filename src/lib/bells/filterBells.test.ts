@@ -12,14 +12,14 @@ function makeBell(
 	overrides: Partial<Bell> & Pick<Bell, "id" | "county">,
 ): Bell {
 	return {
-		id: overrides.id,
-		county: overrides.county,
 		title: "Test Bell",
 		currentAddress: "123 Main St",
 		sourceSlug: "test",
 		lat: 40,
 		lng: -77,
 		...overrides,
+		id: overrides.id,
+		county: overrides.county,
 	};
 }
 
