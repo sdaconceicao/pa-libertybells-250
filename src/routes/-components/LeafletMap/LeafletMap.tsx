@@ -4,14 +4,14 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { Bell } from "../../../lib/bells/types";
 import { MapLoading } from "../MapLoading/MapLoading";
 import { BellPopupContent } from "../BellPopupContent/BellPopupContent";
-import { createBellMarkerIcon } from "./createBellMarkerIcon";
-import { createMarkerClusterGroupOptions } from "./createMarkerClusterGroupOptions";
+import { createBellMarkerIcon } from "./Marker/createBellMarkerIcon";
+import { createMarkerClusterGroupOptions } from "./ClusterMarker/createMarkerClusterGroupOptions";
 import {
 	DEFAULT_MAP_CENTER,
 	DEFAULT_MAP_ZOOM,
 	focusMapOnMarkers,
-} from "./focusMapOnMarkers";
-import { getMapViewportPadding } from "./mapViewportPadding";
+} from "./utils/focusMapOnMarkers";
+import { getMapViewportPadding } from "./utils/mapViewportPadding";
 import styles from "./LeafletMap.module.css";
 
 type ReactLeafletModule = typeof import("react-leaflet");

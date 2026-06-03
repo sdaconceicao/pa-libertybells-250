@@ -1,6 +1,6 @@
 import type * as Leaflet from "leaflet";
 import bellMarkerSvg from "./bell-marker.svg?raw";
-import styles from "./LeafletMap.module.css";
+import styles from "./Marker.module.css";
 
 const MARKER_WIDTH = 32;
 const MARKER_HEIGHT = 40;
