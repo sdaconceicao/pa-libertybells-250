@@ -1,4 +1,3 @@
-import { formatCountyName } from "../../../lib/bells/formatCountyName";
 import type { Bell } from "../../../lib/bells/types";
 import styles from "./BellContent.module.css";
 
@@ -9,14 +8,22 @@ type Props = {
 export function BellContent({ bell }: Props) {
 	return (
 		<article className={styles.entry}>
-			<h2 className={styles.entryTitle}>{bell.title}</h2>
-			<p className={styles.entryMeta}>{formatCountyName(bell.county)} County</p>
-			{bell.artist ? (
-				<p className={styles.entryDetail}>Artist: {bell.artist}</p>
-			) : null}
-			<p className={styles.entryDetail}>
-				Current location: {bell.currentAddress}
-			</p>
+			<div className={styles.thumbnail}>
+				{bell.imageUrl ? (
+					<img
+						src={bell.imageUrl}
+						alt={bell.title}
+						className={styles.thumbnailImg}
+					/>
+				) : (
+					<div className={styles.thumbnailPlaceholder} />
+				)}
+			</div>
+			<div className={styles.info}>
+				<p className={styles.title}>{bell.title}</p>
+				{bell.artist ? <p className={styles.author}>by {bell.artist}</p> : null}
+				<p className={styles.address}>{bell.county} County, PA</p>
+			</div>
 		</article>
 	);
 }

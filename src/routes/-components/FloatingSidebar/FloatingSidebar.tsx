@@ -20,7 +20,7 @@ export function FloatingSidebar({ isOpen, onClose, onOpen, children }: Props) {
 	return (
 		<aside className={sidebarClassName}>
 			<div className={styles.sidebarHeader}>
-				<h2 className={styles.sidebarTitle}>Bells</h2>
+				<h2 className={styles.sidebarTitle}>Bells Across PA</h2>
 			</div>
 			<div className={styles.sidebarBody}>{children}</div>
 			<button
