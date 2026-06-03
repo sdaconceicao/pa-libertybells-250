@@ -1,3 +1,46 @@
+.bellCluster:global(.leaflet-div-icon) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: color-mix(in oklab, var(--color-accent) 88%, white 12%);
+	border: 2px solid color-mix(in oklab, var(--color-text) 70%, white 30%);
+	border-radius: 50%;
+	box-shadow: var(--shadow-sm);
+	color: #fff;
+	font-size: 0.8125rem;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.clusterSmall {
+	width: 2.25rem;
+	height: 2.25rem;
+}
+
+.clusterMedium {
+	width: 2.625rem;
+	height: 2.625rem;
+	font-size: 0.875rem;
+}
+
+.clusterLarge {
+	width: 3rem;
+	height: 3rem;
+	font-size: 0.9375rem;
+}
+
+.bellMarker:global(.leaflet-div-icon) {
+	background: transparent;
+	border: none;
+}
+
+.bellMarker svg {
+	display: block;
+	width: 2rem;
+	height: 2.5rem;
+	filter: drop-shadow(0 1px 2px rgb(30 58 138 / 35%));
+}
+
 .mapShell {
 	width: 100%;
 	height: 100%;

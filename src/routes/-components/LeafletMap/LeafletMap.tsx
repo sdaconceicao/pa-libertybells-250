@@ -1,10 +1,11 @@
 import type { Map as LeafletMapInstance } from "leaflet";
 import type * as Leaflet from "leaflet";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Bell } from "../../../lib/bells/types";
 import { MapLoading } from "../MapLoading/MapLoading";
 import { BellPopupContent } from "../BellPopupContent/BellPopupContent";
-import { configureLeafletDefaultIcons } from "./configureLeafletIcons";
+import { createBellMarkerIcon } from "./createBellMarkerIcon";
+import { createMarkerClusterGroupOptions } from "./createMarkerClusterGroupOptions";
 import {
 	DEFAULT_MAP_CENTER,
 	DEFAULT_MAP_ZOOM,
@@ -14,6 +15,8 @@ import { getMapViewportPadding } from "./mapViewportPadding";
 import styles from "./LeafletMap.module.css";
 
 type ReactLeafletModule = typeof import("react-leaflet");
+type MarkerClusterGroupComponent =
+	typeof import("react-leaflet-cluster").default;
 
 type Props = {
 	bells: Bell[];
@@ -23,6 +26,8 @@ type Props = {
 
 export function LeafletMap({ bells, sidebarOpen, isMobile }: Props) {
 	const [leaflet, setLeaflet] = useState<ReactLeafletModule | null>(null);
+	const [markerClusterGroup, setMarkerClusterGroup] =
+		useState<MarkerClusterGroupComponent | null>(null);
 	const [L, setL] = useState<typeof Leaflet | null>(null);
 	const [mapReady, setMapReady] = useState(false);
 	const mapRef = useRef<LeafletMapInstance>(null);
@@ -31,15 +36,19 @@ export function LeafletMap({ bells, sidebarOpen, isMobile }: Props) {
 	useEffect(() => {
 		let mounted = true;
 		void (async () => {
-			const [reactLeaflet, leafletLib] = await Promise.all([
+			const [reactLeaflet, leafletLib, clusterModule] = await Promise.all([
 				import("react-leaflet"),
 				import("leaflet"),
+				import("react-leaflet-cluster"),
+			]);
+			await Promise.all([
 				import("leaflet/dist/leaflet.css"),
+				import("react-leaflet-cluster/dist/assets/MarkerCluster.css"),
 			]);
 			if (!mounted) return;
-			configureLeafletDefaultIcons(leafletLib);
 			setLeaflet(reactLeaflet);
 			setL(leafletLib);
+			setMarkerClusterGroup(() => clusterModule.default);
 		})();
 		return () => {
 			mounted = false;
@@ -80,11 +89,27 @@ export function LeafletMap({ bells, sidebarOpen, isMobile }: Props) {
 		};
 	}, [L, mapReady, bells, sidebarOpen, isMobile]);
 
-	if (!leaflet || !L) {
+	const bellMarkerIcon = useMemo(
+		() => (L ? createBellMarkerIcon(L) : null),
+		[L],
+	);
+	const markerClusterOptions = useMemo(
+		() => (L ? createMarkerClusterGroupOptions(L) : null),
+		[L],
+	);
+
+	if (
+		!leaflet ||
+		!L ||
+		!bellMarkerIcon ||
+		!markerClusterGroup ||
+		!markerClusterOptions
+	) {
 		return <MapLoading />;
 	}
 
 	const { MapContainer, TileLayer, Marker, Popup, ZoomControl } = leaflet;
+	const MarkerClusterGroup = markerClusterGroup;
 	const initialCenter: [number, number] =
 		bells.length > 0 ? [bells[0].lat, bells[0].lng] : DEFAULT_MAP_CENTER;
 
@@ -106,13 +131,19 @@ export function LeafletMap({ bells, sidebarOpen, isMobile }: Props) {
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				/>
-				{bells.map((bell) => (
-					<Marker key={bell.id} position={[bell.lat, bell.lng]}>
-						<Popup>
-							<BellPopupContent bell={bell} />
-						</Popup>
-					</Marker>
-				))}
+				<MarkerClusterGroup {...markerClusterOptions}>
+					{bells.map((bell) => (
+						<Marker
+							key={bell.id}
+							position={[bell.lat, bell.lng]}
+							icon={bellMarkerIcon}
+						>
+							<Popup>
+								<BellPopupContent bell={bell} />
+							</Popup>
+						</Marker>
+					))}
+				</MarkerClusterGroup>
 			</MapContainer>
 		</div>
 	);
