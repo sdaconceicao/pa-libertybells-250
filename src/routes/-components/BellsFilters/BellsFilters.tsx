@@ -6,7 +6,6 @@ import {
 	filtersAreDefault,
 	filtersEqual,
 } from "../../../lib/bells/filterBells";
-import { formatCountyName } from "../../../lib/bells/formatCountyName";
 import { Button } from "../../../components/Button/Button";
 import { MultiSelect } from "../../../components/MultiSelect/MultiSelect";
 import { SegmentedControl } from "../../../components/SegmentedControl/SegmentedControl";
@@ -42,7 +41,7 @@ export function BellsFilters({
 
 	const countySelectOptions = countyOptions.map((county) => ({
 		value: county,
-		label: `${formatCountyName(county)} County`,
+		label: `${county} County`,
 	}));
 
 	return (

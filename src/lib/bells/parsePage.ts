@@ -40,7 +40,10 @@ export function parseBells(html: string): RawBell[] {
 
 			if (!county && /COUNTY/i.test(text)) {
 				const countyMatch = text.match(/([A-Z][A-Za-z\s\-']+)\s+COUNTY/i);
-				if (countyMatch) county = countyMatch[1].trim();
+				if (countyMatch) {
+					const raw = countyMatch[1].trim();
+					county = raw.charAt(0).toUpperCase() + raw.slice(1).toLowerCase();
+				}
 
 				const titleMatch = text.match(TITLE_QUOTE_RE);
 				if (titleMatch) title = titleMatch[1].trim();

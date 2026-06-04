@@ -1,7 +1,7 @@
 [
 	{
 		"id": "adams-for-the-people",
-		"county": "ADAMS",
+		"county": "Adams",
 		"title": "For the People",
 		"artist": "Wendy Allen",
 		"currentAddress": "Beyond the Battle Museum, 625 Biglerville Road, Gettysburg, PA 17325",
@@ -15,7 +15,7 @@
 	},
 	{
 		"id": "allegheny-jefferson-memorial-cemetery-funeral-home-s-windows-into-history",
-		"county": "ALLEGHENY",
+		"county": "Allegheny",
 		"title": "Jefferson Memorial Cemetery & Funeral Home's Windows Into History",
 		"artist": "Scott Saloney",
 		"currentAddress": "Jefferson Mausoleum, 301 Curry Hollow Road, Pittsburgh, PA 15236",
@@ -30,7 +30,7 @@
 	},
 	{
 		"id": "allegheny-pittsburgh-s-250-bell",
-		"county": "ALLEGHENY",
+		"county": "Allegheny",
 		"title": "Pittsburgh's 250 Bell",
 		"artist": "Scott Saloney",
 		"currentAddress": "Heinz History Center, 1212 Smallman Street, Pittsburgh, PA 15222",
@@ -45,7 +45,7 @@
 	},
 	{
 		"id": "armstrong-echoes-of-armstrong",
-		"county": "ARMSTRONG",
+		"county": "Armstrong",
 		"title": "Echoes of Armstrong",
 		"artist": "Cathy Strate",
 		"currentAddress": "Armstrong County Historical Museum, 300 North McKean Street, Kittanning, PA 16201",
@@ -59,7 +59,7 @@
 	},
 	{
 		"id": "bedford-through-bob-s-eyes-a-visual-legacy-of-bedford-county",
-		"county": "BEDFORD",
+		"county": "Bedford",
 		"title": "Through Bob's Eyes - A Visual Legacy of Bedford County",
 		"artist": "Morgan Young and Bob Webb (posthumously)",
 		"currentAddress": "Bedford County Courthouse, 200 S. Juliana Street, Bedford, PA 15522",
@@ -73,7 +73,7 @@
 	},
 	{
 		"id": "berks-everyone-goes-home",
-		"county": "BERKS",
+		"county": "Berks",
 		"title": "Everyone Goes Home",
 		"artist": "Benjamin E. Hoffman",
 		"currentAddress": "Reading Fightin' Phils FirstEnergy Stadium, 1900 Centre Avenue, Reading, PA 19605",
@@ -87,7 +87,7 @@
 	},
 	{
 		"id": "blair-blair-county-a-part-of-america-s-story",
-		"county": "BLAIR",
+		"county": "Blair",
 		"title": "Blair County - A Part Of America's Story",
 		"artist": "Leah McNaul",
 		"currentAddress": "DelGrosso's Amusement Park, 4352 E. Pleasant Valley Blvd., Tipton, PA 16684",
@@ -101,7 +101,7 @@
 	},
 	{
 		"id": "bradford-flowing-thru-bradford-county",
-		"county": "BRADFORD",
+		"county": "Bradford",
 		"title": "Flowing thru Bradford County",
 		"artist": "Shauna M. Case",
 		"currentAddress": "Bradford County Courthouse,301 Main Street, Towanda, PA 18848",
@@ -116,7 +116,7 @@
 	},
 	{
 		"id": "bucks-local-color",
-		"county": "BUCKS",
+		"county": "Bucks",
 		"title": "Local Color",
 		"artist": "James Feehan",
 		"currentAddress": "ShopRite of Yardley, 1603 Big Oak Road, Yardley, PA 19067",
@@ -131,7 +131,7 @@
 	},
 	{
 		"id": "butler-the-butler-bell",
-		"county": "BUTLER",
+		"county": "Butler",
 		"title": "The Butler Bell",
 		"artist": "Tom Panei",
 		"currentAddress": "Cranberry Township Municipal Building, 2525 Rochester Road, Cranberry Township, PA 16066",
@@ -146,7 +146,7 @@
 	},
 	{
 		"id": "butler-the-butler-county-heritage-bell",
-		"county": "BUTLER",
+		"county": "Butler",
 		"title": "The Butler County Heritage Bell",
 		"artist": "Paula Slomer",
 		"currentAddress": "Butler County Courthouse, 124 W. Diamond St., Butler, PA 16003",
@@ -161,7 +161,7 @@
 	},
 	{
 		"id": "cameron-call-of-the-wilds-cameron-edition",
-		"county": "CAMERON",
+		"county": "Cameron",
 		"title": "Call of the Wilds - Cameron Edition",
 		"artist": "Sarah Jane Daley, First Sergeant/USMC (Retired)",
 		"currentAddress": "Cameron County Chamber of Commerce, 24 West Fourth Street, Emporium, PA 15834",
@@ -176,7 +176,7 @@
 	},
 	{
 		"id": "carbon-carbon-county-in-a-snapshot",
-		"county": "CARBON",
+		"county": "Carbon",
 		"title": "Carbon County in a Snapshot",
 		"artist": "Carbon Artist Collaboration",
 		"currentAddress": "Weissport Park, Bridge and Franklin Streets, Weissport, PA 18032",
@@ -190,7 +190,7 @@
 	},
 	{
 		"id": "centre-centre-furnace-mansion",
-		"county": "CENTRE",
+		"county": "Centre",
 		"title": "Centre Furnace Mansion",
 		"artist": "Jeff Mathison",
 		"currentAddress": "Centre County Historical Society, Centre Furnace Mansion, 1001 E. College Ave., State College, PA 16801",
@@ -204,7 +204,7 @@
 	},
 	{
 		"id": "centre-eagle-iron-works-and-curtin-village-bell",
-		"county": "CENTRE",
+		"county": "Centre",
 		"title": "Eagle Iron Works and Curtin Village Bell",
 		"artist": "Elody Gyekis",
 		"currentAddress": "Eagle Iron Works and Curtin Village, 251 Curtin Road, Howard, PA 16841",
@@ -218,7 +218,7 @@
 	},
 	{
 		"id": "centre-stories-of-our-railroad",
-		"county": "CENTRE",
+		"county": "Centre",
 		"title": "Stories of Our Railroad",
 		"artist": "Holly Foy & James Farrah",
 		"currentAddress": "Bellefonte Historical Railroad Society, 320 West High Street, Bellefonte, PA 16823",
@@ -232,7 +232,7 @@
 	},
 	{
 		"id": "chester-scenes-from-chester-county",
-		"county": "CHESTER",
+		"county": "Chester",
 		"title": "Scenes From Chester County",
 		"artist": "Ashley Kolpak",
 		"currentAddress": "Chester County Community Foundation, 28 W. Market Street, West Chester, PA 19382",
@@ -246,7 +246,7 @@
 	},
 	{
 		"id": "clearfield-the-great-shamokin-path-wilhelm-william-bloom-1752-1828-clearfield-county-pioneer",
-		"county": "CLEARFIELD",
+		"county": "Clearfield",
 		"title": "The Great Shamokin Path - Wilhelm (William) Bloom, 1752-1828, Clearfield County Pioneer",
 		"artist": "Linda Heberling",
 		"currentAddress": "Clearfield County Historical Society Kerr House Museum 104 East Pine Street, Clearfield, PA 16830",
@@ -260,7 +260,7 @@
 	},
 	{
 		"id": "clinton-rivers-valleys-meet-mountains-sunsets",
-		"county": "CLINTON",
+		"county": "Clinton",
 		"title": "Rivers & Valleys Meet Mountains & Sunsets",
 		"artist": "Kasey Dumm",
 		"currentAddress": "Clinton County Courthouse, 230 E. Water Street, Lock Haven, PA 17745",
@@ -274,7 +274,7 @@
 	},
 	{
 		"id": "columbia-columbia-the-gem",
-		"county": "COLUMBIA",
+		"county": "Columbia",
 		"title": "Columbia The Gem",
 		"artist": "Mark Golomb",
 		"currentAddress": "620 W 3rd St, Bloomsburg, PA, 17815 | Located inside Gate 2 off of Route 11.",
@@ -288,7 +288,7 @@
 	},
 	{
 		"id": "crawford-preserving-history-of-crawford-county",
-		"county": "CRAWFORD",
+		"county": "Crawford",
 		"title": "Preserving History of Crawford County",
 		"artist": "Cruz Dragosavac",
 		"currentAddress": "Shryock Memorial Park, 697 Terrace Street, Meadville, PA 16335",
@@ -302,7 +302,7 @@
 	},
 	{
 		"id": "cumberland-250-years-of-cumberland-county",
-		"county": "CUMBERLAND",
+		"county": "Cumberland",
 		"title": "250 Years of Cumberland County",
 		"artist": "Phil George",
 		"currentAddress": "Cumberland County at Carlisle's Veterans Memorial Courtyard, South Hanover & West High Streets, Carlisle, PA 17103",
@@ -316,7 +316,7 @@
 	},
 	{
 		"id": "dauphin-discover-dauphin-county",
-		"county": "DAUPHIN",
+		"county": "Dauphin",
 		"title": "Discover Dauphin County",
 		"artist": "Hawk Krall",
 		"currentAddress": "Hershey's Chocolate World, 101 Chocolate World Way, Hershey, PA 17033",
@@ -330,7 +330,7 @@
 	},
 	{
 		"id": "dauphin-growing-a-nation",
-		"county": "DAUPHIN",
+		"county": "Dauphin",
 		"title": "Growing A Nation",
 		"artist": "Cody Sabol",
 		"currentAddress": "Farm Show Complex - Cameron Street Lobby, 2300 North Cameron Street, Harrisburg, PA 17110",
@@ -345,7 +345,7 @@
 	},
 	{
 		"id": "delaware-liberty-250",
-		"county": "DELAWARE",
+		"county": "Delaware",
 		"title": "Liberty 250",
 		"artist": "Joshua Ruggeri",
 		"currentAddress": "Burns Family Neighborhood Markets, ShopRite of Drexeline, 5000 State Road, Drexel Hill, PA 19026",
@@ -360,7 +360,7 @@
 	},
 	{
 		"id": "elk-the-united-colors-of-liberty",
-		"county": "ELK",
+		"county": "Elk",
 		"title": "The United Colors of Liberty",
 		"artist": "School Students of Elk County 2025",
 		"currentAddress": "Elk County Courthouse Lawn, 240 Main Street, Ridgway, PA 15853",
@@ -374,7 +374,7 @@
 	},
 	{
 		"id": "erie-the-pursuit-of-liberty",
-		"county": "ERIE",
+		"county": "Erie",
 		"title": "The Pursuit of Liberty",
 		"artist": "Nicholas Cardell Gore",
 		"currentAddress": "expERIEnce Children's Museum, 420 French St, Erie, PA 16507",
@@ -388,7 +388,7 @@
 	},
 	{
 		"id": "fayette-revolution-to-resilience",
-		"county": "FAYETTE",
+		"county": "Fayette",
 		"title": "Revolution to Resilience",
 		"artist": "James Mochnsky with Touchstone Center for Crafts",
 		"currentAddress": "Fayette County Courthouse, 61 E. Main Street, Uniontown, PA 15401",
@@ -402,7 +402,7 @@
 	},
 	{
 		"id": "franklin-franklin-county-america-s-history-and-present",
-		"county": "FRANKLIN",
+		"county": "Franklin",
 		"title": "Franklin County - America's History and Present",
 		"artist": "Designed by Franklin County Artists and Painted by Andrea Finch",
 		"currentAddress": "Franklin County Visitors Center, 15 S. Main Street, Chambersburg, PA 17201",
@@ -417,7 +417,7 @@
 	},
 	{
 		"id": "fulton-our-town-our-nation",
-		"county": "FULTON",
+		"county": "Fulton",
 		"title": "Our Town, Our Nation",
 		"artist": "Charles Harr",
 		"currentAddress": "Friend of Fulton County, 101 Lincoln Way W, McConnellsburg, PA 17233",
@@ -431,7 +431,7 @@
 	},
 	{
 		"id": "greene-coal-country",
-		"county": "GREENE",
+		"county": "Greene",
 		"title": "Coal & Country",
 		"artist": "Danielle Nyland",
 		"currentAddress": "Greene County Historical Society Museum, 918 Rolling Meadows Rd, Waynesburg, PA, 15370,",
@@ -445,7 +445,7 @@
 	},
 	{
 		"id": "indiana-a-wonderful-life",
-		"county": "INDIANA",
+		"county": "Indiana",
 		"title": "A Wonderful Life",
 		"artist": "Mark Altrogge",
 		"currentAddress": "Indiana County Courthouse, 825 Philadelphia St, Indiana, PA 15701",
@@ -459,7 +459,7 @@
 	},
 	{
 		"id": "jefferson-punxsutawney-seasons",
-		"county": "JEFFERSON",
+		"county": "Jefferson",
 		"title": "Punxsutawney Seasons",
 		"artist": "Monica Smatlak Liao",
 		"currentAddress": "Punxsutawney Civic Center, 301 East Mahoning Street, Punxsutawney, PA 15767",
@@ -473,7 +473,7 @@
 	},
 	{
 		"id": "juniata-beauty-of-the-standing-stone",
-		"county": "JUNIATA",
+		"county": "Juniata",
 		"title": "Beauty of the Standing Stone",
 		"artist": "Hannah Tamanini",
 		"currentAddress": "Pomeroy-Academia Covered Bridge, 70 Mill Road, Port Royal, PA 17082",
@@ -487,7 +487,7 @@
 	},
 	{
 		"id": "lackawanna-a-state-of-giving-a-city-of-hope",
-		"county": "LACKAWANNA",
+		"county": "Lackawanna",
 		"title": "A State of Giving, A City of Hope",
 		"currentAddress": "Scranton Area Community Foundation, 612 Jefferson Avenue, Scranton, PA 18510",
 		"imageUrl": "/bells/images/lackawanna-a-state-of-giving-a-city-of-hope.png",
@@ -500,7 +500,7 @@
 	},
 	{
 		"id": "lackawanna-healing-and-heritage-inspiring-health-for-america",
-		"county": "LACKAWANNA",
+		"county": "Lackawanna",
 		"title": "Healing and Heritage: Inspiring Health for America",
 		"artist": "Allison LaRussa",
 		"currentAddress": "The Wright Center for Community Health Mid Valley, 5 S. Washington Ave., Jermyn, PA 18433",
@@ -514,7 +514,7 @@
 	},
 	{
 		"id": "lancaster-lancaster-pa-250th-celebration",
-		"county": "LANCASTER",
+		"county": "Lancaster",
 		"title": "Lancaster PA 250th Celebration",
 		"artist": "G. Robert Wagner",
 		"currentAddress": "Historic Rock Ford, 881 Rockford Road, Lancaster, PA 17602",
@@ -528,7 +528,7 @@
 	},
 	{
 		"id": "lawrence-presidential-pottery-bell",
-		"county": "LAWRENCE",
+		"county": "Lawrence",
 		"title": "Presidential Pottery Bell",
 		"artist": "Kimberly B. Koller-Jones and Paige Kleinfelder",
 		"currentAddress": "Arts & Education at the Hoyt, 124 East Leasure Ave., New Castle, PA 16101",
@@ -542,7 +542,7 @@
 	},
 	{
 		"id": "lebanon-field-of-sunflowers",
-		"county": "LEBANON",
+		"county": "Lebanon",
 		"title": "Field of Sunflowers",
 		"artist": "James E. Rudegeair",
 		"currentAddress": "Visit Lebanon Valley Office, 115 Springwood Dr., Suite 500, Lebanon, PA 17042",
@@ -557,7 +557,7 @@
 	},
 	{
 		"id": "lehigh-moravian-historical-figures",
-		"county": "LEHIGH",
+		"county": "Lehigh",
 		"title": "Moravian Historical Figures",
 		"artist": "Ted Colegrove",
 		"currentAddress": "Moravian University's Sports Medicine & Rehabilitation Center, 1441 Schoenersville Road, Bethlehem, PA 18018",
@@ -571,7 +571,7 @@
 	},
 	{
 		"id": "luzerne-valley-and-surrounding",
-		"county": "LUZERNE",
+		"county": "Luzerne",
 		"title": "Valley and Surrounding",
 		"artist": "Kyle Stratton",
 		"currentAddress": "Visit Luzerne County, 200 Old Train Station Road, Wilkes-Barre, PA 18702",
@@ -586,7 +586,7 @@
 	},
 	{
 		"id": "mckean-focus-on-freedom",
-		"county": "MCKEAN",
+		"county": "Mckean",
 		"title": "Focus on Freedom",
 		"artist": "Angela Janel Cornelius",
 		"currentAddress": "McKean County Courthouse, Lobby Rotunda, 500 West Main Street, Smethport, PA 16749",
@@ -600,7 +600,7 @@
 	},
 	{
 		"id": "mifflin-mifflin-county-celebrates",
-		"county": "MIFFLIN",
+		"county": "Mifflin",
 		"title": "Mifflin County Celebrates",
 		"artist": "Jennifer Hartzler",
 		"currentAddress": "Mifflin County Courthouse, 20 North Wayne Street, Lewistown, PA 17044",
@@ -614,7 +614,7 @@
 	},
 	{
 		"id": "monroe-etna-in-remembrance-of-etna-bittenbender-",
-		"county": "MONROE",
+		"county": "Monroe",
 		"title": "Etna (In Remembrance of Etna Bittenbender)",
 		"artist": "Linda Stockman-Connors",
 		"currentAddress": "Monroe County Historical Association, 900 Main Street, Stroudsburg, PA 18360",
@@ -629,7 +629,7 @@
 	},
 	{
 		"id": "montgomery-liberty-and-justice-for-all",
-		"county": "MONTGOMERY",
+		"county": "Montgomery",
 		"title": "Liberty and Justice for All",
 		"artist": "Lisa Teller Short",
 		"currentAddress": "Historic Trappe, The Speaker's House, 151 W. Main Street, Trappe, PA 19426",
@@ -643,7 +643,7 @@
 	},
 	{
 		"id": "montour-shine-on",
-		"county": "MONTOUR",
+		"county": "Montour",
 		"title": "Shine On",
 		"artist": "Dave Tamkus",
 		"currentAddress": "Canal Park, 463 Mill Street, Danville, PA 17821",
@@ -657,7 +657,7 @@
 	},
 	{
 		"id": "northampton-a-story-of-stars-and-steel",
-		"county": "NORTHAMPTON",
+		"county": "Northampton",
 		"title": "A Story of Stars and Steel",
 		"artist": "Keith Garubba",
 		"currentAddress": "ShopRite of Bethlehem, 4701 Freemansburg Ave., Bethlehem, PA 18045",
@@ -672,7 +672,7 @@
 	},
 	{
 		"id": "northumberland-the-bell-of-light",
-		"county": "NORTHUMBERLAND",
+		"county": "Northumberland",
 		"title": "The Bell of Light",
 		"artist": "Pedro Reyes",
 		"currentAddress": "Northumberland County Courthouse, 201 Market St., Sunbury, PA 17801",
@@ -688,7 +688,7 @@
 	},
 	{
 		"id": "perry-pursuing-happiness",
-		"county": "PERRY",
+		"county": "Perry",
 		"title": "Pursuing Happiness",
 		"artist": "Jessica Burkholder",
 		"currentAddress": "Perry County Economic Development Authority, 9 W. Main St, New Bloomfield, PA 17068",
@@ -703,7 +703,7 @@
 	},
 	{
 		"id": "philadelphia-19128-a-place-with-roots",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "19128: A Place With Roots",
 		"artist": "Meghan Turbitt",
 		"currentAddress": "Roxborough Business Improvement District, Roxborough Pocket Park, 6170 Ridge Ave., Philadelphia, PA 19128",
@@ -717,7 +717,7 @@
 	},
 	{
 		"id": "philadelphia-a-diagram-of-value",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "A Diagram of Value",
 		"artist": "Michele Scott",
 		"currentAddress": "Bartram's Garden, 5400 Lindbergh Blvd., Philadelphia, PA 19143",
@@ -732,7 +732,7 @@
 	},
 	{
 		"id": "philadelphia-al-schmid-marine",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "Al Schmid Marine",
 		"artist": "Nathaniel Lee",
 		"currentAddress": "St. Matthew School, 3040 Cottman Avenue, Philadelphia, PA 19149",
@@ -746,7 +746,7 @@
 	},
 	{
 		"id": "philadelphia-a-tapestry-of-hidden-history",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "A Tapestry of Hidden History",
 		"artist": "Parris Stancell",
 		"currentAddress": "Mt. Airy Business Improvement District, United Lutheran Seminary, 7301 Germantown Ave., Philadelphia, PA 19119",
@@ -760,7 +760,7 @@
 	},
 	{
 		"id": "philadelphia-celebrate-mayfair",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "Celebrate Mayfair",
 		"artist": "Alana Bogard and Madeleine Smith",
 		"currentAddress": "Mayfair Business Improvement District, 7343 Frankford Ave., Philadelphia, PA 19136",
@@ -774,7 +774,7 @@
 	},
 	{
 		"id": "philadelphia-connection-between-the-stars",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "Connection Between the Stars",
 		"artist": "Cindy Lozito",
 		"currentAddress": "Franklin Institute, 222 N. 20th St., Philadelphia, PA 19103",
@@ -788,7 +788,7 @@
 	},
 	{
 		"id": "philadelphia-el-centro-de-oro",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "El Centro de Oro",
 		"artist": "Symone Salib",
 		"currentAddress": "HACE Community Development Corporation, City Commissioners Office, 2739 N. 5th St., Philadelphia, PA 19133",
@@ -802,7 +802,7 @@
 	},
 	{
 		"id": "philadelphia-freedom-rising",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "Freedom Rising",
 		"artist": "Gail Gaines",
 		"currentAddress": "Mother Bethel AME Church, 419 S. 6th Street, Philadelphia, PA 19147",
@@ -817,7 +817,7 @@
 	},
 	{
 		"id": "philadelphia-fun-facts-and-historical-treasures-of-fairmount-park",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "Fun Facts and Historical Treasures of Fairmount Park",
 		"artist": "Parris Stancell",
 		"currentAddress": "Centennial Parkside CDC, Parkside Association of Philadelphia, Memorial Hall, 4231 Avenue of the Republic, Philadelphia, PA 19131",
@@ -831,7 +831,7 @@
 	},
 	{
 		"id": "philadelphia-heartbeat-of-the-fox",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "Heartbeat of the Fox",
 		"artist": "Sean Martorana",
 		"currentAddress": "FoxRox Business Association, Lions Park, 7959 Oxford Ave., Philadelphia, PA 19111",
@@ -845,7 +845,7 @@
 	},
 	{
 		"id": "philadelphia-it-takes-a-village",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "It Takes a Village",
 		"artist": "Chenlin Cai and Xingzi Liang",
 		"currentAddress": "Philadelphia Chinatown Development Corporation, 10th Street Plaza (10th and Vine Sts.), Philadelphia, PA 19107",
@@ -859,7 +859,7 @@
 	},
 	{
 		"id": "philadelphia-keeping-it-in-the-family",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "Keeping It in the Family",
 		"artist": "Tykira Octaviah Mitchell",
 		"currentAddress": "Ogontz Avenue Revitalization Corp. (OARC), 7182 Ogontz Ave., Philadelphia, PA 19138",
@@ -873,7 +873,7 @@
 	},
 	{
 		"id": "philadelphia-lancaster-living-legacy",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "Lancaster Living Legacy",
 		"artist": "Akira Gordon",
 		"currentAddress": "Lancaster Avenue 21st Century Business Association (LA21), 3952-54 Lancaster Ave., Philadelphia, PA 19104",
@@ -887,7 +887,7 @@
 	},
 	{
 		"id": "philadelphia-nature-to-industry-to-nature-again",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "Nature to Industry to Nature Again",
 		"artist": "Bob Dix",
 		"currentAddress": "Glen Foerd, 5001 Grant Ave., Philadelphia, PA 19114",
@@ -902,7 +902,7 @@
 	},
 	{
 		"id": "philadelphia-open-everyday",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "Open Everyday",
 		"artist": "Cindy Lozito",
 		"currentAddress": "United Merchants of the S. 9th St Business Association, Association of Mexican Business Owners of Philadelphia, Piazza DiBruno, 914 S. 9th St., Philadelphia, PA 19147",
@@ -916,7 +916,7 @@
 	},
 	{
 		"id": "philadelphia-philly-workforce-celebrating-our-past-building-the-future",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "Philly Workforce: Celebrating Our Past, Building the Future",
 		"artist": "Akira Gordon",
 		"currentAddress": "City of Philadelphia, Municipal Services Building, 1401 JFK Blvd., Philadelphia, PA 19102",
@@ -930,7 +930,7 @@
 	},
 	{
 		"id": "philadelphia-stories-tolled",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "Stories Tolled",
 		"artist": "Abigail Reeth",
 		"currentAddress": "St. Joseph's University, Wynnefield Residents Association, 5320 City Ave., Philadelphia, PA 19131",
@@ -944,7 +944,7 @@
 	},
 	{
 		"id": "philadelphia-the-ringing-railroad",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "The Ringing Railroad",
 		"artist": "Sean Martorana",
 		"currentAddress": "Amtrak, William H. Gray III 30th Street Station, 2955 Market St., Philadelphia, PA 19104",
@@ -958,7 +958,7 @@
 	},
 	{
 		"id": "philadelphia-the-promise-of-what-s-to-come",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "The Promise of What's to Come",
 		"artist": "Symone Salib",
 		"currentAddress": "Point Breeze Business Association, Greater Philadelphia Community Alliance, 1336 S. 21st St., Philadelphia, PA 19146",
@@ -972,7 +972,7 @@
 	},
 	{
 		"id": "philadelphia-united-hunting-park",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "United Hunting Park",
 		"artist": "Andrew \"Penthouse Art\" Daniels",
 		"currentAddress": "Hunting Park United, Hunting Park Neighborhood Advisory Committee, 4101 Old York Rd., Philadelphia, PA 19140",
@@ -986,7 +986,7 @@
 	},
 	{
 		"id": "philadelphia-we-the-people",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "We The People",
 		"artist": "Tara Jacoby",
 		"currentAddress": "Philadelphia Visitor Center, Independence Visitor Center, 1 N. Independence Hall West, 599 Market St., Philadelphia, PA 19106",
@@ -1000,7 +1000,7 @@
 	},
 	{
 		"id": "philadelphia-where-global-is-local",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "Where Global is Local",
 		"artist": "Joanne Gallery",
 		"currentAddress": "Olney Community Collaborative, Greater Olney Library, 5501 N. 5th St., Philadelphia, PA 19120",
@@ -1014,7 +1014,7 @@
 	},
 	{
 		"id": "philadelphia-who-s-your-north-star-",
-		"county": "PHILADELPHIA",
+		"county": "Philadelphia",
 		"title": "Who's Your North Star?",
 		"artist": "Emily Busch",
 		"currentAddress": "Germantown United Community Development Corporation, Germantown Arts District, Joseph E. Coleman Northwest Regional Library, 68 W. Chelten Ave., Philadelphia, PA 19144",
@@ -1028,7 +1028,7 @@
 	},
 	{
 		"id": "pike-nature-rings-in-pike-county",
-		"county": "PIKE",
+		"county": "Pike",
 		"title": "Nature Rings in Pike County",
 		"artist": "Delaware High School AP Art Students and Art Faculty",
 		"currentAddress": "Milford Community House, 201 Broad Street, Milford, PA 18337",
@@ -1042,7 +1042,7 @@
 	},
 	{
 		"id": "potter-land-of-the-free",
-		"county": "POTTER",
+		"county": "Potter",
 		"title": "Land of the Free",
 		"artist": "Miriam Howe",
 		"currentAddress": "Gunzburger County Office Building, One North Main Street, Coudersport, PA 16915",
@@ -1057,7 +1057,7 @@
 	},
 	{
 		"id": "snyder-snyder-county-s-natural-heritage",
-		"county": "SNYDER",
+		"county": "Snyder",
 		"title": "Snyder County's Natural Heritage",
 		"artist": "Laura Knorr",
 		"currentAddress": "Selinsgrove Borough and Rudy Gelnett Memorial Library Building, 1 N. High Street, Selinsgrove, PA 17870",
@@ -1071,7 +1071,7 @@
 	},
 	{
 		"id": "somerset-unending-spirit",
-		"county": "SOMERSET",
+		"county": "Somerset",
 		"title": "Unending Spirit",
 		"artist": "Kathy Trexel Reed",
 		"currentAddress": "Somerset County Annex Office Building, 300 North Center Avenue, Somerset, PA 15501",
@@ -1086,7 +1086,7 @@
 	},
 	{
 		"id": "sullivan-we-the-people",
-		"county": "SULLIVAN",
+		"county": "Sullivan",
 		"title": "We The People",
 		"artist": "Robert Heinrich Jr.",
 		"currentAddress": "Eagles Mere Inn, 29 Mary Avenue, Eagles Mere, PA 17731",
@@ -1100,7 +1100,7 @@
 	},
 	{
 		"id": "susquehanna-red-white-and-blueberry",
-		"county": "SUSQUEHANNA",
+		"county": "Susquehanna",
 		"title": "Red, White, and Blueberry",
 		"artist": "Kelly Finan",
 		"currentAddress": "Susquehanna County Historical Society, 18 Monument Square, Montrose, PA 18801",
@@ -1114,7 +1114,7 @@
 	},
 	{
 		"id": "tioga-tioga-county-where-the-path-forks",
-		"county": "TIOGA",
+		"county": "Tioga",
 		"title": "Tioga County - Where the Path Forks",
 		"artist": "Randy J. Owen",
 		"currentAddress": "Gate House at Smythe Park 62 South Main Street, Mansfield, PA 16933",
@@ -1128,7 +1128,7 @@
 	},
 	{
 		"id": "union-bells-of-lbg",
-		"county": "UNION",
+		"county": "Union",
 		"title": "Bells of LBG",
 		"artist": "Kate Murphy",
 		"currentAddress": "Union County Courthouse, 103 S 2nd St, Lewisburg, PA 17837",
@@ -1143,7 +1143,7 @@
 	},
 	{
 		"id": "warren-reflection-on-warren-s-allegheny-river",
-		"county": "WARREN",
+		"county": "Warren",
 		"title": "Reflection on Warren's Allegheny River",
 		"artist": "LeeAnn Waterhouse",
 		"currentAddress": "Warren County Visitors Bureau, 22045 US-Route 6, Warren, PA 16365",
@@ -1159,7 +1159,7 @@
 	},
 	{
 		"id": "washington-the-american-spirit",
-		"county": "WASHINGTON",
+		"county": "Washington",
 		"title": "The American Spirit",
 		"artist": "James Sulkowski",
 		"currentAddress": "The Washington County Historical Society, 49 E Maiden Street, Washington, PA 15301",
@@ -1174,7 +1174,7 @@
 	},
 	{
 		"id": "wayne-honoring-service-advancing-care",
-		"county": "WAYNE",
+		"county": "Wayne",
 		"title": "Honoring Service, Advancing Care",
 		"artist": "Allison LaRussa",
 		"currentAddress": "Wayne Memorial Hospital (1st Floor), 601 Park Street, Honesdale, PA 18431",
@@ -1189,7 +1189,7 @@
 	},
 	{
 		"id": "westmoreland-more-energy-in-westmoreland",
-		"county": "WESTMORELAND",
+		"county": "Westmoreland",
 		"title": "MORE Energy in Westmoreland",
 		"artist": "Stacey Pydynkowski",
 		"currentAddress": "Robert’s Trailhead Westmoreland Heritage Trail, 4301 William Penn Highway, Rt 22, Murrysville, PA",
@@ -1203,7 +1203,7 @@
 	},
 	{
 		"id": "westmoreland-there-s-more-in-westmoreland",
-		"county": "WESTMORELAND",
+		"county": "Westmoreland",
 		"title": "There’s MORE in Westmoreland",
 		"artist": "Mandy Sirofchuck",
 		"currentAddress": "The Westmoreland Museum of American Art, 221 N. Main St., Greensburg, PA 15601",
@@ -1217,7 +1217,7 @@
 	},
 	{
 		"id": "wyoming-community-united-through-strength",
-		"county": "WYOMING",
+		"county": "Wyoming",
 		"title": "Community United Through Strength",
 		"artist": "Allison LaRussa",
 		"currentAddress": "Wyoming County Healthcare Center (1st Floor), 5950 U.S. Route 6, Tunkhannock, PA 18657",
