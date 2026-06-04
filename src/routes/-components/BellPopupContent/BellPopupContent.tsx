@@ -1,4 +1,3 @@
-import { formatCountyName } from "../../../lib/bells/formatCountyName";
 import type { Bell } from "../../../lib/bells/types";
 import styles from "./BellPopupContent.module.css";
 
@@ -11,9 +10,7 @@ export function BellPopupContent({ bell }: Props) {
 		<div className={styles.popup}>
 			<h3 className={styles.popupTitle}>
 				{bell.title}{" "}
-				<span className={styles.popupCounty}>
-					({formatCountyName(bell.county)} County)
-				</span>
+				<span className={styles.popupCounty}>({bell.county} County)</span>
 			</h3>
 			{bell.artist ? (
 				<p className={styles.popupMeta}>Artist: {bell.artist}</p>
