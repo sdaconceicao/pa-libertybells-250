@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useCallback, useRef, useState } from "react";
 import bellsData from "../lib/bells/bells.data.json";
 import type { Bell } from "../lib/bells/types";
 import { BellsFilters } from "./-components/BellsFilters/BellsFilters";
@@ -41,6 +42,12 @@ function BellsPage() {
 		resultSummary,
 	} = useBellsFilters(bells);
 
+	const [selectedBellId, setSelectedBellId] = useState<string | null>(null);
+	const highlightBellRef = useRef<((id: string | null) => void) | null>(null);
+	const handleBellHover = useCallback((id: string | null) => {
+		highlightBellRef.current?.(id);
+	}, []);
+
 	const showMobileMap = isMobile && mobileView === "map";
 	const showMobileList = isMobile && mobileView === "list";
 	const showDesktopMap = !isMobile;
@@ -77,6 +84,8 @@ function BellsPage() {
 					bells={filteredBells}
 					sidebarOpen={sidebarOpen}
 					isMobile={isMobile}
+					highlightRef={highlightBellRef}
+					selectedBellId={selectedBellId}
 				/>
 			</div>
 
@@ -88,6 +97,8 @@ function BellsPage() {
 							bells={filteredBells}
 							className={styles.mobileList}
 							emptyMessage={listEmptyMessage}
+							onBellHover={handleBellHover}
+							onBellSelect={setSelectedBellId}
 						/>
 					</div>
 				</section>
@@ -105,6 +116,8 @@ function BellsPage() {
 							bells={filteredBells}
 							className={styles.sidebarList}
 							emptyMessage={listEmptyMessage}
+							onBellHover={handleBellHover}
+							onBellSelect={setSelectedBellId}
 						/>
 					</div>
 				</FloatingSidebar>
