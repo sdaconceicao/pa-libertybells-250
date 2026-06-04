@@ -1,0 +1,55 @@
+.bellCluster:global(.leaflet-div-icon) {
+	background: transparent;
+	border: none;
+}
+
+.clusterMarker {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.clusterMarker svg {
+	display: block;
+	width: 100%;
+	height: 100%;
+	filter: drop-shadow(0 1px 2px rgb(30 58 138 / 35%));
+}
+
+.clusterCount {
+	position: absolute;
+	left: 50.3%;
+	top: 55.6%;
+	transform: translate(-50%, -50%);
+	color: var(--color-text);
+	font-weight: 700;
+	line-height: 1;
+	white-space: nowrap;
+}
+
+.clusterSmall {
+	width: 4.5rem;
+	height: 2.8125rem;
+}
+
+.clusterSmall .clusterCount {
+	font-size: 0.8125rem;
+}
+
+.clusterMedium {
+	width: 5.25rem;
+	height: 3.25rem;
+}
+
+.clusterMedium .clusterCount {
+	font-size: 0.875rem;
+}
+
+.clusterLarge {
+	width: 6rem;
+	height: 3.75rem;
+}
+
+.clusterLarge .clusterCount {
+	font-size: 0.9375rem;
+}
