@@ -3,11 +3,19 @@ import styles from "./BellContent.module.css";
 
 type Props = {
 	bell: Bell;
+	onHover?: (bellId: string | null) => void;
+	onSelect?: (bellId: string) => void;
 };
 
-export function BellContent({ bell }: Props) {
+export function BellContent({ bell, onHover, onSelect }: Props) {
 	return (
-		<article className={styles.entry}>
+		<button
+			type="button"
+			className={styles.entry}
+			onMouseEnter={() => onHover?.(bell.id)}
+			onMouseLeave={() => onHover?.(null)}
+			onClick={() => onSelect?.(bell.id)}
+		>
 			<div className={styles.thumbnail}>
 				{bell.imageUrl ? (
 					<img
@@ -24,6 +32,6 @@ export function BellContent({ bell }: Props) {
 				{bell.artist ? <p className={styles.author}>by {bell.artist}</p> : null}
 				<p className={styles.address}>{bell.county} County, PA</p>
 			</div>
-		</article>
+		</button>
 	);
 }
