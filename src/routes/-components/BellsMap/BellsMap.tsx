@@ -12,7 +12,13 @@ type Props = {
 	selectedBellId?: string | null;
 };
 
-export function BellsMap({ bells, sidebarOpen, isMobile, highlightRef, selectedBellId }: Props) {
+export function BellsMap({
+	bells,
+	sidebarOpen,
+	isMobile,
+	highlightRef,
+	selectedBellId,
+}: Props) {
 	return (
 		<ClientOnly fallback={<MapLoading />}>
 			<LeafletMap

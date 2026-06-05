@@ -1,4 +1,7 @@
-import type { Map as LeafletMapInstance, Marker as LeafletMarker } from "leaflet";
+import type {
+	Map as LeafletMapInstance,
+	Marker as LeafletMarker,
+} from "leaflet";
 import type * as Leaflet from "leaflet";
 import type { RefObject } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -6,7 +9,10 @@ import type { Bell } from "../../../lib/bells/types";
 import { MapLoading } from "../MapLoading/MapLoading";
 import { BellPopupContent } from "../BellPopupContent/BellPopupContent";
 import { createBellMarkerIcon } from "./Marker/createBellMarkerIcon";
-import { createMarkerClusterGroupOptions, CLUSTER_DISABLE_ZOOM } from "./ClusterMarker/createMarkerClusterGroupOptions";
+import {
+	createMarkerClusterGroupOptions,
+	CLUSTER_DISABLE_ZOOM,
+} from "./ClusterMarker/createMarkerClusterGroupOptions";
 import {
 	DEFAULT_MAP_CENTER,
 	DEFAULT_MAP_ZOOM,
@@ -28,7 +34,13 @@ type Props = {
 	selectedBellId?: string | null;
 };
 
-export function LeafletMap({ bells, sidebarOpen, isMobile, highlightRef, selectedBellId }: Props) {
+export function LeafletMap({
+	bells,
+	sidebarOpen,
+	isMobile,
+	highlightRef,
+	selectedBellId,
+}: Props) {
 	const [leaflet, setLeaflet] = useState<ReactLeafletModule | null>(null);
 	const [markerClusterGroup, setMarkerClusterGroup] =
 		useState<MarkerClusterGroupComponent | null>(null);
@@ -97,10 +109,15 @@ export function LeafletMap({ bells, sidebarOpen, isMobile, highlightRef, selecte
 	useEffect(() => {
 		highlightRef.current = (id) => {
 			markerRefs.current.forEach((marker) => {
-				marker.getElement()?.classList.remove(markerStyles.bellMarkerHighlighted);
+				marker
+					.getElement()
+					?.classList.remove(markerStyles.bellMarkerHighlighted);
 			});
 			if (id) {
-				markerRefs.current.get(id)?.getElement()?.classList.add(markerStyles.bellMarkerHighlighted);
+				markerRefs.current
+					.get(id)
+					?.getElement()
+					?.classList.add(markerStyles.bellMarkerHighlighted);
 			}
 		};
 		return () => {
