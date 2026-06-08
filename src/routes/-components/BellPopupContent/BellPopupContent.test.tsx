@@ -151,4 +151,17 @@ describe("BellPopupContent", () => {
 
 		expect(screen.getByTestId("bell-popup")).toBeTruthy();
 	});
+
+	it("applies sidebar variant class when variant is sidebar", () => {
+		const { container } = render(
+			<BellPopupContent
+				bell={makeBell({ id: "a", county: "York" })}
+				variant="sidebar"
+			/>,
+		);
+
+		expect(
+			container.querySelector('[class*="popupSidebar"]'),
+		).toBeTruthy();
+	});
 });

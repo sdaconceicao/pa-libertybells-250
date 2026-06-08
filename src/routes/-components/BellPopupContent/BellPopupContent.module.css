@@ -9,6 +9,16 @@
 	font-size: 0.875rem;
 }
 
+.popupSidebar {
+	width: 100%;
+}
+
+.popupSidebar .header,
+.popupSidebar .headerImage,
+.popupSidebar .headerPlaceholder {
+	border-radius: 0;
+}
+
 .header {
 	position: relative;
 	width: 100%;
@@ -28,7 +38,7 @@
 	background: color-mix(in oklab, var(--color-border) 60%, transparent 40%);
 }
 
-.placementBar {
+.metaBar {
 	position: absolute;
 	right: 0;
 	bottom: 0;
@@ -61,12 +71,14 @@
 }
 
 .artist {
+	margin: 0;
 	font-size: 0.8125rem;
 	font-weight: 400;
 	color: var(--color-text-muted);
 }
 
 .address {
+	margin: 0;
 	font-size: 0.8125rem;
 	color: var(--color-text-muted);
 }

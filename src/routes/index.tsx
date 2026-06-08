@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import bellsData from "../lib/bells/bells.data.json";
 import type { Bell } from "../lib/bells/types";
+import { BellPopupContent } from "./-components/BellPopupContent/BellPopupContent";
 import { BellsFilters } from "./-components/BellsFilters/BellsFilters";
 import { BellsList } from "./-components/BellsList/BellsList";
 import { BellsMap } from "./-components/BellsMap";
@@ -48,6 +49,28 @@ function BellsPage() {
 		highlightBellRef.current?.(id);
 	}, []);
 
+	const selectedBell = useMemo(
+		() =>
+			selectedBellId
+				? (filteredBells.find((bell) => bell.id === selectedBellId) ?? null)
+				: null,
+		[filteredBells, selectedBellId],
+	);
+
+	const handleBellSelect = useCallback(
+		(id: string) => {
+			setSelectedBellId(id);
+			if (isMobile) {
+				showList();
+			}
+		},
+		[isMobile, showList],
+	);
+
+	const selectedBellPanel = selectedBell ? (
+		<BellPopupContent bell={selectedBell} variant="sidebar" />
+	) : null;
+
 	const showMobileMap = isMobile && mobileView === "map";
 	const showMobileList = isMobile && mobileView === "list";
 	const showDesktopMap = !isMobile;
@@ -86,19 +109,25 @@ function BellsPage() {
 					isMobile={isMobile}
 					highlightRef={highlightBellRef}
 					selectedBellId={selectedBellId}
+					onBellSelect={handleBellSelect}
 				/>
 			</div>
 
 			{showMobileList ? (
 				<section className={styles.mobileListLayer}>
 					<div className={styles.panelStack}>
+						{selectedBellPanel ? (
+							<div className={styles.selectedBellSection}>
+								{selectedBellPanel}
+							</div>
+						) : null}
 						{filtersPanel}
 						<BellsList
 							bells={filteredBells}
 							className={styles.mobileList}
 							emptyMessage={listEmptyMessage}
 							onBellHover={handleBellHover}
-							onBellSelect={setSelectedBellId}
+							onBellSelect={handleBellSelect}
 						/>
 					</div>
 				</section>
@@ -109,6 +138,7 @@ function BellsPage() {
 					isOpen={sidebarOpen}
 					onClose={closeSidebar}
 					onOpen={openSidebar}
+					selectedContent={selectedBellPanel}
 				>
 					<div className={styles.panelStack}>
 						{filtersPanel}
@@ -117,7 +147,7 @@ function BellsPage() {
 							className={styles.sidebarList}
 							emptyMessage={listEmptyMessage}
 							onBellHover={handleBellHover}
-							onBellSelect={setSelectedBellId}
+							onBellSelect={handleBellSelect}
 						/>
 					</div>
 				</FloatingSidebar>

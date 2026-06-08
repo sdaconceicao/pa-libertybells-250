@@ -5,6 +5,7 @@ import styles from "./BellPopupContent.module.css";
 
 type Props = {
 	bell: Bell;
+	variant?: "popup" | "sidebar";
 };
 
 function PlacementIcon({ placement }: { placement: BellPlacement }) {
@@ -24,30 +25,29 @@ function PlacementIcon({ placement }: { placement: BellPlacement }) {
 	);
 }
 
-export function BellPopupContent({ bell }: Props) {
+export function BellPopupContent({ bell, variant = "popup" }: Props) {
+	const rootClassName = [
+		styles.popup,
+		variant === "sidebar" ? styles.popupSidebar : "",
+	]
+		.filter(Boolean)
+		.join(" ");
+
 	return (
-		<div className={styles.popup} data-testid="bell-popup">
+		<div className={rootClassName} data-testid="bell-popup">
 			<div className={styles.header}>
 				{bell.imageUrl ? (
-					<img
-						src={bell.imageUrl}
-						alt=""
-						className={styles.headerImage}
-					/>
+					<img src={bell.imageUrl} alt="" className={styles.headerImage} />
 				) : (
 					<div className={styles.headerPlaceholder} aria-hidden="true" />
 				)}
-				{bell.placement ? (
-					<div className={styles.placementBar}>
-						<PlacementIcon placement={bell.placement} />
-					</div>
-				) : null}
+				<div className={styles.metaBar}>
+					{bell.placement ? <PlacementIcon placement={bell.placement} /> : null}
+				</div>
 			</div>
 			<div className={styles.body}>
 				<h3 className={styles.title}>{bell.title}</h3>
-				{bell.artist ? (
-					<p className={styles.artist}>by {bell.artist}</p>
-				) : null}
+				{bell.artist ? <p className={styles.artist}>by {bell.artist}</p> : null}
 				<p className={styles.address}>
 					{buildAddressLines(bell.address).map((line) => (
 						<span key={line} className={styles.addressLine}>

@@ -10,6 +10,7 @@ type Props = {
 	isMobile: boolean;
 	highlightRef: RefObject<((id: string | null) => void) | null>;
 	selectedBellId?: string | null;
+	onBellSelect?: (id: string) => void;
 };
 
 export function BellsMap({
@@ -18,6 +19,7 @@ export function BellsMap({
 	isMobile,
 	highlightRef,
 	selectedBellId,
+	onBellSelect,
 }: Props) {
 	return (
 		<ClientOnly fallback={<MapLoading />}>
@@ -27,6 +29,7 @@ export function BellsMap({
 				isMobile={isMobile}
 				highlightRef={highlightRef}
 				selectedBellId={selectedBellId}
+				onBellSelect={onBellSelect}
 			/>
 		</ClientOnly>
 	);
