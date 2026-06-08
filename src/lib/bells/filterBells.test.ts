@@ -13,7 +13,7 @@ function makeBell(
 ): Bell {
 	return {
 		title: "Test Bell",
-		currentAddress: "123 Main St",
+		address: { street: "123 Main St", city: "York", zip: "17401" },
 		sourceSlug: "test",
 		lat: 40,
 		lng: -77,

@@ -1,38 +1,61 @@
-import type { Bell } from "../../../lib/bells/types";
+import { Building2, Trees } from "lucide-react";
+import { buildAddressLines } from "../../../lib/bells/bellAddress";
+import type { Bell, BellPlacement } from "../../../lib/bells/types";
 import styles from "./BellPopupContent.module.css";
 
 type Props = {
 	bell: Bell;
 };
 
+function PlacementIcon({ placement }: { placement: BellPlacement }) {
+	const isIndoors = placement === "indoors";
+	const Icon = isIndoors ? Building2 : Trees;
+	const label = isIndoors ? "Indoor" : "Outdoor";
+
+	return (
+		<span
+			className={styles.placementIcon}
+			role="img"
+			title={label}
+			aria-label={label}
+		>
+			<Icon size={16} aria-hidden="true" />
+		</span>
+	);
+}
+
 export function BellPopupContent({ bell }: Props) {
 	return (
-		<div className={styles.popup}>
-			<h3 className={styles.popupTitle}>
-				{bell.title}{" "}
-				<span className={styles.popupCounty}>({bell.county} County)</span>
-			</h3>
-			{bell.artist ? (
-				<p className={styles.popupMeta}>Artist: {bell.artist}</p>
-			) : null}
-			<p className={styles.popupMeta}>
-				Current location: {bell.currentAddress}
-			</p>
-			{bell.localityLabel ? (
-				<p className={styles.popupLocality}>Locality: {bell.localityLabel}</p>
-			) : null}
-			{bell.geocodeQuality === "approximate" ? (
-				<p className={styles.popupWarning}>
-					Approximate map location ({bell.geocodeSource})
+		<div className={styles.popup} data-testid="bell-popup">
+			<div className={styles.header}>
+				{bell.imageUrl ? (
+					<img
+						src={bell.imageUrl}
+						alt=""
+						className={styles.headerImage}
+					/>
+				) : (
+					<div className={styles.headerPlaceholder} aria-hidden="true" />
+				)}
+				{bell.placement ? (
+					<div className={styles.placementBar}>
+						<PlacementIcon placement={bell.placement} />
+					</div>
+				) : null}
+			</div>
+			<div className={styles.body}>
+				<h3 className={styles.title}>{bell.title}</h3>
+				{bell.artist ? (
+					<p className={styles.artist}>by {bell.artist}</p>
+				) : null}
+				<p className={styles.address}>
+					{buildAddressLines(bell.address).map((line) => (
+						<span key={line} className={styles.addressLine}>
+							{line}
+						</span>
+					))}
 				</p>
-			) : null}
-			{bell.imageUrl ? (
-				<img
-					src={bell.imageUrl}
-					alt={bell.title}
-					className={styles.popupImage}
-				/>
-			) : null}
+			</div>
 		</div>
 	);
 }

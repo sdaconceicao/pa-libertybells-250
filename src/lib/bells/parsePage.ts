@@ -1,4 +1,5 @@
 import * as cheerio from "cheerio";
+import { addressFromRaw } from "./bellAddress";
 import { parseBellPlacement } from "./parsePlacement";
 import type { RawBell } from "./types";
 
@@ -64,18 +65,24 @@ export function parseBells(html: string): RawBell[] {
 
 		if (!county || !title) return;
 
-		const address = currentAddress || unveilingAddress || "";
-		if (!address) return;
+		const locationRaw = currentAddress || unveilingAddress || "";
+		if (!locationRaw) return;
 
 		const id = slugify(county, title);
 		const placement = parseBellPlacement(footnotes);
+		const address = addressFromRaw(locationRaw);
+		const parsedUnveilingAddress =
+			unveilingAddress && unveilingAddress !== currentAddress
+				? addressFromRaw(unveilingAddress)
+				: undefined;
+
 		bells.push({
 			id,
 			county,
 			title,
 			artist,
-			currentAddress: address,
-			unveilingAddress,
+			address,
+			unveilingAddress: parsedUnveilingAddress,
 			imageUrl,
 			...(placement ? { placement } : {}),
 			sponsor,

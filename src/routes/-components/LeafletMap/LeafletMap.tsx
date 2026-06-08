@@ -199,7 +199,7 @@ export function LeafletMap({
 								}
 							}}
 						>
-							<Popup>
+							<Popup className={styles.bellPopup}>
 								<BellPopupContent bell={bell} />
 							</Popup>
 						</Marker>

@@ -3,10 +3,15 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import "dotenv/config";
 
+import {
+	buildAddressString,
+	buildGeocodeQuery,
+	buildLocalityLabel,
+} from "./bellAddress";
 import { getCountyCentroid } from "./countyCentroids";
-import { parseBellAddress } from "./parseAddress";
 import { geocodeWithOpenCage } from "./providers/opencage";
 import type {
+	BellAddress,
 	GeocodeQuality,
 	GeocodeSource,
 	GeocodedBell,
@@ -150,11 +155,12 @@ async function geocodeWithNominatim(
 	};
 }
 
-async function geocodeParsedAddress(
-	geocodeQuery: string,
-	parsed: ReturnType<typeof parseBellAddress>,
+async function geocodeBellAddress(
+	address: BellAddress,
 	cache: CacheFile,
 ): Promise<GeocodeAttempt | null> {
+	const geocodeQuery = buildGeocodeQuery(address);
+	const localityLabel = buildLocalityLabel(address);
 	const cacheKey = normalizeCacheKey(geocodeQuery);
 	const cached = cache[cacheKey];
 	if (cached) return cached;
@@ -167,7 +173,7 @@ async function geocodeParsedAddress(
 				lng: openCage.lng,
 				source: "opencage",
 				quality: "exact",
-				localityLabel: openCage.localityLabel ?? parsed.localityLabel,
+				localityLabel: openCage.localityLabel ?? localityLabel,
 			};
 			cache[cacheKey] = entry;
 			await writeCache(cache);
@@ -177,19 +183,19 @@ async function geocodeParsedAddress(
 
 	const census = await geocodeWithCensus(geocodeQuery);
 	if (census) {
-		census.localityLabel = parsed.localityLabel;
+		census.localityLabel = localityLabel;
 		cache[cacheKey] = census;
 		await writeCache(cache);
 		return census;
 	}
 
 	const nominatim = await geocodeWithNominatim(
-		parsed.street,
-		parsed.city,
-		parsed.zip,
+		address.street,
+		address.city,
+		address.zip,
 	);
 	if (nominatim) {
-		nominatim.localityLabel = parsed.localityLabel;
+		nominatim.localityLabel = localityLabel;
 		cache[cacheKey] = nominatim;
 		await writeCache(cache);
 		return nominatim;
@@ -220,7 +226,7 @@ export async function geocodeBellAddresses(
 	};
 
 	for (const bell of rawBells) {
-		const parsed = parseBellAddress(bell.currentAddress);
+		const localityLabel = buildLocalityLabel(bell.address);
 		let attempt: GeocodeAttempt | null = null;
 
 		const override = overrides[bell.id];
@@ -230,11 +236,11 @@ export async function geocodeBellAddresses(
 				lng: override.lng,
 				source: "override",
 				quality: "exact",
-				localityLabel: override.localityLabel ?? parsed.localityLabel,
+				localityLabel: override.localityLabel ?? localityLabel,
 			};
 			summary.overrides++;
 		} else {
-			attempt = await geocodeParsedAddress(parsed.geocodeQuery, parsed, cache);
+			attempt = await geocodeBellAddress(bell.address, cache);
 		}
 
 		if (!attempt) {
@@ -251,7 +257,7 @@ export async function geocodeBellAddresses(
 					"Using county centroid for bell",
 					bell.title,
 					"address",
-					bell.currentAddress,
+					buildAddressString(bell.address),
 				);
 			}
 		}
@@ -261,7 +267,7 @@ export async function geocodeBellAddresses(
 				"No coordinates for bell",
 				bell.title,
 				"address",
-				bell.currentAddress,
+				buildAddressString(bell.address),
 			);
 			continue;
 		}
@@ -277,7 +283,7 @@ export async function geocodeBellAddresses(
 			lng: attempt.lng,
 			geocodeQuality: attempt.quality,
 			geocodeSource: attempt.source,
-			localityLabel: attempt.localityLabel ?? parsed.localityLabel,
+			localityLabel: attempt.localityLabel ?? localityLabel,
 		});
 	}
 
