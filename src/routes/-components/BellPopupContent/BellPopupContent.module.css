@@ -13,12 +13,6 @@
 	width: 100%;
 }
 
-.popupSidebar .header,
-.popupSidebar .headerImage,
-.popupSidebar .headerPlaceholder {
-	border-radius: 0;
-}
-
 .header {
 	position: relative;
 	width: 100%;
@@ -36,6 +30,12 @@
 	width: 100%;
 	height: 100%;
 	background: color-mix(in oklab, var(--color-border) 60%, transparent 40%);
+}
+
+.popupSidebar .header,
+.popupSidebar .headerImage,
+.popupSidebar .headerPlaceholder {
+	border-radius: 0;
 }
 
 .metaBar {
