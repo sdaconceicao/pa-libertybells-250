@@ -44,34 +44,46 @@ describe("useBellMarkerHandlers", () => {
 			result.current.setMarkerHighlight("a");
 		});
 
-		expect(markerA.getElement()?.classList.contains(markerStyles.bellMarkerHighlighted)).toBe(
-			true,
-		);
-		expect(markerB.getElement()?.classList.contains(markerStyles.bellMarkerHighlighted)).toBe(
-			false,
-		);
+		expect(
+			markerA
+				.getElement()
+				?.classList.contains(markerStyles.bellMarkerHighlighted),
+		).toBe(true);
+		expect(
+			markerB
+				.getElement()
+				?.classList.contains(markerStyles.bellMarkerHighlighted),
+		).toBe(false);
 
 		act(() => {
 			result.current.setMarkerHighlight("b");
 		});
 
-		expect(markerA.getElement()?.classList.contains(markerStyles.bellMarkerHighlighted)).toBe(
-			false,
-		);
-		expect(markerB.getElement()?.classList.contains(markerStyles.bellMarkerHighlighted)).toBe(
-			true,
-		);
+		expect(
+			markerA
+				.getElement()
+				?.classList.contains(markerStyles.bellMarkerHighlighted),
+		).toBe(false);
+		expect(
+			markerB
+				.getElement()
+				?.classList.contains(markerStyles.bellMarkerHighlighted),
+		).toBe(true);
 
 		act(() => {
 			result.current.setMarkerHighlight(null);
 		});
 
-		expect(markerA.getElement()?.classList.contains(markerStyles.bellMarkerHighlighted)).toBe(
-			false,
-		);
-		expect(markerB.getElement()?.classList.contains(markerStyles.bellMarkerHighlighted)).toBe(
-			false,
-		);
+		expect(
+			markerA
+				.getElement()
+				?.classList.contains(markerStyles.bellMarkerHighlighted),
+		).toBe(false);
+		expect(
+			markerB
+				.getElement()
+				?.classList.contains(markerStyles.bellMarkerHighlighted),
+		).toBe(false);
 	});
 
 	it("wires highlightRef to setMarkerHighlight and clears on unmount", () => {
@@ -100,8 +112,10 @@ describe("useBellMarkerHandlers", () => {
 			highlightRef.current?.("a");
 		});
 
-		expect(marker.getElement()?.classList.contains(markerStyles.bellMarkerHighlighted)).toBe(
-			true,
-		);
+		expect(
+			marker
+				.getElement()
+				?.classList.contains(markerStyles.bellMarkerHighlighted),
+		).toBe(true);
 	});
 });

@@ -10,9 +10,7 @@ import type { Bell } from "../../../../lib/bells/types";
 import { CLUSTER_DISABLE_ZOOM } from "../components/ClusterMarker/createMarkerClusterGroupOptions";
 import { useBellPopupHandlers } from "./useBellPopupHandlers";
 
-function makeBell(
-	overrides: Partial<Bell> & Pick<Bell, "id">,
-): Bell {
+function makeBell(overrides: Partial<Bell> & Pick<Bell, "id">): Bell {
 	return {
 		title: "Test Bell",
 		county: "York",
@@ -24,7 +22,9 @@ function makeBell(
 	};
 }
 
-function makeMouseOutEvent(relatedTarget: EventTarget | null): LeafletMouseEvent {
+function makeMouseOutEvent(
+	relatedTarget: EventTarget | null,
+): LeafletMouseEvent {
 	return {
 		originalEvent: { relatedTarget } as MouseEvent,
 	} as LeafletMouseEvent;
@@ -177,10 +177,7 @@ describe("useBellPopupHandlers", () => {
 		markerRefs.current.set("a", marker);
 
 		act(() => {
-			result.current.handlePopupMouseOut(
-				"a",
-				makeMouseOutEvent(document.body),
-			);
+			result.current.handlePopupMouseOut("a", makeMouseOutEvent(document.body));
 		});
 
 		expect(closePopup).toHaveBeenCalledTimes(1);
@@ -243,7 +240,10 @@ describe("useBellPopupHandlers", () => {
 			mapReady: true,
 		});
 
-		expect(flyTo).toHaveBeenCalledWith([bell.lat, bell.lng], CLUSTER_DISABLE_ZOOM);
+		expect(flyTo).toHaveBeenCalledWith(
+			[bell.lat, bell.lng],
+			CLUSTER_DISABLE_ZOOM,
+		);
 
 		const onMoveEnd = once.mock.calls[0]?.[1] as () => void;
 		act(() => {

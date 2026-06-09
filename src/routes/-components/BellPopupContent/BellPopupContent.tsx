@@ -27,11 +27,7 @@ function PlacementIcon({ placement }: { placement: BellPlacement }) {
 	);
 }
 
-export function BellPopupContent({
-	bell,
-	variant = "popup",
-	onClose,
-}: Props) {
+export function BellPopupContent({ bell, variant = "popup", onClose }: Props) {
 	const rootClassName = [
 		styles.popup,
 		variant === "sidebar" ? styles.popupSidebar : "",
