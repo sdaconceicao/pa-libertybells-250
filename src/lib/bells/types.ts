@@ -1,12 +1,19 @@
 export type BellPlacement = "indoors" | "outdoors";
 
+export type BellAddress = {
+	venueName?: string;
+	street?: string;
+	city?: string;
+	zip?: string;
+};
+
 export type RawBell = {
 	id: string;
 	county: string;
 	title: string;
 	artist?: string;
-	currentAddress: string;
-	unveilingAddress?: string;
+	address: BellAddress;
+	unveilingAddress?: BellAddress;
 	imageUrl?: string;
 	/** Parsed from page footnotes; undefined when missing or unrecognized */
 	placement?: BellPlacement;

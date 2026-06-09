@@ -6,10 +6,17 @@ type Props = {
 	isOpen: boolean;
 	onClose: () => void;
 	onOpen: () => void;
+	selectedContent?: ReactNode;
 	children: ReactNode;
 };
 
-export function FloatingSidebar({ isOpen, onClose, onOpen, children }: Props) {
+export function FloatingSidebar({
+	isOpen,
+	onClose,
+	onOpen,
+	selectedContent,
+	children,
+}: Props) {
 	const sidebarClassName = [
 		styles.sidebar,
 		isOpen ? styles.sidebarOpen : styles.sidebarClosed,
@@ -22,6 +29,9 @@ export function FloatingSidebar({ isOpen, onClose, onOpen, children }: Props) {
 			<div className={styles.sidebarHeader}>
 				<h2 className={styles.sidebarTitle}>Bells Across PA</h2>
 			</div>
+			{selectedContent ? (
+				<div className={styles.selectedSection}>{selectedContent}</div>
+			) : null}
 			<div className={styles.sidebarBody}>{children}</div>
 			<button
 				type="button"

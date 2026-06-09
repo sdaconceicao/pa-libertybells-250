@@ -32,6 +32,7 @@ type Props = {
 	isMobile: boolean;
 	highlightRef: RefObject<((id: string | null) => void) | null>;
 	selectedBellId?: string | null;
+	onBellSelect?: (id: string) => void;
 };
 
 export function LeafletMap({
@@ -40,6 +41,7 @@ export function LeafletMap({
 	isMobile,
 	highlightRef,
 	selectedBellId,
+	onBellSelect,
 }: Props) {
 	const [leaflet, setLeaflet] = useState<ReactLeafletModule | null>(null);
 	const [markerClusterGroup, setMarkerClusterGroup] =
@@ -49,6 +51,7 @@ export function LeafletMap({
 	const mapRef = useRef<LeafletMapInstance>(null);
 	const shellRef = useRef<HTMLDivElement>(null);
 	const markerRefs = useRef<Map<string, LeafletMarker>>(new Map());
+	const showMapPopup = !isMobile && !sidebarOpen;
 
 	useEffect(() => {
 		let mounted = true;
@@ -135,13 +138,20 @@ export function LeafletMap({
 		map.flyTo([bell.lat, bell.lng], CLUSTER_DISABLE_ZOOM);
 
 		const onMoveEnd = () => {
-			markerRefs.current.get(selectedBellId)?.openPopup();
+			if (showMapPopup) {
+				markerRefs.current.get(selectedBellId)?.openPopup();
+			}
 		};
 		map.once("moveend", onMoveEnd);
 		return () => {
 			map.off("moveend", onMoveEnd);
 		};
-	}, [selectedBellId, bells, mapReady]);
+	}, [selectedBellId, bells, mapReady, showMapPopup]);
+
+	useEffect(() => {
+		if (!sidebarOpen || isMobile || !mapReady) return;
+		mapRef.current?.closePopup();
+	}, [sidebarOpen, isMobile, mapReady]);
 
 	const bellMarkerIcon = useMemo(
 		() => (L ? createBellMarkerIcon(L) : null),
@@ -191,6 +201,9 @@ export function LeafletMap({
 							key={bell.id}
 							position={[bell.lat, bell.lng]}
 							icon={bellMarkerIcon}
+							eventHandlers={{
+								click: () => onBellSelect?.(bell.id),
+							}}
 							ref={(instance) => {
 								if (instance) {
 									markerRefs.current.set(bell.id, instance as LeafletMarker);
@@ -199,9 +212,11 @@ export function LeafletMap({
 								}
 							}}
 						>
-							<Popup>
-								<BellPopupContent bell={bell} />
-							</Popup>
+							{showMapPopup ? (
+								<Popup className={styles.bellPopup}>
+									<BellPopupContent bell={bell} />
+								</Popup>
+							) : null}
 						</Marker>
 					))}
 				</MarkerClusterGroup>

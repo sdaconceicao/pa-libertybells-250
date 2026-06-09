@@ -43,6 +43,12 @@
 	color: var(--color-text);
 }
 
+.selectedSection {
+	flex-shrink: 0;
+	overflow: hidden;
+	border-bottom: 1px solid var(--color-border);
+}
+
 .sidebarBody {
 	flex: 1;
 	min-height: 0;

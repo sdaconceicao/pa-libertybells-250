@@ -43,6 +43,12 @@
 	overflow: hidden;
 }
 
+.selectedBellSection {
+	flex-shrink: 0;
+	overflow: hidden;
+	border-bottom: 1px solid var(--color-border);
+}
+
 .mobileList {
 	flex: 1;
 	min-height: 0;
