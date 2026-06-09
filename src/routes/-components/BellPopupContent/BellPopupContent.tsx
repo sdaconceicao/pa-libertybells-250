@@ -1,4 +1,5 @@
 import { Building2, Trees } from "lucide-react";
+import { Image } from "../../../components/Image/Image";
 import { buildAddressLines } from "../../../lib/bells/bellAddress";
 import type { Bell, BellPlacement } from "../../../lib/bells/types";
 import styles from "./BellPopupContent.module.css";
@@ -36,11 +37,12 @@ export function BellPopupContent({ bell, variant = "popup" }: Props) {
 	return (
 		<div className={rootClassName} data-testid="bell-popup">
 			<div className={styles.header}>
-				{bell.imageUrl ? (
-					<img src={bell.imageUrl} alt="" className={styles.headerImage} />
-				) : (
-					<div className={styles.headerPlaceholder} aria-hidden="true" />
-				)}
+				<Image
+					src={bell.imageUrl}
+					alt=""
+					imageClassName={styles.headerImage}
+					placeholderClassName={styles.headerPlaceholder}
+				/>
 				<div className={styles.metaBar}>
 					{bell.placement ? <PlacementIcon placement={bell.placement} /> : null}
 				</div>

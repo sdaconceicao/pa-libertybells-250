@@ -1,3 +1,5 @@
+import { Image } from "../../../components/Image/Image";
+import { getBellThumbnailUrl } from "../../../lib/bells/bellImageUrls";
 import type { Bell } from "../../../lib/bells/types";
 import styles from "./BellContent.module.css";
 
@@ -8,6 +10,8 @@ type Props = {
 };
 
 export function BellContent({ bell, onHover, onSelect }: Props) {
+	const thumbnailUrl = getBellThumbnailUrl(bell.imageUrl);
+
 	return (
 		<button
 			type="button"
@@ -17,15 +21,16 @@ export function BellContent({ bell, onHover, onSelect }: Props) {
 			onClick={() => onSelect?.(bell.id)}
 		>
 			<div className={styles.thumbnail}>
-				{bell.imageUrl ? (
-					<img
-						src={bell.imageUrl}
-						alt={bell.title}
-						className={styles.thumbnailImg}
-					/>
-				) : (
-					<div className={styles.thumbnailPlaceholder} />
-				)}
+				<Image
+					src={thumbnailUrl}
+					alt={bell.title}
+					imageClassName={styles.thumbnailImg}
+					placeholderClassName={styles.thumbnailPlaceholder}
+					width={80}
+					height={80}
+					loading="lazy"
+					decoding="async"
+				/>
 			</div>
 			<div className={styles.info}>
 				<p className={styles.title}>{bell.title}</p>
