@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import { nitro } from "nitro/vite";
 import { devtools } from "@tanstack/devtools-vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
@@ -11,6 +12,7 @@ const config = defineConfig({
 		devtools(),
 		tsconfigPaths({ projects: ["./tsconfig.json"] }),
 		tanstackStart(),
+		nitro(),
 		viteReact(),
 	],
 	test: {
