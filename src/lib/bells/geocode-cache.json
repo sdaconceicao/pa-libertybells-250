@@ -621,5 +621,40 @@
 		"source": "opencage",
 		"quality": "exact",
 		"localityLabel": "Philadelphia, PA"
+	},
+	"1122 oak st., pittston township, pa 18640": {
+		"lat": 41.3078937,
+		"lng": -75.7697399,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Pittston Township, PA"
+	},
+	"1538 belmont ave., philadelphia, pa 19131": {
+		"lat": 39.9770388,
+		"lng": -75.2133658,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Philadelphia, PA"
+	},
+	"861 east allegheny ave., philadelphia, pa 19134": {
+		"lat": 39.9967894,
+		"lng": -75.1134847,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Philadelphia, PA"
+	},
+	"3455 kensington ave., philadelphia, pa 19134": {
+		"lat": 40.0002995,
+		"lng": -75.1063641,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Philadelphia, PA"
+	},
+	"1415 n. broad st., philadelphia, pa 19122": {
+		"lat": 39.9747526,
+		"lng": -75.158623,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Philadelphia, PA"
 	}
 }

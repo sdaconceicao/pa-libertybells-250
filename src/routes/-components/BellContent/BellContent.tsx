@@ -1,3 +1,4 @@
+import { Image } from "../../../components/Image/Image";
 import type { Bell } from "../../../lib/bells/types";
 import styles from "./BellContent.module.css";
 
@@ -17,15 +18,14 @@ export function BellContent({ bell, onHover, onSelect }: Props) {
 			onClick={() => onSelect?.(bell.id)}
 		>
 			<div className={styles.thumbnail}>
-				{bell.imageUrl ? (
-					<img
-						src={bell.imageUrl}
-						alt={bell.title}
-						className={styles.thumbnailImg}
-					/>
-				) : (
-					<div className={styles.thumbnailPlaceholder} />
-				)}
+				<Image
+					src={bell.imageUrl}
+					alt={bell.title}
+					imageClassName={styles.thumbnailImg}
+					placeholderClassName={styles.thumbnailPlaceholder}
+					loading="lazy"
+					decoding="async"
+				/>
 			</div>
 			<div className={styles.info}>
 				<p className={styles.title}>{bell.title}</p>
