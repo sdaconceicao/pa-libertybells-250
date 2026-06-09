@@ -23,12 +23,18 @@ describe("Image", () => {
 	});
 
 	it("hides the loading placeholder after the image loads", () => {
-		render(<Image src="/images/test.png" alt="Test image" />);
+		const { container } = render(
+			<Image src="/images/test.png" alt="Test image" />,
+		);
 
 		const image = screen.getByRole("img", { name: "Test image" });
 		fireEvent.load(image);
 
-		expect(screen.queryByTestId("image-placeholder")).toBeNull();
+		const placeholder = container.querySelector(
+			'[data-testid="image-placeholder"]',
+		);
+		expect(placeholder).toBeTruthy();
+		expect(placeholder?.className).toContain("placeholderHidden");
 	});
 
 	it("shows a static placeholder when the image fails to load", () => {

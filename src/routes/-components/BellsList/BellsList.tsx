@@ -1,4 +1,5 @@
 import { useVirtualizer } from "@tanstack/react-virtual";
+import { ClientOnly } from "@tanstack/react-router";
 import { useCallback, useRef } from "react";
 import type { Bell } from "../../../lib/bells/types";
 import { BellContent } from "../BellContent/BellContent";
@@ -16,7 +17,40 @@ type Props = {
 	onBellSelect?: (bellId: string) => void;
 };
 
-export function BellsList({
+function BellsListStatic({
+	bells,
+	className,
+	emptyMessage = "No bells are loaded yet.",
+	onBellHover,
+	onBellSelect,
+}: Props) {
+	const asideClassName = [styles.bellsList, className]
+		.filter(Boolean)
+		.join(" ");
+
+	if (bells.length === 0) {
+		return (
+			<aside className={asideClassName}>
+				<p className={styles.emptyMessage}>{emptyMessage}</p>
+			</aside>
+		);
+	}
+
+	return (
+		<aside className={asideClassName}>
+			{bells.map((bell) => (
+				<BellContent
+					key={bell.id}
+					bell={bell}
+					onHover={onBellHover}
+					onSelect={onBellSelect}
+				/>
+			))}
+		</aside>
+	);
+}
+
+function BellsListVirtualized({
 	bells,
 	className,
 	emptyMessage = "No bells are loaded yet.",
@@ -58,10 +92,11 @@ export function BellsList({
 					return (
 						<div
 							key={bell.id}
-							ref={rowVirtualizer.measureElement}
-							data-index={virtualRow.index}
 							className={styles.virtualRow}
-							style={{ transform: `translateY(${virtualRow.start}px)` }}
+							style={{
+								height: ROW_ESTIMATE_HEIGHT,
+								transform: `translateY(${virtualRow.start}px)`,
+							}}
 						>
 							<BellContent
 								bell={bell}
@@ -73,5 +108,13 @@ export function BellsList({
 				})}
 			</div>
 		</aside>
+	);
+}
+
+export function BellsList(props: Props) {
+	return (
+		<ClientOnly fallback={<BellsListStatic {...props} />}>
+			<BellsListVirtualized {...props} />
+		</ClientOnly>
 	);
 }

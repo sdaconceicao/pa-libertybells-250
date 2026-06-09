@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import styles from "./Image.module.css";
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
 	decoding?: "async" | "auto" | "sync";
 };
 
-export function Image({
+function ImageInner({
 	src,
 	alt,
 	className,
@@ -23,28 +23,22 @@ export function Image({
 	height,
 	loading = "lazy",
 	decoding = "async",
-}: Props) {
+}: Props & { src: string }) {
 	const [loaded, setLoaded] = useState(false);
 	const [error, setError] = useState(false);
 	const imgRef = useRef<HTMLImageElement>(null);
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: reset and recheck cache when src changes
-	useEffect(() => {
-		setLoaded(false);
-		setError(false);
-
+	useLayoutEffect(() => {
 		const img = imgRef.current;
 		if (img?.complete && img.naturalWidth > 0) {
 			setLoaded(true);
 		}
-	}, [src]);
-
-	const showImage = Boolean(src) && !error;
-	const showPlaceholder = !showImage || !loaded;
+	}, []);
 
 	const placeholderClassNameCombined = [
 		styles.placeholder,
-		showImage && !loaded ? styles.placeholderLoading : "",
+		!error && !loaded ? styles.placeholderLoading : "",
+		loaded ? styles.placeholderHidden : "",
 		placeholderClassName,
 	]
 		.filter(Boolean)
@@ -63,14 +57,12 @@ export function Image({
 
 	return (
 		<div className={wrapperClassName}>
-			{showPlaceholder ? (
-				<div
-					className={placeholderClassNameCombined}
-					aria-hidden="true"
-					data-testid="image-placeholder"
-				/>
-			) : null}
-			{showImage ? (
+			<div
+				className={placeholderClassNameCombined}
+				aria-hidden="true"
+				data-testid="image-placeholder"
+			/>
+			{!error ? (
 				<img
 					ref={imgRef}
 					src={src}
@@ -86,4 +78,30 @@ export function Image({
 			) : null}
 		</div>
 	);
+}
+
+export function Image({ src, ...props }: Props) {
+	if (!src) {
+		const placeholderClassNameCombined = [
+			styles.placeholder,
+			props.placeholderClassName,
+		]
+			.filter(Boolean)
+			.join(" ");
+		const wrapperClassName = [styles.wrapper, props.className]
+			.filter(Boolean)
+			.join(" ");
+
+		return (
+			<div className={wrapperClassName}>
+				<div
+					className={placeholderClassNameCombined}
+					aria-hidden="true"
+					data-testid="image-placeholder"
+				/>
+			</div>
+		);
+	}
+
+	return <ImageInner key={src} src={src} {...props} />;
 }

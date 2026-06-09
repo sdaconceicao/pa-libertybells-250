@@ -11,6 +11,11 @@
 	background: color-mix(in oklab, var(--color-border) 60%, transparent 40%);
 }
 
+.placeholderHidden {
+	opacity: 0;
+	pointer-events: none;
+}
+
 .placeholderLoading {
 	background: linear-gradient(
 		90deg,
