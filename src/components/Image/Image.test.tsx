@@ -30,11 +30,7 @@ describe("Image", () => {
 		const image = screen.getByRole("img", { name: "Test image" });
 		fireEvent.load(image);
 
-		const placeholder = container.querySelector(
-			'[data-testid="image-placeholder"]',
-		);
-		expect(placeholder).toBeTruthy();
-		expect(placeholder?.className).toContain("placeholderHidden");
+		expect(container.querySelector('[class*="wrapperLoaded"]')).toBeTruthy();
 	});
 
 	it("shows a static placeholder when the image fails to load", () => {

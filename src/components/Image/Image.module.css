@@ -40,6 +40,12 @@
 	opacity: 1;
 }
 
+.wrapperLoaded .placeholder {
+	opacity: 0;
+	pointer-events: none;
+	animation: none;
+}
+
 @keyframes imageShimmer {
 	0% {
 		background-position: 100% 0;

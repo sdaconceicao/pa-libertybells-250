@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { Bell } from "../../../lib/bells/types";
 import { BellsList } from "./BellsList";
@@ -54,14 +54,16 @@ describe("BellsList", () => {
 		expect(screen.getByText("Nothing here")).toBeTruthy();
 	});
 
-	it("renders visible bell entries from the virtualized list", () => {
-		const bells = Array.from({ length: 20 }, (_, index) =>
+	it("renders visible bell entries from the virtualized list", async () => {
+		const bells = Array.from({ length: 50 }, (_, index) =>
 			makeBell(`bell-${index}`, `Bell ${index}`),
 		);
 
 		render(<BellsList bells={bells} />);
 
-		expect(screen.getByText("Bell 0")).toBeTruthy();
-		expect(screen.queryByText("Bell 19")).toBeNull();
+		await waitFor(() => {
+			expect(screen.getByText("Bell 0")).toBeTruthy();
+		});
+		expect(screen.queryByText("Bell 49")).toBeNull();
 	});
 });

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import type { SyntheticEvent } from "react";
 import styles from "./Image.module.css";
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
 	decoding?: "async" | "auto" | "sync";
 };
 
-function ImageInner({
+export function Image({
 	src,
 	alt,
 	className,
@@ -23,22 +23,10 @@ function ImageInner({
 	height,
 	loading = "lazy",
 	decoding = "async",
-}: Props & { src: string }) {
-	const [loaded, setLoaded] = useState(false);
-	const [error, setError] = useState(false);
-	const imgRef = useRef<HTMLImageElement>(null);
-
-	useLayoutEffect(() => {
-		const img = imgRef.current;
-		if (img?.complete && img.naturalWidth > 0) {
-			setLoaded(true);
-		}
-	}, []);
-
+}: Props) {
 	const placeholderClassNameCombined = [
 		styles.placeholder,
-		!error && !loaded ? styles.placeholderLoading : "",
-		loaded ? styles.placeholderHidden : "",
+		src ? styles.placeholderLoading : "",
 		placeholderClassName,
 	]
 		.filter(Boolean)
@@ -47,13 +35,24 @@ function ImageInner({
 	const wrapperClassName = [styles.wrapper, className]
 		.filter(Boolean)
 		.join(" ");
-	const imageClassNameCombined = [
-		styles.image,
-		loaded ? styles.imageLoaded : "",
-		imageClassName,
-	]
+	const imageClassNameCombined = [styles.image, imageClassName]
 		.filter(Boolean)
 		.join(" ");
+
+	const handleLoad = (event: SyntheticEvent<HTMLImageElement>) => {
+		event.currentTarget.classList.add(styles.imageLoaded);
+		event.currentTarget.parentElement?.classList.add(styles.wrapperLoaded);
+	};
+
+	const handleError = (event: SyntheticEvent<HTMLImageElement>) => {
+		const image = event.currentTarget;
+		const wrapper = image.parentElement;
+		image.remove();
+		wrapper?.classList.remove(styles.wrapperLoaded);
+		wrapper
+			?.querySelector('[data-testid="image-placeholder"]')
+			?.classList.remove(styles.placeholderLoading);
+	};
 
 	return (
 		<div className={wrapperClassName}>
@@ -62,9 +61,8 @@ function ImageInner({
 				aria-hidden="true"
 				data-testid="image-placeholder"
 			/>
-			{!error ? (
+			{src ? (
 				<img
-					ref={imgRef}
 					src={src}
 					alt={alt}
 					className={imageClassNameCombined}
@@ -72,36 +70,10 @@ function ImageInner({
 					height={height}
 					loading={loading}
 					decoding={decoding}
-					onLoad={() => setLoaded(true)}
-					onError={() => setError(true)}
+					onLoad={handleLoad}
+					onError={handleError}
 				/>
 			) : null}
 		</div>
 	);
-}
-
-export function Image({ src, ...props }: Props) {
-	if (!src) {
-		const placeholderClassNameCombined = [
-			styles.placeholder,
-			props.placeholderClassName,
-		]
-			.filter(Boolean)
-			.join(" ");
-		const wrapperClassName = [styles.wrapper, props.className]
-			.filter(Boolean)
-			.join(" ");
-
-		return (
-			<div className={wrapperClassName}>
-				<div
-					className={placeholderClassNameCombined}
-					aria-hidden="true"
-					data-testid="image-placeholder"
-				/>
-			</div>
-		);
-	}
-
-	return <ImageInner key={src} src={src} {...props} />;
 }
