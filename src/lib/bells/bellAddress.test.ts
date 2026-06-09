@@ -57,9 +57,7 @@ describe("buildAddressString", () => {
 				city: "Pittsburgh",
 				zip: "15222",
 			}),
-		).toBe(
-			"Heinz History Center, 1212 Smallman Street, Pittsburgh, PA 15222",
-		);
+		).toBe("Heinz History Center, 1212 Smallman Street, Pittsburgh, PA 15222");
 	});
 });
 

@@ -44,9 +44,7 @@ describe("BellPopupContent", () => {
 			/>,
 		);
 
-		expect(
-			screen.getByRole("heading", { name: "Liberty Bell" }),
-		).toBeTruthy();
+		expect(screen.getByRole("heading", { name: "Liberty Bell" })).toBeTruthy();
 		expect(screen.getByText("by Jane Doe")).toBeTruthy();
 		expect(screen.getByText("456 Market St")).toBeTruthy();
 		expect(screen.getByText("Harrisburg, PA 17101")).toBeTruthy();
@@ -63,9 +61,7 @@ describe("BellPopupContent", () => {
 			/>,
 		);
 
-		const image = container.querySelector(
-			'img[src="/bells/images/test.png"]',
-		);
+		const image = container.querySelector('img[src="/bells/images/test.png"]');
 		expect(image).toBeTruthy();
 		expect(image?.getAttribute("alt")).toBe("");
 	});
@@ -110,9 +106,7 @@ describe("BellPopupContent", () => {
 	});
 
 	it("hides placement bar when placement is unknown", () => {
-		render(
-			<BellPopupContent bell={makeBell({ id: "a", county: "York" })} />,
-		);
+		render(<BellPopupContent bell={makeBell({ id: "a", county: "York" })} />);
 
 		expect(screen.queryByLabelText("Indoor")).toBeNull();
 		expect(screen.queryByLabelText("Outdoor")).toBeNull();
@@ -137,17 +131,13 @@ describe("BellPopupContent", () => {
 	});
 
 	it("omits artist line when artist is absent", () => {
-		render(
-			<BellPopupContent bell={makeBell({ id: "a", county: "York" })} />,
-		);
+		render(<BellPopupContent bell={makeBell({ id: "a", county: "York" })} />);
 
 		expect(screen.queryByText(/^by /)).toBeNull();
 	});
 
 	it("applies popup test id", () => {
-		render(
-			<BellPopupContent bell={makeBell({ id: "a", county: "York" })} />,
-		);
+		render(<BellPopupContent bell={makeBell({ id: "a", county: "York" })} />);
 
 		expect(screen.getByTestId("bell-popup")).toBeTruthy();
 	});
@@ -160,8 +150,6 @@ describe("BellPopupContent", () => {
 			/>,
 		);
 
-		expect(
-			container.querySelector('[class*="popupSidebar"]'),
-		).toBeTruthy();
+		expect(container.querySelector('[class*="popupSidebar"]')).toBeTruthy();
 	});
 });

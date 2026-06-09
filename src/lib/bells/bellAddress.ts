@@ -11,7 +11,9 @@ export const addressFromRaw = (raw: string): BellAddress => {
 	};
 };
 
-export const buildLocalityLabel = (address: BellAddress): string | undefined => {
+export const buildLocalityLabel = (
+	address: BellAddress,
+): string | undefined => {
 	return address.city ? `${address.city}, PA` : undefined;
 };
 
