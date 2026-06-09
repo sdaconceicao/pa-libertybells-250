@@ -1,5 +1,5 @@
 import { cleanup, render, screen } from "@testing-library/react";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { Bell } from "../../../lib/bells/types";
 import { BellsList } from "./BellsList";
 
@@ -16,8 +16,36 @@ function makeBell(id: string, title: string): Bell {
 }
 
 describe("BellsList", () => {
+	beforeEach(() => {
+		Object.defineProperty(HTMLElement.prototype, "clientHeight", {
+			configurable: true,
+			value: 400,
+		});
+		Object.defineProperty(HTMLElement.prototype, "offsetHeight", {
+			configurable: true,
+			value: 400,
+		});
+		Object.defineProperty(HTMLElement.prototype, "scrollHeight", {
+			configurable: true,
+			value: 400,
+		});
+		Element.prototype.getBoundingClientRect = () =>
+			({
+				width: 300,
+				height: 400,
+				top: 0,
+				left: 0,
+				right: 300,
+				bottom: 400,
+				x: 0,
+				y: 0,
+				toJSON: () => ({}),
+			}) as DOMRect;
+	});
+
 	afterEach(() => {
 		cleanup();
+		vi.restoreAllMocks();
 	});
 
 	it("renders the empty message when there are no bells", () => {
@@ -26,15 +54,14 @@ describe("BellsList", () => {
 		expect(screen.getByText("Nothing here")).toBeTruthy();
 	});
 
-	it("renders bell entries", () => {
-		const bells = [
-			makeBell("bell-0", "Bell 0"),
-			makeBell("bell-1", "Bell 1"),
-		];
+	it("renders visible bell entries from the virtualized list", () => {
+		const bells = Array.from({ length: 20 }, (_, index) =>
+			makeBell(`bell-${index}`, `Bell ${index}`),
+		);
 
 		render(<BellsList bells={bells} />);
 
 		expect(screen.getByText("Bell 0")).toBeTruthy();
-		expect(screen.getByText("Bell 1")).toBeTruthy();
+		expect(screen.queryByText("Bell 19")).toBeNull();
 	});
 });
