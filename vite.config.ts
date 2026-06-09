@@ -12,7 +12,12 @@ const config = defineConfig({
 		devtools(),
 		tsconfigPaths({ projects: ["./tsconfig.json"] }),
 		tanstackStart(),
-		nitro(),
+		nitro({
+			preset: "vercel",
+			vercel: {
+				entryFormat: "node",
+			},
+		}),
 		viteReact(),
 	],
 	test: {

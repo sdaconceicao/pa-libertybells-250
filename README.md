@@ -40,7 +40,7 @@ Bell locations are stored in `src/lib/bells/bells.data.json`. To refresh that fi
 pnpm sync:bells
 ```
 
-The script fetches HTML, parses bell entries (including indoors/outdoors footnotes when they match known page options), geocodes addresses (with overrides in `src/lib/bells/geocode-overrides.json`), downloads bell images to `public/bells/images/`, generates 80×80 WebP thumbnails in `public/bells/images/thumbs/`, and writes the updated JSON.
+The script fetches HTML, parses bell entries (including indoors/outdoors footnotes when they match known page options), geocodes addresses (with overrides in `src/lib/bells/geocode-overrides.json`), downloads bell images to `public/bells/images/`, and writes the updated JSON.
 
 ## Tech stack
 
