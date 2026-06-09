@@ -8,11 +8,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { Bell } from "../../../lib/bells/types";
 import { MapLoading } from "../MapLoading/MapLoading";
 import { BellPopupContent } from "../BellPopupContent/BellPopupContent";
-import { createBellMarkerIcon } from "./Marker/createBellMarkerIcon";
-import {
-	createMarkerClusterGroupOptions,
-	CLUSTER_DISABLE_ZOOM,
-} from "./ClusterMarker/createMarkerClusterGroupOptions";
+import { useBellMarkerHandlers } from "./hooks/useBellMarkerHandlers";
+import { useBellPopupHandlers } from "./hooks/useBellPopupHandlers";
+import { createBellMarkerIcon } from "./components/Marker/createBellMarkerIcon";
+import { createMarkerClusterGroupOptions } from "./components/ClusterMarker/createMarkerClusterGroupOptions";
 import {
 	DEFAULT_MAP_CENTER,
 	DEFAULT_MAP_ZOOM,
@@ -20,7 +19,6 @@ import {
 } from "./utils/focusMapOnMarkers";
 import { getMapViewportPadding } from "./utils/mapViewportPadding";
 import styles from "./LeafletMap.module.css";
-import markerStyles from "./Marker/Marker.module.css";
 
 type ReactLeafletModule = typeof import("react-leaflet");
 type MarkerClusterGroupComponent =
@@ -50,8 +48,25 @@ export function LeafletMap({
 	const [mapReady, setMapReady] = useState(false);
 	const mapRef = useRef<LeafletMapInstance>(null);
 	const shellRef = useRef<HTMLDivElement>(null);
-	const markerRefs = useRef<Map<string, LeafletMarker>>(new Map());
-	const showMapPopup = !isMobile && !sidebarOpen;
+
+	const { markerRefs, setMarkerHighlight, registerMarkerRef } =
+		useBellMarkerHandlers(highlightRef);
+
+	const {
+		enableMapHoverPopup,
+		handleMarkerMouseOver,
+		handleMarkerMouseOut,
+		handlePopupMouseOut,
+	} = useBellPopupHandlers({
+		mapRef,
+		markerRefs,
+		setMarkerHighlight,
+		isMobile,
+		sidebarOpen,
+		selectedBellId,
+		bells,
+		mapReady,
+	});
 
 	useEffect(() => {
 		let mounted = true;
@@ -109,50 +124,6 @@ export function LeafletMap({
 		};
 	}, [L, mapReady, bells, sidebarOpen, isMobile]);
 
-	useEffect(() => {
-		highlightRef.current = (id) => {
-			markerRefs.current.forEach((marker) => {
-				marker
-					.getElement()
-					?.classList.remove(markerStyles.bellMarkerHighlighted);
-			});
-			if (id) {
-				markerRefs.current
-					.get(id)
-					?.getElement()
-					?.classList.add(markerStyles.bellMarkerHighlighted);
-			}
-		};
-		return () => {
-			highlightRef.current = null;
-		};
-	}, [highlightRef]);
-
-	useEffect(() => {
-		if (!selectedBellId || !mapReady) return;
-		const map = mapRef.current;
-		if (!map) return;
-		const bell = bells.find((b) => b.id === selectedBellId);
-		if (!bell) return;
-
-		map.flyTo([bell.lat, bell.lng], CLUSTER_DISABLE_ZOOM);
-
-		const onMoveEnd = () => {
-			if (showMapPopup) {
-				markerRefs.current.get(selectedBellId)?.openPopup();
-			}
-		};
-		map.once("moveend", onMoveEnd);
-		return () => {
-			map.off("moveend", onMoveEnd);
-		};
-	}, [selectedBellId, bells, mapReady, showMapPopup]);
-
-	useEffect(() => {
-		if (!sidebarOpen || isMobile || !mapReady) return;
-		mapRef.current?.closePopup();
-	}, [sidebarOpen, isMobile, mapReady]);
-
 	const bellMarkerIcon = useMemo(
 		() => (L ? createBellMarkerIcon(L) : null),
 		[L],
@@ -203,17 +174,20 @@ export function LeafletMap({
 							icon={bellMarkerIcon}
 							eventHandlers={{
 								click: () => onBellSelect?.(bell.id),
+								mouseover: () => handleMarkerMouseOver(bell.id),
+								mouseout: (event) => handleMarkerMouseOut(bell.id, event),
 							}}
 							ref={(instance) => {
-								if (instance) {
-									markerRefs.current.set(bell.id, instance as LeafletMarker);
-								} else {
-									markerRefs.current.delete(bell.id);
-								}
+								registerMarkerRef(bell.id, instance as LeafletMarker | null);
 							}}
 						>
-							{showMapPopup ? (
-								<Popup className={styles.bellPopup}>
+							{enableMapHoverPopup ? (
+								<Popup
+									className={styles.bellPopup}
+									eventHandlers={{
+										mouseout: (event) => handlePopupMouseOut(bell.id, event),
+									}}
+								>
 									<BellPopupContent bell={bell} />
 								</Popup>
 							) : null}

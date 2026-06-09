@@ -67,8 +67,16 @@ function BellsPage() {
 		[isMobile, showList],
 	);
 
+	const handleClearSelection = useCallback(() => {
+		setSelectedBellId(null);
+	}, []);
+
 	const selectedBellPanel = selectedBell ? (
-		<BellPopupContent bell={selectedBell} variant="sidebar" />
+		<BellPopupContent
+			bell={selectedBell}
+			variant="sidebar"
+			onClose={handleClearSelection}
+		/>
 	) : null;
 
 	const showMobileMap = isMobile && mobileView === "map";
