@@ -65,15 +65,15 @@ type HookParams = {
 function makeMockMapProjection(mapSize = { x: 1024, y: 768 }) {
 	return {
 		getSize: () => mapSize,
-		project: ([lat, lng]: [number, number]) => ({
+		project: ([lat, lng]: [number, number], _zoom?: number) => ({
 			x: lng * 1000,
 			y: lat * 1000,
 		}),
-		unproject: (point: { x: number; y: number }) => ({
-			lat: point.y / 1000,
-			lng: point.x / 1000,
+		unproject: (point: [number, number], _zoom?: number) => ({
+			lat: point[1] / 1000,
+			lng: point[0] / 1000,
 		}),
-	};
+	} as Pick<LeafletMapInstance, "project" | "unproject" | "getSize">;
 }
 
 function expectFlyToVisibleCenter(

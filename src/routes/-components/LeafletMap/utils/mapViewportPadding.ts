@@ -1,3 +1,5 @@
+import type { Map as LeafletMapInstance, PointExpression } from "leaflet";
+
 export type MapViewportPadding = {
 	top: number;
 	right: number;
@@ -77,18 +79,14 @@ export function getVisibleCenterContainerPoint(
 	return [mapSize.x / 2 + offsetX, mapSize.y / 2 + offsetY];
 }
 
-type MapProjection = {
-	project: (latlng: [number, number], zoom: number) => { x: number; y: number };
-	unproject: (
-		point: { x: number; y: number },
-		zoom: number,
-	) => { lat: number; lng: number };
-	getSize: () => { x: number; y: number };
-};
+type MapCenterProjection = Pick<
+	LeafletMapInstance,
+	"project" | "unproject" | "getSize"
+>;
 
 /** Map center that places `latLng` at the padded visible center at `zoom`. */
 export function getMapCenterForVisibleLatLng(
-	map: MapProjection,
+	map: MapCenterProjection,
 	latLng: [number, number],
 	zoom: number,
 	padding: MapViewportPadding,
@@ -99,10 +97,10 @@ export function getMapCenterForVisibleLatLng(
 	}
 
 	const targetPoint = map.project(latLng, zoom);
-	const centerPoint = {
-		x: targetPoint.x - offsetX,
-		y: targetPoint.y - offsetY,
-	};
+	const centerPoint: PointExpression = [
+		targetPoint.x - offsetX,
+		targetPoint.y - offsetY,
+	];
 	const centerLatLng = map.unproject(centerPoint, zoom);
 	return [centerLatLng.lat, centerLatLng.lng];
 }

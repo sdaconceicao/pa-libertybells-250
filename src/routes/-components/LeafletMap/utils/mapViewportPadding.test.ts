@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
+import type { Map as LeafletMapInstance } from "leaflet";
 import {
 	applyMapViewportPaddingOffset,
 	getFitBoundsPadding,
@@ -108,15 +109,15 @@ describe("getMapCenterForVisibleLatLng", () => {
 	const mapSize = { x: 1280, y: 800 };
 	const mockMap = {
 		getSize: () => mapSize,
-		project: ([lat, lng]: [number, number]) => ({
+		project: ([lat, lng]: [number, number], _zoom?: number) => ({
 			x: lng * 1000,
 			y: lat * 1000,
 		}),
-		unproject: (point: { x: number; y: number }) => ({
-			lat: point.y / 1000,
-			lng: point.x / 1000,
+		unproject: (point: [number, number], _zoom?: number) => ({
+			lat: point[1] / 1000,
+			lng: point[0] / 1000,
 		}),
-	};
+	} as Pick<LeafletMapInstance, "project" | "unproject" | "getSize">;
 
 	it("returns the target when padding is symmetric", () => {
 		const latLng: [number, number] = [40.5, -77.5];
