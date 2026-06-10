@@ -1,8 +1,10 @@
+import type { ReactNode } from "react";
 import styles from "./SegmentedControl.module.css";
 
 export type SegmentedOption<T extends string = string> = {
 	value: T;
 	label: string;
+	icon?: ReactNode;
 };
 
 type Props<T extends string> = {
@@ -37,7 +39,16 @@ export function SegmentedControl<T extends string>({
 						aria-selected={value === option.value}
 						onClick={() => onChange(option.value)}
 					>
-						{option.label}
+						{option.icon ? (
+							<span className={styles.buttonContent}>
+								<span className={styles.buttonIcon} aria-hidden="true">
+									{option.icon}
+								</span>
+								<span>{option.label}</span>
+							</span>
+						) : (
+							option.label
+						)}
 					</button>
 				))}
 			</div>

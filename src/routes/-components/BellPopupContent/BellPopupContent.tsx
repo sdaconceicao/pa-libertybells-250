@@ -1,4 +1,4 @@
-import { Building2, Trees } from "lucide-react";
+import { Building2, Trees, X } from "lucide-react";
 import { Image } from "../../../components/Image/Image";
 import { buildAddressLines } from "../../../lib/bells/bellAddress";
 import type { Bell, BellPlacement } from "../../../lib/bells/types";
@@ -7,6 +7,7 @@ import styles from "./BellPopupContent.module.css";
 type Props = {
 	bell: Bell;
 	variant?: "popup" | "sidebar";
+	onClose?: () => void;
 };
 
 function PlacementIcon({ placement }: { placement: BellPlacement }) {
@@ -26,7 +27,7 @@ function PlacementIcon({ placement }: { placement: BellPlacement }) {
 	);
 }
 
-export function BellPopupContent({ bell, variant = "popup" }: Props) {
+export function BellPopupContent({ bell, variant = "popup", onClose }: Props) {
 	const rootClassName = [
 		styles.popup,
 		variant === "sidebar" ? styles.popupSidebar : "",
@@ -37,6 +38,16 @@ export function BellPopupContent({ bell, variant = "popup" }: Props) {
 	return (
 		<div className={rootClassName} data-testid="bell-popup">
 			<div className={styles.header}>
+				{onClose ? (
+					<button
+						type="button"
+						className={styles.closeButton}
+						onClick={onClose}
+						aria-label="Close selected bell"
+					>
+						<X size={16} aria-hidden="true" />
+					</button>
+				) : null}
 				<Image
 					src={bell.imageUrl}
 					alt=""
