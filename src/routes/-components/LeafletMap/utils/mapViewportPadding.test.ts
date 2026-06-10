@@ -1,9 +1,12 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import {
+	applyMapViewportPaddingOffset,
 	getFitBoundsPadding,
+	getMapCenterForVisibleLatLng,
 	getMapCenterOffset,
 	getMapViewportPadding,
 	getSidebarWidthPx,
+	getVisibleCenterContainerPoint,
 } from "./mapViewportPadding";
 
 describe("getSidebarWidthPx", () => {
@@ -82,6 +85,107 @@ describe("getMapCenterOffset", () => {
 				left: 384,
 			}),
 		).toEqual([184, 0]);
+	});
+});
+
+describe("getVisibleCenterContainerPoint", () => {
+	it("returns the center of the visible map area when left padding is larger", () => {
+		expect(
+			getVisibleCenterContainerPoint(
+				{
+					top: 16,
+					right: 16,
+					bottom: 16,
+					left: 384,
+				},
+				{ x: 1280, y: 800 },
+			),
+		).toEqual([824, 400]);
+	});
+});
+
+describe("getMapCenterForVisibleLatLng", () => {
+	const mapSize = { x: 1280, y: 800 };
+	const mockMap = {
+		getSize: () => mapSize,
+		project: ([lat, lng]: [number, number]) => ({
+			x: lng * 1000,
+			y: lat * 1000,
+		}),
+		unproject: (point: { x: number; y: number }) => ({
+			lat: point.y / 1000,
+			lng: point.x / 1000,
+		}),
+	};
+
+	it("returns the target when padding is symmetric", () => {
+		const latLng: [number, number] = [40.5, -77.5];
+
+		expect(
+			getMapCenterForVisibleLatLng(mockMap, latLng, 14, {
+				top: 16,
+				right: 16,
+				bottom: 16,
+				left: 16,
+			}),
+		).toEqual(latLng);
+	});
+
+	it("returns a center that places the target at the visible center", () => {
+		const latLng: [number, number] = [40.5, -77.5];
+		const padding = {
+			top: 16,
+			right: 16,
+			bottom: 16,
+			left: 384,
+		};
+		const center = getMapCenterForVisibleLatLng(mockMap, latLng, 14, padding);
+		const [offsetX, offsetY] = getMapCenterOffset(padding);
+		const targetPoint = mockMap.project(latLng, 14);
+		const centerPoint = mockMap.project(center, 14);
+
+		expect(targetPoint.x - centerPoint.x + mapSize.x / 2).toBeCloseTo(
+			mapSize.x / 2 + offsetX,
+		);
+		expect(targetPoint.y - centerPoint.y + mapSize.y / 2).toBeCloseTo(
+			mapSize.y / 2 + offsetY,
+		);
+	});
+});
+
+describe("applyMapViewportPaddingOffset", () => {
+	it("pans the map by the inverse of the center offset", () => {
+		const panBy = vi.fn();
+
+		applyMapViewportPaddingOffset(
+			{ panBy },
+			{
+				top: 16,
+				right: 16,
+				bottom: 16,
+				left: 384,
+			},
+		);
+
+		expect(panBy).toHaveBeenCalledTimes(1);
+		expect(panBy.mock.calls[0]?.[0]).toEqual([-184, 0]);
+		expect(panBy.mock.calls[0]?.[1]).toEqual({ animate: false });
+	});
+
+	it("does nothing when padding is symmetric", () => {
+		const panBy = vi.fn();
+
+		applyMapViewportPaddingOffset(
+			{ panBy },
+			{
+				top: 16,
+				right: 16,
+				bottom: 16,
+				left: 16,
+			},
+		);
+
+		expect(panBy).not.toHaveBeenCalled();
 	});
 });
 

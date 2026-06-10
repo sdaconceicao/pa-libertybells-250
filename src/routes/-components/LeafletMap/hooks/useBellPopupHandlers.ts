@@ -7,6 +7,10 @@ import type { RefObject } from "react";
 import { useCallback, useEffect, useRef } from "react";
 import type { Bell } from "../../../../lib/bells/types";
 import { CLUSTER_DISABLE_ZOOM } from "../components/ClusterMarker/createMarkerClusterGroupOptions";
+import {
+	getMapCenterForVisibleLatLng,
+	getMapViewportPadding,
+} from "../utils/mapViewportPadding";
 import { isMovingToElement } from "../utils/isMovingToElement";
 
 type Params = {
@@ -90,7 +94,22 @@ export function useBellPopupHandlers({
 		const bell = bells.find((b) => b.id === selectedBellId);
 		if (!bell) return;
 
-		map.flyTo([bell.lat, bell.lng], CLUSTER_DISABLE_ZOOM);
+		const rootFontSize =
+			Number.parseFloat(getComputedStyle(document.documentElement).fontSize) ||
+			16;
+		const padding = getMapViewportPadding({
+			sidebarOpen,
+			isMobile,
+			viewportWidth: window.innerWidth,
+			rootFontSize,
+		});
+		const targetCenter = getMapCenterForVisibleLatLng(
+			map,
+			[bell.lat, bell.lng],
+			CLUSTER_DISABLE_ZOOM,
+			padding,
+		);
+		map.flyTo(targetCenter, CLUSTER_DISABLE_ZOOM);
 
 		const onMoveEnd = () => {
 			if (enableClickMapPopup) {
@@ -108,6 +127,8 @@ export function useBellPopupHandlers({
 		enableClickMapPopup,
 		mapRef,
 		markerRefs,
+		sidebarOpen,
+		isMobile,
 	]);
 
 	return {

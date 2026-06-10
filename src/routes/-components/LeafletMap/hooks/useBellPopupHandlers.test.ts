@@ -8,6 +8,10 @@ import type { RefObject } from "react";
 import { describe, expect, it, vi } from "vitest";
 import type { Bell } from "../../../../lib/bells/types";
 import { CLUSTER_DISABLE_ZOOM } from "../components/ClusterMarker/createMarkerClusterGroupOptions";
+import {
+	getMapCenterForVisibleLatLng,
+	getMapViewportPadding,
+} from "../utils/mapViewportPadding";
 import { useBellPopupHandlers } from "./useBellPopupHandlers";
 
 function makeBell(overrides: Partial<Bell> & Pick<Bell, "id">): Bell {
@@ -58,13 +62,59 @@ type HookParams = {
 	mapReady: boolean;
 };
 
+function makeMockMapProjection(mapSize = { x: 1024, y: 768 }) {
+	return {
+		getSize: () => mapSize,
+		project: ([lat, lng]: [number, number]) => ({
+			x: lng * 1000,
+			y: lat * 1000,
+		}),
+		unproject: (point: { x: number; y: number }) => ({
+			lat: point.y / 1000,
+			lng: point.x / 1000,
+		}),
+	};
+}
+
+function expectFlyToVisibleCenter(
+	flyTo: ReturnType<typeof vi.fn>,
+	mapProjection: ReturnType<typeof makeMockMapProjection>,
+	bell: [number, number],
+	sidebarOpen: boolean,
+	isMobile = false,
+) {
+	const padding = getMapViewportPadding({
+		sidebarOpen,
+		isMobile,
+		viewportWidth: window.innerWidth,
+		rootFontSize: 16,
+	});
+	const expectedCenter = getMapCenterForVisibleLatLng(
+		mapProjection,
+		bell,
+		CLUSTER_DISABLE_ZOOM,
+		padding,
+	);
+
+	expect(flyTo).toHaveBeenCalledWith(expectedCenter, CLUSTER_DISABLE_ZOOM);
+}
+
 function renderPopupHandlers(overrides: Partial<HookParams> = {}) {
 	const closePopup = vi.fn();
 	const flyTo = vi.fn();
+	const panBy = vi.fn();
 	const once = vi.fn();
 	const off = vi.fn();
+	const mapProjection = makeMockMapProjection();
 	const mapRef = {
-		current: { closePopup, flyTo, once, off } as unknown as LeafletMapInstance,
+		current: {
+			closePopup,
+			flyTo,
+			panBy,
+			once,
+			off,
+			...mapProjection,
+		} as unknown as LeafletMapInstance,
 	};
 	const markerRefs = { current: new Map<string, LeafletMarker>() };
 	const setMarkerHighlight = vi.fn<(id: string | null) => void>();
@@ -93,8 +143,10 @@ function renderPopupHandlers(overrides: Partial<HookParams> = {}) {
 		setMarkerHighlight,
 		closePopup,
 		flyTo,
+		panBy,
 		once,
 		off,
+		mapProjection,
 		params,
 	};
 }
@@ -201,17 +253,18 @@ describe("useBellPopupHandlers", () => {
 
 	it("flies to selected bell and opens popup after move when sidebar is closed", () => {
 		const bell = makeBell({ id: "a", lat: 40.5, lng: -77.5 });
-		const { once, flyTo, markerRefs, rerender, params } = renderPopupHandlers({
-			bells: [bell],
-			selectedBellId: null,
-			mapReady: false,
-		});
+		const { once, flyTo, panBy, markerRefs, rerender, params, mapProjection } =
+			renderPopupHandlers({
+				bells: [bell],
+				selectedBellId: null,
+				mapReady: false,
+			});
 		const { marker, openPopup } = makeMockMarker();
 		markerRefs.current.set("a", marker);
 
 		rerender({ ...params, selectedBellId: "a", mapReady: true });
 
-		expect(flyTo).toHaveBeenCalledWith([40.5, -77.5], CLUSTER_DISABLE_ZOOM);
+		expectFlyToVisibleCenter(flyTo, mapProjection, [bell.lat, bell.lng], false);
 		expect(once).toHaveBeenCalledWith("moveend", expect.any(Function));
 
 		const onMoveEnd = once.mock.calls[0]?.[1] as () => void;
@@ -219,17 +272,19 @@ describe("useBellPopupHandlers", () => {
 			onMoveEnd();
 		});
 
+		expect(panBy).not.toHaveBeenCalled();
 		expect(openPopup).toHaveBeenCalledTimes(1);
 	});
 
 	it("flies to selected bell but skips popup when sidebar is open", () => {
 		const bell = makeBell({ id: "a" });
-		const { once, flyTo, markerRefs, rerender, params } = renderPopupHandlers({
-			bells: [bell],
-			sidebarOpen: true,
-			selectedBellId: null,
-			mapReady: false,
-		});
+		const { once, flyTo, panBy, markerRefs, rerender, params, mapProjection } =
+			renderPopupHandlers({
+				bells: [bell],
+				sidebarOpen: true,
+				selectedBellId: null,
+				mapReady: false,
+			});
 		const { marker, openPopup } = makeMockMarker();
 		markerRefs.current.set("a", marker);
 
@@ -240,16 +295,14 @@ describe("useBellPopupHandlers", () => {
 			mapReady: true,
 		});
 
-		expect(flyTo).toHaveBeenCalledWith(
-			[bell.lat, bell.lng],
-			CLUSTER_DISABLE_ZOOM,
-		);
+		expectFlyToVisibleCenter(flyTo, mapProjection, [bell.lat, bell.lng], true);
 
 		const onMoveEnd = once.mock.calls[0]?.[1] as () => void;
 		act(() => {
 			onMoveEnd();
 		});
 
+		expect(panBy).not.toHaveBeenCalled();
 		expect(openPopup).not.toHaveBeenCalled();
 	});
 

@@ -12,6 +12,7 @@ import { useBellMarkerHandlers } from "./hooks/useBellMarkerHandlers";
 import { useBellPopupHandlers } from "./hooks/useBellPopupHandlers";
 import { createBellMarkerIcon } from "./components/Marker/createBellMarkerIcon";
 import { createMarkerClusterGroupOptions } from "./components/ClusterMarker/createMarkerClusterGroupOptions";
+import { MapZoomControl } from "./components/MapZoomControl/MapZoomControl";
 import {
 	DEFAULT_MAP_CENTER,
 	DEFAULT_MAP_ZOOM,
@@ -98,9 +99,10 @@ export function LeafletMap({
 		}
 
 		const syncView = () => {
-			const rootFontSize = Number.parseFloat(
-				getComputedStyle(document.documentElement).fontSize,
-			);
+			const rootFontSize =
+				Number.parseFloat(
+					getComputedStyle(document.documentElement).fontSize,
+				) || 16;
 			const padding = getMapViewportPadding({
 				sidebarOpen,
 				isMobile,
@@ -143,7 +145,7 @@ export function LeafletMap({
 		return <MapLoading />;
 	}
 
-	const { MapContainer, TileLayer, Marker, Popup, ZoomControl } = leaflet;
+	const { MapContainer, TileLayer, Marker, Popup } = leaflet;
 	const MarkerClusterGroup = markerClusterGroup;
 	const initialCenter: [number, number] =
 		bells.length > 0 ? [bells[0].lat, bells[0].lng] : DEFAULT_MAP_CENTER;
@@ -161,7 +163,7 @@ export function LeafletMap({
 					setMapReady(true);
 				}}
 			>
-				<ZoomControl position="bottomright" />
+				<MapZoomControl sidebarOpen={sidebarOpen} isMobile={isMobile} />
 				<TileLayer
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

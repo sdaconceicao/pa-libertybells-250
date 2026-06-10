@@ -68,3 +68,55 @@ export function getFitBoundsPadding(padding: MapViewportPadding): {
 		paddingBottomRight: [padding.right, padding.bottom],
 	};
 }
+
+export function getVisibleCenterContainerPoint(
+	padding: MapViewportPadding,
+	mapSize: { x: number; y: number },
+): [number, number] {
+	const [offsetX, offsetY] = getMapCenterOffset(padding);
+	return [mapSize.x / 2 + offsetX, mapSize.y / 2 + offsetY];
+}
+
+type MapProjection = {
+	project: (latlng: [number, number], zoom: number) => { x: number; y: number };
+	unproject: (
+		point: { x: number; y: number },
+		zoom: number,
+	) => { lat: number; lng: number };
+	getSize: () => { x: number; y: number };
+};
+
+/** Map center that places `latLng` at the padded visible center at `zoom`. */
+export function getMapCenterForVisibleLatLng(
+	map: MapProjection,
+	latLng: [number, number],
+	zoom: number,
+	padding: MapViewportPadding,
+): [number, number] {
+	const [offsetX, offsetY] = getMapCenterOffset(padding);
+	if (offsetX === 0 && offsetY === 0) {
+		return latLng;
+	}
+
+	const targetPoint = map.project(latLng, zoom);
+	const centerPoint = {
+		x: targetPoint.x - offsetX,
+		y: targetPoint.y - offsetY,
+	};
+	const centerLatLng = map.unproject(centerPoint, zoom);
+	return [centerLatLng.lat, centerLatLng.lng];
+}
+
+export function applyMapViewportPaddingOffset(
+	map: {
+		panBy: (offset: [number, number], options?: { animate?: boolean }) => void;
+	},
+	padding: MapViewportPadding,
+) {
+	const [offsetX, offsetY] = getMapCenterOffset(padding);
+	if (offsetX === 0 && offsetY === 0) {
+		return;
+	}
+
+	map.panBy([-offsetX + 0, -offsetY + 0], { animate: false });
+}

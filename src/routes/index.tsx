@@ -7,6 +7,7 @@ import { BellsFilters } from "./-components/BellsFilters/BellsFilters";
 import { BellsList } from "./-components/BellsList/BellsList";
 import { BellsMap } from "./-components/BellsMap";
 import { FloatingSidebar } from "./-components/FloatingSidebar/FloatingSidebar";
+import { Logo } from "./-components/Logo/Logo";
 import { MobileViewToggle } from "./-components/MobileViewToggle/MobileViewToggle";
 import { useBellsFilters } from "./-hooks/useBellsFilters";
 import { useBellsPageLayout } from "./-hooks/useBellsPageLayout";
@@ -83,6 +84,7 @@ function BellsPage() {
 	const showMobileList = isMobile && mobileView === "list";
 	const showDesktopMap = !isMobile;
 	const mapVisible = showMobileMap || showDesktopMap;
+	const showCircleLogo = mapVisible && (isMobile || !sidebarOpen);
 
 	const listEmptyMessage = hasActiveFilters
 		? "No bells match these filters."
@@ -119,10 +121,16 @@ function BellsPage() {
 					selectedBellId={selectedBellId}
 					onBellSelect={handleBellSelect}
 				/>
+				{showCircleLogo ? (
+					<Logo variant="circle" className={styles.mapLogo} />
+				) : null}
 			</div>
 
 			{showMobileList ? (
 				<section className={styles.mobileListLayer}>
+					<header className={styles.mobileListHeader}>
+						<Logo variant="circle" className={styles.mobileListLogo} />
+					</header>
 					<div className={styles.panelStack}>
 						{selectedBellPanel ? (
 							<div className={styles.selectedBellSection}>
