@@ -1,5 +1,5 @@
-import { cleanup, render, screen } from "@testing-library/react";
-import { afterEach, describe, expect, it } from "vitest";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import type { Bell } from "../../../lib/bells/types";
 import { BellPopupContent } from "./BellPopupContent";
 
@@ -151,5 +151,45 @@ describe("BellPopupContent", () => {
 		);
 
 		expect(container.querySelector('[class*="popupSidebar"]')).toBeTruthy();
+	});
+
+	it("renders close button when onClose is provided", () => {
+		render(
+			<BellPopupContent
+				bell={makeBell({ id: "a", county: "York" })}
+				variant="sidebar"
+				onClose={() => {}}
+			/>,
+		);
+
+		expect(
+			screen.getByRole("button", { name: "Close selected bell" }),
+		).toBeTruthy();
+	});
+
+	it("does not render close button when onClose is absent", () => {
+		render(<BellPopupContent bell={makeBell({ id: "a", county: "York" })} />);
+
+		expect(
+			screen.queryByRole("button", { name: "Close selected bell" }),
+		).toBeNull();
+	});
+
+	it("calls onClose when close button is clicked", () => {
+		const onClose = vi.fn();
+
+		render(
+			<BellPopupContent
+				bell={makeBell({ id: "a", county: "York" })}
+				variant="sidebar"
+				onClose={onClose}
+			/>,
+		);
+
+		fireEvent.click(
+			screen.getByRole("button", { name: "Close selected bell" }),
+		);
+
+		expect(onClose).toHaveBeenCalledTimes(1);
 	});
 });

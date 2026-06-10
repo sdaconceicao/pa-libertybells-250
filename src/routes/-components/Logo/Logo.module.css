@@ -1,0 +1,13 @@
+.logo {
+	display: block;
+	height: auto;
+}
+
+.wide {
+	width: 100%;
+	max-width: 11rem;
+}
+
+.circle {
+	width: 4.5rem;
+}

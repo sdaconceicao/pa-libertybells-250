@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
+import { Logo } from "../Logo/Logo";
 import styles from "./FloatingSidebar.module.css";
 
 type Props = {
@@ -27,7 +28,7 @@ export function FloatingSidebar({
 	return (
 		<aside className={sidebarClassName}>
 			<div className={styles.sidebarHeader}>
-				<h2 className={styles.sidebarTitle}>Bells Across PA</h2>
+				<Logo variant="circle" className={styles.sidebarLogo} />
 			</div>
 			{selectedContent ? (
 				<div className={styles.selectedSection}>{selectedContent}</div>

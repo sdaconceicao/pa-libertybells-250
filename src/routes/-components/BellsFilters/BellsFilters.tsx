@@ -1,3 +1,4 @@
+import { Building2, Trees } from "lucide-react";
 import type {
 	BellFilters,
 	PlacementFilter,
@@ -8,7 +9,10 @@ import {
 } from "../../../lib/bells/filterBells";
 import { Button } from "../../../components/Button/Button";
 import { MultiSelect } from "../../../components/MultiSelect/MultiSelect";
-import { SegmentedControl } from "../../../components/SegmentedControl/SegmentedControl";
+import {
+	SegmentedControl,
+	type SegmentedOption,
+} from "../../../components/SegmentedControl/SegmentedControl";
 import styles from "./BellsFilters.module.css";
 
 type Props = {
@@ -21,10 +25,18 @@ type Props = {
 	resultSummary: string | null;
 };
 
-const PLACEMENT_OPTIONS: { value: PlacementFilter; label: string }[] = [
+const PLACEMENT_OPTIONS: SegmentedOption<PlacementFilter>[] = [
 	{ value: "all", label: "All" },
-	{ value: "outdoors", label: "Outdoor" },
-	{ value: "indoors", label: "Indoor" },
+	{
+		value: "outdoors",
+		label: "Outdoor",
+		icon: <Trees size={14} />,
+	},
+	{
+		value: "indoors",
+		label: "Indoor",
+		icon: <Building2 size={14} />,
+	},
 ];
 
 export function BellsFilters({

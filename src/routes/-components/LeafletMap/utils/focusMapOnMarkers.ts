@@ -3,7 +3,7 @@ import type * as Leaflet from "leaflet";
 import type { Bell } from "../../../../lib/bells/types";
 import {
 	getFitBoundsPadding,
-	getMapCenterOffset,
+	getMapCenterForVisibleLatLng,
 	type MapViewportPadding,
 } from "./mapViewportPadding";
 
@@ -17,22 +17,14 @@ const DEFAULT_PADDING: MapViewportPadding = {
 	left: 24,
 };
 
-function applyMapViewportCenterOffset(
-	map: LeafletMapInstance,
-	padding: MapViewportPadding,
-) {
-	const [offsetX, offsetY] = getMapCenterOffset(padding);
-	map.panBy([-offsetX, -offsetY], { animate: false });
-}
-
 function centerMapWithPadding(
 	map: LeafletMapInstance,
 	latLng: [number, number],
 	zoom: number,
 	padding: MapViewportPadding,
 ) {
-	map.setView(latLng, zoom, { animate: false });
-	applyMapViewportCenterOffset(map, padding);
+	const center = getMapCenterForVisibleLatLng(map, latLng, zoom, padding);
+	map.setView(center, zoom, { animate: false });
 }
 
 export function focusMapOnMarkers(
@@ -61,5 +53,4 @@ export function focusMapOnMarkers(
 		...fitBoundsPadding,
 		maxZoom: 13,
 	});
-	applyMapViewportCenterOffset(map, padding);
 }
