@@ -61,9 +61,7 @@ function BellsPage() {
 
 	const bellNavigation = useMemo(
 		() =>
-			selectedBellId
-				? getBellNavigation(filteredBells, selectedBellId)
-				: null,
+			selectedBellId ? getBellNavigation(filteredBells, selectedBellId) : null,
 		[filteredBells, selectedBellId],
 	);
 

@@ -224,9 +224,7 @@ describe("BellPopupContent", () => {
 	it("does not render navigation buttons when handlers are absent", () => {
 		render(<BellPopupContent bell={makeBell({ id: "a", county: "York" })} />);
 
-		expect(
-			screen.queryByRole("button", { name: "Previous bell" }),
-		).toBeNull();
+		expect(screen.queryByRole("button", { name: "Previous bell" })).toBeNull();
 		expect(screen.queryByRole("button", { name: "Next bell" })).toBeNull();
 	});
 
@@ -281,10 +279,9 @@ describe("BellPopupContent", () => {
 			/>,
 		);
 
-		expect(screen.getByRole("button", { name: "Previous bell" })).toHaveProperty(
-			"disabled",
-			true,
-		);
+		expect(
+			screen.getByRole("button", { name: "Previous bell" }),
+		).toHaveProperty("disabled", true);
 		expect(screen.getByRole("button", { name: "Next bell" })).toHaveProperty(
 			"disabled",
 			true,

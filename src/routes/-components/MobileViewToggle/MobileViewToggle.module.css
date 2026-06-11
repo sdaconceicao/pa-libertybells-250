@@ -1,7 +1,7 @@
 .toggleBar {
-	position: absolute;
+	position: fixed;
 	left: 50%;
-	bottom: 1rem;
+	bottom: var(--mobile-toggle-bottom-offset);
 	z-index: 1100;
 	display: flex;
 	gap: 0.25rem;

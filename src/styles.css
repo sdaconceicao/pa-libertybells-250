@@ -18,6 +18,11 @@
   --color-chip-border: rgba(215, 161, 41, 0.35);
   --shadow-sm: 0 4px 24px rgba(23, 7, 78, 0.12);
   --shadow-lg: 0 8px 32px rgba(23, 7, 78, 0.16);
+  --mobile-toggle-bottom-offset: calc(1rem + env(safe-area-inset-bottom, 0px));
+  --mobile-toggle-bar-height: 2.75rem;
+  --mobile-toggle-reserve: calc(
+    var(--mobile-toggle-bottom-offset) + var(--mobile-toggle-bar-height) + 0.5rem
+  );
 }
 
 
@@ -30,7 +35,8 @@ html,
 body,
 #app {
   height: 100%;
-  min-height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 body {
