@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.1.1...v0.2.0) (2026-06-11)
+
+
+### Features
+
+* Vercel analytics ([#40](https://github.com/sdaconceicao/pa-libertybells-250/issues/40)) ([3871322](https://github.com/sdaconceicao/pa-libertybells-250/commit/3871322fc768144a2e2dc7e706d2836be44d959e))
+
 ## [0.1.1](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.1.0...v0.1.1) (2026-06-11)
 
 
