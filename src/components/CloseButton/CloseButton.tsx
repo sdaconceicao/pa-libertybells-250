@@ -4,7 +4,10 @@ import styles from "./CloseButton.module.css";
 
 export type CloseButtonVariant = "default" | "overlay";
 
-type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "type" | "children"> & {
+type Props = Omit<
+	ButtonHTMLAttributes<HTMLButtonElement>,
+	"type" | "children"
+> & {
 	label?: string;
 	iconSize?: number;
 	variant?: CloseButtonVariant;

@@ -14,9 +14,7 @@ describe("CloseButton", () => {
 	});
 
 	it("renders with a custom label", () => {
-		render(
-			<CloseButton label="Close selected bell" onClick={() => {}} />,
-		);
+		render(<CloseButton label="Close selected bell" onClick={() => {}} />);
 
 		expect(
 			screen.getByRole("button", { name: "Close selected bell" }),

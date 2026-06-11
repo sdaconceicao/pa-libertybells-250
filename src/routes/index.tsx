@@ -46,6 +46,7 @@ function BellsPage() {
 	} = useBellsFilters(bells);
 
 	const [selectedBellId, setSelectedBellId] = useState<string | null>(null);
+	const mobileCloseReturnsToMapRef = useRef(false);
 	const highlightBellRef = useRef<((id: string | null) => void) | null>(null);
 	const handleBellHover = useCallback((id: string | null) => {
 		highlightBellRef.current?.(id);
@@ -69,15 +70,30 @@ function BellsPage() {
 		(id: string) => {
 			setSelectedBellId(id);
 			if (isMobile) {
+				if (mobileView === "map") {
+					mobileCloseReturnsToMapRef.current = true;
+				}
 				showList();
 			}
 		},
-		[isMobile, showList],
+		[isMobile, mobileView, showList],
 	);
 
 	const handleClearSelection = useCallback(() => {
+		if (isMobile && mobileCloseReturnsToMapRef.current) {
+			mobileCloseReturnsToMapRef.current = false;
+			setSelectedBellId(null);
+			showMap();
+			return;
+		}
+
 		setSelectedBellId(null);
-	}, []);
+	}, [isMobile, showMap]);
+
+	const handleShowList = useCallback(() => {
+		mobileCloseReturnsToMapRef.current = false;
+		showList();
+	}, [showList]);
 
 	const handlePreviousBell = useCallback(() => {
 		if (bellNavigation?.previousId) {
@@ -201,7 +217,7 @@ function BellsPage() {
 				<MobileViewToggle
 					activeView={mobileView}
 					onShowMap={showMap}
-					onShowList={showList}
+					onShowList={handleShowList}
 				/>
 			) : null}
 		</main>
