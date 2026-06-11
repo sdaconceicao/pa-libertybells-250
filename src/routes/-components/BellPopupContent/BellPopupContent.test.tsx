@@ -27,6 +27,34 @@ describe("BellPopupContent", () => {
 		cleanup();
 	});
 
+	it("renders the address as a maps link", () => {
+		render(
+			<BellPopupContent
+				bell={makeBell({
+					id: "a",
+					county: "York",
+					address: {
+						street: "456 Market St",
+						city: "Harrisburg",
+						zip: "17101",
+					},
+					lat: 40.26,
+					lng: -76.88,
+				})}
+			/>,
+		);
+
+		const link = screen.getByRole("link", {
+			name: "Open 456 Market St, Harrisburg, PA 17101 in maps",
+		});
+
+		expect(link.getAttribute("href")).toBe(
+			"https://www.google.com/maps/search/?api=1&query=456%20Market%20St%2C%20Harrisburg%2C%20PA%2017101",
+		);
+		expect(link.getAttribute("target")).toBe("_blank");
+		expect(link.getAttribute("rel")).toBe("noopener noreferrer");
+	});
+
 	it("renders title, artist, and structured address lines", () => {
 		render(
 			<BellPopupContent
@@ -191,5 +219,93 @@ describe("BellPopupContent", () => {
 		);
 
 		expect(onClose).toHaveBeenCalledTimes(1);
+	});
+
+	it("does not render navigation buttons when handlers are absent", () => {
+		render(<BellPopupContent bell={makeBell({ id: "a", county: "York" })} />);
+
+		expect(screen.queryByRole("button", { name: "Previous bell" })).toBeNull();
+		expect(screen.queryByRole("button", { name: "Next bell" })).toBeNull();
+	});
+
+	it("renders navigation buttons when handlers are provided", () => {
+		render(
+			<BellPopupContent
+				bell={makeBell({ id: "b", county: "York" })}
+				onPrevious={() => {}}
+				onNext={() => {}}
+				hasPrevious
+				hasNext
+			/>,
+		);
+
+		expect(screen.getByRole("button", { name: "Previous bell" })).toBeTruthy();
+		expect(screen.getByRole("button", { name: "Next bell" })).toBeTruthy();
+	});
+
+	it("renders list position between navigation buttons when provided", () => {
+		render(
+			<BellPopupContent
+				bell={makeBell({ id: "b", county: "York" })}
+				onPrevious={() => {}}
+				onNext={() => {}}
+				listPosition={2}
+				listTotal={5}
+			/>,
+		);
+
+		expect(screen.getByText("2 of 5 bells")).toBeTruthy();
+	});
+
+	it("does not render list position when position is absent", () => {
+		render(
+			<BellPopupContent
+				bell={makeBell({ id: "b", county: "York" })}
+				onPrevious={() => {}}
+				onNext={() => {}}
+				listTotal={5}
+			/>,
+		);
+
+		expect(screen.queryByText(/of 5 bells/)).toBeNull();
+	});
+
+	it("disables navigation buttons at list boundaries", () => {
+		render(
+			<BellPopupContent
+				bell={makeBell({ id: "a", county: "York" })}
+				onPrevious={() => {}}
+				onNext={() => {}}
+			/>,
+		);
+
+		expect(
+			screen.getByRole("button", { name: "Previous bell" }),
+		).toHaveProperty("disabled", true);
+		expect(screen.getByRole("button", { name: "Next bell" })).toHaveProperty(
+			"disabled",
+			true,
+		);
+	});
+
+	it("calls navigation handlers when enabled buttons are clicked", () => {
+		const onPrevious = vi.fn();
+		const onNext = vi.fn();
+
+		render(
+			<BellPopupContent
+				bell={makeBell({ id: "b", county: "York" })}
+				onPrevious={onPrevious}
+				onNext={onNext}
+				hasPrevious
+				hasNext
+			/>,
+		);
+
+		fireEvent.click(screen.getByRole("button", { name: "Previous bell" }));
+		fireEvent.click(screen.getByRole("button", { name: "Next bell" }));
+
+		expect(onPrevious).toHaveBeenCalledTimes(1);
+		expect(onNext).toHaveBeenCalledTimes(1);
 	});
 });

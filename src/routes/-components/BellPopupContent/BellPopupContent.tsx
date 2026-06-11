@@ -1,52 +1,64 @@
-import { Building2, Trees, X } from "lucide-react";
+import { CloseButton } from "../../../components/CloseButton/CloseButton";
 import { Image } from "../../../components/Image/Image";
-import { buildAddressLines } from "../../../lib/bells/bellAddress";
-import type { Bell, BellPlacement } from "../../../lib/bells/types";
+import {
+	buildAddressLines,
+	buildAddressString,
+	buildMapsUrl,
+} from "../../../lib/bells/bellAddress";
+import type { Bell } from "../../../lib/bells/types";
 import styles from "./BellPopupContent.module.css";
+import { MetaBar } from "./components/MetaBar/MetaBar";
+import { NavBar } from "./components/NavBar/NavBar";
 
 type Props = {
 	bell: Bell;
 	variant?: "popup" | "sidebar";
 	onClose?: () => void;
+	onPrevious?: () => void;
+	onNext?: () => void;
+	hasPrevious?: boolean;
+	hasNext?: boolean;
+	listPosition?: number | null;
+	listTotal?: number;
 };
 
-function PlacementIcon({ placement }: { placement: BellPlacement }) {
-	const isIndoors = placement === "indoors";
-	const Icon = isIndoors ? Building2 : Trees;
-	const label = isIndoors ? "Indoor" : "Outdoor";
-
-	return (
-		<span
-			className={styles.placementIcon}
-			role="img"
-			title={label}
-			aria-label={label}
-		>
-			<Icon size={16} aria-hidden="true" />
-		</span>
-	);
-}
-
-export function BellPopupContent({ bell, variant = "popup", onClose }: Props) {
+export function BellPopupContent({
+	bell,
+	variant = "popup",
+	onClose,
+	onPrevious,
+	onNext,
+	hasPrevious = false,
+	hasNext = false,
+	listPosition = null,
+	listTotal = 0,
+}: Props) {
 	const rootClassName = [
 		styles.popup,
 		variant === "sidebar" ? styles.popupSidebar : "",
 	]
 		.filter(Boolean)
 		.join(" ");
+	const addressLines = buildAddressLines(bell.address);
+	const mapsUrl = buildMapsUrl(bell.lat, bell.lng, bell.address);
 
 	return (
 		<div className={rootClassName} data-testid="bell-popup">
 			<div className={styles.header}>
+				<NavBar
+					onPrevious={onPrevious}
+					onNext={onNext}
+					hasPrevious={hasPrevious}
+					hasNext={hasNext}
+					listPosition={listPosition}
+					listTotal={listTotal}
+				/>
 				{onClose ? (
-					<button
-						type="button"
-						className={styles.closeButton}
+					<CloseButton
+						variant="overlay"
 						onClick={onClose}
-						aria-label="Close selected bell"
-					>
-						<X size={16} aria-hidden="true" />
-					</button>
+						label="Close selected bell"
+					/>
 				) : null}
 				<Image
 					src={bell.imageUrl}
@@ -54,20 +66,26 @@ export function BellPopupContent({ bell, variant = "popup", onClose }: Props) {
 					imageClassName={styles.headerImage}
 					placeholderClassName={styles.headerPlaceholder}
 				/>
-				<div className={styles.metaBar}>
-					{bell.placement ? <PlacementIcon placement={bell.placement} /> : null}
-				</div>
+				<MetaBar placement={bell.placement} />
 			</div>
 			<div className={styles.body}>
 				<h3 className={styles.title}>{bell.title}</h3>
 				{bell.artist ? <p className={styles.artist}>by {bell.artist}</p> : null}
-				<p className={styles.address}>
-					{buildAddressLines(bell.address).map((line) => (
-						<span key={line} className={styles.addressLine}>
-							{line}
-						</span>
-					))}
-				</p>
+				{addressLines.length > 0 ? (
+					<a
+						href={mapsUrl}
+						className={styles.address}
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label={`Open ${buildAddressString(bell.address)} in maps`}
+					>
+						{addressLines.map((line) => (
+							<span key={line} className={styles.addressLine}>
+								{line}
+							</span>
+						))}
+					</a>
+				) : null}
 			</div>
 		</div>
 	);

@@ -49,7 +49,7 @@ describe("getMapViewportPadding", () => {
 			viewportWidth: 390,
 		});
 
-		expect(padding.bottom).toBe(72);
+		expect(padding.bottom).toBe(48);
 		expect(padding.left).toBe(16);
 	});
 

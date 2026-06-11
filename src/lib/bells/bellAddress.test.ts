@@ -5,6 +5,7 @@ import {
 	buildAddressString,
 	buildGeocodeQuery,
 	buildLocalityLabel,
+	buildMapsUrl,
 } from "./bellAddress";
 
 describe("addressFromRaw", () => {
@@ -85,5 +86,25 @@ describe("buildGeocodeQuery", () => {
 describe("buildLocalityLabel", () => {
 	it("returns city and state label", () => {
 		expect(buildLocalityLabel({ city: "Gettysburg" })).toBe("Gettysburg, PA");
+	});
+});
+
+describe("buildMapsUrl", () => {
+	it("builds a Google Maps search URL from the structured address", () => {
+		expect(
+			buildMapsUrl(40.1, -77.2, {
+				street: "456 Market St",
+				city: "Harrisburg",
+				zip: "17101",
+			}),
+		).toBe(
+			"https://www.google.com/maps/search/?api=1&query=456%20Market%20St%2C%20Harrisburg%2C%20PA%2017101",
+		);
+	});
+
+	it("falls back to coordinates when no address is provided", () => {
+		expect(buildMapsUrl(40.1, -77.2)).toBe(
+			"https://www.google.com/maps/search/?api=1&query=40.1,-77.2",
+		);
 	});
 });

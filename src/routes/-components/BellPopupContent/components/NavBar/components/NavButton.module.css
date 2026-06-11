@@ -1,0 +1,27 @@
+.navButton {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.75rem;
+	height: 1.75rem;
+	padding: 0;
+	border: 1px solid var(--color-border);
+	border-radius: 50%;
+	background: var(--color-surface);
+	box-shadow: var(--shadow-sm);
+	color: var(--color-text);
+	cursor: pointer;
+	transition:
+		background-color 0.15s ease,
+		color 0.15s ease;
+}
+
+.navButton:hover:not(:disabled) {
+	background: var(--color-chip-background);
+	color: var(--color-text);
+}
+
+.navButton:disabled {
+	opacity: 0.45;
+	cursor: not-allowed;
+}

@@ -11,6 +11,7 @@ import { Logo } from "./-components/Logo/Logo";
 import { MobileViewToggle } from "./-components/MobileViewToggle/MobileViewToggle";
 import { useBellsFilters } from "./-hooks/useBellsFilters";
 import { useBellsPageLayout } from "./-hooks/useBellsPageLayout";
+import { getBellNavigation } from "./-utils/getBellNavigation";
 import styles from "./index.module.css";
 
 export const Route = createFileRoute("/")({
@@ -45,6 +46,7 @@ function BellsPage() {
 	} = useBellsFilters(bells);
 
 	const [selectedBellId, setSelectedBellId] = useState<string | null>(null);
+	const mobileCloseReturnsToMapRef = useRef(false);
 	const highlightBellRef = useRef<((id: string | null) => void) | null>(null);
 	const handleBellHover = useCallback((id: string | null) => {
 		highlightBellRef.current?.(id);
@@ -58,25 +60,64 @@ function BellsPage() {
 		[filteredBells, selectedBellId],
 	);
 
+	const bellNavigation = useMemo(
+		() =>
+			selectedBellId ? getBellNavigation(filteredBells, selectedBellId) : null,
+		[filteredBells, selectedBellId],
+	);
+
 	const handleBellSelect = useCallback(
 		(id: string) => {
 			setSelectedBellId(id);
 			if (isMobile) {
+				if (mobileView === "map") {
+					mobileCloseReturnsToMapRef.current = true;
+				}
 				showList();
 			}
 		},
-		[isMobile, showList],
+		[isMobile, mobileView, showList],
 	);
 
 	const handleClearSelection = useCallback(() => {
+		if (isMobile && mobileCloseReturnsToMapRef.current) {
+			mobileCloseReturnsToMapRef.current = false;
+			setSelectedBellId(null);
+			showMap();
+			return;
+		}
+
 		setSelectedBellId(null);
-	}, []);
+	}, [isMobile, showMap]);
+
+	const handleShowList = useCallback(() => {
+		mobileCloseReturnsToMapRef.current = false;
+		showList();
+	}, [showList]);
+
+	const handlePreviousBell = useCallback(() => {
+		if (bellNavigation?.previousId) {
+			handleBellSelect(bellNavigation.previousId);
+		}
+	}, [bellNavigation?.previousId, handleBellSelect]);
+
+	const handleNextBell = useCallback(() => {
+		if (bellNavigation?.nextId) {
+			handleBellSelect(bellNavigation.nextId);
+		}
+	}, [bellNavigation?.nextId, handleBellSelect]);
 
 	const selectedBellPanel = selectedBell ? (
 		<BellPopupContent
 			bell={selectedBell}
 			variant="sidebar"
 			onClose={handleClearSelection}
+			onPrevious={handlePreviousBell}
+			onNext={handleNextBell}
+			hasPrevious={!!bellNavigation?.previousId}
+			hasNext={!!bellNavigation?.nextId}
+			listPosition={bellNavigation?.position}
+			listTotal={bellNavigation?.total ?? 0}
 		/>
 	) : null;
 
@@ -128,16 +169,19 @@ function BellsPage() {
 
 			{showMobileList ? (
 				<section className={styles.mobileListLayer}>
-					<header className={styles.mobileListHeader}>
-						<Logo variant="circle" className={styles.mobileListLogo} />
-					</header>
+					{!selectedBellPanel ? (
+						<header className={styles.mobileListHeader}>
+							<Logo variant="circle" className={styles.mobileListLogo} />
+						</header>
+					) : null}
 					<div className={styles.panelStack}>
 						{selectedBellPanel ? (
 							<div className={styles.selectedBellSection}>
 								{selectedBellPanel}
 							</div>
-						) : null}
-						{filtersPanel}
+						) : (
+							filtersPanel
+						)}
 						<BellsList
 							bells={filteredBells}
 							className={styles.mobileList}
@@ -173,7 +217,7 @@ function BellsPage() {
 				<MobileViewToggle
 					activeView={mobileView}
 					onShowMap={showMap}
-					onShowList={showList}
+					onShowList={handleShowList}
 				/>
 			) : null}
 		</main>

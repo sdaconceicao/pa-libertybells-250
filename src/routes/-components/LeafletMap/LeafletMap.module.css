@@ -21,7 +21,7 @@
 
 @media (max-width: 767px) {
 	.mapShell :global(.leaflet-bottom.leaflet-right) {
-		bottom: 4.5rem;
+		bottom: var(--mobile-toggle-reserve);
 	}
 }
 
