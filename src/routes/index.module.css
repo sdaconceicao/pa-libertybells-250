@@ -34,7 +34,7 @@
 	position: absolute;
 	top: 0;
 	right: 0;
-	bottom: var(--mobile-toggle-reserve);
+	bottom: 0;
 	left: 0;
 	z-index: 900;
 	display: flex;
@@ -65,6 +65,13 @@
 	overflow: hidden;
 }
 
+@media (max-width: 767px) {
+	.panelStack {
+		container-type: size;
+		container-name: bells-panel;
+	}
+}
+
 .selectedBellSection {
 	flex-shrink: 0;
 	overflow: hidden;
@@ -75,6 +82,7 @@
 	flex: 1;
 	min-height: 0;
 	border-top: 0;
+	padding-bottom: var(--mobile-toggle-reserve);
 }
 
 .sidebarList {

@@ -9,8 +9,15 @@ type Props = {
 };
 
 export function MobileViewToggle({ activeView, onShowMap, onShowList }: Props) {
+	const toggleBarClassName = [
+		styles.toggleBar,
+		activeView === "list" ? styles.toggleBarList : styles.toggleBarMap,
+	]
+		.filter(Boolean)
+		.join(" ");
+
 	return (
-		<div className={styles.toggleBar} role="tablist" aria-label="View mode">
+		<div className={toggleBarClassName} role="tablist" aria-label="View mode">
 			<button
 				type="button"
 				role="tab"
@@ -23,7 +30,7 @@ export function MobileViewToggle({ activeView, onShowMap, onShowList }: Props) {
 				onClick={onShowMap}
 				aria-selected={activeView === "map"}
 			>
-				<MapIcon size={16} aria-hidden="true" />
+				<MapIcon size={14} aria-hidden="true" />
 				Map
 			</button>
 			<button
@@ -38,7 +45,7 @@ export function MobileViewToggle({ activeView, onShowMap, onShowList }: Props) {
 				onClick={onShowList}
 				aria-selected={activeView === "list"}
 			>
-				<List size={16} aria-hidden="true" />
+				<List size={14} aria-hidden="true" />
 				List
 			</button>
 		</div>

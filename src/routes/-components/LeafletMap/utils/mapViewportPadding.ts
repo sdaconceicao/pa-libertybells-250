@@ -10,7 +10,7 @@ export type MapViewportPadding = {
 export const SIDEBAR_WIDTH_REM = 22;
 export const EDGE_GAP_REM = 1;
 export const SIDEBAR_HANDLE_WIDTH_PX = 20;
-export const MOBILE_TOGGLE_BOTTOM_PX = 72;
+export const MOBILE_TOGGLE_BOTTOM_PX = 48;
 
 export function getSidebarWidthPx(
 	viewportWidth: number,

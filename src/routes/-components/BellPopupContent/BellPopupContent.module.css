@@ -118,6 +118,19 @@
 	border-radius: 0;
 }
 
+@media (max-width: 767px) {
+	.popupSidebar .header {
+		height: auto;
+		max-height: 40dvh;
+		max-height: 40cqh;
+	}
+
+	.popupSidebar .headerImage,
+	.popupSidebar .headerPlaceholder {
+		max-height: inherit;
+	}
+}
+
 .metaBar {
 	position: absolute;
 	right: 0;
