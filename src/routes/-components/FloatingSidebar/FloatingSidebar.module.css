@@ -41,30 +41,6 @@
 	border-bottom: 1px solid var(--color-border);
 }
 
-.closeButton {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	flex-shrink: 0;
-	width: 1.75rem;
-	height: 1.75rem;
-	padding: 0;
-	border: 1px solid var(--color-border);
-	border-radius: 0.375rem;
-	background: var(--color-surface);
-	box-shadow: var(--shadow-sm);
-	color: var(--color-text);
-	cursor: pointer;
-	transition:
-		background-color 0.15s ease,
-		color 0.15s ease;
-}
-
-.closeButton:hover {
-	background: var(--color-chip-background);
-	color: var(--color-text);
-}
-
 .selectedSection {
 	flex-shrink: 0;
 	overflow: hidden;

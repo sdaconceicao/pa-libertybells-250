@@ -1,12 +1,14 @@
-import { Building2, ChevronLeft, ChevronRight, Trees, X } from "lucide-react";
+import { CloseButton } from "../../../components/CloseButton/CloseButton";
 import { Image } from "../../../components/Image/Image";
 import {
 	buildAddressLines,
 	buildAddressString,
 	buildMapsUrl,
 } from "../../../lib/bells/bellAddress";
-import type { Bell, BellPlacement } from "../../../lib/bells/types";
+import type { Bell } from "../../../lib/bells/types";
 import styles from "./BellPopupContent.module.css";
+import { MetaBar } from "./components/MetaBar/MetaBar";
+import { NavBar } from "./components/NavBar/NavBar";
 
 type Props = {
 	bell: Bell;
@@ -19,23 +21,6 @@ type Props = {
 	listPosition?: number | null;
 	listTotal?: number;
 };
-
-function PlacementIcon({ placement }: { placement: BellPlacement }) {
-	const isIndoors = placement === "indoors";
-	const Icon = isIndoors ? Building2 : Trees;
-	const label = isIndoors ? "Indoor" : "Outdoor";
-
-	return (
-		<span
-			className={styles.placementIcon}
-			role="img"
-			title={label}
-			aria-label={label}
-		>
-			<Icon size={16} aria-hidden="true" />
-		</span>
-	);
-}
 
 export function BellPopupContent({
 	bell,
@@ -54,49 +39,26 @@ export function BellPopupContent({
 	]
 		.filter(Boolean)
 		.join(" ");
-	const showNavigation = onPrevious != null || onNext != null;
 	const addressLines = buildAddressLines(bell.address);
 	const mapsUrl = buildMapsUrl(bell.lat, bell.lng, bell.address);
 
 	return (
 		<div className={rootClassName} data-testid="bell-popup">
 			<div className={styles.header}>
-				{showNavigation ? (
-					<div className={styles.navButtons}>
-						<button
-							type="button"
-							className={styles.navButton}
-							onClick={onPrevious}
-							disabled={!hasPrevious}
-							aria-label="Previous bell"
-						>
-							<ChevronLeft size={16} aria-hidden="true" />
-						</button>
-						{listPosition != null && listTotal > 0 ? (
-							<span className={styles.navPosition} aria-live="polite">
-								{listPosition} of {listTotal} bells
-							</span>
-						) : null}
-						<button
-							type="button"
-							className={styles.navButton}
-							onClick={onNext}
-							disabled={!hasNext}
-							aria-label="Next bell"
-						>
-							<ChevronRight size={16} aria-hidden="true" />
-						</button>
-					</div>
-				) : null}
+				<NavBar
+					onPrevious={onPrevious}
+					onNext={onNext}
+					hasPrevious={hasPrevious}
+					hasNext={hasNext}
+					listPosition={listPosition}
+					listTotal={listTotal}
+				/>
 				{onClose ? (
-					<button
-						type="button"
-						className={styles.closeButton}
+					<CloseButton
+						variant="overlay"
 						onClick={onClose}
-						aria-label="Close selected bell"
-					>
-						<X size={16} aria-hidden="true" />
-					</button>
+						label="Close selected bell"
+					/>
 				) : null}
 				<Image
 					src={bell.imageUrl}
@@ -104,9 +66,7 @@ export function BellPopupContent({
 					imageClassName={styles.headerImage}
 					placeholderClassName={styles.headerPlaceholder}
 				/>
-				<div className={styles.metaBar}>
-					{bell.placement ? <PlacementIcon placement={bell.placement} /> : null}
-				</div>
+				<MetaBar placement={bell.placement} />
 			</div>
 			<div className={styles.body}>
 				<h3 className={styles.title}>{bell.title}</h3>
