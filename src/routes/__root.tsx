@@ -21,8 +21,7 @@ export const Route = createRootRoute({
 			},
 			{
 				name: "description",
-				content:
-					"Interactive map and directory of bells across Pennsylvania.",
+				content: "Interactive map and directory of bells across Pennsylvania.",
 			},
 			{
 				name: "theme-color",

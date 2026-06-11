@@ -46,8 +46,7 @@ const config = defineConfig({
 					},
 					{
 						// OpenStreetMap tiles — stale-while-revalidate, kept for 7 days
-						urlPattern:
-							/^https:\/\/[a-z]\.tile\.openstreetmap\.org\/.+/,
+						urlPattern: /^https:\/\/[a-z]\.tile\.openstreetmap\.org\/.+/,
 						handler: "StaleWhileRevalidate",
 						options: {
 							cacheName: "map-tiles",
@@ -59,15 +58,13 @@ const config = defineConfig({
 					},
 					{
 						// Google Fonts stylesheet
-						urlPattern:
-							/^https:\/\/fonts\.googleapis\.com\/.+/,
+						urlPattern: /^https:\/\/fonts\.googleapis\.com\/.+/,
 						handler: "StaleWhileRevalidate",
 						options: { cacheName: "google-fonts-stylesheets" },
 					},
 					{
 						// Google Fonts font files
-						urlPattern:
-							/^https:\/\/fonts\.gstatic\.com\/.+/,
+						urlPattern: /^https:\/\/fonts\.gstatic\.com\/.+/,
 						handler: "CacheFirst",
 						options: {
 							cacheName: "google-fonts-webfonts",
