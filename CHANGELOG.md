@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.0](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.2.0...v0.3.0) (2026-06-11)
+
+
+### Features
+
+* PWA setup ([#43](https://github.com/sdaconceicao/pa-libertybells-250/issues/43)) ([52edb8d](https://github.com/sdaconceicao/pa-libertybells-250/commit/52edb8df5b6289ef404946d2f458dc6eed8ff939))
+* Search added ([#45](https://github.com/sdaconceicao/pa-libertybells-250/issues/45)) ([46bab51](https://github.com/sdaconceicao/pa-libertybells-250/commit/46bab5122e7a16ddc6f18e0e683172ec59f3d502))
+
 ## [0.2.0](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.1.1...v0.2.0) (2026-06-11)
 
 
