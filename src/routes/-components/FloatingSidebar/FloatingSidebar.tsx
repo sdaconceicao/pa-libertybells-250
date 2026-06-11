@@ -1,12 +1,12 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
-import { Logo } from "../Logo/Logo";
 import styles from "./FloatingSidebar.module.css";
 
 type Props = {
 	isOpen: boolean;
 	onClose: () => void;
 	onOpen: () => void;
+	header?: ReactNode;
 	selectedContent?: ReactNode;
 	children: ReactNode;
 };
@@ -15,6 +15,7 @@ export function FloatingSidebar({
 	isOpen,
 	onClose,
 	onOpen,
+	header,
 	selectedContent,
 	children,
 }: Props) {
@@ -27,9 +28,7 @@ export function FloatingSidebar({
 
 	return (
 		<aside className={sidebarClassName}>
-			<div className={styles.sidebarHeader}>
-				<Logo variant="circle" className={styles.sidebarLogo} />
-			</div>
+			{header ? <div className={styles.sidebarHeader}>{header}</div> : null}
 			{selectedContent ? (
 				<div className={styles.selectedSection}>{selectedContent}</div>
 			) : null}
