@@ -64,18 +64,28 @@
 	color: var(--color-text);
 }
 
-.artist {
+.artist,
+.address {
+	display: flex;
+	gap: 0.375rem;
 	margin: 0;
 	font-size: 0.8125rem;
-	font-weight: 400;
 	color: var(--color-text-muted);
 }
 
+.artist {
+	align-items: center;
+	font-weight: 400;
+}
+
 .address {
-	margin: 0;
-	font-size: 0.8125rem;
-	color: var(--color-text-muted);
+	align-items: flex-start;
 	text-decoration: none;
+}
+
+.artist span,
+.addressText {
+	min-width: 0;
 }
 
 .address:hover,

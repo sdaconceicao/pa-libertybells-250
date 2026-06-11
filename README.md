@@ -1,4 +1,4 @@
-# Bells Across PA
+# Bells Across PA PWA
 
 The current Bells Across PA site has updated information, but doesn't provide a good way of visualizing where the bells are.  This site provides a better representation of all of the bells on a map, with the ability to filter and search coming.
 
@@ -20,14 +20,14 @@ The dev server runs at [http://localhost:3000](http://localhost:3000).
 
 | Command | Description |
 | --- | --- |
-| `pnpm dev` | Start the Vite dev server |
-| `pnpm build` | Production build |
-| `pnpm preview` | Preview the production build locally |
-| `pnpm test` | Run unit tests (Vitest) |
-| `pnpm lint` | Lint with Biome |
-| `pnpm format` | Format with Biome |
-| `pnpm check` | Lint and format check (Biome) |
-| `pnpm sync:bells` | Fetch, parse, geocode, and write bell data |
+| `pn dev` | Start the Vite dev server |
+| `pn build` | Production build |
+| `pn preview` | Preview the production build locally |
+| `pn test` | Run unit tests (Vitest) |
+| `pn lint` | Lint with Biome |
+| `pn format` | Format with Biome |
+| `pn check` | Lint and format check (Biome) |
+| `pn sync:bells` | Fetch, parse, geocode, and write bell data |
 
 ## Bell data sync
 
@@ -50,6 +50,7 @@ The script fetches HTML, parses bell entries (including indoors/outdoors footnot
 - [Leaflet](https://leafletjs.com/) / [react-leaflet](https://react-leaflet.js.org/) for the map
 - [Biome](https://biomejs.dev/) for linting and formatting
 - [Vitest](https://vitest.dev/) for unit tests (`vitest.config.ts` — separate from `vite.config.ts` so app plugins do not run during tests)
+- [Vercel](https://vercel.com) for hosting
 
 ## Testing
 

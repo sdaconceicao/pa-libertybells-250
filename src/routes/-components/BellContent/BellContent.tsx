@@ -4,19 +4,17 @@ import styles from "./BellContent.module.css";
 
 type Props = {
 	bell: Bell;
+	isActive?: boolean;
 	onHover?: (bellId: string | null) => void;
 	onSelect?: (bellId: string) => void;
+	optionId?: string;
+	ariaSelected?: boolean;
+	onOptionMouseEnter?: () => void;
 };
 
-export function BellContent({ bell, onHover, onSelect }: Props) {
+function BellContentBody({ bell }: { bell: Bell }) {
 	return (
-		<button
-			type="button"
-			className={styles.entry}
-			onMouseEnter={() => onHover?.(bell.id)}
-			onMouseLeave={() => onHover?.(null)}
-			onClick={() => onSelect?.(bell.id)}
-		>
+		<>
 			<div className={styles.thumbnail}>
 				<Image
 					src={bell.imageUrl}
@@ -32,6 +30,59 @@ export function BellContent({ bell, onHover, onSelect }: Props) {
 				{bell.artist ? <p className={styles.author}>by {bell.artist}</p> : null}
 				<p className={styles.address}>{bell.county} County, PA</p>
 			</div>
+		</>
+	);
+}
+
+export function BellContent({
+	bell,
+	isActive = false,
+	onHover,
+	onSelect,
+	optionId,
+	ariaSelected = false,
+	onOptionMouseEnter,
+}: Props) {
+	const entryClassName = [styles.entry, isActive ? styles.entryActive : ""]
+		.filter(Boolean)
+		.join(" ");
+
+	if (optionId) {
+		return (
+			<div
+				id={optionId}
+				role="option"
+				tabIndex={-1}
+				className={entryClassName}
+				aria-selected={ariaSelected}
+				onMouseEnter={() => {
+					onOptionMouseEnter?.();
+					onHover?.(bell.id);
+				}}
+				onMouseLeave={() => onHover?.(null)}
+				onClick={() => onSelect?.(bell.id)}
+				onKeyDown={(event) => {
+					if (event.key !== "Enter" && event.key !== " ") {
+						return;
+					}
+					event.preventDefault();
+					onSelect?.(bell.id);
+				}}
+			>
+				<BellContentBody bell={bell} />
+			</div>
+		);
+	}
+
+	return (
+		<button
+			type="button"
+			className={entryClassName}
+			onMouseEnter={() => onHover?.(bell.id)}
+			onMouseLeave={() => onHover?.(null)}
+			onClick={() => onSelect?.(bell.id)}
+		>
+			<BellContentBody bell={bell} />
 		</button>
 	);
 }
