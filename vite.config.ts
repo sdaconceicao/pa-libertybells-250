@@ -8,6 +8,23 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
+/** Vercel static assets — must match where the client build writes files. */
+const staticOutDir = ".vercel/output/static";
+
+const navigationCache = {
+	urlPattern: ({ request }: { request: Request }) =>
+		request.mode === "navigate",
+	handler: "NetworkFirst" as const,
+	options: {
+		cacheName: "pages",
+		networkTimeoutSeconds: 3,
+		expiration: {
+			maxEntries: 10,
+			maxAgeSeconds: 60 * 60 * 24,
+		},
+	},
+};
+
 const config = defineConfig({
 	plugins: [
 		devtools(),
@@ -26,12 +43,43 @@ const config = defineConfig({
 			injectRegister: null,
 			// We maintain manifest.json ourselves
 			manifest: false,
+			// Write sw.js next to deployed static assets (not dist/client)
+			outDir: staticOutDir,
+			includeAssets: [
+				"favicon.svg",
+				"favicon.ico",
+				"manifest.json",
+				"icon-maskable.svg",
+				"robots.txt",
+			],
+			integration: {
+				configureOptions(viteConfig, options) {
+					if (viteConfig.build.ssr) {
+						options.disable = true;
+						return;
+					}
+					// Client + nitro builds both have ssr:false; only emit the SW for static assets.
+					const outDir = viteConfig.build.outDir ?? "";
+					if (
+						outDir.includes("/functions/") ||
+						outDir.includes("node_modules/.nitro")
+					) {
+						options.disable = true;
+					}
+				},
+			},
+			devOptions: {
+				enabled: true,
+				type: "module",
+			},
 			workbox: {
-				// Precache all JS, CSS, HTML, and core assets
-				globPatterns: ["**/*.{js,css,html,ico,svg}"],
-				// Bell images are too many to precache — served via runtime cache below
-				globIgnores: ["**/bells/images/**"],
+				// SSR app — no index.html shell; cache document responses instead
+				navigateFallback: null,
+				globDirectory: staticOutDir,
+				globPatterns: ["**/*.{js,css,ico,svg,woff2}"],
+				globIgnores: ["**/bells/images/**", "sw.js", "workbox-*.js"],
 				runtimeCaching: [
+					navigationCache,
 					{
 						// Bell photos — cache-first, kept for 30 days
 						urlPattern: /\/bells\/images\/.+/,
@@ -43,6 +91,12 @@ const config = defineConfig({
 								maxAgeSeconds: 60 * 60 * 24 * 30,
 							},
 						},
+					},
+					{
+						// Leaflet stylesheet (loaded from unpkg in __root.tsx)
+						urlPattern: /^https:\/\/unpkg\.com\/leaflet@.+\/dist\/leaflet\.css/,
+						handler: "StaleWhileRevalidate",
+						options: { cacheName: "leaflet-css" },
 					},
 					{
 						// OpenStreetMap tiles — stale-while-revalidate, kept for 7 days
