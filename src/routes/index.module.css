@@ -53,7 +53,7 @@
 }
 
 .mobileListLogo {
-	width: auto;
+	height: 2.5rem;
 	max-width: min(11rem, 70vw);
 }
 

@@ -11,6 +11,7 @@ import { Logo } from "./-components/Logo/Logo";
 import { MobileViewToggle } from "./-components/MobileViewToggle/MobileViewToggle";
 import { useBellsFilters } from "./-hooks/useBellsFilters";
 import { useBellsPageLayout } from "./-hooks/useBellsPageLayout";
+import { getBellNavigation } from "./-utils/getBellNavigation";
 import styles from "./index.module.css";
 
 export const Route = createFileRoute("/")({
@@ -58,6 +59,14 @@ function BellsPage() {
 		[filteredBells, selectedBellId],
 	);
 
+	const bellNavigation = useMemo(
+		() =>
+			selectedBellId
+				? getBellNavigation(filteredBells, selectedBellId)
+				: null,
+		[filteredBells, selectedBellId],
+	);
+
 	const handleBellSelect = useCallback(
 		(id: string) => {
 			setSelectedBellId(id);
@@ -72,11 +81,29 @@ function BellsPage() {
 		setSelectedBellId(null);
 	}, []);
 
+	const handlePreviousBell = useCallback(() => {
+		if (bellNavigation?.previousId) {
+			handleBellSelect(bellNavigation.previousId);
+		}
+	}, [bellNavigation?.previousId, handleBellSelect]);
+
+	const handleNextBell = useCallback(() => {
+		if (bellNavigation?.nextId) {
+			handleBellSelect(bellNavigation.nextId);
+		}
+	}, [bellNavigation?.nextId, handleBellSelect]);
+
 	const selectedBellPanel = selectedBell ? (
 		<BellPopupContent
 			bell={selectedBell}
 			variant="sidebar"
 			onClose={handleClearSelection}
+			onPrevious={handlePreviousBell}
+			onNext={handleNextBell}
+			hasPrevious={!!bellNavigation?.previousId}
+			hasNext={!!bellNavigation?.nextId}
+			listPosition={bellNavigation?.position}
+			listTotal={bellNavigation?.total ?? 0}
 		/>
 	) : null;
 
@@ -128,16 +155,19 @@ function BellsPage() {
 
 			{showMobileList ? (
 				<section className={styles.mobileListLayer}>
-					<header className={styles.mobileListHeader}>
-						<Logo variant="circle" className={styles.mobileListLogo} />
-					</header>
+					{!selectedBellPanel ? (
+						<header className={styles.mobileListHeader}>
+							<Logo variant="circle" className={styles.mobileListLogo} />
+						</header>
+					) : null}
 					<div className={styles.panelStack}>
 						{selectedBellPanel ? (
 							<div className={styles.selectedBellSection}>
 								{selectedBellPanel}
 							</div>
-						) : null}
-						{filtersPanel}
+						) : (
+							filtersPanel
+						)}
 						<BellsList
 							bells={filteredBells}
 							className={styles.mobileList}

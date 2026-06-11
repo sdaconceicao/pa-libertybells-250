@@ -19,6 +19,59 @@
 	aspect-ratio: 4 / 3;
 }
 
+.navButtons {
+	position: absolute;
+	top: 0.5rem;
+	left: 0.5rem;
+	z-index: 1;
+	display: inline-flex;
+	gap: 0.375rem;
+}
+
+.navButton {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.75rem;
+	height: 1.75rem;
+	padding: 0;
+	border: 1px solid var(--color-border);
+	border-radius: 50%;
+	background: var(--color-surface);
+	box-shadow: var(--shadow-sm);
+	color: var(--color-text);
+	cursor: pointer;
+	transition:
+		background-color 0.15s ease,
+		color 0.15s ease;
+}
+
+.navButton:hover:not(:disabled) {
+	background: var(--color-chip-background);
+	color: var(--color-text);
+}
+
+.navButton:disabled {
+	opacity: 0.45;
+	cursor: not-allowed;
+}
+
+.navPosition {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 1.75rem;
+	padding: 0 0.625rem;
+	border: 1px solid var(--color-border);
+	border-radius: 0.375rem;
+	background: var(--color-surface);
+	box-shadow: var(--shadow-sm);
+	font-size: 0.75rem;
+	font-weight: 500;
+	color: var(--color-text);
+	white-space: nowrap;
+}
+
 .closeButton {
 	position: absolute;
 	top: 0.5rem;
@@ -108,6 +161,13 @@
 	margin: 0;
 	font-size: 0.8125rem;
 	color: var(--color-text-muted);
+	text-decoration: none;
+}
+
+.address:hover,
+.address:focus-visible {
+	color: var(--color-text);
+	text-decoration: underline;
 }
 
 .addressLine {

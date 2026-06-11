@@ -64,3 +64,15 @@ export const buildAddressLines = (address: BellAddress): string[] => {
 export const buildAddressString = (address: BellAddress): string => {
 	return buildAddressLines(address).join(", ");
 };
+
+export const buildMapsUrl = (
+	lat: number,
+	lng: number,
+	address?: BellAddress,
+): string => {
+	const query = address
+		? encodeURIComponent(buildGeocodeQuery(address))
+		: `${lat},${lng}`;
+
+	return `https://www.google.com/maps/search/?api=1&query=${query}`;
+};
