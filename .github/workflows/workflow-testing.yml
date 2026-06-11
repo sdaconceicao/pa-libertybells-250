@@ -26,7 +26,8 @@ jobs:
         uses: pnpm/action-setup@v6
         with:
           version: 11
-          cache: true
+          # No checkout in this job — deps come from the restored build cache, not pnpm's store cache.
+          cache: false
 
       - name: Run Linting and Formatting
         run: pnpm check
