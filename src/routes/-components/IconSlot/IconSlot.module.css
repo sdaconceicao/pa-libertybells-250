@@ -1,0 +1,19 @@
+.iconSlot {
+	flex-shrink: 0;
+	width: var(--icon-size, 14px);
+	height: var(--icon-size, 14px);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-text-muted);
+}
+
+.iconSlot svg {
+	display: block;
+}
+
+.iconSlotTopRight {
+	align-items: flex-start;
+	justify-content: flex-end;
+	margin-top: 0.25rem;
+}

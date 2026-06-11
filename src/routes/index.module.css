@@ -22,12 +22,33 @@
 	pointer-events: none;
 }
 
-.mapLogo {
+.mapHeader {
+	position: absolute;
+	top: 1rem;
+	z-index: 500;
+	pointer-events: auto;
+}
+
+.mapHeaderDesktop {
+	left: 50%;
+	width: min(36rem, calc(100vw - 2rem));
+	transform: translateX(-50%);
+}
+
+.mapLogoDesktop {
 	position: absolute;
 	top: 1rem;
 	left: 1rem;
 	z-index: 500;
+	width: 3.5rem;
+	height: 3.5rem;
 	pointer-events: none;
+}
+
+.mapHeaderMobile {
+	left: 1rem;
+	right: 1rem;
+	width: auto;
 }
 
 .mobileListLayer {
@@ -47,14 +68,14 @@
 	display: flex;
 	flex-shrink: 0;
 	align-items: center;
-	justify-content: center;
-	padding: 0.875rem 1rem;
+	padding: 0.875rem 1rem 0.875rem 0.75rem;
 	border-bottom: 1px solid var(--color-border);
 }
 
-.mobileListLogo {
-	height: 2.5rem;
-	max-width: min(11rem, 70vw);
+.mobileListHeader > * {
+	flex: 1;
+	width: 100%;
+	min-width: 0;
 }
 
 .panelStack {
@@ -70,6 +91,10 @@
 		container-type: size;
 		container-name: bells-panel;
 	}
+}
+
+.mapHeaderSearch {
+	top: 0.75rem;
 }
 
 .selectedBellSection {

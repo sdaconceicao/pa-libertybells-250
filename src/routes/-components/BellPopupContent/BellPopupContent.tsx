@@ -1,5 +1,7 @@
 import { CloseButton } from "../../../components/CloseButton/CloseButton";
 import { Image } from "../../../components/Image/Image";
+import { AddressIcon } from "../AddressIcon/AddressIcon";
+import { ArtistIcon } from "../ArtistIcon/ArtistIcon";
 import {
 	buildAddressLines,
 	buildAddressString,
@@ -70,7 +72,12 @@ export function BellPopupContent({
 			</div>
 			<div className={styles.body}>
 				<h3 className={styles.title}>{bell.title}</h3>
-				{bell.artist ? <p className={styles.artist}>by {bell.artist}</p> : null}
+				{bell.artist ? (
+					<p className={styles.artist}>
+						<ArtistIcon />
+						<span>by {bell.artist}</span>
+					</p>
+				) : null}
 				{addressLines.length > 0 ? (
 					<a
 						href={mapsUrl}
@@ -79,11 +86,14 @@ export function BellPopupContent({
 						rel="noopener noreferrer"
 						aria-label={`Open ${buildAddressString(bell.address)} in maps`}
 					>
-						{addressLines.map((line) => (
-							<span key={line} className={styles.addressLine}>
-								{line}
-							</span>
-						))}
+						<AddressIcon />
+						<span className={styles.addressText}>
+							{addressLines.map((line) => (
+								<span key={line} className={styles.addressLine}>
+									{line}
+								</span>
+							))}
+						</span>
 					</a>
 				) : null}
 			</div>

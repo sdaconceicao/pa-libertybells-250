@@ -3,10 +3,12 @@ import { useCallback, useMemo, useRef, useState } from "react";
 import bellsData from "../lib/bells/bells.data.json";
 import type { Bell } from "../lib/bells/types";
 import { BellPopupContent } from "./-components/BellPopupContent/BellPopupContent";
+import { BellSearch } from "./-components/BellSearch/BellSearch";
 import { BellsFilters } from "./-components/BellsFilters/BellsFilters";
 import { BellsList } from "./-components/BellsList/BellsList";
 import { BellsMap } from "./-components/BellsMap";
 import { FloatingSidebar } from "./-components/FloatingSidebar/FloatingSidebar";
+import { ListHeader } from "./-components/ListHeader/ListHeader";
 import { Logo } from "./-components/Logo/Logo";
 import { MobileViewToggle } from "./-components/MobileViewToggle/MobileViewToggle";
 import { useBellsFilters } from "./-hooks/useBellsFilters";
@@ -125,11 +127,20 @@ function BellsPage() {
 	const showMobileList = isMobile && mobileView === "list";
 	const showDesktopMap = !isMobile;
 	const mapVisible = showMobileMap || showDesktopMap;
-	const showCircleLogo = mapVisible && (isMobile || !sidebarOpen);
+	const showMapHeader = mapVisible && (isMobile || !sidebarOpen);
 
 	const listEmptyMessage = hasActiveFilters
 		? "No bells match these filters."
 		: "No bells are loaded yet.";
+
+	const listHeader = (
+		<ListHeader
+			bells={filteredBells}
+			onBellHover={handleBellHover}
+			onBellSelect={handleBellSelect}
+			variant={isMobile ? "mobile" : "desktop"}
+		/>
+	);
 
 	const filtersPanel = (
 		<BellsFilters
@@ -162,17 +173,44 @@ function BellsPage() {
 					selectedBellId={selectedBellId}
 					onBellSelect={handleBellSelect}
 				/>
-				{showCircleLogo ? (
-					<Logo variant="circle" className={styles.mapLogo} />
+				{showMapHeader ? (
+					isMobile ? (
+						<div
+							className={[styles.mapHeader, styles.mapHeaderMobile]
+								.filter(Boolean)
+								.join(" ")}
+						>
+							<ListHeader
+								bells={filteredBells}
+								onBellHover={handleBellHover}
+								onBellSelect={handleBellSelect}
+								variant="mobileMap"
+							/>
+						</div>
+					) : (
+						<>
+							<div
+								className={[styles.mapHeader, styles.mapHeaderDesktop]
+									.filter(Boolean)
+									.join(" ")}
+							>
+								<BellSearch
+									bells={filteredBells}
+									onBellHover={handleBellHover}
+									onBellSelect={handleBellSelect}
+									className={styles.mapHeaderSearch}
+								/>
+							</div>
+							<Logo variant="circle" className={styles.mapLogoDesktop} />
+						</>
+					)
 				) : null}
 			</div>
 
 			{showMobileList ? (
 				<section className={styles.mobileListLayer}>
 					{!selectedBellPanel ? (
-						<header className={styles.mobileListHeader}>
-							<Logo variant="circle" className={styles.mobileListLogo} />
-						</header>
+						<header className={styles.mobileListHeader}>{listHeader}</header>
 					) : null}
 					<div className={styles.panelStack}>
 						{selectedBellPanel ? (
@@ -198,6 +236,7 @@ function BellsPage() {
 					isOpen={sidebarOpen}
 					onClose={closeSidebar}
 					onOpen={openSidebar}
+					header={sidebarOpen ? listHeader : undefined}
 					selectedContent={selectedBellPanel}
 				>
 					<div className={styles.panelStack}>
