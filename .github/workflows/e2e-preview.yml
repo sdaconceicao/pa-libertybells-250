@@ -1,5 +1,4 @@
-name: E2E tests for Preview
-
+name: Deployment E2E tests
 on:
   deployment_status:
 
@@ -8,9 +7,9 @@ permissions:
 
 jobs:
   e2e:
+    name: Playwright E2E tests
     if: |
-      github.event.deployment_status.state == 'success' &&
-      github.event.deployment.environment == 'Preview'
+      github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     # Playwright image includes Chromium + OS deps.

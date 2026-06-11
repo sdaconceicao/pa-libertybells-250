@@ -1,4 +1,4 @@
-import type { Page } from "@playwright/test";
+import { expect, type Page } from "@playwright/test";
 
 export type MapTileState = {
 	zoom: number;
@@ -11,51 +11,108 @@ export type BellCoords = {
 	lng: number;
 };
 
+function getViewportCenterTileState(): MapTileState | null {
+	const tiles = [
+		...document.querySelectorAll<HTMLImageElement>(
+			"img.leaflet-tile-loaded, img.leaflet-tile",
+		),
+	];
+	if (tiles.length === 0) {
+		return null;
+	}
+
+	const viewportCenter = {
+		x: window.innerWidth / 2,
+		y: window.innerHeight / 2,
+	};
+
+	let closestTile: HTMLImageElement | null = null;
+	let closestDistance = Number.POSITIVE_INFINITY;
+
+	for (const tile of tiles) {
+		const rect = tile.getBoundingClientRect();
+		const centerX = rect.left + rect.width / 2;
+		const centerY = rect.top + rect.height / 2;
+		const distance = Math.hypot(
+			centerX - viewportCenter.x,
+			centerY - viewportCenter.y,
+		);
+
+		if (distance < closestDistance) {
+			closestDistance = distance;
+			closestTile = tile;
+		}
+	}
+
+	const match = closestTile?.src.match(/\/(\d+)\/(\d+)\/(\d+)\.png/);
+	if (!match) {
+		return null;
+	}
+
+	return {
+		zoom: Number(match[1]),
+		x: Number(match[2]),
+		y: Number(match[3]),
+	};
+}
+
+export async function waitForMapTiles(
+	page: Page,
+	timeout = 15_000,
+): Promise<void> {
+	await page.waitForFunction(
+		() =>
+			document.querySelectorAll("img.leaflet-tile-loaded, img.leaflet-tile")
+				.length > 0,
+		undefined,
+		{ timeout },
+	);
+}
+
 export async function getMapTileState(page: Page): Promise<MapTileState> {
-	return page.evaluate(() => {
-		const tiles = [
-			...document.querySelectorAll<HTMLImageElement>(
-				"img.leaflet-tile-loaded, img.leaflet-tile",
-			),
-		];
-		if (tiles.length === 0) {
-			throw new Error("No map tiles found");
-		}
+	const state = await page.evaluate(getViewportCenterTileState);
+	if (!state) {
+		throw new Error("No map tiles found");
+	}
 
-		const viewportCenter = {
-			x: window.innerWidth / 2,
-			y: window.innerHeight / 2,
-		};
+	return state;
+}
 
-		let closestTile: HTMLImageElement | null = null;
-		let closestDistance = Number.POSITIVE_INFINITY;
+export async function waitForMapCenteredOnBell(
+	page: Page,
+	bell: BellCoords,
+	options: {
+		zoom: number;
+		maxTileDistance?: number;
+		timeout?: number;
+	},
+): Promise<void> {
+	const maxTileDistance = options.maxTileDistance ?? 2;
+	const timeout = options.timeout ?? 15_000;
+	const expectedTile = latLngToTile(bell.lat, bell.lng, options.zoom);
 
-		for (const tile of tiles) {
-			const rect = tile.getBoundingClientRect();
-			const centerX = rect.left + rect.width / 2;
-			const centerY = rect.top + rect.height / 2;
-			const distance = Math.hypot(
-				centerX - viewportCenter.x,
-				centerY - viewportCenter.y,
-			);
+	await expect
+		.poll(
+			async () => {
+				try {
+					const state = await getMapTileState(page);
+					if (state.zoom !== options.zoom) {
+						return null;
+					}
 
-			if (distance < closestDistance) {
-				closestDistance = distance;
-				closestTile = tile;
-			}
-		}
+					const distance = Math.hypot(
+						state.x - expectedTile.x,
+						state.y - expectedTile.y,
+					);
 
-		const match = closestTile?.src.match(/\/(\d+)\/(\d+)\/(\d+)\.png/);
-		if (!match) {
-			throw new Error("Could not parse map tile URL");
-		}
-
-		return {
-			zoom: Number(match[1]),
-			x: Number(match[2]),
-			y: Number(match[3]),
-		};
-	});
+					return distance <= maxTileDistance ? state : null;
+				} catch {
+					return null;
+				}
+			},
+			{ timeout },
+		)
+		.not.toBeNull();
 }
 
 export function latLngToTile(
