@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.1.0...v0.1.1) (2026-06-11)
+
+
+### Bug Fixes
+
+* Mobile view fixes ([#38](https://github.com/sdaconceicao/pa-libertybells-250/issues/38)) ([ed761ae](https://github.com/sdaconceicao/pa-libertybells-250/commit/ed761ae907b2adb5aa74863c74a98ef06a51b104))
+
 ## [0.1.0](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.0.0...v0.1.0) (2026-06-10)
 
 
