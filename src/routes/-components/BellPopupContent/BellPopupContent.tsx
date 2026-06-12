@@ -7,6 +7,7 @@ import {
 	buildAddressString,
 	buildMapsUrl,
 } from "../../../lib/bells/bellAddress";
+import { getBellMediumUrl } from "../../../lib/bells/bellImageVariants";
 import type { Bell } from "../../../lib/bells/types";
 import styles from "./BellPopupContent.module.css";
 import { MetaBar } from "./components/MetaBar/MetaBar";
@@ -63,7 +64,7 @@ export function BellPopupContent({
 					/>
 				) : null}
 				<Image
-					src={bell.imageUrl}
+					src={getBellMediumUrl(bell.imageUrl)}
 					alt=""
 					imageClassName={styles.headerImage}
 					placeholderClassName={styles.headerPlaceholder}

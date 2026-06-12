@@ -23,21 +23,6 @@ export function MobileViewToggle({ activeView, onShowMap, onShowList }: Props) {
 				role="tab"
 				className={[
 					styles.toggleButton,
-					activeView === "map" ? styles.toggleButtonActive : "",
-				]
-					.filter(Boolean)
-					.join(" ")}
-				onClick={onShowMap}
-				aria-selected={activeView === "map"}
-			>
-				<MapIcon size={14} aria-hidden="true" />
-				Map
-			</button>
-			<button
-				type="button"
-				role="tab"
-				className={[
-					styles.toggleButton,
 					activeView === "list" ? styles.toggleButtonActive : "",
 				]
 					.filter(Boolean)
@@ -47,6 +32,21 @@ export function MobileViewToggle({ activeView, onShowMap, onShowList }: Props) {
 			>
 				<List size={14} aria-hidden="true" />
 				List
+			</button>
+			<button
+				type="button"
+				role="tab"
+				className={[
+					styles.toggleButton,
+					activeView === "map" ? styles.toggleButtonActive : "",
+				]
+					.filter(Boolean)
+					.join(" ")}
+				onClick={onShowMap}
+				aria-selected={activeView === "map"}
+			>
+				<MapIcon size={14} aria-hidden="true" />
+				Map
 			</button>
 		</div>
 	);

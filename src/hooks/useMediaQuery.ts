@@ -1,27 +1,23 @@
-import { useEffect, useState } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 
 export function useMediaQuery(query: string): boolean {
-	const [matches, setMatches] = useState(() => {
-		if (typeof window === "undefined") {
-			return false;
-		}
+	const subscribe = useCallback(
+		(onStoreChange: () => void) => {
+			const mediaQuery = window.matchMedia(query);
+			mediaQuery.addEventListener("change", onStoreChange);
 
-		return window.matchMedia(query).matches;
-	});
+			return () => {
+				mediaQuery.removeEventListener("change", onStoreChange);
+			};
+		},
+		[query],
+	);
 
-	useEffect(() => {
-		const mediaQuery = window.matchMedia(query);
-		const handleChange = (event: MediaQueryListEvent) => {
-			setMatches(event.matches);
-		};
-
-		setMatches(mediaQuery.matches);
-		mediaQuery.addEventListener("change", handleChange);
-
-		return () => {
-			mediaQuery.removeEventListener("change", handleChange);
-		};
-	}, [query]);
-
-	return matches;
+	return useSyncExternalStore(
+		subscribe,
+		() => window.matchMedia(query).matches,
+		// The server cannot know the viewport; assume desktop and let CSS
+		// media queries control what is visible until hydration completes.
+		() => false,
+	);
 }

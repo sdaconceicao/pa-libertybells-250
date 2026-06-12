@@ -9,6 +9,14 @@
 	pointer-events: none;
 }
 
+/* The toggle is server-rendered before the viewport is known; hide it on
+   desktop so it never flashes there. */
+@media (min-width: 768px) {
+	.toggleBar {
+		display: none;
+	}
+}
+
 .toggleBarMap,
 .toggleBarList {
 	padding: 0.25rem;

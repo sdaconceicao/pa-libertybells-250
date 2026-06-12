@@ -86,3 +86,11 @@
 		transition: none;
 	}
 }
+
+/* The sidebar is server-rendered before the viewport is known; hide it on
+   mobile so it never flashes over the list view. */
+@media (max-width: 767px) {
+	.sidebar {
+		display: none;
+	}
+}

@@ -64,6 +64,14 @@
 	background: var(--color-surface);
 }
 
+/* The mobile list is server-rendered before the viewport is known; hide it on
+   desktop so it never flashes there. */
+@media (min-width: 768px) {
+	.mobileListLayer {
+		display: none;
+	}
+}
+
 .mobileListHeader {
 	display: flex;
 	flex-shrink: 0;
