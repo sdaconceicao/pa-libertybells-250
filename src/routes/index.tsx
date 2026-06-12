@@ -10,6 +10,7 @@ import { BellsMap } from "./-components/BellsMap";
 import { FloatingSidebar } from "./-components/FloatingSidebar/FloatingSidebar";
 import { ListHeader } from "./-components/ListHeader/ListHeader";
 import { Logo } from "./-components/Logo/Logo";
+import { InstallBanner } from "./-components/InstallBanner/InstallBanner";
 import { MobileViewToggle } from "./-components/MobileViewToggle/MobileViewToggle";
 import { useBellsFilters } from "./-hooks/useBellsFilters";
 import { useBellsPageLayout } from "./-hooks/useBellsPageLayout";
@@ -135,6 +136,8 @@ function BellsPage() {
 	const renderMobileList = mobileView === "list" && (isMobile || !isHydrated);
 	const renderMobileToggle = isMobile || !isHydrated;
 	const renderDesktopSidebar = !isMobile;
+	const showInstallBanner =
+		renderMobileToggle && !(mobileView === "list" && selectedBellPanel);
 
 	const listEmptyMessage = hasActiveFilters
 		? "No bells match these filters."
@@ -182,18 +185,23 @@ function BellsPage() {
 				/>
 				{showMapHeader ? (
 					isMobile ? (
-						<div
-							className={[styles.mapHeader, styles.mapHeaderMobile]
-								.filter(Boolean)
-								.join(" ")}
-						>
-							<ListHeader
-								bells={filteredBells}
-								onBellHover={handleBellHover}
-								onBellSelect={handleBellSelect}
-								variant="mobileMap"
-							/>
-						</div>
+						<>
+							<div
+								className={[styles.mapHeader, styles.mapHeaderMobile]
+									.filter(Boolean)
+									.join(" ")}
+							>
+								<ListHeader
+									bells={filteredBells}
+									onBellHover={handleBellHover}
+									onBellSelect={handleBellSelect}
+									variant="mobileMap"
+								/>
+							</div>
+							{showInstallBanner && mobileView === "map" ? (
+								<InstallBanner variant="map" />
+							) : null}
+						</>
 					) : (
 						<>
 							<div
@@ -217,9 +225,12 @@ function BellsPage() {
 			{renderMobileList ? (
 				<section className={styles.mobileListLayer}>
 					{!selectedBellPanel ? (
-						<header className={styles.mobileListHeader}>
-							{renderListHeader("mobile")}
-						</header>
+						<>
+							<header className={styles.mobileListHeader}>
+								{renderListHeader("mobile")}
+							</header>
+							{showInstallBanner ? <InstallBanner variant="list" /> : null}
+						</>
 					) : null}
 					<div className={styles.panelStack}>
 						{selectedBellPanel ? (

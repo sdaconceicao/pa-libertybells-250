@@ -51,10 +51,6 @@ export const Route = createRootRoute({
 				rel: "manifest",
 				href: "/manifest.json",
 			},
-			{
-				rel: "apple-touch-icon",
-				href: "/logo192.png",
-			},
 			// Fonts: preconnect + direct link instead of a CSS @import chain,
 			// so the font CSS downloads in parallel with the app stylesheet.
 			{
