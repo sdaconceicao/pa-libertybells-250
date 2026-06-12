@@ -28,6 +28,7 @@ function BellsPage() {
 	const bells = Route.useLoaderData();
 	const {
 		isMobile,
+		isHydrated,
 		sidebarOpen,
 		openSidebar,
 		closeSidebar,
@@ -124,21 +125,27 @@ function BellsPage() {
 	) : null;
 
 	const showMobileMap = isMobile && mobileView === "map";
-	const showMobileList = isMobile && mobileView === "list";
 	const showDesktopMap = !isMobile;
 	const mapVisible = showMobileMap || showDesktopMap;
 	const showMapHeader = mapVisible && (isMobile || !sidebarOpen);
+
+	// Until hydration the viewport is unknown, so render both the mobile and
+	// desktop layouts and let CSS media queries decide which one is visible.
+	// Once hydrated, prune whichever layout doesn't apply.
+	const renderMobileList = mobileView === "list" && (isMobile || !isHydrated);
+	const renderMobileToggle = isMobile || !isHydrated;
+	const renderDesktopSidebar = !isMobile;
 
 	const listEmptyMessage = hasActiveFilters
 		? "No bells match these filters."
 		: "No bells are loaded yet.";
 
-	const listHeader = (
+	const renderListHeader = (variant: "mobile" | "desktop") => (
 		<ListHeader
 			bells={filteredBells}
 			onBellHover={handleBellHover}
 			onBellSelect={handleBellSelect}
-			variant={isMobile ? "mobile" : "desktop"}
+			variant={variant}
 		/>
 	);
 
@@ -207,10 +214,12 @@ function BellsPage() {
 				) : null}
 			</div>
 
-			{showMobileList ? (
+			{renderMobileList ? (
 				<section className={styles.mobileListLayer}>
 					{!selectedBellPanel ? (
-						<header className={styles.mobileListHeader}>{listHeader}</header>
+						<header className={styles.mobileListHeader}>
+							{renderListHeader("mobile")}
+						</header>
 					) : null}
 					<div className={styles.panelStack}>
 						{selectedBellPanel ? (
@@ -231,12 +240,12 @@ function BellsPage() {
 				</section>
 			) : null}
 
-			{!isMobile ? (
+			{renderDesktopSidebar ? (
 				<FloatingSidebar
 					isOpen={sidebarOpen}
 					onClose={closeSidebar}
 					onOpen={openSidebar}
-					header={sidebarOpen ? listHeader : undefined}
+					header={sidebarOpen ? renderListHeader("desktop") : undefined}
 					selectedContent={selectedBellPanel}
 				>
 					<div className={styles.panelStack}>
@@ -252,7 +261,7 @@ function BellsPage() {
 				</FloatingSidebar>
 			) : null}
 
-			{isMobile ? (
+			{renderMobileToggle ? (
 				<MobileViewToggle
 					activeView={mobileView}
 					onShowMap={showMap}
