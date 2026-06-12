@@ -4,7 +4,8 @@
  * any image outside public/bells/images.
  */
 /** Must stay in sync with SOURCE_PATTERN in scripts/optimizeBellImages.ts. */
-const BELL_IMAGE_PATTERN = /^(\/bells\/images\/)([^/]+)\.(png|jpe?g|webp|gif)$/i;
+const BELL_IMAGE_PATTERN =
+	/^(\/bells\/images\/)([^/]+)\.(png|jpe?g|webp|gif)$/i;
 
 function variantUrl(imageUrl: string | undefined, dir: string) {
 	if (!imageUrl) return imageUrl;
