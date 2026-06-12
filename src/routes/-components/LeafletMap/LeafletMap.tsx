@@ -34,6 +34,22 @@ type Props = {
 	onBellSelect?: (id: string) => void;
 };
 
+/**
+ * Kick off the Leaflet downloads as soon as this module is evaluated in the
+ * browser (rather than waiting for mount), so tiles can render sooner.
+ * Browser-only: Leaflet touches `window` at import time.
+ */
+const leafletModulesPromise =
+	typeof window !== "undefined"
+		? Promise.all([
+				import("react-leaflet"),
+				import("leaflet"),
+				import("react-leaflet-cluster"),
+				import("leaflet/dist/leaflet.css"),
+				import("react-leaflet-cluster/dist/assets/MarkerCluster.css"),
+			])
+		: null;
+
 export function LeafletMap({
 	bells,
 	sidebarOpen,
@@ -72,15 +88,9 @@ export function LeafletMap({
 	useEffect(() => {
 		let mounted = true;
 		void (async () => {
-			const [reactLeaflet, leafletLib, clusterModule] = await Promise.all([
-				import("react-leaflet"),
-				import("leaflet"),
-				import("react-leaflet-cluster"),
-			]);
-			await Promise.all([
-				import("leaflet/dist/leaflet.css"),
-				import("react-leaflet-cluster/dist/assets/MarkerCluster.css"),
-			]);
+			if (!leafletModulesPromise) return;
+			const [reactLeaflet, leafletLib, clusterModule] =
+				await leafletModulesPromise;
 			if (!mounted) return;
 			setLeaflet(reactLeaflet);
 			setL(leafletLib);

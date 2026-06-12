@@ -7,6 +7,7 @@ import { downloadBellImages } from "../src/lib/bells/downloadBellImages.js";
 import { fetchBellsPageHtml } from "../src/lib/bells/fetchPage.js";
 import { parseBells } from "../src/lib/bells/parsePage.js";
 import { geocodeBellAddresses } from "../src/lib/bells/geocode.js";
+import { optimizeBellImages } from "./optimizeBellImages.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -30,6 +31,9 @@ async function main() {
 	const imagesDir = path.resolve(__dirname, "../public/bells/images");
 	console.log("Downloading bell images...");
 	const withImages = await downloadBellImages(geocoded, imagesDir);
+
+	console.log("Generating optimized WebP variants (thumbs, medium)...");
+	await optimizeBellImages(imagesDir);
 
 	const dataPath = path.resolve(__dirname, "../src/lib/bells/bells.data.json");
 	await fs.writeFile(dataPath, JSON.stringify(withImages, null, 2), "utf8");

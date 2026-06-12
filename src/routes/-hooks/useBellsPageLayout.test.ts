@@ -24,7 +24,7 @@ describe("useBellsPageLayout", () => {
 
 		expect(result.current.isMobile).toBe(false);
 		expect(result.current.sidebarOpen).toBe(true);
-		expect(result.current.mobileView).toBe("map");
+		expect(result.current.mobileView).toBe("list");
 	});
 
 	it("closes and reopens the sidebar", () => {
@@ -47,16 +47,16 @@ describe("useBellsPageLayout", () => {
 		const { result } = renderHook(() => useBellsPageLayout());
 
 		act(() => {
-			result.current.showList();
-		});
-
-		expect(result.current.mobileView).toBe("list");
-
-		act(() => {
 			result.current.showMap();
 		});
 
 		expect(result.current.mobileView).toBe("map");
+
+		act(() => {
+			result.current.showList();
+		});
+
+		expect(result.current.mobileView).toBe("list");
 	});
 
 	it("detects mobile breakpoints", () => {

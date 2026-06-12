@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap");
+/* Open Sans is loaded via <link> in __root.tsx (avoids a render-blocking @import chain). */
 
 :root {
   --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;

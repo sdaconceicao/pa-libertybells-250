@@ -1,4 +1,5 @@
 import { Image } from "../../../components/Image/Image";
+import { getBellThumbUrl } from "../../../lib/bells/bellImageVariants";
 import type { Bell } from "../../../lib/bells/types";
 import styles from "./BellContent.module.css";
 
@@ -17,7 +18,7 @@ function BellContentBody({ bell }: { bell: Bell }) {
 		<>
 			<div className={styles.thumbnail}>
 				<Image
-					src={bell.imageUrl}
+					src={getBellThumbUrl(bell.imageUrl)}
 					alt={bell.title}
 					imageClassName={styles.thumbnailImg}
 					placeholderClassName={styles.thumbnailPlaceholder}

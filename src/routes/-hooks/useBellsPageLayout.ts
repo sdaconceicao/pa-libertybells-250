@@ -8,7 +8,7 @@ export const MOBILE_BREAKPOINT = "(max-width: 767px)";
 export function useBellsPageLayout() {
 	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
 	const [sidebarOpen, setSidebarOpen] = useState(true);
-	const [mobileView, setMobileView] = useState<MobileView>("map");
+	const [mobileView, setMobileView] = useState<MobileView>("list");
 
 	const openSidebar = useCallback(() => {
 		setSidebarOpen(true);

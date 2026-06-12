@@ -93,12 +93,6 @@ const config = defineConfig({
 						},
 					},
 					{
-						// Leaflet stylesheet (loaded from unpkg in __root.tsx)
-						urlPattern: /^https:\/\/unpkg\.com\/leaflet@.+\/dist\/leaflet\.css/,
-						handler: "StaleWhileRevalidate",
-						options: { cacheName: "leaflet-css" },
-					},
-					{
 						// OpenStreetMap tiles — stale-while-revalidate, kept for 7 days
 						urlPattern: /^https:\/\/[a-z]\.tile\.openstreetmap\.org\/.+/,
 						handler: "StaleWhileRevalidate",
