@@ -28,7 +28,9 @@ describe("useBellSelection", () => {
 	const showMap = vi.fn();
 	const showList = vi.fn();
 
-	const renderSelection = (overrides?: Partial<Parameters<typeof useBellSelection>[0]>) =>
+	const renderSelection = (
+		overrides?: Partial<Parameters<typeof useBellSelection>[0]>,
+	) =>
 		renderHook(() =>
 			useBellSelection({
 				filteredBells: bells,

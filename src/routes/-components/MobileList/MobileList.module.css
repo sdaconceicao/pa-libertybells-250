@@ -33,31 +33,3 @@
 	width: 100%;
 	min-width: 0;
 }
-
-.panelStack {
-	display: flex;
-	flex: 1;
-	flex-direction: column;
-	min-height: 0;
-	overflow: hidden;
-}
-
-@media (max-width: 767px) {
-	.panelStack {
-		container-type: size;
-		container-name: bells-panel;
-	}
-}
-
-.selectedBellSection {
-	flex-shrink: 0;
-	overflow: hidden;
-	border-bottom: 1px solid var(--color-border);
-}
-
-.mobileList {
-	flex: 1;
-	min-height: 0;
-	border-top: 0;
-	padding-bottom: var(--mobile-toggle-reserve);
-}

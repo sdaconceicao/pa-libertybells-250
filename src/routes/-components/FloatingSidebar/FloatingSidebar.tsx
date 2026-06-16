@@ -1,23 +1,32 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { ReactNode } from "react";
+import type { Bell } from "../../../lib/bells/types";
+import { BellsPanelContent } from "../BellsPanelContent/BellsPanelContent";
+import { ListHeader } from "../ListHeader/ListHeader";
 import styles from "./FloatingSidebar.module.css";
 
 type Props = {
 	isOpen: boolean;
 	onClose: () => void;
 	onOpen: () => void;
-	header?: ReactNode;
-	selectedContent?: ReactNode;
-	children: ReactNode;
+	bells: Bell[];
+	emptyMessage: string;
+	onBellHover: (bellId: string | null) => void;
+	onBellSelect: (bellId: string) => void;
+	selectedContent: ReactNode | null;
+	filtersPanel: ReactNode;
 };
 
 export function FloatingSidebar({
 	isOpen,
 	onClose,
 	onOpen,
-	header,
+	bells,
+	emptyMessage,
+	onBellHover,
+	onBellSelect,
 	selectedContent,
-	children,
+	filtersPanel,
 }: Props) {
 	const sidebarClassName = [
 		styles.sidebar,
@@ -28,11 +37,25 @@ export function FloatingSidebar({
 
 	return (
 		<aside className={sidebarClassName}>
-			{header ? <div className={styles.sidebarHeader}>{header}</div> : null}
-			{selectedContent ? (
-				<div className={styles.selectedSection}>{selectedContent}</div>
+			{isOpen ? (
+				<div className={styles.sidebarHeader}>
+					<ListHeader
+						bells={bells}
+						onBellHover={onBellHover}
+						onBellSelect={onBellSelect}
+						variant="desktop"
+					/>
+				</div>
 			) : null}
-			<div className={styles.sidebarBody}>{children}</div>
+			<BellsPanelContent
+				bells={bells}
+				emptyMessage={emptyMessage}
+				onBellHover={onBellHover}
+				onBellSelect={onBellSelect}
+				selectedContent={selectedContent}
+				filtersPanel={filtersPanel}
+				filtersPlacement="stack"
+			/>
 			<button
 				type="button"
 				className={styles.handle}

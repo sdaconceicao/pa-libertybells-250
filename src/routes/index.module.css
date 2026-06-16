@@ -21,24 +21,3 @@
 	visibility: hidden;
 	pointer-events: none;
 }
-
-.panelStack {
-	display: flex;
-	flex: 1;
-	flex-direction: column;
-	min-height: 0;
-	overflow: hidden;
-}
-
-@media (max-width: 767px) {
-	.panelStack {
-		container-type: size;
-		container-name: bells-panel;
-	}
-}
-
-.sidebarList {
-	flex: 1;
-	min-height: 0;
-	border-top: 0;
-}

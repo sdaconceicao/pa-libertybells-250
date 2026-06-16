@@ -3,12 +3,10 @@ import bellsData from "../lib/bells/bells.data.json";
 import type { Bell } from "../lib/bells/types";
 import { BellPopupContent } from "./-components/BellPopupContent/BellPopupContent";
 import { BellsFilters } from "./-components/BellsFilters/BellsFilters";
-import { BellsList } from "./-components/BellsList/BellsList";
 import { BellsMap } from "./-components/BellsMap";
 import { FloatingSidebar } from "./-components/FloatingSidebar/FloatingSidebar";
 import { HeaderDesktop } from "./-components/HeaderDesktop/HeaderDesktop";
 import { HeaderMobile } from "./-components/HeaderMobile/HeaderMobile";
-import { ListHeader } from "./-components/ListHeader/ListHeader";
 import { MobileList } from "./-components/MobileList/MobileList";
 import { MobileViewToggle } from "./-components/MobileViewToggle/MobileViewToggle";
 import { useBellSelection } from "./-hooks/useBellSelection";
@@ -66,20 +64,6 @@ function BellsPage() {
 		showList,
 	});
 
-	const selectedBellPanel = selectedBell ? (
-		<BellPopupContent
-			bell={selectedBell}
-			variant="sidebar"
-			onClose={handleClearSelection}
-			onPrevious={handlePreviousBell}
-			onNext={handleNextBell}
-			hasPrevious={!!bellNavigation?.previousId}
-			hasNext={!!bellNavigation?.nextId}
-			listPosition={bellNavigation?.position}
-			listTotal={bellNavigation?.total ?? 0}
-		/>
-	) : null;
-
 	const showMobileMap = isMobile && mobileView === "map";
 	const showDesktopMap = !isMobile;
 	const mapVisible = showMobileMap || showDesktopMap;
@@ -92,23 +76,42 @@ function BellsPage() {
 	const renderMobileToggle = isMobile || !isHydrated;
 	const renderDesktopSidebar = !isMobile;
 	const showInstallBanner =
-		renderMobileToggle && !(mobileView === "list" && selectedBellPanel);
+		renderMobileToggle && !(mobileView === "list" && selectedBell);
 
 	const listEmptyMessage = hasActiveFilters
 		? "No bells match these filters."
 		: "No bells are loaded yet.";
 
-	const filtersPanel = (
-		<BellsFilters
-			countyOptions={countyOptions}
-			draft={draft}
-			applied={applied}
-			onDraftChange={setDraft}
-			onApply={applyFilters}
-			onClear={clearFilters}
-			resultSummary={resultSummary}
-		/>
-	);
+	const bellsPanelContentProps = {
+		bells: filteredBells,
+		emptyMessage: listEmptyMessage,
+		onBellHover: handleBellHover,
+		onBellSelect: handleBellSelect,
+		selectedContent: selectedBell ? (
+			<BellPopupContent
+				bell={selectedBell}
+				variant="sidebar"
+				onClose={handleClearSelection}
+				onPrevious={handlePreviousBell}
+				onNext={handleNextBell}
+				hasPrevious={!!bellNavigation?.previousId}
+				hasNext={!!bellNavigation?.nextId}
+				listPosition={bellNavigation?.position}
+				listTotal={bellNavigation?.total ?? 0}
+			/>
+		) : null,
+		filtersPanel: (
+			<BellsFilters
+				countyOptions={countyOptions}
+				draft={draft}
+				applied={applied}
+				onDraftChange={setDraft}
+				onApply={applyFilters}
+				onClear={clearFilters}
+				resultSummary={resultSummary}
+			/>
+		),
+	};
 
 	return (
 		<main className={styles.page}>
@@ -149,12 +152,7 @@ function BellsPage() {
 
 			{renderMobileList ? (
 				<MobileList
-					bells={filteredBells}
-					emptyMessage={listEmptyMessage}
-					onBellHover={handleBellHover}
-					onBellSelect={handleBellSelect}
-					selectedContent={selectedBellPanel}
-					filtersPanel={filtersPanel}
+					{...bellsPanelContentProps}
 					showInstallBanner={showInstallBanner}
 				/>
 			) : null}
@@ -164,29 +162,8 @@ function BellsPage() {
 					isOpen={sidebarOpen}
 					onClose={closeSidebar}
 					onOpen={openSidebar}
-					header={
-						sidebarOpen ? (
-							<ListHeader
-								bells={filteredBells}
-								onBellHover={handleBellHover}
-								onBellSelect={handleBellSelect}
-								variant="desktop"
-							/>
-						) : undefined
-					}
-					selectedContent={selectedBellPanel}
-				>
-					<div className={styles.panelStack}>
-						{filtersPanel}
-						<BellsList
-							bells={filteredBells}
-							className={styles.sidebarList}
-							emptyMessage={listEmptyMessage}
-							onBellHover={handleBellHover}
-							onBellSelect={handleBellSelect}
-						/>
-					</div>
-				</FloatingSidebar>
+					{...bellsPanelContentProps}
+				/>
 			) : null}
 
 			{renderMobileToggle ? (

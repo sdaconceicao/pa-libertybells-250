@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import type { Bell } from "../../../lib/bells/types";
-import { BellsList } from "../BellsList/BellsList";
+import { BellsPanelContent } from "../BellsPanelContent/BellsPanelContent";
 import { InstallBanner } from "../InstallBanner/InstallBanner";
 import { ListHeader } from "../ListHeader/ListHeader";
 import styles from "./MobileList.module.css";
@@ -35,20 +35,16 @@ export function MobileList({
 				/>
 			</header>
 			{showInstallBanner ? <InstallBanner variant="list" /> : null}
-			<div className={styles.panelStack}>
-				{selectedContent ? (
-					<div className={styles.selectedBellSection}>{selectedContent}</div>
-				) : (
-					filtersPanel
-				)}
-				<BellsList
-					bells={bells}
-					className={styles.mobileList}
-					emptyMessage={emptyMessage}
-					onBellHover={onBellHover}
-					onBellSelect={onBellSelect}
-				/>
-			</div>
+			<BellsPanelContent
+				bells={bells}
+				emptyMessage={emptyMessage}
+				onBellHover={onBellHover}
+				onBellSelect={onBellSelect}
+				selectedContent={selectedContent}
+				filtersPanel={filtersPanel}
+				filtersPlacement="replace"
+				listVariant="mobile"
+			/>
 		</section>
 	);
 }

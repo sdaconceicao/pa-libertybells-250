@@ -9,11 +9,7 @@ type Props = {
 	onBellSelect: (bellId: string) => void;
 };
 
-export function HeaderDesktop({
-	bells,
-	onBellHover,
-	onBellSelect,
-}: Props) {
+export function HeaderDesktop({ bells, onBellHover, onBellSelect }: Props) {
 	return (
 		<>
 			<div className={styles.mapHeader}>
