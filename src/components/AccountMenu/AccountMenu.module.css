@@ -1,0 +1,260 @@
+.container {
+	position: fixed;
+	top: var(--account-circle-inset);
+	right: var(--account-circle-inset);
+	z-index: 1200;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+/* Circle trigger */
+.trigger {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--account-circle-size);
+	height: var(--account-circle-size);
+	padding: 0;
+	border: 1px solid var(--color-border);
+	border-radius: 50%;
+	background: var(--color-surface);
+	color: var(--color-brand);
+	box-shadow: var(--shadow-sm);
+	cursor: pointer;
+	transition:
+		transform 0.12s ease,
+		box-shadow 0.12s ease;
+}
+
+.trigger:hover {
+	transform: translateY(-1px);
+	box-shadow: var(--shadow-lg);
+}
+
+.trigger:focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 2px;
+}
+
+.triggerAuthed {
+	background: var(--color-brand);
+	border-color: var(--color-brand);
+	color: #ffffff;
+}
+
+.initials {
+	font-size: 1rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+}
+
+.avatarImage {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+/* Popover */
+.popover {
+	margin-top: 0.5rem;
+	width: min(20rem, calc(100vw - 2rem));
+	padding: 1rem;
+	border: 1px solid var(--color-border);
+	border-radius: 14px;
+	background: var(--color-surface-elevated);
+	box-shadow: var(--shadow-lg);
+}
+
+/* Auth form */
+.authForm {
+	display: flex;
+	flex-direction: column;
+	gap: 0.875rem;
+}
+
+.tabs {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.25rem;
+	padding: 0.25rem;
+	background: var(--color-chip-background);
+	border-radius: 10px;
+}
+
+.tab {
+	padding: 0.5rem;
+	border: 0;
+	border-radius: 8px;
+	background: transparent;
+	color: var(--color-text-muted);
+	font: inherit;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.tabActive {
+	background: var(--color-surface);
+	color: var(--color-brand);
+	box-shadow: var(--shadow-sm);
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.label {
+	font-size: 0.8125rem;
+	font-weight: 600;
+	color: var(--color-text-muted);
+}
+
+.input {
+	width: 100%;
+	padding: 0.5rem 0.75rem;
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	background: var(--color-surface);
+	color: var(--color-text);
+	font: inherit;
+}
+
+.input:focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 1px;
+	border-color: var(--color-accent);
+}
+
+.error {
+	margin: 0;
+	font-size: 0.8125rem;
+	color: #b3261e;
+}
+
+.divider {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	color: var(--color-text-muted);
+	font-size: 0.8125rem;
+}
+
+.divider::before,
+.divider::after {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background: var(--color-border);
+}
+
+.social {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.socialButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	width: 100%;
+	padding: 0.5rem 0.75rem;
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	background: var(--color-surface);
+	color: var(--color-text);
+	font: inherit;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.12s ease;
+}
+
+.socialButton:hover:not(:disabled) {
+	background: var(--color-chip-background);
+}
+
+.socialButton:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+/* Logged-in account view */
+.account {
+	display: flex;
+	flex-direction: column;
+	gap: 0.875rem;
+}
+
+.accountHeader {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.accountAvatar {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	background: var(--color-brand);
+	color: #ffffff;
+	font-weight: 700;
+	flex-shrink: 0;
+}
+
+.accountText {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.accountName {
+	font-weight: 700;
+	color: var(--color-text);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.accountEmail {
+	font-size: 0.8125rem;
+	color: var(--color-text-muted);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.signOut {
+	width: 100%;
+	padding: 0.5rem 0.75rem;
+	border: 1px solid var(--color-border);
+	border-radius: 8px;
+	background: var(--color-surface);
+	color: var(--color-brand);
+	font: inherit;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.signOut:hover:not(:disabled) {
+	background: var(--color-chip-background);
+}
+
+.loading {
+	margin: 0;
+	padding: 0.5rem 0;
+	text-align: center;
+	color: var(--color-text-muted);
+}
