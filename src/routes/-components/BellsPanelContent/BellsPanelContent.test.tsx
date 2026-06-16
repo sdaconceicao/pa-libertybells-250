@@ -1,10 +1,19 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { DEFAULT_BELL_FILTERS } from "../../../lib/bells/filterBells";
 import type { Bell } from "../../../lib/bells/types";
 import { BellsPanelContent } from "./BellsPanelContent";
 
 vi.mock("../BellsList/BellsList", () => ({
 	BellsList: () => <div>Bell list</div>,
+}));
+
+vi.mock("../BellsFilters/BellsFilters", () => ({
+	BellsFilters: () => <div>Filters</div>,
+}));
+
+vi.mock("../BellPopupContent/BellPopupContent", () => ({
+	BellPopupContent: () => <div>Selected bell</div>,
 }));
 
 function makeBell(id: string, title: string): Bell {
@@ -21,6 +30,24 @@ function makeBell(id: string, title: string): Bell {
 
 const bells = [makeBell("a", "Bell A"), makeBell("b", "Bell B")];
 
+const defaultFilterProps = {
+	countyOptions: ["York"],
+	draft: DEFAULT_BELL_FILTERS,
+	applied: DEFAULT_BELL_FILTERS,
+	onDraftChange: () => {},
+	onApply: () => {},
+	onClear: () => {},
+	resultSummary: null,
+};
+
+const defaultSelectionProps = {
+	selectedBell: null,
+	bellNavigation: null,
+	onClearSelection: () => {},
+	onPreviousBell: () => {},
+	onNextBell: () => {},
+};
+
 describe("BellsPanelContent", () => {
 	afterEach(() => {
 		cleanup();
@@ -30,12 +57,12 @@ describe("BellsPanelContent", () => {
 		render(
 			<BellsPanelContent
 				bells={bells}
-				emptyMessage="No bells"
+				hasActiveFilters={false}
 				onBellHover={() => {}}
 				onBellSelect={() => {}}
-				selectedContent={null}
-				filtersPanel={<div>Filters</div>}
 				filtersPlacement="replace"
+				{...defaultFilterProps}
+				{...defaultSelectionProps}
 			/>,
 		);
 
@@ -47,12 +74,19 @@ describe("BellsPanelContent", () => {
 		render(
 			<BellsPanelContent
 				bells={bells}
-				emptyMessage="No bells"
+				hasActiveFilters={false}
 				onBellHover={() => {}}
 				onBellSelect={() => {}}
-				selectedContent={<div>Selected bell</div>}
-				filtersPanel={<div>Filters</div>}
 				filtersPlacement="replace"
+				{...defaultFilterProps}
+				{...defaultSelectionProps}
+				selectedBell={bells[0]}
+				bellNavigation={{
+					previousId: null,
+					nextId: "b",
+					position: 1,
+					total: 2,
+				}}
 			/>,
 		);
 
@@ -65,12 +99,19 @@ describe("BellsPanelContent", () => {
 		render(
 			<BellsPanelContent
 				bells={bells}
-				emptyMessage="No bells"
+				hasActiveFilters={false}
 				onBellHover={() => {}}
 				onBellSelect={() => {}}
-				selectedContent={<div>Selected bell</div>}
-				filtersPanel={<div>Filters</div>}
 				filtersPlacement="stack"
+				{...defaultFilterProps}
+				{...defaultSelectionProps}
+				selectedBell={bells[0]}
+				bellNavigation={{
+					previousId: null,
+					nextId: "b",
+					position: 1,
+					total: 2,
+				}}
 			/>,
 		);
 

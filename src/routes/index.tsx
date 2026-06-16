@@ -1,8 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import bellsData from "../lib/bells/bells.data.json";
 import type { Bell } from "../lib/bells/types";
-import { BellPopupContent } from "./-components/BellPopupContent/BellPopupContent";
-import { BellsFilters } from "./-components/BellsFilters/BellsFilters";
 import { BellsMap } from "./-components/BellsMap";
 import { FloatingSidebar } from "./-components/FloatingSidebar/FloatingSidebar";
 import { HeaderDesktop } from "./-components/HeaderDesktop/HeaderDesktop";
@@ -78,39 +76,23 @@ function BellsPage() {
 	const showInstallBanner =
 		renderMobileToggle && !(mobileView === "list" && selectedBell);
 
-	const listEmptyMessage = hasActiveFilters
-		? "No bells match these filters."
-		: "No bells are loaded yet.";
-
-	const bellsPanelContentProps = {
+	const bellsPanelProps = {
 		bells: filteredBells,
-		emptyMessage: listEmptyMessage,
+		hasActiveFilters,
 		onBellHover: handleBellHover,
 		onBellSelect: handleBellSelect,
-		selectedContent: selectedBell ? (
-			<BellPopupContent
-				bell={selectedBell}
-				variant="sidebar"
-				onClose={handleClearSelection}
-				onPrevious={handlePreviousBell}
-				onNext={handleNextBell}
-				hasPrevious={!!bellNavigation?.previousId}
-				hasNext={!!bellNavigation?.nextId}
-				listPosition={bellNavigation?.position}
-				listTotal={bellNavigation?.total ?? 0}
-			/>
-		) : null,
-		filtersPanel: (
-			<BellsFilters
-				countyOptions={countyOptions}
-				draft={draft}
-				applied={applied}
-				onDraftChange={setDraft}
-				onApply={applyFilters}
-				onClear={clearFilters}
-				resultSummary={resultSummary}
-			/>
-		),
+		countyOptions,
+		draft,
+		applied,
+		onDraftChange: setDraft,
+		onApply: applyFilters,
+		onClear: clearFilters,
+		resultSummary,
+		selectedBell,
+		bellNavigation,
+		onClearSelection: handleClearSelection,
+		onPreviousBell: handlePreviousBell,
+		onNextBell: handleNextBell,
 	};
 
 	return (
@@ -152,7 +134,7 @@ function BellsPage() {
 
 			{renderMobileList ? (
 				<MobileList
-					{...bellsPanelContentProps}
+					{...bellsPanelProps}
 					showInstallBanner={showInstallBanner}
 				/>
 			) : null}
@@ -162,7 +144,7 @@ function BellsPage() {
 					isOpen={sidebarOpen}
 					onClose={closeSidebar}
 					onOpen={openSidebar}
-					{...bellsPanelContentProps}
+					{...bellsPanelProps}
 				/>
 			) : null}
 
