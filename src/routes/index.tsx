@@ -224,12 +224,12 @@ function BellsPage() {
 
 			{renderMobileList ? (
 				<section className={styles.mobileListLayer}>
-						<>
-							<header className={styles.mobileListHeader}>
-								{renderListHeader("mobile")}
-							</header>
-							{showInstallBanner ? <InstallBanner variant="list" /> : null}
-						</>
+					<>
+						<header className={styles.mobileListHeader}>
+							{renderListHeader("mobile")}
+						</header>
+						{showInstallBanner ? <InstallBanner variant="list" /> : null}
+					</>
 					<div className={styles.panelStack}>
 						{selectedBellPanel ? (
 							<div className={styles.selectedBellSection}>
