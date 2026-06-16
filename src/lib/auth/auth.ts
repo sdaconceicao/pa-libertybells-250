@@ -4,6 +4,35 @@ import { tanstackStartCookies } from "better-auth/tanstack-start";
 import { db, schema } from "../db";
 
 /**
+ * Resolve the public origin Better Auth uses to build OAuth redirect URIs.
+ *
+ * OAuth providers must have the exact `redirect_uri` (origin + callback path)
+ * registered, so the origin has to match the deployment that's actually
+ * serving the request. A single static BETTER_AUTH_URL can't do that across
+ * Vercel preview deployments, so we fall back to Vercel's system env vars:
+ *   - production → the stable production domain
+ *   - preview    → the git-branch alias, which is stable per branch
+ *                  (VERCEL_URL changes every deploy, so we avoid it)
+ */
+function resolveBaseURL(): string | undefined {
+	if (process.env.BETTER_AUTH_URL) return process.env.BETTER_AUTH_URL;
+
+	if (
+		process.env.VERCEL_ENV === "production" &&
+		process.env.VERCEL_PROJECT_PRODUCTION_URL
+	) {
+		return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+	}
+
+	if (process.env.VERCEL_BRANCH_URL) {
+		return `https://${process.env.VERCEL_BRANCH_URL}`;
+	}
+
+	// Local dev / unknown: let Better Auth infer from the request host.
+	return undefined;
+}
+
+/**
  * Server-side Better Auth instance.
  *
  * This module is server-only — it is imported by the auth API route
@@ -11,7 +40,7 @@ import { db, schema } from "../db";
  * Use the auth client (src/lib/auth/auth-client.ts) in components instead.
  */
 export const auth = betterAuth({
-	baseURL: process.env.BETTER_AUTH_URL,
+	baseURL: resolveBaseURL(),
 	secret: process.env.BETTER_AUTH_SECRET,
 	database: drizzleAdapter(db, {
 		provider: "pg",
