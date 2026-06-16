@@ -25,8 +25,8 @@
 }
 
 .mobile .logo {
-	width: 2.5rem;
-	height: 2.5rem;
+	width: var(--mobile-control-height);
+	height: var(--mobile-control-height);
 	max-width: none;
 }
 
@@ -35,8 +35,8 @@
 }
 
 .mobileMap .logo {
-	width: 4.5rem;
-	height: 4.5rem;
+	width: var(--mobile-control-height);
+	height: var(--mobile-control-height);
 	max-width: none;
 }
 
