@@ -22,72 +22,6 @@
 	pointer-events: none;
 }
 
-.mapHeader {
-	position: absolute;
-	top: 1rem;
-	z-index: 500;
-	pointer-events: auto;
-}
-
-.mapHeaderDesktop {
-	left: 50%;
-	width: min(36rem, calc(100vw - 2rem));
-	transform: translateX(-50%);
-}
-
-.mapLogoDesktop {
-	position: absolute;
-	top: 1rem;
-	left: 1rem;
-	z-index: 500;
-	width: 3.5rem;
-	height: 3.5rem;
-	pointer-events: none;
-}
-
-.mapHeaderMobile {
-	left: 1rem;
-	/* Shrink so the search bar sits beside the floating account circle. */
-	right: var(--account-circle-reserve);
-	width: auto;
-}
-
-.mobileListLayer {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 900;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	background: var(--color-surface);
-}
-
-/* The mobile list is server-rendered before the viewport is known; hide it on
-   desktop so it never flashes there. */
-@media (min-width: 768px) {
-	.mobileListLayer {
-		display: none;
-	}
-}
-
-.mobileListHeader {
-	display: flex;
-	flex-shrink: 0;
-	align-items: center;
-	/* Reserve space on the right so the search bar clears the account circle. */
-	padding: 0.875rem var(--account-circle-reserve) 0.875rem 0.75rem;
-	border-bottom: 1px solid var(--color-border);
-}
-
-.mobileListHeader > * {
-	flex: 1;
-	width: 100%;
-	min-width: 0;
-}
-
 .panelStack {
 	display: flex;
 	flex: 1;
@@ -101,23 +35,6 @@
 		container-type: size;
 		container-name: bells-panel;
 	}
-}
-
-.mapHeaderSearch {
-	top: 0.75rem;
-}
-
-.selectedBellSection {
-	flex-shrink: 0;
-	overflow: hidden;
-	border-bottom: 1px solid var(--color-border);
-}
-
-.mobileList {
-	flex: 1;
-	min-height: 0;
-	border-top: 0;
-	padding-bottom: var(--mobile-toggle-reserve);
 }
 
 .sidebarList {

@@ -1,0 +1,23 @@
+.mapHeader {
+	position: absolute;
+	top: 1rem;
+	z-index: 500;
+	pointer-events: auto;
+	left: 50%;
+	width: min(36rem, calc(100vw - 2rem));
+	transform: translateX(-50%);
+}
+
+.mapHeaderSearch {
+	top: 0.75rem;
+}
+
+.mapLogo {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	z-index: 500;
+	width: 3.5rem;
+	height: 3.5rem;
+	pointer-events: none;
+}
