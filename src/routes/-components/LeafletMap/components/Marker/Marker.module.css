@@ -15,6 +15,16 @@
 	transform-origin: 50% 100%;
 }
 
+/* "Want to go" — a lighter shade of the brand blue. */
+.bellMarkerWant svg {
+	color: red;
+}
+
+/* "Been there" — the gold accent. */
+.bellMarkerBeen svg {
+	color: color-mix(var(--color-accent) 85%, black);
+}
+
 .bellMarkerHighlighted svg {
 	filter: drop-shadow(0 0 8px rgb(23 7 78 / 55%))
 		drop-shadow(0 1px 2px rgb(23 7 78 / 35%));

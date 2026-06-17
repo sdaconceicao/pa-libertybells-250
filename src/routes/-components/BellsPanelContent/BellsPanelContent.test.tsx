@@ -2,6 +2,7 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { DEFAULT_BELL_FILTERS } from "../../../lib/bells/filterBells";
 import type { Bell } from "../../../lib/bells/types";
+import { DEFAULT_VISITED_FILTER } from "../../../lib/visits/visitedFilter";
 import { BellsPanelContent } from "./BellsPanelContent";
 
 vi.mock("../BellsList/BellsList", () => ({
@@ -38,6 +39,10 @@ const defaultFilterProps = {
 	onApply: () => {},
 	onClear: () => {},
 	resultSummary: null,
+	showVisitedFilter: false,
+	visitedFilter: DEFAULT_VISITED_FILTER,
+	appliedVisitedFilter: DEFAULT_VISITED_FILTER,
+	onVisitedFilterChange: () => {},
 };
 
 const defaultSelectionProps = {

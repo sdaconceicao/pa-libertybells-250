@@ -1,8 +1,5 @@
 .navBar {
-	position: absolute;
-	top: 0.5rem;
-	left: 0.5rem;
-	z-index: 1;
 	display: inline-flex;
+	align-items: center;
 	gap: 0.375rem;
 }

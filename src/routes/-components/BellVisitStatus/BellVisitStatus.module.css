@@ -1,0 +1,12 @@
+/*
+ * Header-band override for the generic Select: a compact pill that fits beside
+ * the popup's close/nav controls. The doubled class raises specificity so these
+ * rules win over the generic `.select` regardless of stylesheet order.
+ */
+.statusSelect.statusSelect {
+	height: 1.75rem;
+	max-width: 9rem;
+	border-radius: 999px;
+	box-shadow: var(--shadow-sm);
+	font-size: 0.75rem;
+}
