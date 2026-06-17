@@ -67,11 +67,11 @@ export function BellPopupContent({
 				<Image
 					src={getBellMediumUrl(bell.imageUrl)}
 					alt=""
+					className={styles.headerMedia}
 					imageClassName={styles.headerImage}
 					placeholderClassName={styles.headerPlaceholder}
 				/>
 				<MetaBar
-					placement={bell.placement}
 					nav={
 						showNavigation ? (
 							<NavBar
@@ -102,7 +102,7 @@ export function BellPopupContent({
 						rel="noopener noreferrer"
 						aria-label={`Open ${buildAddressString(bell.address)} in maps`}
 					>
-						<AddressIcon />
+						<AddressIcon placement={bell.placement} />
 						<span className={styles.addressText}>
 							{addressLines.map((line) => (
 								<span key={line} className={styles.addressLine}>
