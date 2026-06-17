@@ -1,109 +1,116 @@
 /* Open Sans is loaded via <link> in __root.tsx (avoids a render-blocking @import chain). */
 
 :root {
-  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
-  --color-brand: #17074e;
-  --color-brand-secondary: #d7a129;
-  --color-text: #17074e;
-  --color-text-muted: #4a4568;
-  --color-accent: #d7a129;
-  --color-link: #17074e;
-  --color-link-hover: #2a1280;
-  --color-surface: #ffffff;
-  --color-surface-elevated: #ffffff;
-  --color-border: rgba(23, 7, 78, 0.12);
-  --color-background: #ffffff;
-  --color-surface-header: #ffffff;
-  --color-chip-background: #f5f3f8;
-  --color-chip-border: rgba(215, 161, 41, 0.35);
-  --shadow-sm: 0 4px 24px rgba(23, 7, 78, 0.12);
-  --shadow-lg: 0 8px 32px rgba(23, 7, 78, 0.16);
-  /* Shared height for the mobile header controls (search input, account
+	--font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+	--color-brand: #17074e;
+	--color-brand-secondary: #d7a129;
+	--color-text: #17074e;
+	--color-text-muted: #4a4568;
+	--color-accent: #d7a129;
+	--color-link: #17074e;
+	--color-link-hover: #2a1280;
+	--color-surface: #ffffff;
+	--color-surface-elevated: #ffffff;
+	--color-border: rgba(23, 7, 78, 0.12);
+	--color-background: #ffffff;
+	--color-surface-header: #ffffff;
+	--color-chip-background: #f5f3f8;
+	--color-chip-border: rgba(215, 161, 41, 0.35);
+	--shadow-sm: 0 4px 24px rgba(23, 7, 78, 0.12);
+	--shadow-lg: 0 8px 32px rgba(23, 7, 78, 0.16);
+	/* Shared height for the mobile header controls (search input, account
      circle, and logo) so they line up at the same size. */
-  --mobile-control-height: 2.25rem;
-  /* Floating top-right account circle (src/components/AccountMenu). */
-  --account-circle-size: 3rem;
-  --account-circle-inset: 1rem;
-  /* Space a top header must leave on the right so it clears the circle. */
-  --account-circle-reserve: calc(
-    var(--account-circle-inset) + var(--account-circle-size) + 0.75rem
-  );
-  --mobile-toggle-bottom-offset: calc(0.25rem + env(safe-area-inset-bottom, 0px));
-  --mobile-toggle-bar-height: 2.25rem;
-  --mobile-toggle-reserve: calc(
-    var(--mobile-toggle-bottom-offset) + var(--mobile-toggle-bar-height) + 0.25rem
-  );
-  --mobile-map-header-top: 1rem;
-  --mobile-map-header-height: 4.5rem;
-  --mobile-install-banner-offset-map: calc(
-    var(--mobile-map-header-top) + var(--mobile-map-header-height) + 0.375rem
-  );
+	--mobile-control-height: 2.25rem;
+	/* Floating top-right account circle (src/components/AccountMenu). */
+	--account-circle-size: 3rem;
+	--account-circle-inset: 1rem;
+	/* Space a top header must leave on the right so it clears the circle. */
+	--account-circle-reserve: calc(
+		var(--account-circle-inset) +
+		var(--account-circle-size) +
+		0.75rem
+	);
+	--mobile-toggle-bottom-offset: calc(
+		0.25rem +
+		env(safe-area-inset-bottom, 0px)
+	);
+	--mobile-toggle-bar-height: 2.25rem;
+	--mobile-toggle-reserve: calc(
+		var(--mobile-toggle-bottom-offset) +
+		var(--mobile-toggle-bar-height) +
+		0.25rem
+	);
+	--mobile-map-header-top: 1rem;
+	--mobile-map-header-height: 4.5rem;
+	--mobile-install-banner-offset-map: calc(
+		var(--mobile-map-header-top) +
+		var(--mobile-map-header-height) +
+		0.375rem
+	);
 }
 
 @media (max-width: 767px) {
-  :root {
-    /* Shrink the account circle to match the search input on mobile; the
+	:root {
+		/* Shrink the account circle to match the search input on mobile; the
        header reserve below it tracks this automatically. */
-    --account-circle-size: var(--mobile-control-height);
-  }
+		--account-circle-size: var(--mobile-control-height);
+	}
 }
 
-
-
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html,
 body,
 #app {
-  height: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+	height: 100%;
+	min-height: 100vh;
+	min-height: 100dvh;
 }
 
 body {
-  margin: 0;
-  color: var(--color-text);
-  font-family: var(--font-sans);
-  background-color: var(--color-background);
-  overflow: hidden;
+	margin: 0;
+	color: var(--color-text);
+	font-family: var(--font-sans);
+	background-color: var(--color-background);
+	overflow: hidden;
 }
 
 .app-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-wrap: anywhere;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-wrap: anywhere;
 }
 
 .app-body ::selection {
-  background: rgba(215, 161, 41, 0.24);
+	background: rgba(215, 161, 41, 0.24);
 }
 
 a {
-  color: var(--color-link);
-  text-decoration-color: rgba(23, 7, 78, 0.4);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+	color: var(--color-link);
+	text-decoration-color: rgba(23, 7, 78, 0.4);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 2px;
 }
 
 a:hover {
-  color: var(--color-link-hover);
+	color: var(--color-link-hover);
 }
 
 code {
-  font-size: 0.9em;
-  border: 1px solid var(--color-border);
-  background: color-mix(in oklab, var(--color-surface-elevated) 82%, white 18%);
-  border-radius: 7px;
-  padding: 2px 7px;
+	font-size: 0.9em;
+	border: 1px solid var(--color-border);
+	background: color-mix(in oklab, var(--color-surface-elevated) 82%, white 18%);
+	border-radius: 7px;
+	padding: 2px 7px;
 }
 
 pre code {
-  border: 0;
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-  font-size: inherit;
-  color: inherit;
+	border: 0;
+	background: transparent;
+	padding: 0;
+	border-radius: 0;
+	font-size: inherit;
+	color: inherit;
 }
