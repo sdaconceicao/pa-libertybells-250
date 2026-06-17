@@ -1,0 +1,30 @@
+.panelStack {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-height: 0;
+	overflow: hidden;
+}
+
+@media (max-width: 767px) {
+	.panelStack {
+		container-type: size;
+		container-name: bells-panel;
+	}
+}
+
+.selectedSection {
+	flex-shrink: 0;
+	overflow: hidden;
+	border-bottom: 1px solid var(--color-border);
+}
+
+.list {
+	flex: 1;
+	min-height: 0;
+	border-top: 0;
+}
+
+.listMobile {
+	padding-bottom: var(--mobile-toggle-reserve);
+}

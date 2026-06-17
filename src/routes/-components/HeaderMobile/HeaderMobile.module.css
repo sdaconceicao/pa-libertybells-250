@@ -1,0 +1,10 @@
+.mapHeader {
+	position: absolute;
+	top: 1rem;
+	z-index: 500;
+	pointer-events: auto;
+	left: 1rem;
+	/* Shrink so the search bar sits beside the floating account circle. */
+	right: var(--account-circle-reserve);
+	width: auto;
+}

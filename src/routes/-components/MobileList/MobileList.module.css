@@ -1,0 +1,35 @@
+.mobileListLayer {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 900;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	background: var(--color-surface);
+}
+
+/* The mobile list is server-rendered before the viewport is known; hide it on
+   desktop so it never flashes there. */
+@media (min-width: 768px) {
+	.mobileListLayer {
+		display: none;
+	}
+}
+
+.mobileListHeader {
+	display: flex;
+	flex-shrink: 0;
+	align-items: center;
+	/* Reserve space on the right so the search bar clears the account circle. */
+	padding: 0.875rem var(--account-circle-reserve) 0.875rem 0.75rem;
+	border-bottom: 1px solid var(--color-border);
+}
+
+.mobileListHeader > * {
+	flex: 1;
+	width: 100%;
+	min-width: 0;
+}
