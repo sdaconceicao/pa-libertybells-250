@@ -33,6 +33,11 @@
   --mobile-toggle-reserve: calc(
     var(--mobile-toggle-bottom-offset) + var(--mobile-toggle-bar-height) + 0.25rem
   );
+  --mobile-map-header-top: 1rem;
+  --mobile-map-header-height: 4.5rem;
+  --mobile-install-banner-offset-map: calc(
+    var(--mobile-map-header-top) + var(--mobile-map-header-height) + 0.375rem
+  );
 }
 
 @media (max-width: 767px) {
