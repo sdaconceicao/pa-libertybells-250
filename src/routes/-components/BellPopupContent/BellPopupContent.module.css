@@ -1,4 +1,5 @@
 :global(.leaflet-popup-content p) {
+	/* biome-ignore lint/complexity/noImportantStyles: overrides Leaflet's default popup paragraph margins */
 	margin: 0.25rem 0 !important;
 }
 
