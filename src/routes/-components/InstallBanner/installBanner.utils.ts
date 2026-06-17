@@ -65,7 +65,8 @@ export function detectInstallMethod(
 		return "ios";
 	}
 
-	const isMac = platform === "MacIntel" || /mac os x|macintosh/i.test(userAgent);
+	const isMac =
+		platform === "MacIntel" || /mac os x|macintosh/i.test(userAgent);
 	if (isMac && isSafari) {
 		return "macos-safari";
 	}
