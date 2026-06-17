@@ -1,35 +1,67 @@
 import { describe, expect, it, vi } from "vitest";
 import {
 	INSTALL_BANNER_DISMISS_KEY,
+	detectInstallMethod,
 	getInstallBannerStorage,
-	isIosDevice,
+	getInstallInstruction,
 	isStandaloneMode,
 	readInstallBannerDismissed,
 	shouldShowInstallBanner,
 	writeInstallBannerDismissed,
 } from "./installBanner.utils";
 
-describe("isIosDevice", () => {
-	it("detects iPhone user agents", () => {
-		expect(
-			isIosDevice(
-				"Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X)",
-				"iPhone",
-				5,
-			),
-		).toBe(true);
+const IPHONE_SAFARI =
+	"Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1";
+const IPADOS_SAFARI =
+	"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15";
+const MACOS_SAFARI =
+	"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15";
+const MACOS_CHROME =
+	"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
+const ANDROID_CHROME =
+	"Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36";
+const DESKTOP_FIREFOX =
+	"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:126.0) Gecko/20100101 Firefox/126.0";
+
+describe("detectInstallMethod", () => {
+	it("detects iPhone Safari as ios", () => {
+		expect(detectInstallMethod(IPHONE_SAFARI, "iPhone", 5)).toBe("ios");
 	});
 
-	it("detects iPadOS desktop user agents", () => {
-		expect(
-			isIosDevice("Mozilla/5.0 (Macintosh; Intel Mac OS X)", "MacIntel", 5),
-		).toBe(true);
+	it("detects iPadOS (desktop Mac UA) Safari as ios", () => {
+		expect(detectInstallMethod(IPADOS_SAFARI, "MacIntel", 5)).toBe("ios");
 	});
 
-	it("returns false for Android user agents", () => {
-		expect(
-			isIosDevice("Mozilla/5.0 (Linux; Android 14)", "Linux armv8l", 5),
-		).toBe(false);
+	it("does not classify desktop Chrome on a Mac as ios even with touch points", () => {
+		// Regression: Chrome desktop reports touch points in device-emulation mode.
+		expect(detectInstallMethod(MACOS_CHROME, "MacIntel", 5)).toBe("prompt");
+	});
+
+	it("detects desktop Safari as macos-safari", () => {
+		expect(detectInstallMethod(MACOS_SAFARI, "MacIntel", 0)).toBe(
+			"macos-safari",
+		);
+	});
+
+	it("detects Android Chrome as prompt", () => {
+		expect(detectInstallMethod(ANDROID_CHROME, "Linux armv8l", 5)).toBe(
+			"prompt",
+		);
+	});
+
+	it("treats Firefox as unsupported", () => {
+		expect(detectInstallMethod(DESKTOP_FIREFOX, "MacIntel", 0)).toBe(
+			"unsupported",
+		);
+	});
+});
+
+describe("getInstallInstruction", () => {
+	it("returns browser-specific copy", () => {
+		expect(getInstallInstruction("ios")).toContain("Add to Home Screen");
+		expect(getInstallInstruction("macos-safari")).toContain("Add to Dock");
+		expect(getInstallInstruction("prompt")).toContain("quick access");
+		expect(getInstallInstruction("unsupported")).toBeNull();
 	});
 });
 
@@ -77,7 +109,7 @@ describe("shouldShowInstallBanner", () => {
 				dismissed: true,
 				isStandalone: false,
 				hasInstallPrompt: true,
-				isIos: false,
+				method: "prompt",
 			}),
 		).toBe(false);
 
@@ -86,38 +118,58 @@ describe("shouldShowInstallBanner", () => {
 				dismissed: false,
 				isStandalone: true,
 				hasInstallPrompt: true,
-				isIos: true,
+				method: "ios",
 			}),
 		).toBe(false);
 	});
 
-	it("shows on iOS or when an install prompt is available", () => {
+	it("always shows manual-install methods (Safari iOS/macOS)", () => {
 		expect(
 			shouldShowInstallBanner({
 				dismissed: false,
 				isStandalone: false,
 				hasInstallPrompt: false,
-				isIos: true,
+				method: "ios",
 			}),
 		).toBe(true);
 
+		expect(
+			shouldShowInstallBanner({
+				dismissed: false,
+				isStandalone: false,
+				hasInstallPrompt: false,
+				method: "macos-safari",
+			}),
+		).toBe(true);
+	});
+
+	it("shows the prompt method only when an install prompt is available", () => {
 		expect(
 			shouldShowInstallBanner({
 				dismissed: false,
 				isStandalone: false,
 				hasInstallPrompt: true,
-				isIos: false,
+				method: "prompt",
 			}),
 		).toBe(true);
-	});
 
-	it("hides when install is unavailable and the device is not iOS", () => {
 		expect(
 			shouldShowInstallBanner({
 				dismissed: false,
 				isStandalone: false,
 				hasInstallPrompt: false,
-				isIos: false,
+				method: "prompt",
+			}),
+		).toBe(false);
+	});
+
+	it("hides for unsupported browsers", () => {
+		expect(
+			shouldShowInstallBanner({
+				dismissed: false,
+				isStandalone: false,
+				hasInstallPrompt: false,
+				method: "unsupported",
 			}),
 		).toBe(false);
 	});

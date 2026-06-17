@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import {
+	detectInstallMethod,
 	getInstallBannerStorage,
-	isIosDevice,
+	getInstallInstruction,
+	type InstallMethod,
 	isStandaloneMode,
 	readInstallBannerDismissed,
 	shouldShowInstallBanner,
@@ -17,7 +19,7 @@ export function useInstallBanner() {
 	const [dismissed, setDismissed] = useState(false);
 	const [deferredPrompt, setDeferredPrompt] =
 		useState<BeforeInstallPromptEvent | null>(null);
-	const [isIos, setIsIos] = useState(false);
+	const [method, setMethod] = useState<InstallMethod>("unsupported");
 	const [isStandalone, setIsStandalone] = useState(false);
 	const [isClient, setIsClient] = useState(false);
 
@@ -25,8 +27,8 @@ export function useInstallBanner() {
 		setIsClient(true);
 		setDismissed(readInstallBannerDismissed(getInstallBannerStorage()));
 		setIsStandalone(isStandaloneMode());
-		setIsIos(
-			isIosDevice(
+		setMethod(
+			detectInstallMethod(
 				navigator.userAgent,
 				navigator.platform,
 				navigator.maxTouchPoints,
@@ -76,13 +78,17 @@ export function useInstallBanner() {
 			dismissed,
 			isStandalone,
 			hasInstallPrompt: deferredPrompt !== null,
-			isIos,
+			method,
 		});
+
+	const canInstall = deferredPrompt !== null;
 
 	return {
 		visible,
-		canInstall: deferredPrompt !== null,
-		isIos,
+		canInstall,
+		// When the prompt is live the install is a one-tap button, so prefer the
+		// generic prompt copy over any manual fallback instructions.
+		message: getInstallInstruction(canInstall ? "prompt" : method) ?? "",
 		handleDismiss,
 		handleInstall,
 	};

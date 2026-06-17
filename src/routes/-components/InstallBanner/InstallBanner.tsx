@@ -9,18 +9,12 @@ type Props = {
 };
 
 export function InstallBanner({ variant }: Props) {
-	const { visible, canInstall, isIos, handleDismiss, handleInstall } =
+	const { visible, canInstall, message, handleDismiss, handleInstall } =
 		useInstallBanner();
 
 	if (!visible) {
 		return null;
 	}
-
-	const message = canInstall
-		? "Install PA Bells for quick access from your home screen."
-		: isIos
-			? "Install PA Bells: tap Share, then Add to Home Screen."
-			: "Install PA Bells for quick access from your home screen.";
 
 	const bannerClassName = [
 		styles.banner,
