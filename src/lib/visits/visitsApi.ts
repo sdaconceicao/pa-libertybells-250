@@ -3,7 +3,12 @@ import { getRequest } from "@tanstack/react-start/server";
 import { and, eq } from "drizzle-orm";
 import { auth } from "../auth/auth";
 import { db, schema } from "../db";
-import { isVisitStatus, type VisitStatus, type VisitStatusMap } from "./types";
+import {
+	isSavedVisitStatus,
+	isVisitStatus,
+	type VisitStatus,
+	type VisitStatusMap,
+} from "./types";
 
 /**
  * Resolve the signed-in user's id from the incoming request, or `null` when
@@ -25,21 +30,20 @@ export const getVisitStatuses = createServerFn({ method: "GET" }).handler(
 		const userId = await getUserId();
 		if (!userId) return {};
 
-		const [wants, beens] = await Promise.all([
-			db
-				.select({ bellId: schema.favorite.bellId })
-				.from(schema.favorite)
-				.where(eq(schema.favorite.userId, userId)),
-			db
-				.select({ bellId: schema.beenTo.bellId })
-				.from(schema.beenTo)
-				.where(eq(schema.beenTo.userId, userId)),
-		]);
+		const rows = await db
+			.select({
+				bellId: schema.visited.bellId,
+				status: schema.visited.status,
+			})
+			.from(schema.visited)
+			.where(eq(schema.visited.userId, userId));
 
 		const statuses: VisitStatusMap = {};
-		for (const { bellId } of wants) statuses[bellId] = "want";
-		// `been` wins over `want` if both rows somehow exist for the same bell.
-		for (const { bellId } of beens) statuses[bellId] = "been";
+		for (const { bellId, status } of rows) {
+			if (isSavedVisitStatus(status)) {
+				statuses[bellId] = status;
+			}
+		}
 		return statuses;
 	},
 );
@@ -50,9 +54,7 @@ type SetVisitStatusInput = {
 };
 
 /**
- * Set (or clear) the current user's status for a bell. The two saved states
- * are mutually exclusive, so choosing one removes the other; choosing `none`
- * removes both. Requires authentication.
+ * Set (or clear) the current user's status for a bell. Requires authentication.
  */
 export const setVisitStatus = createServerFn({ method: "POST" })
 	.validator((data: SetVisitStatusInput): SetVisitStatusInput => {
@@ -74,51 +76,23 @@ export const setVisitStatus = createServerFn({ method: "POST" })
 
 		const { bellId, status } = data;
 
-		if (status === "want") {
+		if (status === "none") {
 			await db
-				.delete(schema.beenTo)
+				.delete(schema.visited)
 				.where(
 					and(
-						eq(schema.beenTo.userId, userId),
-						eq(schema.beenTo.bellId, bellId),
+						eq(schema.visited.userId, userId),
+						eq(schema.visited.bellId, bellId),
 					),
 				);
-			await db
-				.insert(schema.favorite)
-				.values({ userId, bellId })
-				.onConflictDoNothing();
-		} else if (status === "been") {
-			await db
-				.delete(schema.favorite)
-				.where(
-					and(
-						eq(schema.favorite.userId, userId),
-						eq(schema.favorite.bellId, bellId),
-					),
-				);
-			await db
-				.insert(schema.beenTo)
-				.values({ userId, bellId })
-				.onConflictDoNothing();
 		} else {
-			await Promise.all([
-				db
-					.delete(schema.favorite)
-					.where(
-						and(
-							eq(schema.favorite.userId, userId),
-							eq(schema.favorite.bellId, bellId),
-						),
-					),
-				db
-					.delete(schema.beenTo)
-					.where(
-						and(
-							eq(schema.beenTo.userId, userId),
-							eq(schema.beenTo.bellId, bellId),
-						),
-					),
-			]);
+			await db
+				.insert(schema.visited)
+				.values({ userId, bellId, status })
+				.onConflictDoUpdate({
+					target: [schema.visited.userId, schema.visited.bellId],
+					set: { status, updatedAt: new Date() },
+				});
 		}
 
 		return { status };

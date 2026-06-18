@@ -70,9 +70,11 @@ export const verification = pgTable("verification", {
  * `bellId` references the static bell ids in src/lib/bells/bells.data.json
  * (the bell catalog is not stored in Postgres), so it is a plain text column
  * rather than a foreign key.
+ *
+ * `visited` stores a user's saved status (`want` or `been`) for each bell.
  */
-export const favorite = pgTable(
-	"favorite",
+export const visited = pgTable(
+	"visited",
 	{
 		id: text("id")
 			.primaryKey()
@@ -81,30 +83,12 @@ export const favorite = pgTable(
 			.notNull()
 			.references(() => user.id, { onDelete: "cascade" }),
 		bellId: text("bell_id").notNull(),
-		createdAt: timestamp("created_at")
+		status: text("status").notNull(),
+		updatedAt: timestamp("updated_at")
 			.$defaultFn(() => new Date())
 			.notNull(),
 	},
 	(table) => [
-		unique("favorite_user_bell_unique").on(table.userId, table.bellId),
-	],
-);
-
-export const beenTo = pgTable(
-	"been_to",
-	{
-		id: text("id")
-			.primaryKey()
-			.$defaultFn(() => crypto.randomUUID()),
-		userId: text("user_id")
-			.notNull()
-			.references(() => user.id, { onDelete: "cascade" }),
-		bellId: text("bell_id").notNull(),
-		visitedAt: timestamp("visited_at")
-			.$defaultFn(() => new Date())
-			.notNull(),
-	},
-	(table) => [
-		unique("been_to_user_bell_unique").on(table.userId, table.bellId),
+		unique("visited_user_bell_unique").on(table.userId, table.bellId),
 	],
 );
