@@ -1,4 +1,3 @@
-import { X } from "lucide-react";
 import { useEffect } from "react";
 import { AuthForm } from "../AccountMenu/AuthForm";
 import { CloseButton } from "#/components/CloseButton/CloseButton";
