@@ -1,6 +1,7 @@
 import { X } from "lucide-react";
 import { useEffect } from "react";
 import { AuthForm } from "../AccountMenu/AuthForm";
+import { CloseButton } from "#/components/CloseButton/CloseButton";
 import styles from "./AuthModal.module.css";
 
 export function AuthModal({ onClose }: { onClose: () => void }) {
@@ -27,14 +28,11 @@ export function AuthModal({ onClose }: { onClose: () => void }) {
 				aria-modal="true"
 				aria-label="Log in or register"
 			>
-				<button
-					type="button"
+				<CloseButton
 					className={styles.close}
 					aria-label="Close"
 					onClick={onClose}
-				>
-					<X size={18} strokeWidth={2} aria-hidden="true" />
-				</button>
+				/>
 				<div className={styles.intro}>
 					<h2 className={styles.title}>Sign in to save bells</h2>
 					<p className={styles.subtitle}>
