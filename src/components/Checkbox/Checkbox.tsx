@@ -6,14 +6,9 @@ type Props = {
 	onChange: (checked: boolean) => void;
 	label: ReactNode;
 	disabled?: boolean;
-	/** Optional explicit id; one is generated when omitted. */
 	id?: string;
 };
 
-/**
- * Generic labelled checkbox. The whole label is clickable and the native input
- * drives accent coloring and keyboard/focus behaviour.
- */
 export function Checkbox({ checked, onChange, label, disabled, id }: Props) {
 	const generatedId = useId();
 	const inputId = id ?? generatedId;

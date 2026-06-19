@@ -5,11 +5,6 @@ import styles from "./Select.module.css";
 export type SelectOption<T extends string> = {
 	value: T;
 	label: string;
-	/**
-	 * Optional icon shown on the trigger when this option is selected. Native
-	 * <option> elements can't render SVGs, so icons only appear on the trigger,
-	 * not in the open list.
-	 */
 	icon?: ReactNode;
 };
 
@@ -19,20 +14,10 @@ type Props<T extends string> = {
 	options: SelectOption<T>[];
 	ariaLabel: string;
 	disabled?: boolean;
-	/**
-	 * When this value is selected the trigger renders in a muted "placeholder"
-	 * style, so an option can double as a placeholder/cleared state.
-	 */
 	placeholderValue?: T;
-	/** Extra class applied to the native <select> for sizing/visual overrides. */
 	className?: string;
 };
 
-/**
- * Generic styled dropdown: a native <select> with a chevron affordance. Keeping
- * it native preserves accessibility and avoids clipping issues inside scrolling
- * or overflow-hidden containers.
- */
 export function Select<T extends string>({
 	value,
 	onChange,

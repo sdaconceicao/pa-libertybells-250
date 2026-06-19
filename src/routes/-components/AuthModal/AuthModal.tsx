@@ -3,11 +3,6 @@ import { useEffect } from "react";
 import { AuthForm } from "../AccountMenu/AuthForm";
 import styles from "./AuthModal.module.css";
 
-/**
- * Centered login/register dialog shown over the whole app. Reuses the same
- * AuthForm as the account menu popover. Closes on backdrop click, Escape, or
- * a successful sign-in.
- */
 export function AuthModal({ onClose }: { onClose: () => void }) {
 	useEffect(() => {
 		function handleKey(event: KeyboardEvent) {

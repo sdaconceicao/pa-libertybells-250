@@ -4,8 +4,8 @@ import { TanStackDevtools } from "@tanstack/react-devtools";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
-import { AccountMenu } from "../components/AccountMenu/AccountMenu";
-import { AuthModalProvider } from "../components/AuthModal/AuthModalContext";
+import { AccountMenu } from "./-components/AccountMenu/AccountMenu";
+import { AuthModalProvider } from "./-components/AuthModal/AuthModalContext";
 import { VisitStatusProvider } from "../lib/visits/VisitStatusContext";
 import appCss from "../styles.css?url";
 

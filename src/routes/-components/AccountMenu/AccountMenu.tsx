@@ -1,17 +1,10 @@
 import { User } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { signOut, useSession } from "../../lib/auth/auth-client";
+import { signOut, useSession } from "../../../lib/auth/auth-client";
 import { AuthForm } from "./AuthForm";
 import styles from "./AccountMenu.module.css";
 import { getInitials } from "./getInitials";
 
-/**
- * Floating top-right account control.
- *
- * Logged out: a circle with a generic user icon that opens a login/register
- * popover. Logged in: the circle becomes an avatar showing the user's initials
- * and the popover shows account details with a sign-out action.
- */
 export function AccountMenu() {
 	const { data: session, isPending } = useSession();
 	const [open, setOpen] = useState(false);

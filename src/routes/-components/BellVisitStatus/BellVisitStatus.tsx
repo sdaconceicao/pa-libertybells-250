@@ -2,7 +2,7 @@ import { Bookmark, CircleHelp, MapPin } from "lucide-react";
 import { useState } from "react";
 import { useVisitStatuses } from "../../../lib/visits/VisitStatusContext";
 import type { VisitStatus } from "../../../lib/visits/types";
-import { useAuthModal } from "../../../components/AuthModal/AuthModalContext";
+import { useAuthModal } from "../AuthModal/AuthModalContext";
 import { Select, type SelectOption } from "../../../components/Select/Select";
 import styles from "./BellVisitStatus.module.css";
 
