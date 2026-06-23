@@ -7,9 +7,9 @@ import {
 	useRef,
 	useState,
 } from "react";
-import { useSession } from "../auth/auth-client";
 import type { VisitStatus, VisitStatusMap } from "./types";
 import { getVisitStatuses, setVisitStatus } from "./visitsApi";
+import { useAuth } from "../auth/AuthContext";
 
 type VisitStatusContextValue = {
 	/** Whether a user is signed in (statuses can only be saved when true). */
@@ -26,9 +26,8 @@ type VisitStatusContextValue = {
 const VisitStatusContext = createContext<VisitStatusContextValue | null>(null);
 
 export function VisitStatusProvider({ children }: { children: ReactNode }) {
-	const { data: session } = useSession();
-	const userId = session?.user.id ?? null;
-	const isAuthed = !!userId;
+	const { user, isAuthed } = useAuth();
+	const userId = user?.id ?? null;
 
 	const [statuses, setStatuses] = useState<VisitStatusMap>({});
 	// Track which user the loaded statuses belong to so we refetch on login and
