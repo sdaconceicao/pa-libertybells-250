@@ -1,6 +1,6 @@
 import { createContext, useContext, type ReactNode } from "react";
 import { useSession } from "./auth-client";
-import type { User } from "node_modules/better-auth/dist/types/models.d.mts";
+import type { User } from "better-auth";
 
 type AuthContextValue = {
 	isAuthed: boolean;
@@ -14,7 +14,6 @@ export function AuthContextProvider({ children }: { children: ReactNode }) {
 	const userId = session?.user.id ?? null;
 	const isAuthed = !!userId;
 	const user = session?.user ?? null;
-	console.log("AuthContextProvider", { isAuthed, user, session });
 
 	return (
 		<AuthContext.Provider value={{ isAuthed, user }}>
