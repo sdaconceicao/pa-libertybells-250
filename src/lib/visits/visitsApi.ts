@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequest } from "@tanstack/react-start/server";
 import { and, eq } from "drizzle-orm";
-import { auth } from "../auth/auth";
+import { auth } from "../auth/authApi";
 import { db, schema } from "../db";
 import {
 	isSavedVisitStatus,

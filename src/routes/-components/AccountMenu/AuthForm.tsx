@@ -1,6 +1,6 @@
 import { type FormEvent, useState } from "react";
 import { Button } from "../../../components/Button/Button";
-import { signIn, signUp } from "../../../lib/auth/auth-client";
+import { signIn, signUp } from "../../../lib/auth/authClient";
 import { FacebookIcon, GoogleIcon } from "#/components/Icons";
 import styles from "./AccountMenu.module.css";
 

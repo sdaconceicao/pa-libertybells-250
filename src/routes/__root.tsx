@@ -7,7 +7,6 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 import { AccountMenu } from "./-components/AccountMenu/AccountMenu";
 import { AuthModalProvider } from "./-components/AuthModal/AuthModalContext";
 import { VisitStatusProvider } from "../lib/visits/VisitStatusContext";
-import { AuthContextProvider } from "../lib/auth/AuthContext";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
@@ -105,12 +104,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<Analytics />
 				<SpeedInsights />
 				<AuthModalProvider>
-					<AuthContextProvider>
-						<VisitStatusProvider>
-							<AccountMenu />
-							{children}
-						</VisitStatusProvider>
-					</AuthContextProvider>
+					<VisitStatusProvider>
+						<AccountMenu />
+						{children}
+					</VisitStatusProvider>
 				</AuthModalProvider>
 				<TanStackDevtools
 					config={{

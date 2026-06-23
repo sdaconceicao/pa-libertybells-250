@@ -1,18 +1,15 @@
 import { User } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { signOut, useSession } from "../../../lib/auth/auth-client";
+import { signOut, useAuth } from "../../../lib/auth/authClient";
 import { AuthForm } from "./AuthForm";
 import styles from "./AccountMenu.module.css";
 import { getInitials } from "./getInitials";
 
 export function AccountMenu() {
-	const { data: session, isPending } = useSession();
+	const { isPending, user, isAuthed } = useAuth();
 	const [open, setOpen] = useState(false);
 	const [signingOut, setSigningOut] = useState(false);
 	const containerRef = useRef<HTMLDivElement>(null);
-
-	const user = session?.user;
-	const isAuthed = !!user;
 
 	// Close on outside click or Escape.
 	useEffect(() => {

@@ -37,7 +37,7 @@ function resolveBaseURL(): string | undefined {
  *
  * This module is server-only — it is imported by the auth API route
  * (src/routes/api/auth/$.ts) and must never be imported from client code.
- * Use the auth client (src/lib/auth/auth-client.ts) in components instead.
+ * Use the auth client (src/lib/auth/authClient.ts) in components instead.
  */
 export const auth = betterAuth({
 	baseURL: resolveBaseURL(),

@@ -9,7 +9,7 @@ import {
 } from "react";
 import type { VisitStatus, VisitStatusMap } from "./types";
 import { getVisitStatuses, setVisitStatus } from "./visitsApi";
-import { useAuth } from "../auth/AuthContext";
+import { useAuth } from "../auth/authClient";
 
 type VisitStatusContextValue = {
 	/** Whether a user is signed in (statuses can only be saved when true). */
