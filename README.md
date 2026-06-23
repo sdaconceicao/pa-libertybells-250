@@ -49,15 +49,7 @@ The script fetches HTML, parses bell entries (including indoors/outdoors footnot
 
 ## Authentication & database
 
-Auth is handled by [Better Auth](https://better-auth.com) with a [Neon](https://neon.tech) Postgres database accessed through [Drizzle ORM](https://orm.drizzle.team). Users can sign up / log in with email + password or with Google or Facebook. The account control lives in the top-right circle on every page (`src/components/AccountMenu/`); once logged in it becomes an avatar with the user's initials.
-
-Key files:
-
-- `src/lib/auth/auth.ts` — server-side Better Auth instance (providers, adapter). Server-only.
-- `src/lib/auth/auth-client.ts` — client used by components (`signIn`, `signUp`, `signOut`, `useSession`).
-- `src/routes/api/auth/$.ts` — catch-all handler mounted at `/api/auth/*`.
-- `src/lib/db/schema.ts` — Drizzle schema: Better Auth tables (`user`, `session`, `account`, `verification`) plus `favorite` and `been_to` for upcoming features.
-- `src/lib/db/index.ts` — Neon + Drizzle connection.
+Auth is handled by [Better Auth](https://better-auth.com) with a [Neon](https://neon.tech) Postgres database accessed through [Drizzle ORM](https://orm.drizzle.team). Users can sign up / log in with email + password or with Google or Facebook.
 
 ### Local setup
 
@@ -73,7 +65,7 @@ If you change auth config that affects the schema, regenerate with `pnpm auth:ge
 
 ### Vercel deployment
 
-Add the same env vars (`BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, `DATABASE_URL`, and the four OAuth vars) under **Project → Settings → Environment Variables**. Set `BETTER_AUTH_URL` to the deployed origin (e.g. `https://your-app.vercel.app`) and add the matching `/api/auth/callback/{google,facebook}` redirect URIs in each provider's console. The easiest way to provision the database is the [Neon Vercel integration](https://vercel.com/integrations/neon), which injects `DATABASE_URL` automatically.
+Add the same env vars (`BETTER_AUTH_SECRET`, `DATABASE_URL`, and the four OAuth vars) under **Project → Settings → Environment Variables**. Add the matching `/api/auth/callback/{google,facebook}` redirect URIs in each provider's console. The easiest way to provision the database is the [Neon Vercel integration](https://vercel.com/integrations/neon), which injects `DATABASE_URL` automatically.
 
 ## Tech stack
 

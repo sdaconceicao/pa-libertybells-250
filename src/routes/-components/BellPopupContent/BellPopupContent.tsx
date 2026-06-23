@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { CloseButton } from "../../../components/CloseButton/CloseButton";
 import { Image } from "../../../components/Image/Image";
 import { AddressIcon } from "../AddressIcon/AddressIcon";
@@ -23,6 +24,11 @@ type Props = {
 	hasNext?: boolean;
 	listPosition?: number | null;
 	listTotal?: number;
+	/**
+	 * Optional control (e.g. the visit-status dropdown) rendered in the header
+	 * band, between the navigation cluster and the close button.
+	 */
+	actions?: ReactNode;
 };
 
 export function BellPopupContent({
@@ -35,6 +41,7 @@ export function BellPopupContent({
 	hasNext = false,
 	listPosition = null,
 	listTotal = 0,
+	actions,
 }: Props) {
 	const rootClassName = [
 		styles.popup,
@@ -44,18 +51,12 @@ export function BellPopupContent({
 		.join(" ");
 	const addressLines = buildAddressLines(bell.address);
 	const mapsUrl = buildMapsUrl(bell.lat, bell.lng, bell.address);
+	const showNavigation = onPrevious != null || onNext != null;
 
 	return (
 		<div className={rootClassName} data-testid="bell-popup">
 			<div className={styles.header}>
-				<NavBar
-					onPrevious={onPrevious}
-					onNext={onNext}
-					hasPrevious={hasPrevious}
-					hasNext={hasNext}
-					listPosition={listPosition}
-					listTotal={listTotal}
-				/>
+				{actions ? <div className={styles.headerStatus}>{actions}</div> : null}
 				{onClose ? (
 					<CloseButton
 						variant="overlay"
@@ -66,10 +67,24 @@ export function BellPopupContent({
 				<Image
 					src={getBellMediumUrl(bell.imageUrl)}
 					alt=""
+					className={styles.headerMedia}
 					imageClassName={styles.headerImage}
 					placeholderClassName={styles.headerPlaceholder}
 				/>
-				<MetaBar placement={bell.placement} />
+				<MetaBar
+					nav={
+						showNavigation ? (
+							<NavBar
+								onPrevious={onPrevious}
+								onNext={onNext}
+								hasPrevious={hasPrevious}
+								hasNext={hasNext}
+								listPosition={listPosition}
+								listTotal={listTotal}
+							/>
+						) : null
+					}
+				/>
 			</div>
 			<div className={styles.body}>
 				<h3 className={styles.title}>{bell.title}</h3>
@@ -87,7 +102,7 @@ export function BellPopupContent({
 						rel="noopener noreferrer"
 						aria-label={`Open ${buildAddressString(bell.address)} in maps`}
 					>
-						<AddressIcon />
+						<AddressIcon placement={bell.placement} />
 						<span className={styles.addressText}>
 							{addressLines.map((line) => (
 								<span key={line} className={styles.addressLine}>

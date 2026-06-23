@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useCallback, useMemo } from "react";
 import bellsData from "../lib/bells/bells.data.json";
 import type { Bell } from "../lib/bells/types";
 import { BellsMap } from "./-components/BellsMap";
@@ -10,6 +11,7 @@ import { MobileViewToggle } from "./-components/MobileViewToggle/MobileViewToggl
 import { useBellSelection } from "./-hooks/useBellSelection";
 import { useBellsFilters } from "./-hooks/useBellsFilters";
 import { useBellsPageLayout } from "./-hooks/useBellsPageLayout";
+import { useVisitedFilter } from "./-hooks/useVisitedFilter";
 import styles from "./index.module.css";
 
 export const Route = createFileRoute("/")({
@@ -44,6 +46,33 @@ function BellsPage() {
 		resultSummary,
 	} = useBellsFilters(bells);
 	const {
+		isAuthed: showVisitedFilter,
+		draft: visitedDraft,
+		applied: visitedApplied,
+		setDraft: setVisitedDraft,
+		applyVisited,
+		clearVisited,
+		applyVisitedFilter,
+	} = useVisitedFilter();
+
+	// Apply and clear both filter sets together, so the shared Apply/Clear
+	// buttons drive the static filters and the visited filter in lockstep.
+	const handleApplyFilters = useCallback(() => {
+		applyFilters();
+		applyVisited();
+	}, [applyFilters, applyVisited]);
+	const handleClearFilters = useCallback(() => {
+		clearFilters();
+		clearVisited();
+	}, [clearFilters, clearVisited]);
+
+	// Apply the per-user "Visited" filter on top of the static filters so the
+	// map, list, and selection all operate on the same visible set.
+	const visibleBells = useMemo(
+		() => applyVisitedFilter(filteredBells),
+		[applyVisitedFilter, filteredBells],
+	);
+	const {
 		selectedBellId,
 		selectedBell,
 		bellNavigation,
@@ -55,7 +84,7 @@ function BellsPage() {
 		handlePreviousBell,
 		handleNextBell,
 	} = useBellSelection({
-		filteredBells,
+		filteredBells: visibleBells,
 		isMobile,
 		mobileView,
 		showMap,
@@ -77,7 +106,7 @@ function BellsPage() {
 		renderMobileToggle && !(mobileView === "list" && selectedBell);
 
 	const bellsPanelProps = {
-		bells: filteredBells,
+		bells: visibleBells,
 		hasActiveFilters,
 		onBellHover: handleBellHover,
 		onBellSelect: handleBellSelect,
@@ -85,9 +114,13 @@ function BellsPage() {
 		draft,
 		applied,
 		onDraftChange: setDraft,
-		onApply: applyFilters,
-		onClear: clearFilters,
+		onApply: handleApplyFilters,
+		onClear: handleClearFilters,
 		resultSummary,
+		showVisitedFilter,
+		visitedFilter: visitedDraft,
+		appliedVisitedFilter: visitedApplied,
+		onVisitedFilterChange: setVisitedDraft,
 		selectedBell,
 		bellNavigation,
 		onClearSelection: handleClearSelection,
@@ -107,7 +140,7 @@ function BellsPage() {
 				aria-hidden={!mapVisible}
 			>
 				<BellsMap
-					bells={filteredBells}
+					bells={visibleBells}
 					sidebarOpen={sidebarOpen}
 					isMobile={isMobile}
 					highlightRef={highlightBellRef}
@@ -117,14 +150,14 @@ function BellsPage() {
 				{showMapHeader ? (
 					isMobile ? (
 						<HeaderMobile
-							bells={filteredBells}
+							bells={visibleBells}
 							onBellHover={handleBellHover}
 							onBellSelect={handleBellSelect}
 							showInstallBanner={showInstallBanner && mobileView === "map"}
 						/>
 					) : (
 						<HeaderDesktop
-							bells={filteredBells}
+							bells={visibleBells}
 							onBellHover={handleBellHover}
 							onBellSelect={handleBellSelect}
 						/>

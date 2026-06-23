@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { auth } from "../../../lib/auth/auth";
+import { auth } from "../../../lib/auth/authApi";
 
 /**
  * Catch-all handler for Better Auth. Every request under /api/auth/* (sign-in,

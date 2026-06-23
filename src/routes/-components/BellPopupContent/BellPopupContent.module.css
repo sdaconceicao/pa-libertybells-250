@@ -20,6 +20,11 @@
 	aspect-ratio: 4 / 3;
 }
 
+.headerMedia {
+	position: absolute;
+	inset: 0;
+}
+
 .headerImage {
 	display: block;
 	width: 100%;
@@ -41,7 +46,6 @@
 
 @media (max-width: 767px) {
 	.popupSidebar .header {
-		height: auto;
 		max-height: 40dvh;
 	}
 
@@ -97,4 +101,11 @@
 
 .addressLine {
 	display: block;
+}
+
+.headerStatus {
+	position: absolute;
+	top: 0.5rem;
+	left: 0.5rem;
+	z-index: 1;
 }

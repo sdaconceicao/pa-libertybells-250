@@ -7,6 +7,8 @@ import type { RefObject } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Bell } from "../../../lib/bells/types";
 import { MapLoading } from "../MapLoading/MapLoading";
+import { BellVisitStatus } from "../BellVisitStatus/BellVisitStatus";
+import { useVisitStatuses } from "../../../lib/visits/VisitStatusContext";
 import { BellPopupContent } from "../BellPopupContent/BellPopupContent";
 import { useBellMarkerHandlers } from "./hooks/useBellMarkerHandlers";
 import { useBellPopupHandlers } from "./hooks/useBellPopupHandlers";
@@ -65,6 +67,8 @@ export function LeafletMap({
 	const [mapReady, setMapReady] = useState(false);
 	const mapRef = useRef<LeafletMapInstance>(null);
 	const shellRef = useRef<HTMLDivElement>(null);
+
+	const { getStatus } = useVisitStatuses();
 
 	const { markerRefs, setMarkerHighlight, registerMarkerRef } =
 		useBellMarkerHandlers(highlightRef);
@@ -136,8 +140,15 @@ export function LeafletMap({
 		};
 	}, [L, mapReady, bells, sidebarOpen, isMobile]);
 
-	const bellMarkerIcon = useMemo(
-		() => (L ? createBellMarkerIcon(L) : null),
+	const bellMarkerIcons = useMemo(
+		() =>
+			L
+				? {
+						none: createBellMarkerIcon(L, "none"),
+						want: createBellMarkerIcon(L, "want"),
+						been: createBellMarkerIcon(L, "been"),
+					}
+				: null,
 		[L],
 	);
 	const markerClusterOptions = useMemo(
@@ -148,7 +159,7 @@ export function LeafletMap({
 	if (
 		!leaflet ||
 		!L ||
-		!bellMarkerIcon ||
+		!bellMarkerIcons ||
 		!markerClusterGroup ||
 		!markerClusterOptions
 	) {
@@ -183,7 +194,7 @@ export function LeafletMap({
 						<Marker
 							key={bell.id}
 							position={[bell.lat, bell.lng]}
-							icon={bellMarkerIcon}
+							icon={bellMarkerIcons[getStatus(bell.id)]}
 							eventHandlers={{
 								click: () => onBellSelect?.(bell.id),
 								mouseover: () => handleMarkerMouseOver(bell.id),
@@ -200,7 +211,10 @@ export function LeafletMap({
 										mouseout: (event) => handlePopupMouseOut(bell.id, event),
 									}}
 								>
-									<BellPopupContent bell={bell} />
+									<BellPopupContent
+										bell={bell}
+										actions={<BellVisitStatus bellId={bell.id} />}
+									/>
 								</Popup>
 							) : null}
 						</Marker>

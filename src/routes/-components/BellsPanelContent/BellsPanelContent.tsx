@@ -1,5 +1,7 @@
+import { BellVisitStatus } from "../BellVisitStatus/BellVisitStatus";
 import type { BellFilters } from "../../../lib/bells/filterBells";
 import type { Bell } from "../../../lib/bells/types";
+import type { VisitedFilter } from "../../../lib/visits/visitedFilter";
 import type { BellNavigation } from "../../-utils/getBellNavigation";
 import { BellPopupContent } from "../BellPopupContent/BellPopupContent";
 import { BellsFilters } from "../BellsFilters/BellsFilters";
@@ -27,6 +29,10 @@ export type BellsPanelContentProps = {
 	onClearSelection: () => void;
 	onPreviousBell: () => void;
 	onNextBell: () => void;
+	showVisitedFilter: boolean;
+	visitedFilter: VisitedFilter;
+	appliedVisitedFilter: VisitedFilter;
+	onVisitedFilterChange: (filter: VisitedFilter) => void;
 };
 
 export function BellsPanelContent({
@@ -48,6 +54,10 @@ export function BellsPanelContent({
 	onClearSelection,
 	onPreviousBell,
 	onNextBell,
+	showVisitedFilter,
+	visitedFilter,
+	appliedVisitedFilter,
+	onVisitedFilterChange,
 }: BellsPanelContentProps) {
 	const showFilters = filtersPlacement === "stack" || !selectedBell;
 	const emptyMessage = hasActiveFilters
@@ -74,6 +84,7 @@ export function BellsPanelContent({
 						hasNext={!!bellNavigation?.nextId}
 						listPosition={bellNavigation?.position}
 						listTotal={bellNavigation?.total ?? 0}
+						actions={<BellVisitStatus bellId={selectedBell.id} />}
 					/>
 				</div>
 			) : null}
@@ -86,6 +97,10 @@ export function BellsPanelContent({
 					onApply={onApply}
 					onClear={onClear}
 					resultSummary={resultSummary}
+					showVisitedFilter={showVisitedFilter}
+					visitedFilter={visitedFilter}
+					appliedVisitedFilter={appliedVisitedFilter}
+					onVisitedFilterChange={onVisitedFilterChange}
 				/>
 			) : null}
 			<BellsList
