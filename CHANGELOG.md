@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.4.0](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.3.0...v0.4.0) (2026-06-24)
+
+
+### Features
+
+* Added install banner ([#50](https://github.com/sdaconceicao/pa-libertybells-250/issues/50)) ([c6f1937](https://github.com/sdaconceicao/pa-libertybells-250/commit/c6f19374456bfdab8673417fceebacfabaa93f67))
+* Adding Auth ([#54](https://github.com/sdaconceicao/pa-libertybells-250/issues/54)) ([53b4373](https://github.com/sdaconceicao/pa-libertybells-250/commit/53b43739af40e8990594d77383571e309971c065))
+* Been there ([#56](https://github.com/sdaconceicao/pa-libertybells-250/issues/56)) ([da31215](https://github.com/sdaconceicao/pa-libertybells-250/commit/da31215fd3cac8dd3a88aa96f4f1c7353ea2c338))
+* improve performance ([#48](https://github.com/sdaconceicao/pa-libertybells-250/issues/48)) ([a516887](https://github.com/sdaconceicao/pa-libertybells-250/commit/a5168873499a06aeab0807a43a354e73b3bbdce5))
+
 ## [0.3.0](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.2.0...v0.3.0) (2026-06-11)
 
 
