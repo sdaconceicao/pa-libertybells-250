@@ -1,23 +1,26 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import type { ReactNode } from "react";
+import type { BellsPanelContentProps } from "../BellsPanelContent/BellsPanelContent";
+import { BellsPanelContent } from "../BellsPanelContent/BellsPanelContent";
+import { ListHeader } from "../ListHeader/ListHeader";
 import styles from "./FloatingSidebar.module.css";
 
-type Props = {
+type Props = Omit<
+	BellsPanelContentProps,
+	"filtersPlacement" | "listVariant"
+> & {
 	isOpen: boolean;
 	onClose: () => void;
 	onOpen: () => void;
-	header?: ReactNode;
-	selectedContent?: ReactNode;
-	children: ReactNode;
 };
 
 export function FloatingSidebar({
 	isOpen,
 	onClose,
 	onOpen,
-	header,
-	selectedContent,
-	children,
+	bells,
+	onBellHover,
+	onBellSelect,
+	...panelProps
 }: Props) {
 	const sidebarClassName = [
 		styles.sidebar,
@@ -28,11 +31,23 @@ export function FloatingSidebar({
 
 	return (
 		<aside className={sidebarClassName}>
-			{header ? <div className={styles.sidebarHeader}>{header}</div> : null}
-			{selectedContent ? (
-				<div className={styles.selectedSection}>{selectedContent}</div>
+			{isOpen ? (
+				<div className={styles.sidebarHeader}>
+					<ListHeader
+						bells={bells}
+						onBellHover={onBellHover}
+						onBellSelect={onBellSelect}
+						variant="desktop"
+					/>
+				</div>
 			) : null}
-			<div className={styles.sidebarBody}>{children}</div>
+			<BellsPanelContent
+				bells={bells}
+				onBellHover={onBellHover}
+				onBellSelect={onBellSelect}
+				filtersPlacement="stack"
+				{...panelProps}
+			/>
 			<button
 				type="button"
 				className={styles.handle}

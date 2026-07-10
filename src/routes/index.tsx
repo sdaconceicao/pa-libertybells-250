@@ -1,19 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo } from "react";
 import bellsData from "../lib/bells/bells.data.json";
 import type { Bell } from "../lib/bells/types";
-import { BellPopupContent } from "./-components/BellPopupContent/BellPopupContent";
-import { BellSearch } from "./-components/BellSearch/BellSearch";
-import { BellsFilters } from "./-components/BellsFilters/BellsFilters";
-import { BellsList } from "./-components/BellsList/BellsList";
 import { BellsMap } from "./-components/BellsMap";
 import { FloatingSidebar } from "./-components/FloatingSidebar/FloatingSidebar";
-import { ListHeader } from "./-components/ListHeader/ListHeader";
-import { Logo } from "./-components/Logo/Logo";
+import { HeaderDesktop } from "./-components/HeaderDesktop/HeaderDesktop";
+import { HeaderMobile } from "./-components/HeaderMobile/HeaderMobile";
+import { MobileList } from "./-components/MobileList/MobileList";
 import { MobileViewToggle } from "./-components/MobileViewToggle/MobileViewToggle";
+import { useBellSelection } from "./-hooks/useBellSelection";
 import { useBellsFilters } from "./-hooks/useBellsFilters";
 import { useBellsPageLayout } from "./-hooks/useBellsPageLayout";
-import { getBellNavigation } from "./-utils/getBellNavigation";
+import { useVisitedFilter } from "./-hooks/useVisitedFilter";
 import styles from "./index.module.css";
 
 export const Route = createFileRoute("/")({
@@ -28,6 +26,7 @@ function BellsPage() {
 	const bells = Route.useLoaderData();
 	const {
 		isMobile,
+		isHydrated,
 		sidebarOpen,
 		openSidebar,
 		closeSidebar,
@@ -46,113 +45,88 @@ function BellsPage() {
 		hasActiveFilters,
 		resultSummary,
 	} = useBellsFilters(bells);
+	const {
+		isAuthed: showVisitedFilter,
+		draft: visitedDraft,
+		applied: visitedApplied,
+		setDraft: setVisitedDraft,
+		applyVisited,
+		clearVisited,
+		applyVisitedFilter,
+	} = useVisitedFilter();
 
-	const [selectedBellId, setSelectedBellId] = useState<string | null>(null);
-	const mobileCloseReturnsToMapRef = useRef(false);
-	const highlightBellRef = useRef<((id: string | null) => void) | null>(null);
-	const handleBellHover = useCallback((id: string | null) => {
-		highlightBellRef.current?.(id);
-	}, []);
+	// Apply and clear both filter sets together, so the shared Apply/Clear
+	// buttons drive the static filters and the visited filter in lockstep.
+	const handleApplyFilters = useCallback(() => {
+		applyFilters();
+		applyVisited();
+	}, [applyFilters, applyVisited]);
+	const handleClearFilters = useCallback(() => {
+		clearFilters();
+		clearVisited();
+	}, [clearFilters, clearVisited]);
 
-	const selectedBell = useMemo(
-		() =>
-			selectedBellId
-				? (filteredBells.find((bell) => bell.id === selectedBellId) ?? null)
-				: null,
-		[filteredBells, selectedBellId],
+	// Apply the per-user "Visited" filter on top of the static filters so the
+	// map, list, and selection all operate on the same visible set.
+	const visibleBells = useMemo(
+		() => applyVisitedFilter(filteredBells),
+		[applyVisitedFilter, filteredBells],
 	);
-
-	const bellNavigation = useMemo(
-		() =>
-			selectedBellId ? getBellNavigation(filteredBells, selectedBellId) : null,
-		[filteredBells, selectedBellId],
-	);
-
-	const handleBellSelect = useCallback(
-		(id: string) => {
-			setSelectedBellId(id);
-			if (isMobile) {
-				if (mobileView === "map") {
-					mobileCloseReturnsToMapRef.current = true;
-				}
-				showList();
-			}
-		},
-		[isMobile, mobileView, showList],
-	);
-
-	const handleClearSelection = useCallback(() => {
-		if (isMobile && mobileCloseReturnsToMapRef.current) {
-			mobileCloseReturnsToMapRef.current = false;
-			setSelectedBellId(null);
-			showMap();
-			return;
-		}
-
-		setSelectedBellId(null);
-	}, [isMobile, showMap]);
-
-	const handleShowList = useCallback(() => {
-		mobileCloseReturnsToMapRef.current = false;
-		showList();
-	}, [showList]);
-
-	const handlePreviousBell = useCallback(() => {
-		if (bellNavigation?.previousId) {
-			handleBellSelect(bellNavigation.previousId);
-		}
-	}, [bellNavigation?.previousId, handleBellSelect]);
-
-	const handleNextBell = useCallback(() => {
-		if (bellNavigation?.nextId) {
-			handleBellSelect(bellNavigation.nextId);
-		}
-	}, [bellNavigation?.nextId, handleBellSelect]);
-
-	const selectedBellPanel = selectedBell ? (
-		<BellPopupContent
-			bell={selectedBell}
-			variant="sidebar"
-			onClose={handleClearSelection}
-			onPrevious={handlePreviousBell}
-			onNext={handleNextBell}
-			hasPrevious={!!bellNavigation?.previousId}
-			hasNext={!!bellNavigation?.nextId}
-			listPosition={bellNavigation?.position}
-			listTotal={bellNavigation?.total ?? 0}
-		/>
-	) : null;
+	const {
+		selectedBellId,
+		selectedBell,
+		bellNavigation,
+		highlightBellRef,
+		handleBellHover,
+		handleBellSelect,
+		handleClearSelection,
+		handleShowList,
+		handlePreviousBell,
+		handleNextBell,
+	} = useBellSelection({
+		filteredBells: visibleBells,
+		isMobile,
+		mobileView,
+		showMap,
+		showList,
+	});
 
 	const showMobileMap = isMobile && mobileView === "map";
-	const showMobileList = isMobile && mobileView === "list";
 	const showDesktopMap = !isMobile;
 	const mapVisible = showMobileMap || showDesktopMap;
 	const showMapHeader = mapVisible && (isMobile || !sidebarOpen);
 
-	const listEmptyMessage = hasActiveFilters
-		? "No bells match these filters."
-		: "No bells are loaded yet.";
+	// Until hydration the viewport is unknown, so render both the mobile and
+	// desktop layouts and let CSS media queries decide which one is visible.
+	// Once hydrated, prune whichever layout doesn't apply.
+	const renderMobileList = mobileView === "list" && (isMobile || !isHydrated);
+	const renderMobileToggle = isMobile || !isHydrated;
+	const renderDesktopSidebar = !isMobile;
+	const showInstallBanner =
+		renderMobileToggle && !(mobileView === "list" && selectedBell);
 
-	const listHeader = (
-		<ListHeader
-			bells={filteredBells}
-			onBellHover={handleBellHover}
-			onBellSelect={handleBellSelect}
-			variant={isMobile ? "mobile" : "desktop"}
-		/>
-	);
-
-	const filtersPanel = (
-		<BellsFilters
-			countyOptions={countyOptions}
-			draft={draft}
-			applied={applied}
-			onDraftChange={setDraft}
-			onApply={applyFilters}
-			onClear={clearFilters}
-			resultSummary={resultSummary}
-		/>
-	);
+	const bellsPanelProps = {
+		bells: visibleBells,
+		hasActiveFilters,
+		onBellHover: handleBellHover,
+		onBellSelect: handleBellSelect,
+		countyOptions,
+		draft,
+		applied,
+		onDraftChange: setDraft,
+		onApply: handleApplyFilters,
+		onClear: handleClearFilters,
+		resultSummary,
+		showVisitedFilter,
+		visitedFilter: visitedDraft,
+		appliedVisitedFilter: visitedApplied,
+		onVisitedFilterChange: setVisitedDraft,
+		selectedBell,
+		bellNavigation,
+		onClearSelection: handleClearSelection,
+		onPreviousBell: handlePreviousBell,
+		onNextBell: handleNextBell,
+	};
 
 	return (
 		<main className={styles.page}>
@@ -166,7 +140,7 @@ function BellsPage() {
 				aria-hidden={!mapVisible}
 			>
 				<BellsMap
-					bells={filteredBells}
+					bells={visibleBells}
 					sidebarOpen={sidebarOpen}
 					isMobile={isMobile}
 					highlightRef={highlightBellRef}
@@ -175,84 +149,39 @@ function BellsPage() {
 				/>
 				{showMapHeader ? (
 					isMobile ? (
-						<div
-							className={[styles.mapHeader, styles.mapHeaderMobile]
-								.filter(Boolean)
-								.join(" ")}
-						>
-							<ListHeader
-								bells={filteredBells}
-								onBellHover={handleBellHover}
-								onBellSelect={handleBellSelect}
-								variant="mobileMap"
-							/>
-						</div>
+						<HeaderMobile
+							bells={visibleBells}
+							onBellHover={handleBellHover}
+							onBellSelect={handleBellSelect}
+							showInstallBanner={showInstallBanner && mobileView === "map"}
+						/>
 					) : (
-						<>
-							<div
-								className={[styles.mapHeader, styles.mapHeaderDesktop]
-									.filter(Boolean)
-									.join(" ")}
-							>
-								<BellSearch
-									bells={filteredBells}
-									onBellHover={handleBellHover}
-									onBellSelect={handleBellSelect}
-									className={styles.mapHeaderSearch}
-								/>
-							</div>
-							<Logo variant="circle" className={styles.mapLogoDesktop} />
-						</>
+						<HeaderDesktop
+							bells={visibleBells}
+							onBellHover={handleBellHover}
+							onBellSelect={handleBellSelect}
+						/>
 					)
 				) : null}
 			</div>
 
-			{showMobileList ? (
-				<section className={styles.mobileListLayer}>
-					{!selectedBellPanel ? (
-						<header className={styles.mobileListHeader}>{listHeader}</header>
-					) : null}
-					<div className={styles.panelStack}>
-						{selectedBellPanel ? (
-							<div className={styles.selectedBellSection}>
-								{selectedBellPanel}
-							</div>
-						) : (
-							filtersPanel
-						)}
-						<BellsList
-							bells={filteredBells}
-							className={styles.mobileList}
-							emptyMessage={listEmptyMessage}
-							onBellHover={handleBellHover}
-							onBellSelect={handleBellSelect}
-						/>
-					</div>
-				</section>
+			{renderMobileList ? (
+				<MobileList
+					{...bellsPanelProps}
+					showInstallBanner={showInstallBanner}
+				/>
 			) : null}
 
-			{!isMobile ? (
+			{renderDesktopSidebar ? (
 				<FloatingSidebar
 					isOpen={sidebarOpen}
 					onClose={closeSidebar}
 					onOpen={openSidebar}
-					header={sidebarOpen ? listHeader : undefined}
-					selectedContent={selectedBellPanel}
-				>
-					<div className={styles.panelStack}>
-						{filtersPanel}
-						<BellsList
-							bells={filteredBells}
-							className={styles.sidebarList}
-							emptyMessage={listEmptyMessage}
-							onBellHover={handleBellHover}
-							onBellSelect={handleBellSelect}
-						/>
-					</div>
-				</FloatingSidebar>
+					{...bellsPanelProps}
+				/>
 			) : null}
 
-			{isMobile ? (
+			{renderMobileToggle ? (
 				<MobileViewToggle
 					activeView={mobileView}
 					onShowMap={showMap}

@@ -23,6 +23,13 @@
 		color-mix(in oklab, var(--color-accent) 20%, transparent);
 }
 
+@media (max-width: 767px) {
+	/* Keep the search box the same height as the account circle and logo. */
+	.inputWrap {
+		min-height: var(--mobile-control-height);
+	}
+}
+
 .inputPrefix {
 	flex-shrink: 0;
 	color: var(--color-text-muted);

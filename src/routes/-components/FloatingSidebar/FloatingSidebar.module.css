@@ -36,20 +36,6 @@
 	border-bottom: 1px solid var(--color-border);
 }
 
-.selectedSection {
-	flex-shrink: 0;
-	overflow: hidden;
-	border-bottom: 1px solid var(--color-border);
-}
-
-.sidebarBody {
-	flex: 1;
-	min-height: 0;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-}
-
 .handle {
 	position: absolute;
 	top: 50%;
@@ -84,5 +70,13 @@
 @media (prefers-reduced-motion: reduce) {
 	.sidebar {
 		transition: none;
+	}
+}
+
+/* The sidebar is server-rendered before the viewport is known; hide it on
+   mobile so it never flashes over the list view. */
+@media (max-width: 767px) {
+	.sidebar {
+		display: none;
 	}
 }

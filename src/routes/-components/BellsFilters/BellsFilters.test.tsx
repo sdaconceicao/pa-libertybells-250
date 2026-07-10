@@ -1,6 +1,7 @@
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { DEFAULT_BELL_FILTERS } from "../../../lib/bells/filterBells";
+import { DEFAULT_VISITED_FILTER } from "../../../lib/visits/visitedFilter";
 import { BellsFilters } from "./BellsFilters";
 
 describe("BellsFilters", () => {
@@ -12,6 +13,10 @@ describe("BellsFilters", () => {
 		onApply: vi.fn(),
 		onClear: vi.fn(),
 		resultSummary: null,
+		showVisitedFilter: false,
+		visitedFilter: DEFAULT_VISITED_FILTER,
+		appliedVisitedFilter: DEFAULT_VISITED_FILTER,
+		onVisitedFilterChange: vi.fn(),
 	};
 
 	afterEach(() => {

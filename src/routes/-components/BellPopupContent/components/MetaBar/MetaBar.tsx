@@ -1,19 +1,15 @@
-import type { BellPlacement } from "../../../../../lib/bells/types";
+import type { ReactNode } from "react";
 import styles from "./MetaBar.module.css";
-import { PlacementIcon } from "./components/PlacementIcon";
 
 type Props = {
-	placement?: BellPlacement;
+	/** Navigation controls, stretched across the bar. */
+	nav?: ReactNode;
 };
 
-export function MetaBar({ placement }: Props) {
-	if (!placement) {
+export function MetaBar({ nav }: Props) {
+	if (!nav) {
 		return null;
 	}
 
-	return (
-		<div className={styles.metaBar}>
-			<PlacementIcon placement={placement} />
-		</div>
-	);
+	return <div className={styles.metaBar}>{nav}</div>;
 }

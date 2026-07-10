@@ -89,7 +89,10 @@ describe("BellPopupContent", () => {
 			/>,
 		);
 
-		const image = container.querySelector('img[src="/bells/images/test.png"]');
+		// imageUrl is rewritten to the optimized medium WebP variant
+		const image = container.querySelector(
+			'img[src="/bells/images/medium/test.webp"]',
+		);
 		expect(image).toBeTruthy();
 		expect(image?.getAttribute("alt")).toBe("");
 	});

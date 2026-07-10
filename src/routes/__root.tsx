@@ -4,6 +4,9 @@ import { TanStackDevtools } from "@tanstack/react-devtools";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
+import { AccountMenu } from "./-components/AccountMenu/AccountMenu";
+import { AuthModalProvider } from "./-components/AuthModal/AuthModalContext";
+import { VisitStatusProvider } from "../lib/visits/VisitStatusContext";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
@@ -51,18 +54,30 @@ export const Route = createRootRoute({
 				rel: "manifest",
 				href: "/manifest.json",
 			},
+			// Fonts: preconnect + direct link instead of a CSS @import chain,
+			// so the font CSS downloads in parallel with the app stylesheet.
 			{
-				rel: "apple-touch-icon",
-				href: "/logo192.png",
+				rel: "preconnect",
+				href: "https://fonts.googleapis.com",
+			},
+			{
+				rel: "preconnect",
+				href: "https://fonts.gstatic.com",
+				crossOrigin: "anonymous",
+			},
+			{
+				rel: "stylesheet",
+				href: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap",
+			},
+			// Warm up the tile server connection before Leaflet requests tiles.
+			{
+				rel: "preconnect",
+				href: "https://a.tile.openstreetmap.org",
+				crossOrigin: "anonymous",
 			},
 			{
 				rel: "stylesheet",
 				href: appCss,
-			},
-			{
-				rel: "stylesheet",
-				href: "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css",
-				crossOrigin: "anonymous",
 			},
 		],
 		scripts: [
@@ -88,7 +103,12 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			<body className="app-body" suppressHydrationWarning>
 				<Analytics />
 				<SpeedInsights />
-				{children}
+				<AuthModalProvider>
+					<VisitStatusProvider>
+						<AccountMenu />
+						{children}
+					</VisitStatusProvider>
+				</AuthModalProvider>
 				<TanStackDevtools
 					config={{
 						position: "bottom-right",

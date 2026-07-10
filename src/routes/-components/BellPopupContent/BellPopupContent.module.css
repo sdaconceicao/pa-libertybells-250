@@ -1,4 +1,5 @@
 :global(.leaflet-popup-content p) {
+	/* biome-ignore lint/complexity/noImportantStyles: overrides Leaflet's default popup paragraph margins */
 	margin: 0.25rem 0 !important;
 }
 
@@ -17,6 +18,11 @@
 	position: relative;
 	width: 100%;
 	aspect-ratio: 4 / 3;
+}
+
+.headerMedia {
+	position: absolute;
+	inset: 0;
 }
 
 .headerImage {
@@ -40,7 +46,6 @@
 
 @media (max-width: 767px) {
 	.popupSidebar .header {
-		height: auto;
 		max-height: 40dvh;
 	}
 
@@ -96,4 +101,11 @@
 
 .addressLine {
 	display: block;
+}
+
+.headerStatus {
+	position: absolute;
+	top: 0.5rem;
+	left: 0.5rem;
+	z-index: 1;
 }

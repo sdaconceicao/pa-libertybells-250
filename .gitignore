@@ -13,3 +13,6 @@ __unconfig*
 todos.json
 .pnpm-store/*
 .vercel/*
+/test-results/
+/playwright-report/
+/blob-report/
