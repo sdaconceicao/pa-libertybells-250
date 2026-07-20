@@ -1,0 +1,52 @@
+.locationWarning {
+	position: absolute;
+	top: 1rem;
+	left: 50%;
+	z-index: 1300;
+	display: flex;
+	align-items: flex-start;
+	gap: 0.5rem;
+	width: min(24rem, calc(100% - 2rem));
+	transform: translateX(-50%);
+	padding: 0.625rem 0.75rem;
+	border: 1px solid var(--color-border);
+	border-radius: 0.75rem;
+	background: var(--color-surface);
+	box-shadow: var(--shadow-md, var(--shadow-sm));
+	color: var(--color-text);
+}
+
+.locationWarningIcon {
+	flex-shrink: 0;
+	margin-top: 0.0625rem;
+	color: var(--color-brand);
+}
+
+.locationWarningMessage {
+	flex: 1;
+	min-width: 0;
+	margin: 0;
+	font-size: 0.8125rem;
+	line-height: 1.35;
+}
+
+.locationWarningDismiss {
+	display: inline-flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	width: 1.5rem;
+	height: 1.5rem;
+	padding: 0;
+	border: 0;
+	border-radius: 999px;
+	background: transparent;
+	color: var(--color-text-muted, var(--color-text));
+	font-family: inherit;
+	cursor: pointer;
+	transition: background-color 0.15s ease;
+}
+
+.locationWarningDismiss:hover {
+	background: var(--color-chip-background);
+}

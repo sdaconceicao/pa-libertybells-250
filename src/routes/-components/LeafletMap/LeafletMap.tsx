@@ -3,7 +3,6 @@ import type {
 	Marker as LeafletMarker,
 } from "leaflet";
 import type * as Leaflet from "leaflet";
-import { MapPinOff, X } from "lucide-react";
 import type { RefObject } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Bell } from "../../../lib/bells/types";
@@ -16,6 +15,7 @@ import { useBellPopupHandlers } from "./hooks/useBellPopupHandlers";
 import { createBellMarkerIcon } from "./components/Marker/createBellMarkerIcon";
 import { createMarkerClusterGroupOptions } from "./components/ClusterMarker/createMarkerClusterGroupOptions";
 import { MapLocateControl } from "./components/MapLocateControl/MapLocateControl";
+import { MapLocationWarning } from "./components/MapLocationWarning/MapLocationWarning";
 import { MapZoomControl } from "./components/MapZoomControl/MapZoomControl";
 import {
 	DEFAULT_MAP_CENTER,
@@ -229,24 +229,10 @@ export function LeafletMap({
 					))}
 				</MarkerClusterGroup>
 			</MapContainer>
-			{locationWarning ? (
-				<aside className={styles.locationWarning} role="alert">
-					<MapPinOff
-						className={styles.locationWarningIcon}
-						size={18}
-						aria-hidden="true"
-					/>
-					<p className={styles.locationWarningMessage}>{locationWarning}</p>
-					<button
-						type="button"
-						className={styles.locationWarningDismiss}
-						onClick={() => setLocationWarning(null)}
-						aria-label="Dismiss location warning"
-					>
-						<X size={16} aria-hidden="true" />
-					</button>
-				</aside>
-			) : null}
+			<MapLocationWarning
+				message={locationWarning}
+				onDismiss={() => setLocationWarning(null)}
+			/>
 		</div>
 	);
 }
