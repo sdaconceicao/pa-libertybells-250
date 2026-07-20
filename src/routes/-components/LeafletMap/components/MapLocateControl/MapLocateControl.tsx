@@ -1,9 +1,10 @@
-import type { CircleMarker, Control } from "leaflet";
+import type { Control, Marker } from "leaflet";
 import {
-	circleMarker,
 	DomEvent,
+	divIcon,
 	DomUtil,
 	Control as LeafletControl,
+	marker,
 } from "leaflet";
 import { useEffect, useRef } from "react";
 import { useMap } from "react-leaflet";
@@ -20,8 +21,14 @@ import styles from "./MapLocateControl.module.css";
 /** Zoom level applied when we snap the map to the visitor's location. */
 const LOCATE_ZOOM = 14;
 
-/** Light blue "you are here" dot — distinct from the navy bell markers. */
-const LOCATION_MARKER_COLOR = "#4dabf7";
+function createLocationIcon() {
+	return divIcon({
+		className: styles.locationMarker,
+		html: `<span class="${styles.locationPulse}"></span><span class="${styles.locationDot}" data-location-marker></span>`,
+		iconSize: [18, 18],
+		iconAnchor: [9, 9],
+	});
+}
 
 /** lucide `locate-fixed` — the idle crosshair glyph. */
 const LOCATE_ICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg>`;
@@ -61,7 +68,7 @@ export function MapLocateControl({ sidebarOpen, isMobile, onError }: Props) {
 	onErrorRef.current = onError;
 
 	// The "you are here" marker persists across control rebuilds.
-	const locationMarkerRef = useRef<CircleMarker | null>(null);
+	const locationMarkerRef = useRef<Marker | null>(null);
 
 	useEffect(() => {
 		const LocateControl = LeafletControl.extend({
@@ -110,13 +117,11 @@ export function MapLocateControl({ sidebarOpen, isMobile, onError }: Props) {
 					if (locationMarkerRef.current) {
 						locationMarkerRef.current.setLatLng([latitude, longitude]);
 					} else {
-						locationMarkerRef.current = circleMarker([latitude, longitude], {
-							radius: 8,
-							weight: 3,
-							color: "#ffffff",
-							fillColor: LOCATION_MARKER_COLOR,
-							fillOpacity: 1,
+						locationMarkerRef.current = marker([latitude, longitude], {
+							icon: createLocationIcon(),
 							interactive: false,
+							keyboard: false,
+							zIndexOffset: 1000,
 						}).addTo(map);
 					}
 				};

@@ -48,16 +48,9 @@ test("locate button centers the map on the visitor's granted location", async ({
 		maxTileDistance: 4,
 	});
 
-	// A light-blue "you are here" dot is dropped at the located point.
-	await expect
-		.poll(() =>
-			page.evaluate(() =>
-				[...document.querySelectorAll(".leaflet-overlay-pane path")].some(
-					(p) => p.getAttribute("fill") === "#4dabf7",
-				),
-			),
-		)
-		.toBe(true);
+	// A "you are here" marker (light-blue dot + pulsing ring) is dropped at the
+	// located point.
+	await expect(page.locator("[data-location-marker]")).toBeVisible();
 });
 
 test("locate button warns when location access is denied", async ({
