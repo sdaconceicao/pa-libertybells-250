@@ -9,7 +9,6 @@ permissions:
 jobs:
   delete-neon-branch:
     name: Delete Neon Branch
-    # Only for deleted branches (not tags), and never for a protected branch.
     if: |
       github.event.ref_type == 'branch' &&
       github.event.ref != 'development' &&
