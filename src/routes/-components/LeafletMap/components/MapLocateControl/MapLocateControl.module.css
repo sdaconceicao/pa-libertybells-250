@@ -1,0 +1,40 @@
+/*
+ * Reuses Leaflet's `.leaflet-bar a` box, just centers the SVG glyph.
+ * Scoped under `.locateBar` so these rules out-specify Leaflet's own
+ * `.leaflet-bar a { display: block }`, which is injected at runtime and would
+ * otherwise win by source order and knock the icon off-center.
+ */
+.locateBar a.locateButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-brand);
+}
+
+.locateBar a.locateButton svg {
+	width: 1.125rem;
+	height: 1.125rem;
+}
+
+.locateBar a.locateButton[aria-busy="true"] {
+	cursor: progress;
+}
+
+.locateBar a.locateButton[aria-busy="true"] svg {
+	animation: locate-spin 0.8s linear infinite;
+}
+
+@keyframes locate-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.locateBar a.locateButton[aria-busy="true"] svg {
+		animation: none;
+	}
+}

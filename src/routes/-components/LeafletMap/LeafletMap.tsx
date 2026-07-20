@@ -3,6 +3,7 @@ import type {
 	Marker as LeafletMarker,
 } from "leaflet";
 import type * as Leaflet from "leaflet";
+import { MapPinOff, X } from "lucide-react";
 import type { RefObject } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Bell } from "../../../lib/bells/types";
@@ -14,6 +15,7 @@ import { useBellMarkerHandlers } from "./hooks/useBellMarkerHandlers";
 import { useBellPopupHandlers } from "./hooks/useBellPopupHandlers";
 import { createBellMarkerIcon } from "./components/Marker/createBellMarkerIcon";
 import { createMarkerClusterGroupOptions } from "./components/ClusterMarker/createMarkerClusterGroupOptions";
+import { MapLocateControl } from "./components/MapLocateControl/MapLocateControl";
 import { MapZoomControl } from "./components/MapZoomControl/MapZoomControl";
 import {
 	DEFAULT_MAP_CENTER,
@@ -65,6 +67,7 @@ export function LeafletMap({
 		useState<MarkerClusterGroupComponent | null>(null);
 	const [L, setL] = useState<typeof Leaflet | null>(null);
 	const [mapReady, setMapReady] = useState(false);
+	const [locationWarning, setLocationWarning] = useState<string | null>(null);
 	const mapRef = useRef<LeafletMapInstance>(null);
 	const shellRef = useRef<HTMLDivElement>(null);
 
@@ -184,6 +187,11 @@ export function LeafletMap({
 					setMapReady(true);
 				}}
 			>
+				<MapLocateControl
+					sidebarOpen={sidebarOpen}
+					isMobile={isMobile}
+					onError={setLocationWarning}
+				/>
 				<MapZoomControl sidebarOpen={sidebarOpen} isMobile={isMobile} />
 				<TileLayer
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -221,6 +229,24 @@ export function LeafletMap({
 					))}
 				</MarkerClusterGroup>
 			</MapContainer>
+			{locationWarning ? (
+				<aside className={styles.locationWarning} role="alert">
+					<MapPinOff
+						className={styles.locationWarningIcon}
+						size={18}
+						aria-hidden="true"
+					/>
+					<p className={styles.locationWarningMessage}>{locationWarning}</p>
+					<button
+						type="button"
+						className={styles.locationWarningDismiss}
+						onClick={() => setLocationWarning(null)}
+						aria-label="Dismiss location warning"
+					>
+						<X size={16} aria-hidden="true" />
+					</button>
+				</aside>
+			) : null}
 		</div>
 	);
 }
