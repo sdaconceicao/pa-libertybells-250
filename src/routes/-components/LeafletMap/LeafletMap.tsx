@@ -14,6 +14,8 @@ import { useBellMarkerHandlers } from "./hooks/useBellMarkerHandlers";
 import { useBellPopupHandlers } from "./hooks/useBellPopupHandlers";
 import { createBellMarkerIcon } from "./components/Marker/createBellMarkerIcon";
 import { createMarkerClusterGroupOptions } from "./components/ClusterMarker/createMarkerClusterGroupOptions";
+import { MapLocateControl } from "./components/MapLocateControl/MapLocateControl";
+import { MapLocationWarning } from "./components/MapLocationWarning/MapLocationWarning";
 import { MapZoomControl } from "./components/MapZoomControl/MapZoomControl";
 import {
 	DEFAULT_MAP_CENTER,
@@ -65,6 +67,7 @@ export function LeafletMap({
 		useState<MarkerClusterGroupComponent | null>(null);
 	const [L, setL] = useState<typeof Leaflet | null>(null);
 	const [mapReady, setMapReady] = useState(false);
+	const [locationWarning, setLocationWarning] = useState<string | null>(null);
 	const mapRef = useRef<LeafletMapInstance>(null);
 	const shellRef = useRef<HTMLDivElement>(null);
 
@@ -184,6 +187,11 @@ export function LeafletMap({
 					setMapReady(true);
 				}}
 			>
+				<MapLocateControl
+					sidebarOpen={sidebarOpen}
+					isMobile={isMobile}
+					onError={setLocationWarning}
+				/>
 				<MapZoomControl sidebarOpen={sidebarOpen} isMobile={isMobile} />
 				<TileLayer
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -221,6 +229,10 @@ export function LeafletMap({
 					))}
 				</MarkerClusterGroup>
 			</MapContainer>
+			<MapLocationWarning
+				message={locationWarning}
+				onDismiss={() => setLocationWarning(null)}
+			/>
 		</div>
 	);
 }
