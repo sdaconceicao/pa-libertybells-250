@@ -17,6 +17,9 @@ describe("BellsFilters", () => {
 		visitedFilter: DEFAULT_VISITED_FILTER,
 		appliedVisitedFilter: DEFAULT_VISITED_FILTER,
 		onVisitedFilterChange: vi.fn(),
+		onRequestLocation: vi.fn(),
+		locationStatus: "idle" as const,
+		locationError: null,
 	};
 
 	afterEach(() => {
@@ -39,7 +42,7 @@ describe("BellsFilters", () => {
 		render(
 			<BellsFilters
 				{...defaultProps}
-				draft={{ counties: ["York"], placement: "all" }}
+				draft={{ counties: ["York"], placement: "all", maxDistanceMiles: null }}
 			/>,
 		);
 
@@ -64,7 +67,7 @@ describe("BellsFilters", () => {
 		rerender(
 			<BellsFilters
 				{...defaultProps}
-				draft={{ counties: [], placement: "indoors" }}
+				draft={{ counties: [], placement: "indoors", maxDistanceMiles: null }}
 			/>,
 		);
 
@@ -79,7 +82,7 @@ describe("BellsFilters", () => {
 		render(
 			<BellsFilters
 				{...defaultProps}
-				draft={{ counties: ["York"], placement: "all" }}
+				draft={{ counties: ["York"], placement: "all", maxDistanceMiles: null }}
 				onApply={onApply}
 			/>,
 		);
@@ -95,7 +98,11 @@ describe("BellsFilters", () => {
 		render(
 			<BellsFilters
 				{...defaultProps}
-				applied={{ counties: ["York"], placement: "indoors" }}
+				applied={{
+					counties: ["York"],
+					placement: "indoors",
+					maxDistanceMiles: null,
+				}}
 				onClear={onClear}
 			/>,
 		);
@@ -111,5 +118,76 @@ describe("BellsFilters", () => {
 		);
 
 		expect(screen.getByText("Showing 2 of 86 bells")).not.toBeNull();
+	});
+
+	it("defaults the distance dropdown to any distance", () => {
+		render(<BellsFilters {...defaultProps} />);
+
+		const distance = screen.getByRole("combobox", {
+			name: "Distance from my location",
+		}) as HTMLSelectElement;
+		expect(distance.value).toBe("any");
+	});
+
+	it("updates the draft and requests location when a radius is chosen", () => {
+		const onDraftChange = vi.fn();
+		const onRequestLocation = vi.fn();
+
+		render(
+			<BellsFilters
+				{...defaultProps}
+				onDraftChange={onDraftChange}
+				onRequestLocation={onRequestLocation}
+			/>,
+		);
+
+		fireEvent.change(
+			screen.getByRole("combobox", { name: "Distance from my location" }),
+			{ target: { value: "50" } },
+		);
+
+		expect(onDraftChange).toHaveBeenCalledWith({
+			...DEFAULT_BELL_FILTERS,
+			maxDistanceMiles: 50,
+		});
+		expect(onRequestLocation).toHaveBeenCalledTimes(1);
+	});
+
+	it("does not request location again once a fix is ready", () => {
+		const onRequestLocation = vi.fn();
+
+		render(
+			<BellsFilters
+				{...defaultProps}
+				locationStatus="ready"
+				onRequestLocation={onRequestLocation}
+			/>,
+		);
+
+		fireEvent.change(
+			screen.getByRole("combobox", { name: "Distance from my location" }),
+			{ target: { value: "25" } },
+		);
+
+		expect(onRequestLocation).not.toHaveBeenCalled();
+	});
+
+	it("surfaces a location error message on the distance filter", () => {
+		render(
+			<BellsFilters
+				{...defaultProps}
+				draft={{
+					counties: [],
+					placement: "all",
+					maxDistanceMiles: 25,
+				}}
+				locationStatus="error"
+				locationError="Location access is blocked."
+			/>,
+		);
+
+		expect(screen.getByRole("alert").textContent).toContain(
+			"Location access is blocked.",
+		);
 	});
 });

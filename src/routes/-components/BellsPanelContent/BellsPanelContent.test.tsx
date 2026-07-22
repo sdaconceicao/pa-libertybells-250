@@ -43,6 +43,9 @@ const defaultFilterProps = {
 	visitedFilter: DEFAULT_VISITED_FILTER,
 	appliedVisitedFilter: DEFAULT_VISITED_FILTER,
 	onVisitedFilterChange: () => {},
+	onRequestLocation: () => {},
+	locationStatus: "idle" as const,
+	locationError: null,
 };
 
 const defaultSelectionProps = {

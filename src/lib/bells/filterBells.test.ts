@@ -44,8 +44,16 @@ describe("filtersEqual", () => {
 	it("treats county order as irrelevant", () => {
 		expect(
 			filtersEqual(
-				{ counties: ["York", "Adams"], placement: "all" },
-				{ counties: ["Adams", "York"], placement: "all" },
+				{
+					counties: ["York", "Adams"],
+					placement: "all",
+					maxDistanceMiles: null,
+				},
+				{
+					counties: ["Adams", "York"],
+					placement: "all",
+					maxDistanceMiles: null,
+				},
 			),
 		).toBe(true);
 	});
@@ -53,8 +61,17 @@ describe("filtersEqual", () => {
 	it("detects different placement", () => {
 		expect(
 			filtersEqual(
-				{ counties: [], placement: "all" },
-				{ counties: [], placement: "indoors" },
+				{ counties: [], placement: "all", maxDistanceMiles: null },
+				{ counties: [], placement: "indoors", maxDistanceMiles: null },
+			),
+		).toBe(false);
+	});
+
+	it("detects a different distance radius", () => {
+		expect(
+			filtersEqual(
+				{ counties: [], placement: "all", maxDistanceMiles: null },
+				{ counties: [], placement: "all", maxDistanceMiles: 50 },
 			),
 		).toBe(false);
 	});
@@ -66,9 +83,23 @@ describe("filtersAreDefault", () => {
 	});
 
 	it("returns false when counties are selected", () => {
-		expect(filtersAreDefault({ counties: ["York"], placement: "all" })).toBe(
-			false,
-		);
+		expect(
+			filtersAreDefault({
+				counties: ["York"],
+				placement: "all",
+				maxDistanceMiles: null,
+			}),
+		).toBe(false);
+	});
+
+	it("returns false when a distance radius is set", () => {
+		expect(
+			filtersAreDefault({
+				counties: [],
+				placement: "all",
+				maxDistanceMiles: 25,
+			}),
+		).toBe(false);
 	});
 });
 
@@ -81,6 +112,7 @@ describe("filterBells", () => {
 		const result = filterBells(sampleBells, {
 			counties: ["York"],
 			placement: "all",
+			maxDistanceMiles: null,
 		});
 		expect(result.map((bell) => bell.id)).toEqual(["a", "c"]);
 	});
@@ -89,6 +121,7 @@ describe("filterBells", () => {
 		const result = filterBells(sampleBells, {
 			counties: [],
 			placement: "indoors",
+			maxDistanceMiles: null,
 		});
 		expect(result.map((bell) => bell.id)).toEqual(["a", "d"]);
 	});
@@ -97,6 +130,7 @@ describe("filterBells", () => {
 		const result = filterBells(sampleBells, {
 			counties: [],
 			placement: "outdoors",
+			maxDistanceMiles: null,
 		});
 		expect(result.map((bell) => bell.id)).toEqual(["b"]);
 	});
@@ -105,10 +139,12 @@ describe("filterBells", () => {
 		const indoors = filterBells(sampleBells, {
 			counties: [],
 			placement: "indoors",
+			maxDistanceMiles: null,
 		});
 		const outdoors = filterBells(sampleBells, {
 			counties: [],
 			placement: "outdoors",
+			maxDistanceMiles: null,
 		});
 		expect(indoors.some((bell) => bell.id === "c")).toBe(false);
 		expect(outdoors.some((bell) => bell.id === "c")).toBe(false);
@@ -118,7 +154,45 @@ describe("filterBells", () => {
 		const result = filterBells(sampleBells, {
 			counties: ["York"],
 			placement: "indoors",
+			maxDistanceMiles: null,
 		});
 		expect(result.map((bell) => bell.id)).toEqual(["a"]);
+	});
+});
+
+describe("filterBells distance radius", () => {
+	// Two bells near Harrisburg, one far away near Pittsburgh (~170 miles).
+	const distanceBells: Bell[] = [
+		makeBell({ id: "near", county: "Dauphin", lat: 40.2732, lng: -76.8867 }),
+		makeBell({ id: "close", county: "Cumberland", lat: 40.2, lng: -77.2 }),
+		makeBell({ id: "far", county: "Allegheny", lat: 40.4406, lng: -79.9959 }),
+	];
+	const harrisburg = { lat: 40.2732, lng: -76.8867 };
+
+	it("keeps only bells within the radius when an origin is known", () => {
+		const result = filterBells(
+			distanceBells,
+			{ counties: [], placement: "all", maxDistanceMiles: 50 },
+			harrisburg,
+		);
+		expect(result.map((bell) => bell.id)).toEqual(["near", "close"]);
+	});
+
+	it("does not restrict by distance until the origin is available", () => {
+		const result = filterBells(
+			distanceBells,
+			{ counties: [], placement: "all", maxDistanceMiles: 50 },
+			null,
+		);
+		expect(result.map((bell) => bell.id)).toEqual(["near", "close", "far"]);
+	});
+
+	it("ignores the origin when no radius is selected", () => {
+		const result = filterBells(
+			distanceBells,
+			{ counties: [], placement: "all", maxDistanceMiles: null },
+			harrisburg,
+		);
+		expect(result).toHaveLength(3);
 	});
 });

@@ -11,7 +11,7 @@ import { useMap } from "react-leaflet";
 import {
 	getGeolocationErrorMessage,
 	GEOLOCATION_MESSAGES,
-} from "../../utils/geolocation";
+} from "../../../../../lib/geolocation/geolocation";
 import {
 	getMapCenterForVisibleLatLng,
 	getMapViewportPadding,
