@@ -1,3 +1,22 @@
+import haversine from "haversine-distance";
+
+/** A latitude/longitude pair, matching the shape stored on each bell. */
+export type Coordinates = {
+	lat: number;
+	lng: number;
+};
+
+/** Meters in one statute mile, used to convert haversine output to miles. */
+const METERS_PER_MILE = 1609.344;
+
+/**
+ * Great-circle ("as the crow flies") distance between two points, in miles.
+ * Uses the haversine formula so the result ignores roads and terrain.
+ */
+export function milesBetween(a: Coordinates, b: Coordinates): number {
+	return haversine(a, b) / METERS_PER_MILE;
+}
+
 /**
  * Human-readable messages for the geolocation failures we surface to users.
  * Kept in one place so the control and its tests stay in sync.

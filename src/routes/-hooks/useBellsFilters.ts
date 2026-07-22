@@ -6,17 +6,21 @@ import {
 	filtersAreDefault,
 	getCountyOptions,
 } from "../../lib/bells/filterBells";
+import type { Coordinates } from "../../lib/geolocation/geolocation";
 import type { Bell } from "../../lib/bells/types";
 
-export function useBellsFilters(bells: Bell[]) {
+export function useBellsFilters(
+	bells: Bell[],
+	origin: Coordinates | null = null,
+) {
 	const [draft, setDraft] = useState<BellFilters>(DEFAULT_BELL_FILTERS);
 	const [applied, setApplied] = useState<BellFilters>(DEFAULT_BELL_FILTERS);
 
 	const countyOptions = useMemo(() => getCountyOptions(bells), [bells]);
 
 	const filteredBells = useMemo(
-		() => filterBells(bells, applied),
-		[bells, applied],
+		() => filterBells(bells, applied, origin),
+		[bells, applied, origin],
 	);
 
 	const hasActiveFilters = !filtersAreDefault(applied);
