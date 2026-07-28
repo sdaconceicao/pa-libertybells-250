@@ -1,4 +1,15 @@
+import {
+	Button,
+	Checkbox,
+	MultiSelect,
+	MultiSelectItem,
+	SegmentedControl,
+	SegmentedControlItem,
+	Select,
+	SelectItem,
+} from "@code-x/lago";
 import { Building2, MapPin, Trees } from "lucide-react";
+import type { Key, ReactNode } from "react";
 import type {
 	BellFilters,
 	PlacementFilter,
@@ -8,14 +19,6 @@ import {
 	filtersAreDefault,
 	filtersEqual,
 } from "../../../lib/bells/filterBells";
-import { Button } from "../../../components/Button/Button";
-import { Checkbox } from "../../../components/Checkbox/Checkbox";
-import { MultiSelect } from "../../../components/MultiSelect/MultiSelect";
-import {
-	SegmentedControl,
-	type SegmentedOption,
-} from "../../../components/SegmentedControl/SegmentedControl";
-import { Select, type SelectOption } from "../../../components/Select/Select";
 import type { GeolocationStatus } from "../../../hooks/useGeolocation";
 import {
 	type VisitedFilter,
@@ -42,24 +45,30 @@ type Props = {
 	locationError: string | null;
 };
 
-const PLACEMENT_OPTIONS: SegmentedOption<PlacementFilter>[] = [
+type PlacementOption = {
+	value: PlacementFilter;
+	label: string;
+	icon?: ReactNode;
+};
+
+const PLACEMENT_OPTIONS: PlacementOption[] = [
 	{ value: "all", label: "All" },
 	{
 		value: "outdoors",
 		label: "Outdoor",
-		icon: <Trees size={14} />,
+		icon: <Trees size={14} aria-hidden="true" />,
 	},
 	{
 		value: "indoors",
 		label: "Indoor",
-		icon: <Building2 size={14} />,
+		icon: <Building2 size={14} aria-hidden="true" />,
 	},
 ];
 
 /** The dropdown value that represents "no distance limit". */
 const ANY_DISTANCE = "any";
 
-const DISTANCE_OPTIONS: SelectOption<string>[] = [
+const DISTANCE_OPTIONS: { value: string; label: string }[] = [
 	{ value: ANY_DISTANCE, label: "Any distance" },
 	...DISTANCE_OPTIONS_MILES.map((miles) => ({
 		value: String(miles),
@@ -140,49 +149,71 @@ export function BellsFilters({
 			<h3 className={styles.heading}>Filter</h3>
 
 			<fieldset className={styles.fieldset}>
-				<label htmlFor="counties" className={styles.legend}>
-					County
-				</label>
+				<span className={styles.legend}>County</span>
 				<MultiSelect
-					options={countySelectOptions}
-					selectedValues={draft.counties}
-					onChange={(counties) => onDraftChange({ ...draft, counties })}
-					emptySelectionLabel="All counties"
-					multipleSelectionLabel={(count) => `${count} counties selected`}
-					searchLabel="Search counties"
-					emptySearchLabel="No counties match your search."
-				/>
-			</fieldset>
-
-			<fieldset className={styles.fieldset}>
-				<label htmlFor="placement" className={styles.legend}>
-					Placement
-				</label>
-				<SegmentedControl
-					options={PLACEMENT_OPTIONS}
-					value={draft.placement}
-					onChange={(placement) => onDraftChange({ ...draft, placement })}
-					ariaLabel="Placement"
-					helperText={
-						draft.placement !== "all"
-							? "Bells without indoor/outdoor information are hidden."
-							: null
+					aria-label="County"
+					placeholder="All counties"
+					className={styles.control}
+					value={draft.counties}
+					onChange={(counties) =>
+						onDraftChange({ ...draft, counties: counties.map(String) })
 					}
-				/>
+				>
+					{countySelectOptions.map((option) => (
+						<MultiSelectItem key={option.value} id={option.value}>
+							{option.label}
+						</MultiSelectItem>
+					))}
+				</MultiSelect>
 			</fieldset>
 
 			<fieldset className={styles.fieldset}>
-				<label htmlFor="distance" className={styles.legend}>
-					Distance
-				</label>
+				<span className={styles.legend}>Placement</span>
+				<SegmentedControl
+					aria-label="Placement"
+					className={styles.control}
+					disallowEmptySelection
+					selectedKeys={new Set([draft.placement])}
+					onSelectionChange={(keys) => {
+						const [next] = keys;
+						if (next != null) {
+							onDraftChange({ ...draft, placement: next as PlacementFilter });
+						}
+					}}
+				>
+					{PLACEMENT_OPTIONS.map((option) => (
+						<SegmentedControlItem key={option.value} id={option.value}>
+							{option.icon}
+							{option.label}
+						</SegmentedControlItem>
+					))}
+				</SegmentedControl>
+				{draft.placement !== "all" ? (
+					<p className={styles.helper}>
+						Bells without indoor/outdoor information are hidden.
+					</p>
+				) : null}
+			</fieldset>
+
+			<fieldset className={styles.fieldset}>
+				<span className={styles.legend}>Distance</span>
 				<Select
-					value={distanceToValue(draft.maxDistanceMiles)}
-					onChange={handleDistanceChange}
-					options={DISTANCE_OPTIONS}
-					ariaLabel="Distance from my location"
-					placeholderValue={ANY_DISTANCE}
-					fullWidth
-				/>
+					aria-label="Distance from my location"
+					placeholder="Any distance"
+					className={styles.control}
+					selectedKey={distanceToValue(draft.maxDistanceMiles)}
+					onSelectionChange={(key: Key | null) => {
+						if (key != null) {
+							handleDistanceChange(String(key));
+						}
+					}}
+				>
+					{DISTANCE_OPTIONS.map((option) => (
+						<SelectItem key={option.value} id={option.value}>
+							{option.label}
+						</SelectItem>
+					))}
+				</Select>
 				{distanceHelperText ? (
 					<p
 						className={styles.distanceHelper}
@@ -199,26 +230,29 @@ export function BellsFilters({
 					<legend className={styles.legend}>Visited</legend>
 					<div className={styles.visitedOptions}>
 						<Checkbox
-							label="Want to go"
-							checked={visitedFilter.want}
+							isSelected={visitedFilter.want}
 							onChange={(want) =>
 								onVisitedFilterChange({ ...visitedFilter, want })
 							}
-						/>
+						>
+							Want to go
+						</Checkbox>
 						<Checkbox
-							label="Been there"
-							checked={visitedFilter.been}
+							isSelected={visitedFilter.been}
 							onChange={(been) =>
 								onVisitedFilterChange({ ...visitedFilter, been })
 							}
-						/>
+						>
+							Been there
+						</Checkbox>
 						<Checkbox
-							label="Neither"
-							checked={visitedFilter.none}
+							isSelected={visitedFilter.none}
 							onChange={(none) =>
 								onVisitedFilterChange({ ...visitedFilter, none })
 							}
-						/>
+						>
+							Neither
+						</Checkbox>
 					</div>
 				</fieldset>
 			) : null}
@@ -230,17 +264,17 @@ export function BellsFilters({
 			<div className={styles.actions}>
 				<Button
 					variant="primary"
-					fullWidth
-					onClick={onApply}
-					disabled={!canApply}
+					style={{ width: "100%" }}
+					onPress={onApply}
+					isDisabled={!canApply}
 				>
 					Apply filters
 				</Button>
 				<Button
 					variant="secondary"
-					fullWidth
-					onClick={onClear}
-					disabled={!canClear}
+					style={{ width: "100%" }}
+					onPress={onClear}
+					isDisabled={!canClear}
 				>
 					Clear filters
 				</Button>

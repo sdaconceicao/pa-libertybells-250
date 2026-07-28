@@ -1,5 +1,5 @@
+import { Button, TextField } from "@code-x/lago";
 import { type FormEvent, useState } from "react";
-import { Button } from "../../../components/Button/Button";
 import { signIn, signUp } from "../../../lib/auth/authClient";
 import { FacebookIcon, GoogleIcon } from "#/components/Icons";
 import styles from "./AccountMenu.module.css";
@@ -84,45 +84,34 @@ export function AuthForm({ onSuccess }: { onSuccess?: () => void }) {
 
 			<form className={styles.form} onSubmit={handleSubmit}>
 				{mode === "register" ? (
-					<label className={styles.field}>
-						<span className={styles.label}>Name</span>
-						<input
-							className={styles.input}
-							type="text"
-							autoComplete="name"
-							required
-							value={name}
-							onChange={(event) => setName(event.target.value)}
-						/>
-					</label>
+					<TextField
+						label="Name"
+						type="text"
+						autoComplete="name"
+						isRequired
+						value={name}
+						onChange={setName}
+					/>
 				) : null}
 
-				<label className={styles.field}>
-					<span className={styles.label}>Email</span>
-					<input
-						className={styles.input}
-						type="email"
-						autoComplete="email"
-						required
-						value={email}
-						onChange={(event) => setEmail(event.target.value)}
-					/>
-				</label>
+				<TextField
+					label="Email"
+					type="email"
+					autoComplete="email"
+					isRequired
+					value={email}
+					onChange={setEmail}
+				/>
 
-				<label className={styles.field}>
-					<span className={styles.label}>Password</span>
-					<input
-						className={styles.input}
-						type="password"
-						autoComplete={
-							mode === "login" ? "current-password" : "new-password"
-						}
-						required
-						minLength={8}
-						value={password}
-						onChange={(event) => setPassword(event.target.value)}
-					/>
-				</label>
+				<TextField
+					label="Password"
+					type="password"
+					autoComplete={mode === "login" ? "current-password" : "new-password"}
+					isRequired
+					minLength={8}
+					value={password}
+					onChange={setPassword}
+				/>
 
 				{error ? (
 					<p className={styles.error} role="alert">
@@ -130,7 +119,7 @@ export function AuthForm({ onSuccess }: { onSuccess?: () => void }) {
 					</p>
 				) : null}
 
-				<Button type="submit" fullWidth disabled={pending}>
+				<Button type="submit" style={{ width: "100%" }} isDisabled={pending}>
 					{pending
 						? "Please wait…"
 						: mode === "login"

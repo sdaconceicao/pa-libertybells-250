@@ -1,5 +1,6 @@
+import { Button } from "@code-x/lago";
+import { X } from "lucide-react";
 import type { ReactNode } from "react";
-import { CloseButton } from "../../../components/CloseButton/CloseButton";
 import { Image } from "../../../components/Image/Image";
 import { AddressIcon } from "../AddressIcon/AddressIcon";
 import { ArtistIcon } from "../ArtistIcon/ArtistIcon";
@@ -58,11 +59,15 @@ export function BellPopupContent({
 			<div className={styles.header}>
 				{actions ? <div className={styles.headerStatus}>{actions}</div> : null}
 				{onClose ? (
-					<CloseButton
-						variant="overlay"
-						onClick={onClose}
-						label="Close selected bell"
-					/>
+					<span className={styles.closeOverlay}>
+						<Button
+							variant="quiet"
+							onPress={onClose}
+							aria-label="Close selected bell"
+						>
+							<X size={16} aria-hidden="true" />
+						</Button>
+					</span>
 				) : null}
 				<Image
 					src={getBellMediumUrl(bell.imageUrl)}

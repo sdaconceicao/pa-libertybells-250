@@ -1,4 +1,5 @@
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { DEFAULT_BELL_FILTERS } from "../../../lib/bells/filterBells";
 import { DEFAULT_VISITED_FILTER } from "../../../lib/visits/visitedFilter";
@@ -125,11 +126,14 @@ describe("BellsFilters", () => {
 
 		const distance = screen.getByRole("combobox", {
 			name: "Distance from my location",
-		}) as HTMLSelectElement;
-		expect(distance.value).toBe("any");
+		}) as HTMLInputElement;
+		// The Lago Select is a react-aria combobox; its input reflects the label
+		// of the selected key ("any"), not the key itself.
+		expect(distance.value).toBe("Any distance");
 	});
 
-	it("updates the draft and requests location when a radius is chosen", () => {
+	it("updates the draft and requests location when a radius is chosen", async () => {
+		const user = userEvent.setup();
 		const onDraftChange = vi.fn();
 		const onRequestLocation = vi.fn();
 
@@ -141,9 +145,11 @@ describe("BellsFilters", () => {
 			/>,
 		);
 
-		fireEvent.change(
+		await user.click(
 			screen.getByRole("combobox", { name: "Distance from my location" }),
-			{ target: { value: "50" } },
+		);
+		await user.click(
+			await screen.findByRole("option", { name: "Within 50 miles" }),
 		);
 
 		expect(onDraftChange).toHaveBeenCalledWith({
@@ -153,7 +159,8 @@ describe("BellsFilters", () => {
 		expect(onRequestLocation).toHaveBeenCalledTimes(1);
 	});
 
-	it("does not request location again once a fix is ready", () => {
+	it("does not request location again once a fix is ready", async () => {
+		const user = userEvent.setup();
 		const onRequestLocation = vi.fn();
 
 		render(
@@ -164,9 +171,11 @@ describe("BellsFilters", () => {
 			/>,
 		);
 
-		fireEvent.change(
+		await user.click(
 			screen.getByRole("combobox", { name: "Distance from my location" }),
-			{ target: { value: "25" } },
+		);
+		await user.click(
+			await screen.findByRole("option", { name: "Within 25 miles" }),
 		);
 
 		expect(onRequestLocation).not.toHaveBeenCalled();

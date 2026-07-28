@@ -1,12 +1,25 @@
 /*
- * Header-band override for the generic Select: a compact pill that fits beside
- * the popup's close/nav controls. The doubled class raises specificity so these
- * rules win over the generic `.select` regardless of stylesheet order.
+ * Header-band override for the Lago Select: a compact pill that fits beside
+ * the popup's close/nav controls. The doubled class raises specificity so
+ * these rules win over the design-system defaults regardless of stylesheet
+ * order.
  */
 .statusSelect.statusSelect {
-	height: 1.75rem;
 	max-width: 9rem;
+	font-size: 0.75rem;
+}
+
+/* Keep the combobox input itself compact and pill-shaped. */
+.statusSelect.statusSelect :global(input) {
+	height: 1.75rem;
 	border-radius: 999px;
 	box-shadow: var(--shadow-sm);
 	font-size: 0.75rem;
+}
+
+/* Lay the leading lucide icon out beside its label inside each option. */
+.optionLabel {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.375rem;
 }

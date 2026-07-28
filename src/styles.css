@@ -49,6 +49,24 @@
 	);
 }
 
+/* --- Lago design-system token mapping ---------------------------------
+   Lago derives its entire palette from a single --tint (via OKLCH
+   relative-color) and ships --font-family defaulting to Open Sans. Map the
+   app's brand into Lago's tokens so Lago components inherit the existing
+   look. Doubled :root:root specificity guarantees these win over Lago's own
+   :root defaults regardless of stylesheet import order. */
+:root:root {
+	/* Brand navy — drives primary buttons, links, focus rings, and selected
+     states across every Lago component. */
+	--tint: var(--color-brand);
+	--font-family: var(--font-sans);
+	--background-color: var(--color-background);
+	--text-color: var(--color-text);
+	--text-color-placeholder: var(--color-text-muted);
+	--link-color: var(--color-link);
+	--radius: 8px;
+}
+
 @media (max-width: 767px) {
 	:root {
 		/* Shrink the account circle to match the search input on mobile; the
