@@ -40,6 +40,7 @@ describe("useBellsFilters", () => {
 			result.current.setDraft({
 				counties: ["York"],
 				placement: "all",
+				maxDistanceMiles: null,
 			});
 		});
 
@@ -61,6 +62,7 @@ describe("useBellsFilters", () => {
 			result.current.setDraft({
 				counties: ["Adams"],
 				placement: "outdoors",
+				maxDistanceMiles: null,
 			});
 		});
 
@@ -78,11 +80,41 @@ describe("useBellsFilters", () => {
 		expect(result.current.draft).toEqual({
 			counties: [],
 			placement: "all",
+			maxDistanceMiles: null,
 		});
 		expect(result.current.applied).toEqual({
 			counties: [],
 			placement: "all",
+			maxDistanceMiles: null,
 		});
+	});
+
+	it("applies a distance radius using the provided origin", () => {
+		// "a"/"c" sit at (40, -77); place "b" far to the west near Pittsburgh.
+		const distanceBells: Bell[] = [
+			makeBell({ id: "a", county: "York" }),
+			makeBell({ id: "b", county: "Adams", lat: 40.44, lng: -80 }),
+			makeBell({ id: "c", county: "York" }),
+		];
+		const origin = { lat: 40, lng: -77 };
+		const { result } = renderHook(() => useBellsFilters(distanceBells, origin));
+
+		act(() => {
+			result.current.setDraft({
+				counties: [],
+				placement: "all",
+				maxDistanceMiles: 50,
+			});
+		});
+
+		act(() => {
+			result.current.applyFilters();
+		});
+
+		expect(result.current.filteredBells.map((bell) => bell.id)).toEqual([
+			"a",
+			"c",
+		]);
 	});
 
 	it("exposes sorted county options from the bell list", () => {

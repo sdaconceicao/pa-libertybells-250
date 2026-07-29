@@ -16,6 +16,8 @@ type Props<T extends string> = {
 	disabled?: boolean;
 	placeholderValue?: T;
 	className?: string;
+	/** Stretch the control to fill its container instead of hugging its content. */
+	fullWidth?: boolean;
 };
 
 export function Select<T extends string>({
@@ -26,6 +28,7 @@ export function Select<T extends string>({
 	disabled,
 	placeholderValue,
 	className,
+	fullWidth,
 }: Props<T>) {
 	function handleChange(event: ChangeEvent<HTMLSelectElement>) {
 		onChange(event.target.value as T);
@@ -35,7 +38,11 @@ export function Select<T extends string>({
 	const selectedIcon = options.find((option) => option.value === value)?.icon;
 
 	return (
-		<div className={styles.wrap}>
+		<div
+			className={[styles.wrap, fullWidth ? styles.wrapFullWidth : ""]
+				.filter(Boolean)
+				.join(" ")}
+		>
 			{selectedIcon ? (
 				<span className={styles.icon} aria-hidden="true">
 					{selectedIcon}

@@ -1,9 +1,10 @@
-import { Building2, Trees } from "lucide-react";
+import { Building2, MapPin, Trees } from "lucide-react";
 import type {
 	BellFilters,
 	PlacementFilter,
 } from "../../../lib/bells/filterBells";
 import {
+	DISTANCE_OPTIONS_MILES,
 	filtersAreDefault,
 	filtersEqual,
 } from "../../../lib/bells/filterBells";
@@ -14,6 +15,8 @@ import {
 	SegmentedControl,
 	type SegmentedOption,
 } from "../../../components/SegmentedControl/SegmentedControl";
+import { Select, type SelectOption } from "../../../components/Select/Select";
+import type { GeolocationStatus } from "../../../hooks/useGeolocation";
 import {
 	type VisitedFilter,
 	visitedFilterIsDefault,
@@ -33,6 +36,10 @@ type Props = {
 	visitedFilter: VisitedFilter;
 	appliedVisitedFilter: VisitedFilter;
 	onVisitedFilterChange: (filter: VisitedFilter) => void;
+	/** Ask the browser for the user's location (used by the distance filter). */
+	onRequestLocation: () => void;
+	locationStatus: GeolocationStatus;
+	locationError: string | null;
 };
 
 const PLACEMENT_OPTIONS: SegmentedOption<PlacementFilter>[] = [
@@ -49,6 +56,41 @@ const PLACEMENT_OPTIONS: SegmentedOption<PlacementFilter>[] = [
 	},
 ];
 
+/** The dropdown value that represents "no distance limit". */
+const ANY_DISTANCE = "any";
+
+const DISTANCE_OPTIONS: SelectOption<string>[] = [
+	{ value: ANY_DISTANCE, label: "Any distance" },
+	...DISTANCE_OPTIONS_MILES.map((miles) => ({
+		value: String(miles),
+		label: `Within ${miles} miles`,
+	})),
+];
+
+function distanceToValue(maxDistanceMiles: number | null): string {
+	return maxDistanceMiles == null ? ANY_DISTANCE : String(maxDistanceMiles);
+}
+
+function valueToDistance(value: string): number | null {
+	return value === ANY_DISTANCE ? null : Number(value);
+}
+
+function getDistanceHelperText(
+	status: GeolocationStatus,
+	error: string | null,
+): string | null {
+	switch (status) {
+		case "locating":
+			return "Finding your location…";
+		case "ready":
+			return "Measured as the crow flies from your location.";
+		case "error":
+			return error;
+		default:
+			return null;
+	}
+}
+
 export function BellsFilters({
 	countyOptions,
 	draft,
@@ -61,6 +103,9 @@ export function BellsFilters({
 	visitedFilter,
 	appliedVisitedFilter,
 	onVisitedFilterChange,
+	onRequestLocation,
+	locationStatus,
+	locationError,
 }: Props) {
 	const visitedChanged =
 		showVisitedFilter &&
@@ -74,6 +119,21 @@ export function BellsFilters({
 		value: county,
 		label: `${county} County`,
 	}));
+
+	const handleDistanceChange = (value: string) => {
+		const maxDistanceMiles = valueToDistance(value);
+		onDraftChange({ ...draft, maxDistanceMiles });
+		// Kick off a location lookup as soon as a radius is chosen, unless we
+		// already have a fix to measure against.
+		if (maxDistanceMiles != null && locationStatus !== "ready") {
+			onRequestLocation();
+		}
+	};
+
+	const distanceHelperText =
+		draft.maxDistanceMiles != null
+			? getDistanceHelperText(locationStatus, locationError)
+			: null;
 
 	return (
 		<section className={styles.filters} aria-label="Filter bells">
@@ -109,6 +169,29 @@ export function BellsFilters({
 							: null
 					}
 				/>
+			</fieldset>
+
+			<fieldset className={styles.fieldset}>
+				<label htmlFor="distance" className={styles.legend}>
+					Distance
+				</label>
+				<Select
+					value={distanceToValue(draft.maxDistanceMiles)}
+					onChange={handleDistanceChange}
+					options={DISTANCE_OPTIONS}
+					ariaLabel="Distance from my location"
+					placeholderValue={ANY_DISTANCE}
+					fullWidth
+				/>
+				{distanceHelperText ? (
+					<p
+						className={styles.distanceHelper}
+						role={locationStatus === "error" ? "alert" : undefined}
+					>
+						<MapPin size={12} aria-hidden="true" />
+						{distanceHelperText}
+					</p>
+				) : null}
 			</fieldset>
 
 			{showVisitedFilter ? (

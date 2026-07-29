@@ -8,6 +8,7 @@ import { HeaderDesktop } from "./-components/HeaderDesktop/HeaderDesktop";
 import { HeaderMobile } from "./-components/HeaderMobile/HeaderMobile";
 import { MobileList } from "./-components/MobileList/MobileList";
 import { MobileViewToggle } from "./-components/MobileViewToggle/MobileViewToggle";
+import { useGeolocation } from "../hooks/useGeolocation";
 import { useBellSelection } from "./-hooks/useBellSelection";
 import { useBellsFilters } from "./-hooks/useBellsFilters";
 import { useBellsPageLayout } from "./-hooks/useBellsPageLayout";
@@ -35,6 +36,12 @@ function BellsPage() {
 		showList,
 	} = useBellsPageLayout();
 	const {
+		coords: userLocation,
+		status: locationStatus,
+		error: locationError,
+		request: requestLocation,
+	} = useGeolocation();
+	const {
 		draft,
 		applied,
 		setDraft,
@@ -44,7 +51,7 @@ function BellsPage() {
 		filteredBells,
 		hasActiveFilters,
 		resultSummary,
-	} = useBellsFilters(bells);
+	} = useBellsFilters(bells, userLocation);
 	const {
 		isAuthed: showVisitedFilter,
 		draft: visitedDraft,
@@ -121,6 +128,9 @@ function BellsPage() {
 		visitedFilter: visitedDraft,
 		appliedVisitedFilter: visitedApplied,
 		onVisitedFilterChange: setVisitedDraft,
+		onRequestLocation: requestLocation,
+		locationStatus,
+		locationError,
 		selectedBell,
 		bellNavigation,
 		onClearSelection: handleClearSelection,

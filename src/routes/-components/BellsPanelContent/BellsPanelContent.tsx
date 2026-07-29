@@ -1,5 +1,6 @@
 import { BellVisitStatus } from "../BellVisitStatus/BellVisitStatus";
 import type { BellFilters } from "../../../lib/bells/filterBells";
+import type { GeolocationStatus } from "../../../hooks/useGeolocation";
 import type { Bell } from "../../../lib/bells/types";
 import type { VisitedFilter } from "../../../lib/visits/visitedFilter";
 import type { BellNavigation } from "../../-utils/getBellNavigation";
@@ -33,6 +34,9 @@ export type BellsPanelContentProps = {
 	visitedFilter: VisitedFilter;
 	appliedVisitedFilter: VisitedFilter;
 	onVisitedFilterChange: (filter: VisitedFilter) => void;
+	onRequestLocation: () => void;
+	locationStatus: GeolocationStatus;
+	locationError: string | null;
 };
 
 export function BellsPanelContent({
@@ -58,6 +62,9 @@ export function BellsPanelContent({
 	visitedFilter,
 	appliedVisitedFilter,
 	onVisitedFilterChange,
+	onRequestLocation,
+	locationStatus,
+	locationError,
 }: BellsPanelContentProps) {
 	const showFilters = filtersPlacement === "stack" || !selectedBell;
 	const emptyMessage = hasActiveFilters
@@ -101,6 +108,9 @@ export function BellsPanelContent({
 					visitedFilter={visitedFilter}
 					appliedVisitedFilter={appliedVisitedFilter}
 					onVisitedFilterChange={onVisitedFilterChange}
+					onRequestLocation={onRequestLocation}
+					locationStatus={locationStatus}
+					locationError={locationError}
 				/>
 			) : null}
 			<BellsList
