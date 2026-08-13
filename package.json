@@ -25,7 +25,7 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
-    "@code-x/lago": "0.5.0",
+    "@code-x/lago": "0.6.0",
     "@neondatabase/serverless": "^1.1.0",
     "@tanstack/react-devtools": "^0.10.8",
     "@tanstack/react-router": "^1.170.16",

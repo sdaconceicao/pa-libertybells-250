@@ -4,7 +4,8 @@
     "target": "ES2022",
     "jsx": "react-jsx",
     "module": "ESNext",
-    "baseUrl": ".",
+    /* No baseUrl — deprecated in TS 6, removed in TS 7. Path values below
+       resolve relative to this file's directory. */
     "paths": {
       "#/*": ["./src/*"],
       "@/*": ["./src/*"]
