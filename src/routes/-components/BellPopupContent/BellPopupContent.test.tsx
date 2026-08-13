@@ -94,7 +94,7 @@ describe("BellPopupContent", () => {
 			'img[src="/bells/images/medium/test.webp"]',
 		);
 		expect(image).toBeTruthy();
-		expect(image?.getAttribute("alt")).toBe("");
+		expect(image?.getAttribute("alt")).toBe("Image for bell Test Bell");
 	});
 
 	it("renders placeholder when imageUrl is absent", () => {

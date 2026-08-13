@@ -68,6 +68,73 @@
 	--radius: 8px;
 }
 
+/* Lago's primary button is a pale wash of the tint under dark tinted text,
+   which reads as near-white at this navy. Restate it as a solid fill so the
+   call to action carries
+
+   White on the navy is 17.8:1, so --highlight-foreground (Lago's token for
+   text on a filled tint) is the right foreground here.
+
+   The :not() clauses are load-bearing. Unlayered rules outrank every layered
+   rule Lago ships, including its state rules, so without them this would
+   paint disabled and selected buttons as though they were live ones. */
+.react-aria-Button[data-variant="primary"]:not(
+	[data-disabled],
+	[data-selected]
+) {
+	--button-background: var(--tint);
+	/* Bevel drawn *below* the fill, not above it: at 22% lightness the tint is
+     near the dark end of the ramp, so Lago's usual 50%/30% edges would ring
+     the button in something lighter than its own face. */
+	--button-border: oklch(from var(--tint) 16% c h);
+	--button-gradient: var(--button-border);
+	--button-highlight: rgb(255 255 255 / 0.2);
+	--button-shadow: oklch(from var(--tint) 12% c h);
+	--button-text: var(--highlight-foreground);
+}
+
+/* Lago darkens its filled tones on press, but there is little room left below
+   this fill — lifting it instead makes the state read clearly, and holds
+   13.2:1 against the white label. Restating it is required: the rule above
+   outranks Lago's own pressed rule and would otherwise swallow the feedback. */
+.react-aria-Button[data-variant="primary"]:not(
+	[data-disabled],
+	[data-selected]
+)[data-pressed] {
+	--button-background: oklch(from var(--tint) 32% c h);
+}
+
+/* FieldButton — the chevron in a Select or MultiSelect, the clear in a
+   SearchField, the reveal in a Password — ships as a pale wash of the tint.
+   Give it the same solid fill as the primary button so the affordance reads
+   the same wherever it appears. White on the navy is 17.8:1.
+
+   Unlike Button, FieldButton paints its own background instead of reading a
+   --button-* property, so this has to restate the declarations rather than
+   retint them. `field-Button` is the unhashed class Lago puts on it for
+   exactly this kind of reach-in. */
+.field-Button:not([data-disabled]) {
+	background: var(--tint);
+	color: var(--highlight-foreground);
+}
+
+/* Lifted rather than darkened on hover and press, for the same reason the
+   primary button is: there is no room left below this fill. 13.2:1. */
+.field-Button:not([data-disabled]):where([data-hovered], [data-pressed]) {
+	background: oklch(from var(--tint) 32% c h);
+}
+
+/* Restores what the two rules above outrank. In forced-colors mode Lago hands
+   the button to the system palette, and unlayered declarations would keep
+   painting it navy over the top — the one place where being unlayered works
+   against you. Equal specificity, so coming later is what wins it back. */
+@media (forced-colors: active) {
+	.field-Button:not([data-disabled]) {
+		background: Highlight;
+		color: HighlightText;
+	}
+}
+
 @media (max-width: 767px) {
 	:root {
 		/* Shrink the account circle to match the search input on mobile; the
