@@ -1,7 +1,6 @@
-import { IconButton } from "@code-x/lago";
+import { IconButton, ImagePlaceholder } from "@code-x/lago";
 import { X } from "lucide-react";
 import type { ReactNode } from "react";
-import { Image } from "../../../components/Image/Image";
 import { AddressIcon } from "../AddressIcon/AddressIcon";
 import { ArtistIcon } from "../ArtistIcon/ArtistIcon";
 import {
@@ -69,12 +68,11 @@ export function BellPopupContent({
 						<X size={16} aria-hidden="true" />
 					</IconButton>
 				) : null}
-				<Image
+				<ImagePlaceholder
 					src={getBellMediumUrl(bell.imageUrl)}
-					alt=""
+					alt={`Image for bell ${bell.title}`}
 					className={styles.headerMedia}
-					imageClassName={styles.headerImage}
-					placeholderClassName={styles.headerPlaceholder}
+					errorCode={null}
 				/>
 				<MetaBar
 					nav={
