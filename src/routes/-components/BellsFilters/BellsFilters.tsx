@@ -264,7 +264,7 @@ export function BellsFilters({
 			<div className={styles.actions}>
 				<Button
 					variant="primary"
-					style={{ width: "100%" }}
+					className={styles.actionButton}
 					onPress={onApply}
 					isDisabled={!canApply}
 				>
@@ -272,7 +272,7 @@ export function BellsFilters({
 				</Button>
 				<Button
 					variant="secondary"
-					style={{ width: "100%" }}
+					className={styles.actionButton}
 					onPress={onClear}
 					isDisabled={!canClear}
 				>

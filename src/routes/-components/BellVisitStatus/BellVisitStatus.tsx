@@ -65,6 +65,7 @@ export function BellVisitStatus({ bellId }: { bellId: string }) {
 		<Select
 			aria-label="Visited status"
 			placeholder="Visited?"
+			size="sm"
 			selectedKey={value}
 			onSelectionChange={(key: Key | null) => {
 				if (key != null) {

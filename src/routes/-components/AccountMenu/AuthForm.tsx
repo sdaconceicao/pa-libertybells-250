@@ -119,7 +119,11 @@ export function AuthForm({ onSuccess }: { onSuccess?: () => void }) {
 					</p>
 				) : null}
 
-				<Button type="submit" style={{ width: "100%" }} isDisabled={pending}>
+				<Button
+					type="submit"
+					className={styles.submitButton}
+					isDisabled={pending}
+				>
 					{pending
 						? "Please wait…"
 						: mode === "login"

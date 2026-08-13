@@ -53,9 +53,10 @@
    Lago derives its entire palette from a single --tint (via OKLCH
    relative-color) and ships --font-family defaulting to Open Sans. Map the
    app's brand into Lago's tokens so Lago components inherit the existing
-   look. Doubled :root:root specificity guarantees these win over Lago's own
-   :root defaults regardless of stylesheet import order. */
-:root:root {
+   look. Lago emits its own tokens into the `lago.tokens` cascade layer, and
+   this stylesheet is unlayered, so a plain :root wins outright — no
+   specificity to match and no dependence on import order. */
+:root {
 	/* Brand navy — drives primary buttons, links, focus rings, and selected
      states across every Lago component. */
 	--tint: var(--color-brand);
@@ -67,6 +68,25 @@
 	--radius: 8px;
 }
 
+/* --- Lago upstream workaround: centred dropdown options ----------------
+   SelectItem and MultiSelectItem each render Lago's ListBoxItem, so an option
+   ends up carrying both stylesheets' classes. ListBoxItem lays itself out as a
+   column and centres on the main axis (`justify-content: center`, vertical for
+   a column); the two Select variants flip to `flex-direction: row` but never
+   restate `justify-content`, so that centring survives as *horizontal*
+   centring and every option renders centred. Both rules are single-class and
+   in the same `lago.components` layer, so source order alone decides and no
+   specificity fight is possible from inside the library.
+
+   Fixed upstream by separating the two layouts — the option components no
+   longer compose ListBoxItem's stylesheet at all — so this block becomes a
+   no-op restating the value Lago will already set. Drop it on the first
+   release after 0.5.0, which is what this pins against. */
+.select-item,
+.multi-select-item {
+	justify-content: flex-start;
+}
+
 @media (max-width: 767px) {
 	:root {
 		/* Shrink the account circle to match the search input on mobile; the
@@ -75,8 +95,14 @@
 	}
 }
 
-* {
-	box-sizing: border-box;
+/* Lago reserves an empty `reset` layer as the lowest in its cascade order.
+   Putting the global reset there keeps it below Lago's component rules —
+   unlayered, a `*` selector outranks every layered rule Lago ships whatever
+   its specificity, and would silently flatten component box models. */
+@layer reset {
+	* {
+		box-sizing: border-box;
+	}
 }
 
 html,

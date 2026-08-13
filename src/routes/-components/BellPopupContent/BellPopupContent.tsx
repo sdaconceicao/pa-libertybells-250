@@ -1,4 +1,4 @@
-import { Button } from "@code-x/lago";
+import { IconButton } from "@code-x/lago";
 import { X } from "lucide-react";
 import type { ReactNode } from "react";
 import { Image } from "../../../components/Image/Image";
@@ -59,15 +59,15 @@ export function BellPopupContent({
 			<div className={styles.header}>
 				{actions ? <div className={styles.headerStatus}>{actions}</div> : null}
 				{onClose ? (
-					<span className={styles.closeOverlay}>
-						<Button
-							variant="quiet"
-							onPress={onClose}
-							aria-label="Close selected bell"
-						>
-							<X size={16} aria-hidden="true" />
-						</Button>
-					</span>
+					<IconButton
+						variant="quiet"
+						size="sm"
+						className={styles.closeOverlay}
+						onPress={onClose}
+						aria-label="Close selected bell"
+					>
+						<X size={16} aria-hidden="true" />
+					</IconButton>
 				) : null}
 				<Image
 					src={getBellMediumUrl(bell.imageUrl)}

@@ -13,7 +13,12 @@ type Props = {
 	onOptionMouseEnter?: () => void;
 };
 
-function BellContentBody({ bell }: { bell: Bell }) {
+/**
+ * The thumbnail + title/artist/county row, without any interaction wrapper.
+ * Exported so consumers that own their own option semantics (e.g. the search
+ * dropdown, whose listbox items come from Lago) can reuse the presentation.
+ */
+export function BellContentBody({ bell }: { bell: Bell }) {
 	return (
 		<>
 			<div className={styles.thumbnail}>

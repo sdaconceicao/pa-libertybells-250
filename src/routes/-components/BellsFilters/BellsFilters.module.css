@@ -72,3 +72,7 @@
 	flex-direction: column;
 	gap: 0.5rem;
 }
+
+.actionButton {
+	width: 100%;
+}

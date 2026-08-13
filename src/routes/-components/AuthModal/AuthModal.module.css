@@ -33,27 +33,25 @@
 	box-shadow: var(--shadow-lg);
 }
 
+/*
+ * Floats over the dialog's top-right corner. IconButton supplies the round
+ * shape, centring and transition; only the placement, the 2rem size the
+ * `.intro` padding is cut to, and the app's muted/chip colouring are set here.
+ * Colours go through Lago's --button-* contract rather than raw `background`
+ * and `color` so the pressed and focus treatments survive.
+ */
 .close {
 	position: absolute;
 	top: 0.75rem;
 	right: 0.75rem;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
 	width: 2rem;
 	height: 2rem;
-	padding: 0;
-	border: 0;
-	border-radius: 50%;
-	background: transparent;
-	color: var(--color-text-muted);
-	cursor: pointer;
-	transition: background 0.12s ease;
+	--button-text: var(--color-text-muted);
 }
 
 .close:hover {
-	background: var(--color-chip-background);
-	color: var(--color-text);
+	--button-background: var(--color-chip-background);
+	--button-text: var(--color-text);
 }
 
 .intro {

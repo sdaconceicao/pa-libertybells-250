@@ -1,4 +1,4 @@
-import { Button } from "@code-x/lago";
+import { IconButton } from "@code-x/lago";
 import { X } from "lucide-react";
 import { useEffect } from "react";
 import { AuthForm } from "../AccountMenu/AuthForm";
@@ -28,15 +28,14 @@ export function AuthModal({ onClose }: { onClose: () => void }) {
 				aria-modal="true"
 				aria-label="Log in or register"
 			>
-				<Button
+				<IconButton
 					variant="quiet"
 					aria-label="Close"
 					className={styles.close}
-					style={{ position: "absolute", top: "0.75rem", right: "0.75rem" }}
 					onPress={onClose}
 				>
 					<X size={16} aria-hidden="true" />
-				</Button>
+				</IconButton>
 				<div className={styles.intro}>
 					<h2 className={styles.title}>Sign in to save bells</h2>
 					<p className={styles.subtitle}>

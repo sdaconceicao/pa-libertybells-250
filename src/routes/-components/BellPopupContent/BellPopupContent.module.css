@@ -112,37 +112,30 @@
 
 /*
  * Overlay close button: a translucent circular control that floats over the
- * top-right corner of the header image. The Lago Button drops any passed
- * className, so positioning lives on this wrapper and the circular/translucent
- * look is applied to the rendered <button> element directly.
+ * top-right corner of the header image. IconButton at `sm` is already a 1.75rem
+ * circle, so only the placement and the frosted fill are set here. The fill
+ * goes through Lago's --button-* contract; box-shadow is stated outright to
+ * replace the 1px ring the quiet variant draws with the app's drop shadow.
  */
 .closeOverlay {
 	position: absolute;
 	top: 0.5rem;
 	right: 0.5rem;
 	z-index: 1;
-}
-
-.closeOverlay :global(button) {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 1.75rem;
-	height: 1.75rem;
-	min-width: 0;
-	padding: 0;
-	border: none;
-	border-radius: 50%;
-	background: color-mix(in oklab, var(--color-surface) 70%, transparent 30%);
+	--button-background: color-mix(
+		in oklab,
+		var(--color-surface) 70%,
+		transparent 30%
+	);
+	--button-text: var(--color-text);
 	backdrop-filter: blur(4px);
 	box-shadow: var(--shadow-sm);
-	color: var(--color-text);
-	cursor: pointer;
-	transition:
-		background-color 0.15s ease,
-		color 0.15s ease;
 }
 
-.closeOverlay :global(button:hover) {
-	background: color-mix(in oklab, var(--color-surface) 90%, transparent 10%);
+.closeOverlay:hover {
+	--button-background: color-mix(
+		in oklab,
+		var(--color-surface) 90%,
+		transparent 10%
+	);
 }

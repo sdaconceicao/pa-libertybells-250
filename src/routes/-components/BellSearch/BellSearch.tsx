@@ -1,7 +1,9 @@
 import { SearchFieldWithSuggestions } from "@code-x/lago";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { searchBells } from "../../../lib/bells/searchBells";
 import type { Bell } from "../../../lib/bells/types";
+import { BellContentBody } from "../BellContent/BellContent";
+import styles from "./BellSearch.module.css";
 
 type Props = {
 	bells: Bell[];
@@ -10,8 +12,20 @@ type Props = {
 	onBellSelect?: (bellId: string) => void;
 };
 
-export function BellSearch({ bells, className, onBellSelect }: Props) {
+export function BellSearch({
+	bells,
+	className,
+	onBellHover,
+	onBellSelect,
+}: Props) {
 	const [query, setQuery] = useState("");
+
+	// A suggestion only carries `id` and `label`, so renderSuggestion looks the
+	// bell back up to draw its thumbnail and details.
+	const bellsById = useMemo(
+		() => new Map(bells.map((bell) => [bell.id, bell])),
+		[bells],
+	);
 
 	// searchBells matches on title AND artist. Feed it through loadSuggestions
 	// (whose results are shown verbatim) rather than the `suggestions` prop,
@@ -29,13 +43,32 @@ export function BellSearch({ bells, className, onBellSelect }: Props) {
 	return (
 		<SearchFieldWithSuggestions
 			className={className}
-			label="Search bells by title or artist"
+			aria-label="Search bells by title or artist"
 			placeholder="Search titles or artists"
 			value={query}
 			debounceDelay={0}
 			onChange={setQuery}
 			loadSuggestions={loadSuggestions}
+			renderSuggestion={(suggestion) => {
+				const bell = bellsById.get(suggestion.id);
+				if (!bell) {
+					return suggestion.label;
+				}
+
+				return (
+					<div
+						className={styles.suggestion}
+						onPointerEnter={() => onBellHover?.(bell.id)}
+						onPointerLeave={() => onBellHover?.(null)}
+					>
+						<BellContentBody bell={bell} />
+					</div>
+				);
+			}}
 			onSuggestionSelect={(suggestion) => {
+				// The dropdown unmounts on select, so mouseleave may never fire and
+				// the map would keep the row highlighted.
+				onBellHover?.(null);
 				onBellSelect?.(suggestion.id);
 				setQuery("");
 			}}

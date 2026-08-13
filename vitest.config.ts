@@ -9,14 +9,6 @@ export default defineConfig({
     // Polyfills for DOM APIs jsdom omits that react-aria (via @code-x/lago)
     // depends on when opening overlays and running focus/animation logic.
     setupFiles: ['./src/test/setup.ts'],
-    // Inline the Lago design system so Vite transforms it (and handles its
-    // `import "./index.css"`) instead of Node externalizing it, which fails on
-    // the .css extension.
-    server: {
-      deps: {
-        inline: [/@code-x\/lago/],
-      },
-    },
     // Placeholder so modules that transitively import the DB client (via server
     // functions) don't throw at import time. The Neon client connects lazily,
     // so no real connection is made during unit tests.

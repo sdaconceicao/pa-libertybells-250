@@ -1,3 +1,11 @@
-.searchIcon {
-	display: block;
+/* Lago's dropdown item stacks its children in a column and owns the padding and
+   hover state, so this only lays the thumbnail beside the bell details. */
+.suggestion {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.625rem;
+	width: 100%;
+	min-width: 0;
+	text-align: left;
 }

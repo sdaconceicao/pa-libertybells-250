@@ -1,20 +1,17 @@
 /*
  * Header-band override for the Lago Select: a compact pill that fits beside
- * the popup's close/nav controls. The doubled class raises specificity so
- * these rules win over the design-system defaults regardless of stylesheet
- * order.
+ * the popup's close/nav controls. `size="sm"` supplies the 1.75rem height and
+ * 0.75rem type, so only the pill radius, the lift off the header image, and
+ * the width cap are set here. This stylesheet is unlayered and Lago's sits in
+ * cascade layers, so a single class outranks anything the library ships.
  */
-.statusSelect.statusSelect {
+.statusSelect {
 	max-width: 9rem;
-	font-size: 0.75rem;
-}
-
-/* Keep the combobox input itself compact and pill-shaped. */
-.statusSelect.statusSelect :global(input) {
-	height: 1.75rem;
-	border-radius: 999px;
-	box-shadow: var(--shadow-sm);
-	font-size: 0.75rem;
+	/* Read by the field surface; a pill rather than the 6px radius `sm` uses. */
+	--field-radius: 999px;
+	/* drop-shadow follows the pill outline and composes with the inset border
+	   Lago draws with box-shadow, which a box-shadow here would replace. */
+	filter: drop-shadow(0 2px 6px rgb(23 7 78 / 0.18));
 }
 
 /* Lay the leading lucide icon out beside its label inside each option. */

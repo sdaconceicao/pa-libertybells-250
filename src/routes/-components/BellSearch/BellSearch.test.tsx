@@ -51,6 +51,42 @@ describe("BellSearch", () => {
 		expect(screen.queryByText("Philadelphia Liberty")).toBeNull();
 	});
 
+	it("renders each suggestion with the bell's thumbnail and details", async () => {
+		const user = userEvent.setup();
+		const bells = [
+			makeBell({
+				id: "a",
+				title: "Gettysburg Bell",
+				artist: "Jane Smith",
+				imageUrl: "/bells/images/gettysburg.png",
+			}),
+		];
+
+		render(<BellSearch bells={bells} />);
+
+		await user.type(screen.getByRole("searchbox"), "gettysburg");
+
+		const thumbnail = (await screen.findByAltText(
+			"Gettysburg Bell",
+		)) as HTMLImageElement;
+		expect(thumbnail.src).toContain("/bells/images/thumbs/gettysburg.webp");
+		expect(screen.getByText("by Jane Smith")).not.toBeNull();
+		expect(screen.getByText("York County, PA")).not.toBeNull();
+	});
+
+	it("highlights the hovered bell", async () => {
+		const user = userEvent.setup();
+		const onBellHover = vi.fn();
+		const bells = [makeBell({ id: "a", title: "Gettysburg Bell" })];
+
+		render(<BellSearch bells={bells} onBellHover={onBellHover} />);
+
+		await user.type(screen.getByRole("searchbox"), "gettysburg");
+		await user.hover(await screen.findByText("Gettysburg Bell"));
+
+		expect(onBellHover).toHaveBeenCalledWith("a");
+	});
+
 	it("matches artists and selects a bell", async () => {
 		const user = userEvent.setup();
 		const onBellSelect = vi.fn();
