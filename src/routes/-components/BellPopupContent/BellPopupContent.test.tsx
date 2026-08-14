@@ -94,7 +94,7 @@ describe("BellPopupContent", () => {
 			'img[src="/bells/images/medium/test.webp"]',
 		);
 		expect(image).toBeTruthy();
-		expect(image?.getAttribute("alt")).toBe("");
+		expect(image?.getAttribute("alt")).toBe("Image for bell Test Bell");
 	});
 
 	it("renders placeholder when imageUrl is absent", () => {
@@ -103,9 +103,9 @@ describe("BellPopupContent", () => {
 		);
 
 		expect(container.querySelector("img")).toBeNull();
-		expect(
-			container.querySelector('[class*="headerPlaceholder"]'),
-		).toBeTruthy();
+		// ImagePlaceholder reports where an image has got to via data-status;
+		// `empty` is a held space with nothing loading into it.
+		expect(container.querySelector('[data-status="empty"]')).toBeTruthy();
 	});
 
 	it("shows indoor icon with accessible label when placement is indoors", () => {

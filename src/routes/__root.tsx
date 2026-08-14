@@ -1,8 +1,11 @@
+import { ThemeProvider } from "@code-x/lago";
 import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { TanStackDevtools } from "@tanstack/react-devtools";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+
+import "@code-x/lago/styles";
 
 import { AccountMenu } from "./-components/AccountMenu/AccountMenu";
 import { AuthModalProvider } from "./-components/AuthModal/AuthModalContext";
@@ -103,12 +106,14 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			<body className="app-body" suppressHydrationWarning>
 				<Analytics />
 				<SpeedInsights />
-				<AuthModalProvider>
-					<VisitStatusProvider>
-						<AccountMenu />
-						{children}
-					</VisitStatusProvider>
-				</AuthModalProvider>
+				<ThemeProvider defaultTheme="light">
+					<AuthModalProvider>
+						<VisitStatusProvider>
+							<AccountMenu />
+							{children}
+						</VisitStatusProvider>
+					</AuthModalProvider>
+				</ThemeProvider>
 				<TanStackDevtools
 					config={{
 						position: "bottom-right",

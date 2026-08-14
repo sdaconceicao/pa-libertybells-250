@@ -1,6 +1,6 @@
+import { IconButton, ImagePlaceholder } from "@code-x/lago";
+import { X } from "lucide-react";
 import type { ReactNode } from "react";
-import { CloseButton } from "../../../components/CloseButton/CloseButton";
-import { Image } from "../../../components/Image/Image";
 import { AddressIcon } from "../AddressIcon/AddressIcon";
 import { ArtistIcon } from "../ArtistIcon/ArtistIcon";
 import {
@@ -58,18 +58,21 @@ export function BellPopupContent({
 			<div className={styles.header}>
 				{actions ? <div className={styles.headerStatus}>{actions}</div> : null}
 				{onClose ? (
-					<CloseButton
-						variant="overlay"
-						onClick={onClose}
-						label="Close selected bell"
-					/>
+					<IconButton
+						variant="quiet"
+						size="sm"
+						className={styles.closeOverlay}
+						onPress={onClose}
+						aria-label="Close selected bell"
+					>
+						<X size={16} aria-hidden="true" />
+					</IconButton>
 				) : null}
-				<Image
+				<ImagePlaceholder
 					src={getBellMediumUrl(bell.imageUrl)}
-					alt=""
+					alt={`Image for bell ${bell.title}`}
 					className={styles.headerMedia}
-					imageClassName={styles.headerImage}
-					placeholderClassName={styles.headerPlaceholder}
+					errorCode={null}
 				/>
 				<MetaBar
 					nav={

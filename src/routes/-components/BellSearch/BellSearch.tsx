@@ -1,9 +1,8 @@
-import { Search } from "lucide-react";
-import { useMemo, useState } from "react";
-import { Autocomplete } from "../../../components/Autocomplete/Autocomplete";
+import { SearchFieldWithSuggestions } from "@code-x/lago";
+import { useCallback, useMemo, useState } from "react";
 import { searchBells } from "../../../lib/bells/searchBells";
 import type { Bell } from "../../../lib/bells/types";
-import { BellContent } from "../BellContent/BellContent";
+import { BellContentBody } from "../BellContent/BellContent";
 import styles from "./BellSearch.module.css";
 
 type Props = {
@@ -20,43 +19,59 @@ export function BellSearch({
 	onBellSelect,
 }: Props) {
 	const [query, setQuery] = useState("");
-	const results = useMemo(() => searchBells(bells, query), [bells, query]);
+
+	// A suggestion only carries `id` and `label`, so renderSuggestion looks the
+	// bell back up to draw its thumbnail and details.
+	const bellsById = useMemo(
+		() => new Map(bells.map((bell) => [bell.id, bell])),
+		[bells],
+	);
+
+	// searchBells matches on title AND artist. Feed it through loadSuggestions
+	// (whose results are shown verbatim) rather than the `suggestions` prop,
+	// which would re-filter with a contains-match on `label` and drop
+	// artist-only matches.
+	const loadSuggestions = useCallback(
+		async (value: string) =>
+			searchBells(bells, value).map((bell) => ({
+				id: bell.id,
+				label: bell.title,
+			})),
+		[bells],
+	);
 
 	return (
-		<Autocomplete
-			value={query}
-			onValueChange={setQuery}
-			items={results}
-			getItemKey={(bell) => bell.id}
-			label="Search bells by title or artist"
+		<SearchFieldWithSuggestions
+			className={[styles.field, className].filter(Boolean).join(" ")}
+			aria-label="Search bells by title or artist"
 			placeholder="Search titles or artists"
-			resultsLabel="Bell search results"
-			emptyMessage="No bells match your search."
-			className={className}
-			inputPrefix={
-				<Search size={16} className={styles.searchIcon} aria-hidden="true" />
-			}
-			onSelect={(bell) => onBellSelect?.(bell.id)}
-			renderResults={({
-				items,
-				activeIndex,
-				getOptionId,
-				onActiveIndexChange,
-				onSelect,
-			}) =>
-				items.map((bell, index) => (
-					<BellContent
-						key={bell.id}
-						bell={bell}
-						optionId={getOptionId(index)}
-						ariaSelected={index === activeIndex}
-						isActive={index === activeIndex}
-						onOptionMouseEnter={() => onActiveIndexChange(index)}
-						onHover={onBellHover}
-						onSelect={() => onSelect(bell)}
-					/>
-				))
-			}
+			value={query}
+			debounceDelay={0}
+			onChange={setQuery}
+			loadSuggestions={loadSuggestions}
+			renderSuggestion={(suggestion) => {
+				const bell = bellsById.get(suggestion.id);
+				if (!bell) {
+					return suggestion.label;
+				}
+
+				return (
+					<div
+						className={styles.suggestion}
+						onPointerEnter={() => onBellHover?.(bell.id)}
+						onPointerLeave={() => onBellHover?.(null)}
+					>
+						<BellContentBody bell={bell} />
+					</div>
+				);
+			}}
+			onSuggestionSelect={(suggestion) => {
+				// The dropdown unmounts on select, so mouseleave may never fire and
+				// the map would keep the row highlighted.
+				onBellHover?.(null);
+				onBellSelect?.(suggestion.id);
+				setQuery("");
+			}}
 		/>
 	);
 }

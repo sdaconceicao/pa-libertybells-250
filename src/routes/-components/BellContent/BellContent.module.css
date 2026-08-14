@@ -29,17 +29,13 @@
 	overflow: hidden;
 }
 
+/* ImagePlaceholder shimmers in a box while the photo loads, then drops the box
+   and hands this class to the <img> itself — so one class sizes both states. */
 .thumbnailImg {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	display: block;
-}
-
-.thumbnailPlaceholder {
-	width: 100%;
-	height: 100%;
-	background: color-mix(in oklab, var(--color-border) 60%, transparent 40%);
 }
 
 .info {
