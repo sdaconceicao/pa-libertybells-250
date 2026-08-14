@@ -42,7 +42,7 @@ export function BellSearch({
 
 	return (
 		<SearchFieldWithSuggestions
-			className={className}
+			className={[styles.field, className].filter(Boolean).join(" ")}
 			aria-label="Search bells by title or artist"
 			placeholder="Search titles or artists"
 			value={query}

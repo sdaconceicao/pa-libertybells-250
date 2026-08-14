@@ -99,6 +99,10 @@
 	z-index: 1;
 }
 
+.headerStatus :global(.react-aria-Group) {
+	--inset-highlight: transparent;
+}
+
 /*
  * Overlay close button: a translucent circular control that floats over the
  * top-right corner of the header image. IconButton at `sm` is already a 1.75rem
