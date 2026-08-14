@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.0](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.4.0...v0.5.0) (2026-07-22)
+
+
+### Features
+
+* Add current location ([#64](https://github.com/sdaconceicao/pa-libertybells-250/issues/64)) ([501f4e9](https://github.com/sdaconceicao/pa-libertybells-250/commit/501f4e93f860d8990acab72ea3c915a8bb6f20ca))
+* Geolocation search ([#66](https://github.com/sdaconceicao/pa-libertybells-250/issues/66)) ([22002b7](https://github.com/sdaconceicao/pa-libertybells-250/commit/22002b74f039c999813861cc4ef2b8e640e1ba4a))
+
 ## [0.4.0](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.3.0...v0.4.0) (2026-06-24)
 
 
