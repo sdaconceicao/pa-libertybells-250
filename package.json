@@ -1,6 +1,6 @@
 {
   "name": "bells-across-pa",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "private": true,
   "type": "module",
   "imports": {
