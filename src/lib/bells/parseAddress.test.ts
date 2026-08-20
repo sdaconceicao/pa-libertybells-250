@@ -43,6 +43,15 @@ describe("parseBellAddress", () => {
 		expect(parsed.localityLabel).toBe("Wilkes-Barre, PA");
 	});
 
+	it("splits venue from street when they share a dash-joined segment", () => {
+		const parsed = parseBellAddress(
+			"Between expERIEnce Children's Museum - 420 French Street - & 414 French Street, Erie, PA 16507",
+		);
+		expect(parsed.venueName).toBe("expERIEnce Children's Museum");
+		expect(parsed.street).toBe("420 French Street");
+		expect(parsed.geocodeQuery).toBe("420 French Street, Erie, PA 16507");
+	});
+
 	it("handles hyphenated street numbers", () => {
 		const parsed = parseBellAddress(
 			"Lancaster Avenue 21st Century Business Association (LA21), 3952-54 Lancaster Ave., Philadelphia, PA 19104",

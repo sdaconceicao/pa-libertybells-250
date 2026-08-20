@@ -11,7 +11,6 @@
 			"zip": "17325"
 		},
 		"imageUrl": "/bells/images/adams-for-the-people.png",
-		"placement": "outdoors",
 		"sourceSlug": "adams-for-the-people",
 		"lat": 39.8416861,
 		"lng": -77.230595,
@@ -78,6 +77,25 @@
 		"geocodeQuality": "exact",
 		"geocodeSource": "opencage",
 		"localityLabel": "Kittanning, PA"
+	},
+	{
+		"id": "beaver-beaver-county-landmarks",
+		"county": "Beaver",
+		"title": "Beaver County Landmarks",
+		"artist": "Ana Truqui",
+		"address": {
+			"venueName": "Public Meeting Room, Beaver County Courthouse",
+			"street": "810 3rd Street",
+			"city": "Beaver",
+			"zip": "15009"
+		},
+		"imageUrl": "/bells/images/beaver-beaver-county-landmarks.png",
+		"sourceSlug": "beaver-beaver-county-landmarks",
+		"lat": 40.6946512,
+		"lng": -80.3084387,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Beaver, PA"
 	},
 	{
 		"id": "bedford-through-bob-s-eyes-a-visual-legacy-of-bedford-county",
@@ -218,6 +236,25 @@
 		"localityLabel": "Butler, PA"
 	},
 	{
+		"id": "cambria-cambria-county-cast-in-bronze",
+		"county": "Cambria",
+		"title": "Cambria County: Cast in Bronze",
+		"artist": "Carol A. (Fatula) Cecere",
+		"address": {
+			"venueName": "Cambria County Courthouse",
+			"street": "200 South Center St",
+			"city": "Ebensburg",
+			"zip": "15931"
+		},
+		"imageUrl": "/bells/images/cambria-cambria-county-cast-in-bronze.png",
+		"sourceSlug": "cambria-cambria-county-cast-in-bronze",
+		"lat": 40.4812427,
+		"lng": -78.7245531,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Ebensburg, PA"
+	},
+	{
 		"id": "cameron-call-of-the-wilds-cameron-edition",
 		"county": "Cameron",
 		"title": "Call of the Wilds - Cameron Edition",
@@ -308,12 +345,32 @@
 			"zip": "16823"
 		},
 		"imageUrl": "/bells/images/centre-stories-of-our-railroad.png",
+		"placement": "outdoors",
 		"sourceSlug": "centre-stories-of-our-railroad",
 		"lat": 40.9113566,
 		"lng": -77.781803,
 		"geocodeQuality": "exact",
 		"geocodeSource": "opencage",
 		"localityLabel": "Bellefonte, PA"
+	},
+	{
+		"id": "centre-welcome-to-philipsburg",
+		"county": "Centre",
+		"title": "Welcome to Philipsburg",
+		"artist": "Pamela Snyder Etters",
+		"address": {
+			"street": "127 N. Front Street",
+			"city": "Philipsburg",
+			"zip": "16866"
+		},
+		"imageUrl": "/bells/images/centre-welcome-to-philipsburg.png",
+		"placement": "outdoors",
+		"sourceSlug": "centre-welcome-to-philipsburg",
+		"lat": 40.8966377,
+		"lng": -78.2236283,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philipsburg, PA"
 	},
 	{
 		"id": "chester-scenes-from-chester-county",
@@ -334,6 +391,26 @@
 		"geocodeQuality": "exact",
 		"geocodeSource": "opencage",
 		"localityLabel": "West Chester, PA"
+	},
+	{
+		"id": "clarion-treasures-of-clarion-county",
+		"county": "Clarion",
+		"title": "Treasures of Clarion County",
+		"artist": "Linda Moore",
+		"address": {
+			"venueName": "New Bethlehem Veterans Memorial Park",
+			"street": "Arch and Wood Streets",
+			"city": "New Bethlehem",
+			"zip": "16242"
+		},
+		"imageUrl": "/bells/images/clarion-treasures-of-clarion-county.png",
+		"placement": "outdoors",
+		"sourceSlug": "clarion-treasures-of-clarion-county",
+		"lat": 41.002694,
+		"lng": -79.331451,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "New Bethlehem, PA"
 	},
 	{
 		"id": "clearfield-the-great-shamokin-path-wilhelm-william-bloom-1752-1828-clearfield-county-pioneer",
@@ -385,6 +462,7 @@
 			"zip": "17815"
 		},
 		"imageUrl": "/bells/images/columbia-columbia-the-gem.png",
+		"placement": "outdoors",
 		"sourceSlug": "columbia-columbia-the-gem",
 		"lat": 40.960425,
 		"lng": -75.982132,
@@ -516,7 +594,7 @@
 		"artist": "Nicholas Cardell Gore",
 		"address": {
 			"venueName": "expERIEnce Children's Museum",
-			"street": "420 French St",
+			"street": "420 French Street",
 			"city": "Erie",
 			"zip": "16507"
 		},
@@ -548,10 +626,29 @@
 		"localityLabel": "Uniontown, PA"
 	},
 	{
+		"id": "forest-forest-valleys",
+		"county": "Forest",
+		"title": "Forest Valleys",
+		"artist": "Skylar Austin & Cassie Rhoads",
+		"address": {
+			"venueName": "Four Seasons Trail Hub in Marienville",
+			"street": "105 S Forest St",
+			"city": "Marienville",
+			"zip": "16239"
+		},
+		"imageUrl": "/bells/images/forest-forest-valleys.png",
+		"sourceSlug": "forest-forest-valleys",
+		"lat": 41.468828,
+		"lng": -79.123397,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Marienville, PA"
+	},
+	{
 		"id": "franklin-franklin-county-america-s-history-and-present",
 		"county": "Franklin",
 		"title": "Franklin County - America's History and Present",
-		"artist": "Designed by Franklin County Artists and Painted by Andrea Finch",
+		"artist": "Designed by Franklin County Artists; Painted by Andrea Finch",
 		"address": {
 			"venueName": "Franklin County Visitors Center",
 			"street": "15 S. Main Street",
@@ -559,7 +656,6 @@
 			"zip": "17201"
 		},
 		"imageUrl": "/bells/images/franklin-franklin-county-america-s-history-and-present.png",
-		"placement": "indoors",
 		"sourceSlug": "franklin-franklin-county-america-s-history-and-present",
 		"lat": 39.9372039,
 		"lng": -77.6618356,
@@ -579,6 +675,7 @@
 			"zip": "17233"
 		},
 		"imageUrl": "/bells/images/fulton-our-town-our-nation.png",
+		"sponsor": "A Friend of Fulton County",
 		"sourceSlug": "fulton-our-town-our-nation",
 		"lat": 39.932526,
 		"lng": -77.999249,
@@ -594,7 +691,8 @@
 		"address": {
 			"venueName": "Greene County Historical Society Museum",
 			"street": "918 Rolling Meadows Rd",
-			"city": "Waynesburg"
+			"city": "Waynesburg",
+			"zip": "15370"
 		},
 		"imageUrl": "/bells/images/greene-coal-country.png",
 		"sourceSlug": "greene-coal-country",
@@ -680,6 +778,25 @@
 		"localityLabel": "Scranton, PA"
 	},
 	{
+		"id": "lackawanna-connecting-to-our-history-pioneering-progress",
+		"county": "Lackawanna",
+		"title": "Connecting to our History, Pioneering Progress",
+		"artist": "Allison LaRussa",
+		"address": {
+			"venueName": "Carbondale City Hall",
+			"street": "1 N. Main Street",
+			"city": "Carbondale",
+			"zip": "18407"
+		},
+		"imageUrl": "/bells/images/lackawanna-connecting-to-our-history-pioneering-progress.png",
+		"sourceSlug": "lackawanna-connecting-to-our-history-pioneering-progress",
+		"lat": 41.572217,
+		"lng": -75.502807,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Carbondale, PA"
+	},
+	{
 		"id": "lackawanna-healing-and-heritage-inspiring-health-for-america",
 		"county": "Lackawanna",
 		"title": "Healing and Heritage: Inspiring Health for America",
@@ -742,19 +859,17 @@
 		"title": "Field of Sunflowers",
 		"artist": "James E. Rudegeair",
 		"address": {
-			"venueName": "Visit Lebanon Valley Office",
-			"street": "115 Springwood Dr.",
+			"street": "80 Rocherty Rd",
 			"city": "Lebanon",
 			"zip": "17042"
 		},
 		"imageUrl": "/bells/images/lebanon-field-of-sunflowers.png",
-		"placement": "indoors",
 		"sourceSlug": "lebanon-field-of-sunflowers",
-		"lat": 39.7398497,
-		"lng": -76.6982427,
+		"lat": 40.305684,
+		"lng": -76.410756,
 		"geocodeQuality": "exact",
 		"geocodeSource": "opencage",
-		"localityLabel": "New Freedom, PA"
+		"localityLabel": "Lebanon, PA"
 	},
 	{
 		"id": "lehigh-moravian-historical-figures",
@@ -795,6 +910,25 @@
 		"localityLabel": "Pittston Township, PA"
 	},
 	{
+		"id": "luzerne-celebrating-our-community-bringing-forth-unity",
+		"county": "Luzerne",
+		"title": "Celebrating our Community, Bringing Forth Unity",
+		"artist": "Allison LaRussa",
+		"address": {
+			"venueName": "The Wright Center: Wilkes-Barre Practice",
+			"street": "169 N. Pennsylvania Ave",
+			"city": "Wilkes-Barre",
+			"zip": "18701"
+		},
+		"imageUrl": "/bells/images/luzerne-celebrating-our-community-bringing-forth-unity.png",
+		"sourceSlug": "luzerne-celebrating-our-community-bringing-forth-unity",
+		"lat": 41.2459556,
+		"lng": -75.8745162,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Wilkes-Barre, PA"
+	},
+	{
 		"id": "luzerne-valley-and-surrounding",
 		"county": "Luzerne",
 		"title": "Valley and Surrounding",
@@ -815,6 +949,25 @@
 		"localityLabel": "Wilkes-Barre, PA"
 	},
 	{
+		"id": "lycoming-legacy-of-lycoming",
+		"county": "Lycoming",
+		"title": "Legacy of Lycoming",
+		"artist": "Mandi Engel",
+		"address": {
+			"venueName": "Lycoming County Visitors Center",
+			"street": "102 W 4th St",
+			"city": "Williamsport",
+			"zip": "17701"
+		},
+		"imageUrl": "/bells/images/lycoming-legacy-of-lycoming.png",
+		"sourceSlug": "lycoming-legacy-of-lycoming",
+		"lat": 41.2415139,
+		"lng": -77.0038016,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Williamsport, PA"
+	},
+	{
 		"id": "mckean-focus-on-freedom",
 		"county": "Mckean",
 		"title": "Focus on Freedom",
@@ -833,6 +986,25 @@
 		"geocodeQuality": "exact",
 		"geocodeSource": "opencage",
 		"localityLabel": "Smethport, PA"
+	},
+	{
+		"id": "mercer-partners-through-time",
+		"county": "Mercer",
+		"title": "Partners Through Time",
+		"artist": "Glen Sanders",
+		"address": {
+			"venueName": "Grove City College - Carnegie Alumni Center",
+			"street": "260 S. Broad Street",
+			"city": "Grove City",
+			"zip": "16127"
+		},
+		"imageUrl": "/bells/images/mercer-partners-through-time.png",
+		"sourceSlug": "mercer-partners-through-time",
+		"lat": 41.1586657,
+		"lng": -80.0865921,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Grove City, PA"
 	},
 	{
 		"id": "mifflin-mifflin-county-celebrates",
@@ -865,7 +1037,6 @@
 			"zip": "18360"
 		},
 		"imageUrl": "/bells/images/monroe-etna-in-remembrance-of-etna-bittenbender-.png",
-		"placement": "outdoors",
 		"sourceSlug": "monroe-etna-in-remembrance-of-etna-bittenbender-",
 		"lat": 40.9844658,
 		"lng": -75.1981518,
@@ -1031,6 +1202,7 @@
 			"zip": "19149"
 		},
 		"imageUrl": "/bells/images/philadelphia-al-schmid-marine.png",
+		"placement": "outdoors",
 		"sourceSlug": "philadelphia-al-schmid-marine",
 		"lat": 40.0418771,
 		"lng": -75.0500237,
@@ -1114,6 +1286,25 @@
 		"sourceSlug": "philadelphia-el-centro-de-oro",
 		"lat": 39.9931433,
 		"lng": -75.1397718,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-flight-pattern",
+		"county": "Philadelphia",
+		"title": "Flight Pattern",
+		"artist": "Paul Downie",
+		"address": {
+			"venueName": "Wawa Store #8131",
+			"street": "150 S. Independence Mall W.",
+			"city": "Philadelphia",
+			"zip": "19106"
+		},
+		"imageUrl": "/bells/images/philadelphia-flight-pattern.png",
+		"sourceSlug": "philadelphia-flight-pattern",
+		"lat": 39.9490779,
+		"lng": -75.1510749,
 		"geocodeQuality": "exact",
 		"geocodeSource": "opencage",
 		"localityLabel": "Philadelphia, PA"
@@ -1378,6 +1569,25 @@
 		"localityLabel": "Philadelphia, PA"
 	},
 	{
+		"id": "philadelphia-united-hunting-park",
+		"county": "Philadelphia",
+		"title": "United Hunting Park",
+		"artist": "Andrew \"Penthouse Art\" Daniels",
+		"address": {
+			"street": "1291 W. Hunting Park Ave.",
+			"city": "Philadelphia",
+			"zip": "19140"
+		},
+		"imageUrl": "/bells/images/philadelphia-united-hunting-park.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-united-hunting-park",
+		"lat": 40.016683,
+		"lng": -75.1469963,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
 		"id": "philadelphia-we-are-harrowgate",
 		"county": "Philadelphia",
 		"title": "We Are Harrowgate",
@@ -1462,7 +1672,7 @@
 		"title": "Yorktown: Historic and Resilient",
 		"artist": "John J. Abner",
 		"address": {
-			"venueName": "Leon H. Sullivan Charitable Trust / Councilmember Jeffery Young",
+			"venueName": "Leon H. Sullivan Charitable Trust",
 			"street": "1415 N. Broad St.",
 			"city": "Philadelphia",
 			"zip": "19122"
@@ -1515,6 +1725,26 @@
 		"geocodeQuality": "exact",
 		"geocodeSource": "opencage",
 		"localityLabel": "Coudersport, PA"
+	},
+	{
+		"id": "schuylkill-freedom-to-change",
+		"county": "Schuylkill",
+		"title": "Freedom to Change",
+		"artist": "Kimberly Woodward with Tamaqua Area Middle School Art Club 2025-2026",
+		"address": {
+			"venueName": "Liberty Tree Park",
+			"street": "35 N. Railroad Street",
+			"city": "Tamaqua",
+			"zip": "18252"
+		},
+		"imageUrl": "/bells/images/schuylkill-freedom-to-change.png",
+		"placement": "outdoors",
+		"sourceSlug": "schuylkill-freedom-to-change",
+		"lat": 40.7999769,
+		"lng": -75.970297,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Tamaqua, PA"
 	},
 	{
 		"id": "snyder-snyder-county-s-natural-heritage",
@@ -1634,6 +1864,25 @@
 		"geocodeQuality": "exact",
 		"geocodeSource": "opencage",
 		"localityLabel": "Lewisburg, PA"
+	},
+	{
+		"id": "venango-progress",
+		"county": "Venango",
+		"title": "PROGRESS",
+		"artist": "Raven Nespor",
+		"address": {
+			"venueName": "Oil Region Venango Campus Rhoades Center",
+			"street": "1801 West First St",
+			"city": "Oil City",
+			"zip": "16301"
+		},
+		"imageUrl": "/bells/images/venango-progress.png",
+		"sourceSlug": "venango-progress",
+		"lat": 41.7737612,
+		"lng": -78.0227184,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Coudersport, PA"
 	},
 	{
 		"id": "warren-reflection-on-warren-s-allegheny-river",
@@ -1759,5 +2008,24 @@
 		"geocodeQuality": "exact",
 		"geocodeSource": "opencage",
 		"localityLabel": "Tunkhannock, PA"
+	},
+	{
+		"id": "york-we-the-people-we-were-here",
+		"county": "York",
+		"title": "We the People, We Were Here",
+		"artist": "Ophelia Chambliss",
+		"address": {
+			"venueName": "New Freedom Rail Trail",
+			"street": "117 N. Front Street",
+			"city": "New Freedom",
+			"zip": "17349"
+		},
+		"imageUrl": "/bells/images/york-we-the-people-we-were-here.png",
+		"sourceSlug": "york-we-the-people-we-were-here",
+		"lat": 39.7401012,
+		"lng": -76.7006369,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "New Freedom, PA"
 	}
 ]
