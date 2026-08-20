@@ -1,8 +1,8 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { Bell } from "../../../lib/bells/types";
 import { BellSearch } from "./BellSearch";
-import styles from "../BellContent/BellContent.module.css";
 
 function makeBell(overrides: Partial<Bell> & Pick<Bell, "id" | "title">): Bell {
 	return {
@@ -27,11 +27,14 @@ describe("BellSearch", () => {
 		render(<BellSearch bells={[]} />);
 
 		expect(
-			screen.getByRole("combobox", { name: "Search bells by title or artist" }),
+			screen.getByRole("searchbox", {
+				name: "Search bells by title or artist",
+			}),
 		).not.toBeNull();
 	});
 
-	it("shows matching bells in a scrollable results list", () => {
+	it("shows matching bells in a suggestions list", async () => {
+		const user = userEvent.setup();
 		const bells = [
 			makeBell({ id: "a", title: "Gettysburg Bell", artist: "Jane Smith" }),
 			makeBell({ id: "b", title: "Philadelphia Liberty", artist: "John Doe" }),
@@ -39,19 +42,53 @@ describe("BellSearch", () => {
 
 		render(<BellSearch bells={bells} />);
 
-		fireEvent.change(
-			screen.getByRole("combobox", { name: "Search bells by title or artist" }),
-			{ target: { value: "gettysburg" } },
-		);
+		await user.type(screen.getByRole("searchbox"), "gettysburg");
 
 		expect(
-			screen.getByRole("listbox", { name: "Bell search results" }),
+			await screen.findByRole("listbox", { name: "Suggestions" }),
 		).not.toBeNull();
-		expect(screen.getByText("Gettysburg Bell")).not.toBeNull();
+		expect(await screen.findByText("Gettysburg Bell")).not.toBeNull();
 		expect(screen.queryByText("Philadelphia Liberty")).toBeNull();
 	});
 
-	it("matches artists and selects a bell", () => {
+	it("renders each suggestion with the bell's thumbnail and details", async () => {
+		const user = userEvent.setup();
+		const bells = [
+			makeBell({
+				id: "a",
+				title: "Gettysburg Bell",
+				artist: "Jane Smith",
+				imageUrl: "/bells/images/gettysburg.png",
+			}),
+		];
+
+		render(<BellSearch bells={bells} />);
+
+		await user.type(screen.getByRole("searchbox"), "gettysburg");
+
+		const thumbnail = (await screen.findByAltText(
+			"Gettysburg Bell",
+		)) as HTMLImageElement;
+		expect(thumbnail.src).toContain("/bells/images/thumbs/gettysburg.webp");
+		expect(screen.getByText("by Jane Smith")).not.toBeNull();
+		expect(screen.getByText("York County, PA")).not.toBeNull();
+	});
+
+	it("highlights the hovered bell", async () => {
+		const user = userEvent.setup();
+		const onBellHover = vi.fn();
+		const bells = [makeBell({ id: "a", title: "Gettysburg Bell" })];
+
+		render(<BellSearch bells={bells} onBellHover={onBellHover} />);
+
+		await user.type(screen.getByRole("searchbox"), "gettysburg");
+		await user.hover(await screen.findByText("Gettysburg Bell"));
+
+		expect(onBellHover).toHaveBeenCalledWith("a");
+	});
+
+	it("matches artists and selects a bell", async () => {
+		const user = userEvent.setup();
 		const onBellSelect = vi.fn();
 		const bells = [
 			makeBell({ id: "a", title: "Gettysburg Bell", artist: "Jane Smith" }),
@@ -60,30 +97,27 @@ describe("BellSearch", () => {
 
 		render(<BellSearch bells={bells} onBellSelect={onBellSelect} />);
 
-		const input = screen.getByRole("combobox", {
-			name: "Search bells by title or artist",
-		});
-		fireEvent.change(input, { target: { value: "john" } });
-		fireEvent.click(screen.getByText("Philadelphia Liberty"));
+		const input = screen.getByRole("searchbox") as HTMLInputElement;
+		await user.type(input, "john");
+		await user.click(await screen.findByText("Philadelphia Liberty"));
 
 		expect(onBellSelect).toHaveBeenCalledWith("b");
-		expect((input as HTMLInputElement).value).toBe("");
+		expect(input.value).toBe("");
 	});
 
-	it("shows an empty message when nothing matches", () => {
+	it("shows an empty message when nothing matches", async () => {
+		const user = userEvent.setup();
 		render(
 			<BellSearch bells={[makeBell({ id: "a", title: "Gettysburg Bell" })]} />,
 		);
 
-		fireEvent.change(
-			screen.getByRole("combobox", { name: "Search bells by title or artist" }),
-			{ target: { value: "zanzibar" } },
-		);
+		await user.type(screen.getByRole("searchbox"), "zanzibar");
 
-		expect(screen.getByText("No bells match your search.")).not.toBeNull();
+		expect(await screen.findByText("No results found.")).not.toBeNull();
 	});
 
-	it("selects a bell with arrow keys and enter", () => {
+	it("selects a bell with arrow keys and enter", async () => {
+		const user = userEvent.setup();
 		const onBellSelect = vi.fn();
 		const bells = [
 			makeBell({
@@ -96,18 +130,12 @@ describe("BellSearch", () => {
 
 		render(<BellSearch bells={bells} onBellSelect={onBellSelect} />);
 
-		const input = screen.getByRole("combobox", {
-			name: "Search bells by title or artist",
-		});
-		fireEvent.change(input, { target: { value: "liberty" } });
-		fireEvent.keyDown(input, { key: "ArrowDown" });
+		const input = screen.getByRole("searchbox");
+		await user.type(input, "liberty");
+		// Wait for the suggestions to load before navigating them.
+		await screen.findByRole("option", { name: /Gettysburg Liberty Bell/i });
 
-		const activeEntry = screen.getByRole("option", {
-			name: /Gettysburg Liberty Bell/i,
-		});
-		expect(activeEntry.className).toContain(styles.entryActive);
-
-		fireEvent.keyDown(input, { key: "Enter" });
+		await user.keyboard("{ArrowDown}{Enter}");
 
 		expect(onBellSelect).toHaveBeenCalledWith("a");
 	});

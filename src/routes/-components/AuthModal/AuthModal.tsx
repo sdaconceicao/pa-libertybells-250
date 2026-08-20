@@ -1,6 +1,7 @@
+import { IconButton } from "@code-x/lago";
+import { X } from "lucide-react";
 import { useEffect } from "react";
 import { AuthForm } from "../AccountMenu/AuthForm";
-import { CloseButton } from "#/components/CloseButton/CloseButton";
 import styles from "./AuthModal.module.css";
 
 export function AuthModal({ onClose }: { onClose: () => void }) {
@@ -27,11 +28,14 @@ export function AuthModal({ onClose }: { onClose: () => void }) {
 				aria-modal="true"
 				aria-label="Log in or register"
 			>
-				<CloseButton
-					className={styles.close}
+				<IconButton
+					variant="quiet"
 					aria-label="Close"
-					onClick={onClose}
-				/>
+					className={styles.close}
+					onPress={onClose}
+				>
+					<X size={16} aria-hidden="true" />
+				</IconButton>
 				<div className={styles.intro}>
 					<h2 className={styles.title}>Sign in to save bells</h2>
 					<p className={styles.subtitle}>

@@ -5,9 +5,12 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { downloadBellImages } from "../src/lib/bells/downloadBellImages.js";
 import { fetchBellsPageHtml } from "../src/lib/bells/fetchPage.js";
-import { parseBells } from "../src/lib/bells/parsePage.js";
+import { parseBellsWithDiagnostics } from "../src/lib/bells/parsePage.js";
 import { geocodeBellAddresses } from "../src/lib/bells/geocode.js";
-import { optimizeBellImages } from "./optimizeBellImages.js";
+import {
+	optimizeBellImages,
+	removeBellImageOriginals,
+} from "./optimizeBellImages.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,8 +20,19 @@ async function main() {
 	const html = await fetchBellsPageHtml();
 
 	console.log("Parsing bells from HTML...");
-	const rawBells = parseBells(html);
+	const { bells: rawBells, skipped } = parseBellsWithDiagnostics(html);
 	console.log(`Parsed ${rawBells.length} raw bells`);
+
+	// Surfaced so a markup change on the source page cannot quietly drop bells.
+	if (skipped.length) {
+		console.warn(`Skipped ${skipped.length} cell(s):`);
+		for (const cell of skipped) {
+			const location = cell.locationText ? ` (${cell.locationText})` : "";
+			console.warn(
+				`  - ${cell.county ?? "?"}: ${cell.title ?? "?"} — ${cell.reason}${location}`,
+			);
+		}
+	}
 
 	console.log("Geocoding bell addresses...");
 	const { bells: geocoded, summary } = await geocodeBellAddresses(rawBells);
@@ -34,6 +48,9 @@ async function main() {
 
 	console.log("Generating optimized WebP variants (thumbs, medium)...");
 	await optimizeBellImages(imagesDir);
+
+	console.log("Removing downloaded originals (only the variants are served)...");
+	await removeBellImageOriginals(imagesDir);
 
 	const dataPath = path.resolve(__dirname, "../src/lib/bells/bells.data.json");
 	await fs.writeFile(dataPath, JSON.stringify(withImages, null, 2), "utf8");

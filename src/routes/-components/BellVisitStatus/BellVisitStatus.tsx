@@ -1,14 +1,21 @@
+import { Select, SelectItem } from "@code-x/lago";
 import { Bookmark, CircleHelp, MapPin } from "lucide-react";
+import type { Key } from "react";
 import { useState } from "react";
 import { useVisitStatuses } from "../../../lib/visits/VisitStatusContext";
 import type { VisitStatus } from "../../../lib/visits/types";
 import { useAuthModal } from "../AuthModal/AuthModalContext";
-import { Select, type SelectOption } from "../../../components/Select/Select";
 import styles from "./BellVisitStatus.module.css";
 
 const ICON_SIZE = 14;
 
-const OPTIONS: SelectOption<VisitStatus>[] = [
+type Option = {
+	value: VisitStatus;
+	label: string;
+	icon: React.ReactNode;
+};
+
+const OPTIONS: Option[] = [
 	{
 		value: "none",
 		label: "Visited?",
@@ -56,13 +63,30 @@ export function BellVisitStatus({ bellId }: { bellId: string }) {
 
 	return (
 		<Select
-			value={value}
-			onChange={handleChange}
-			options={OPTIONS}
-			ariaLabel="Visited status"
-			disabled={pending}
-			placeholderValue="none"
+			aria-label="Visited status"
+			placeholder="Visited?"
+			size="sm"
+			selectedKey={value}
+			onSelectionChange={(key: Key | null) => {
+				if (key != null) {
+					handleChange(key as VisitStatus);
+				}
+			}}
+			isDisabled={pending}
 			className={styles.statusSelect}
-		/>
+		>
+			{OPTIONS.map((option) => (
+				<SelectItem
+					key={option.value}
+					id={option.value}
+					textValue={option.label}
+				>
+					<span className={styles.optionLabel}>
+						{option.icon}
+						{option.label}
+					</span>
+				</SelectItem>
+			))}
+		</Select>
 	);
 }

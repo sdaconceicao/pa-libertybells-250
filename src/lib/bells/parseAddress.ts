@@ -26,6 +26,46 @@ function streetSegmentScore(segment: string): number {
 	return 0;
 }
 
+/** Venue and street are sometimes joined by dashes or an ampersand. */
+const SEGMENT_SPLIT_RE = /\s+[-\u2013\u2014]\s+|\s+&\s+/;
+/** Dangles once the second half of a "between A and B" location is dropped. */
+const LEADING_CONNECTIVE_RE =
+	/^(?:between|near|across from|next to|behind|beside|in front of)\s+/i;
+
+/**
+ * Pulls the street out of a segment that packs venue and street together, e.g.
+ * "Between the Children's Museum - 420 French Street - & 414 French Street".
+ * Returns undefined when the segment has no such internal split.
+ */
+function refineStreetSegment(
+	segment: string,
+): { street: string; venueName?: string } | undefined {
+	const pieces = segment
+		.split(SEGMENT_SPLIT_RE)
+		.map((piece) => piece.trim())
+		.filter(Boolean);
+	if (pieces.length < 2) return undefined;
+
+	let bestIndex = -1;
+	let bestScore = 0;
+	for (let i = 0; i < pieces.length; i++) {
+		const score = streetSegmentScore(pieces[i]);
+		if (score > bestScore) {
+			bestScore = score;
+			bestIndex = i;
+		}
+	}
+	if (bestIndex < 0) return undefined;
+
+	const prefix = pieces.slice(0, bestIndex).join(", ").trim();
+	return {
+		street: pieces[bestIndex],
+		venueName: prefix
+			? prefix.replace(LEADING_CONNECTIVE_RE, "") || undefined
+			: undefined,
+	};
+}
+
 function isStateZipSegment(segment: string): boolean {
 	return /\bPA\b/i.test(segment) && /\d{5}/.test(segment);
 }
@@ -62,6 +102,15 @@ export function parseBellAddress(raw: string): ParsedBellAddress {
 			bestStreetScore = score;
 			street = part;
 			venueName = i > 0 ? parts.slice(0, i).join(", ") : undefined;
+		}
+	}
+
+	if (street) {
+		const refined = refineStreetSegment(street);
+		if (refined) {
+			street = refined.street;
+			venueName =
+				[venueName, refined.venueName].filter(Boolean).join(", ") || undefined;
 		}
 	}
 

@@ -656,5 +656,130 @@
 		"source": "opencage",
 		"quality": "exact",
 		"localityLabel": "Philadelphia, PA"
+	},
+	"810 3rd street, beaver, pa 15009": {
+		"lat": 40.6946512,
+		"lng": -80.3084387,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Beaver, PA"
+	},
+	"200 south center st, ebensburg, pa 15931": {
+		"lat": 40.4812427,
+		"lng": -78.7245531,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Ebensburg, PA"
+	},
+	"127 n. front street, philipsburg, pa 16866": {
+		"lat": 40.8966377,
+		"lng": -78.2236283,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Philipsburg, PA"
+	},
+	"arch and wood streets, new bethlehem, pa 16242": {
+		"lat": 41.002694,
+		"lng": -79.331451,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "New Bethlehem, PA"
+	},
+	"105 s forest st, marienville, pa 16239": {
+		"lat": 41.468828,
+		"lng": -79.123397,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Marienville, PA"
+	},
+	"918 rolling meadows rd, waynesburg, pa 15370": {
+		"lat": 39.8890465,
+		"lng": -80.1243197,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Waynesburg, PA"
+	},
+	"pa": {
+		"lat": 40.9699889,
+		"lng": -77.7278831,
+		"source": "nominatim",
+		"quality": "exact"
+	},
+	"1 n. main street, carbondale, pa 18407": {
+		"lat": 41.572217,
+		"lng": -75.502807,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Carbondale, PA"
+	},
+	"80 rocherty rd, lebanon, pa 17042": {
+		"lat": 40.305684,
+		"lng": -76.410756,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Lebanon, PA"
+	},
+	"102 w 4th st, williamsport, pa 17701": {
+		"lat": 41.2415139,
+		"lng": -77.0038016,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Williamsport, PA"
+	},
+	"260 s. broad street, grove city, pa 16127": {
+		"lat": 41.1586657,
+		"lng": -80.0865921,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Grove City, PA"
+	},
+	"150 s. independence mall w., philadelphia, pa 19106": {
+		"lat": 39.9490779,
+		"lng": -75.1510749,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Philadelphia, PA"
+	},
+	"35 n. railroad street, tamaqua, pa 18252": {
+		"lat": 40.7999769,
+		"lng": -75.970297,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Tamaqua, PA"
+	},
+	"1801 west first st, oil city, pa 16301": {
+		"lat": 41.7737612,
+		"lng": -78.0227184,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Coudersport, PA"
+	},
+	"117 n. front street, new freedom, pa 17349": {
+		"lat": 39.7401012,
+		"lng": -76.7006369,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "New Freedom, PA"
+	},
+	"420 french street, erie, pa 16507": {
+		"lat": 42.1312436,
+		"lng": -80.0850338,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Erie, PA"
+	},
+	"169 n. pennsylvania ave, wilkes-barre, pa 18701": {
+		"lat": 41.2459556,
+		"lng": -75.8745162,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Wilkes-Barre, PA"
+	},
+	"1291 w. hunting park ave., philadelphia, pa 19140": {
+		"lat": 40.016683,
+		"lng": -75.1469963,
+		"source": "opencage",
+		"quality": "exact",
+		"localityLabel": "Philadelphia, PA"
 	}
 }

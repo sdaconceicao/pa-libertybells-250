@@ -1,4 +1,4 @@
-import { Image } from "../../../components/Image/Image";
+import { ImagePlaceholder } from "@code-x/lago";
 import { getBellThumbUrl } from "../../../lib/bells/bellImageVariants";
 import type { Bell } from "../../../lib/bells/types";
 import styles from "./BellContent.module.css";
@@ -13,17 +13,20 @@ type Props = {
 	onOptionMouseEnter?: () => void;
 };
 
-function BellContentBody({ bell }: { bell: Bell }) {
+/**
+ * The thumbnail + title/artist/county row, without any interaction wrapper.
+ * Exported so consumers that own their own option semantics (e.g. the search
+ * dropdown, whose listbox items come from Lago) can reuse the presentation.
+ */
+export function BellContentBody({ bell }: { bell: Bell }) {
 	return (
 		<>
 			<div className={styles.thumbnail}>
-				<Image
+				<ImagePlaceholder
 					src={getBellThumbUrl(bell.imageUrl)}
 					alt={bell.title}
-					imageClassName={styles.thumbnailImg}
-					placeholderClassName={styles.thumbnailPlaceholder}
-					loading="lazy"
-					decoding="async"
+					className={styles.thumbnailImg}
+					errorCode={null}
 				/>
 			</div>
 			<div className={styles.info}>

@@ -8,18 +8,15 @@
 	align-items: flex-end;
 }
 
-/* Circle trigger */
+/* Circle trigger. The Avatar inside paints the circle itself — fill, radius,
+   and person-icon fallback — so the button only carries the float and the
+   focus ring. */
 .trigger {
 	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: var(--account-circle-size);
-	height: var(--account-circle-size);
 	padding: 0;
-	border: 1px solid var(--color-border);
+	border: 0;
 	border-radius: 50%;
-	background: var(--color-surface);
-	color: var(--color-brand);
+	background: transparent;
 	box-shadow: var(--shadow-sm);
 	cursor: pointer;
 	transition:
@@ -37,23 +34,28 @@
 	outline-offset: 2px;
 }
 
-.triggerAuthed {
-	background: var(--color-brand);
-	border-color: var(--color-brand);
-	color: #ffffff;
+/* Lago sizes avatars in fixed steps; the floating circle shrinks on mobile to
+   line up with the header controls, so drive it from the app's own size var
+   instead. This stylesheet is unlayered, so it outranks Lago's
+   `[data-avatar-size]` tokens without needing to match their specificity. */
+.avatar {
+	--avatar-size: var(--account-circle-size);
 }
 
-.initials {
-	font-size: 1rem;
-	font-weight: 700;
-	letter-spacing: 0.02em;
+/* Signed out there is no name to draw initials from, so Lago renders its grey
+   person-icon placeholder — repaint it in the brand palette. */
+.avatar :global(.avatar-placeholder) {
+	background: var(--color-surface);
+	color: var(--color-brand);
+	box-shadow: inset 0 0 0 1px var(--color-border);
 }
 
-.avatarImage {
-	width: 100%;
-	height: 100%;
-	border-radius: 50%;
-	object-fit: cover;
+@media (max-width: 767px) {
+	/* --account-circle-size lands on Lago's `md` step here; follow it with the
+     matching type size so initials stay in proportion. */
+	.avatar {
+		--avatar-font-size: var(--font-size);
+	}
 }
 
 /* Popover */
@@ -104,6 +106,10 @@
 	display: flex;
 	flex-direction: column;
 	gap: 0.75rem;
+}
+
+.submitButton {
+	width: 100%;
 }
 
 .field {
@@ -199,19 +205,6 @@
 	display: flex;
 	align-items: center;
 	gap: 0.75rem;
-}
-
-.accountAvatar {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 2.5rem;
-	height: 2.5rem;
-	border-radius: 50%;
-	background: var(--color-brand);
-	color: #ffffff;
-	font-weight: 700;
-	flex-shrink: 0;
 }
 
 .accountText {

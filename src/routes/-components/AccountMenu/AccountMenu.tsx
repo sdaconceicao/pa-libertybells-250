@@ -1,9 +1,8 @@
-import { User } from "lucide-react";
+import { Avatar } from "@code-x/lago";
 import { useEffect, useRef, useState } from "react";
 import { signOut, useAuth } from "../../../lib/auth/authClient";
 import { AuthForm } from "./AuthForm";
 import styles from "./AccountMenu.module.css";
-import { getInitials } from "./getInitials";
 
 export function AccountMenu() {
 	const { isPending, user, isAuthed } = useAuth();
@@ -39,29 +38,29 @@ export function AccountMenu() {
 		setOpen(false);
 	}
 
-	const initials = getInitials(user?.name, user?.email);
+	// Avatar draws its own initials from either a display name or an email
+	// address, and falls back to a person icon when it is given neither — which
+	// is exactly the signed-out trigger.
+	const accountName = isAuthed ? user?.name?.trim() || user?.email : undefined;
+	const accountImage = isAuthed ? (user?.image ?? undefined) : undefined;
 
 	return (
 		<div ref={containerRef} className={styles.container}>
 			<button
 				type="button"
-				className={[styles.trigger, isAuthed ? styles.triggerAuthed : ""]
-					.filter(Boolean)
-					.join(" ")}
+				className={styles.trigger}
 				aria-haspopup="dialog"
 				aria-expanded={open}
 				aria-label={isAuthed ? "Account menu" : "Log in or register"}
 				onClick={() => setOpen((value) => !value)}
 			>
-				{isAuthed ? (
-					user?.image ? (
-						<img className={styles.avatarImage} src={user.image} alt="" />
-					) : (
-						<span className={styles.initials}>{initials}</span>
-					)
-				) : (
-					<User size={20} strokeWidth={2} aria-hidden="true" />
-				)}
+				<Avatar
+					className={styles.avatar}
+					src={accountImage}
+					name={accountName}
+					alt=""
+					size="lg"
+				/>
 			</button>
 
 			{open ? (
@@ -69,7 +68,12 @@ export function AccountMenu() {
 					{isAuthed ? (
 						<div className={styles.account}>
 							<div className={styles.accountHeader}>
-								<span className={styles.accountAvatar}>{initials}</span>
+								<Avatar
+									src={accountImage}
+									name={accountName}
+									alt=""
+									size="md"
+								/>
 								<div className={styles.accountText}>
 									{user?.name ? (
 										<span className={styles.accountName}>{user.name}</span>

@@ -1,3 +1,6 @@
 allowBuilds:
   esbuild: false
   sharp: false
+
+minimumReleaseAgeExclude:
+  - '@code-x/lago@0.7.0'
