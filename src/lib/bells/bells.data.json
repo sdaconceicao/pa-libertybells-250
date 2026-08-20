@@ -1,2031 +1,2031 @@
 [
-  {
-    "id": "adams-for-the-people",
-    "county": "Adams",
-    "title": "For the People",
-    "artist": "Wendy Allen",
-    "address": {
-      "venueName": "Beyond the Battle Museum",
-      "street": "625 Biglerville Road",
-      "city": "Gettysburg",
-      "zip": "17325"
-    },
-    "imageUrl": "/bells/images/adams-for-the-people.png",
-    "sourceSlug": "adams-for-the-people",
-    "lat": 39.8416861,
-    "lng": -77.230595,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Gettysburg, PA"
-  },
-  {
-    "id": "allegheny-jefferson-memorial-cemetery-funeral-home-s-windows-into-history",
-    "county": "Allegheny",
-    "title": "Jefferson Memorial Cemetery & Funeral Home's Windows Into History",
-    "artist": "Scott Saloney",
-    "address": {
-      "venueName": "Jefferson Mausoleum",
-      "street": "301 Curry Hollow Road",
-      "city": "Pittsburgh",
-      "zip": "15236"
-    },
-    "imageUrl": "/bells/images/allegheny-jefferson-memorial-cemetery-funeral-home-s-windows-into-history.png",
-    "placement": "indoors",
-    "sourceSlug": "allegheny-jefferson-memorial-cemetery-funeral-home-s-windows-into-history",
-    "lat": 40.33614,
-    "lng": -79.972441,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Pittsburgh, PA"
-  },
-  {
-    "id": "allegheny-pittsburgh-s-250-bell",
-    "county": "Allegheny",
-    "title": "Pittsburgh's 250 Bell",
-    "artist": "Scott Saloney",
-    "address": {
-      "venueName": "Heinz History Center",
-      "street": "1212 Smallman Street",
-      "city": "Pittsburgh",
-      "zip": "15222"
-    },
-    "imageUrl": "/bells/images/allegheny-pittsburgh-s-250-bell.png",
-    "placement": "indoors",
-    "sourceSlug": "allegheny-pittsburgh-s-250-bell",
-    "lat": 40.4464508,
-    "lng": -79.9926773,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Pittsburgh, PA"
-  },
-  {
-    "id": "armstrong-echoes-of-armstrong",
-    "county": "Armstrong",
-    "title": "Echoes of Armstrong",
-    "artist": "Cathy Strate",
-    "address": {
-      "venueName": "Armstrong County Historical Museum",
-      "street": "300 North McKean Street",
-      "city": "Kittanning",
-      "zip": "16201"
-    },
-    "imageUrl": "/bells/images/armstrong-echoes-of-armstrong.png",
-    "placement": "outdoors",
-    "sourceSlug": "armstrong-echoes-of-armstrong",
-    "lat": 40.818247,
-    "lng": -79.5209007,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Kittanning, PA"
-  },
-  {
-    "id": "beaver-beaver-county-landmarks",
-    "county": "Beaver",
-    "title": "Beaver County Landmarks",
-    "artist": "Ana Truqui",
-    "address": {
-      "venueName": "Public Meeting Room, Beaver County Courthouse",
-      "street": "810 3rd Street",
-      "city": "Beaver",
-      "zip": "15009"
-    },
-    "imageUrl": "/bells/images/beaver-beaver-county-landmarks.png",
-    "sourceSlug": "beaver-beaver-county-landmarks",
-    "lat": 40.6946512,
-    "lng": -80.3084387,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Beaver, PA"
-  },
-  {
-    "id": "bedford-through-bob-s-eyes-a-visual-legacy-of-bedford-county",
-    "county": "Bedford",
-    "title": "Through Bob's Eyes - A Visual Legacy of Bedford County",
-    "artist": "Morgan Young and Bob Webb (posthumously)",
-    "address": {
-      "venueName": "Bedford County Courthouse",
-      "street": "200 S. Juliana Street",
-      "city": "Bedford",
-      "zip": "15522"
-    },
-    "imageUrl": "/bells/images/bedford-through-bob-s-eyes-a-visual-legacy-of-bedford-county.png",
-    "sourceSlug": "bedford-through-bob-s-eyes-a-visual-legacy-of-bedford-county",
-    "lat": 40.017302,
-    "lng": -78.503795,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Bedford, PA"
-  },
-  {
-    "id": "berks-everyone-goes-home",
-    "county": "Berks",
-    "title": "Everyone Goes Home",
-    "artist": "Benjamin E. Hoffman",
-    "address": {
-      "venueName": "Reading Fightin' Phils FirstEnergy Stadium",
-      "street": "1900 Centre Avenue",
-      "city": "Reading",
-      "zip": "19605"
-    },
-    "imageUrl": "/bells/images/berks-everyone-goes-home.png",
-    "placement": "outdoors",
-    "sourceSlug": "berks-everyone-goes-home",
-    "lat": 40.3657177,
-    "lng": -75.9337357,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Reading, PA"
-  },
-  {
-    "id": "blair-blair-county-a-part-of-america-s-story",
-    "county": "Blair",
-    "title": "Blair County - A Part Of America's Story",
-    "artist": "Leah McNaul",
-    "address": {
-      "venueName": "DelGrosso's Amusement Park",
-      "street": "4352 E. Pleasant Valley Blvd.",
-      "city": "Tipton",
-      "zip": "16684"
-    },
-    "imageUrl": "/bells/images/blair-blair-county-a-part-of-america-s-story.png",
-    "sourceSlug": "blair-blair-county-a-part-of-america-s-story",
-    "lat": 40.6306265,
-    "lng": -78.2915004,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Antis Township, PA"
-  },
-  {
-    "id": "bradford-flowing-thru-bradford-county",
-    "county": "Bradford",
-    "title": "Flowing thru Bradford County",
-    "artist": "Shauna M. Case",
-    "address": {
-      "venueName": "Bradford County Courthouse",
-      "street": "301 Main Street",
-      "city": "Towanda",
-      "zip": "18848"
-    },
-    "imageUrl": "/bells/images/bradford-flowing-thru-bradford-county.png",
-    "placement": "indoors",
-    "sourceSlug": "bradford-flowing-thru-bradford-county",
-    "lat": 41.767185,
-    "lng": -76.443,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Towanda, PA"
-  },
-  {
-    "id": "bucks-local-color",
-    "county": "Bucks",
-    "title": "Local Color",
-    "artist": "James Feehan",
-    "address": {
-      "venueName": "ShopRite of Yardley",
-      "street": "1603 Big Oak Road",
-      "city": "Yardley",
-      "zip": "19067"
-    },
-    "imageUrl": "/bells/images/bucks-local-color.png",
-    "placement": "indoors",
-    "sourceSlug": "bucks-local-color",
-    "lat": 40.1976386,
-    "lng": -74.8732351,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Middletown Township, PA"
-  },
-  {
-    "id": "butler-the-butler-bell",
-    "county": "Butler",
-    "title": "The Butler Bell",
-    "artist": "Tom Panei",
-    "address": {
-      "venueName": "Cranberry Township Municipal Building",
-      "street": "2525 Rochester Road",
-      "city": "Cranberry Township",
-      "zip": "16066"
-    },
-    "imageUrl": "/bells/images/butler-the-butler-bell.png",
-    "placement": "indoors",
-    "sourceSlug": "butler-the-butler-bell",
-    "lat": 40.6987761,
-    "lng": -80.1097118,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Cranberry Township, PA"
-  },
-  {
-    "id": "butler-the-butler-county-heritage-bell",
-    "county": "Butler",
-    "title": "The Butler County Heritage Bell",
-    "artist": "Paula Slomer",
-    "address": {
-      "venueName": "Butler County Courthouse",
-      "street": "124 W. Diamond St.",
-      "city": "Butler",
-      "zip": "16003"
-    },
-    "imageUrl": "/bells/images/butler-the-butler-county-heritage-bell.png",
-    "placement": "outdoors",
-    "sourceSlug": "butler-the-butler-county-heritage-bell",
-    "lat": 40.8584532,
-    "lng": -79.895787,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Butler, PA"
-  },
-  {
-    "id": "cambria-cambria-county-cast-in-bronze",
-    "county": "Cambria",
-    "title": "Cambria County: Cast in Bronze",
-    "artist": "Carol A. (Fatula) Cecere",
-    "address": {
-      "venueName": "Cambria County Courthouse",
-      "street": "200 South Center St",
-      "city": "Ebensburg",
-      "zip": "15931"
-    },
-    "imageUrl": "/bells/images/cambria-cambria-county-cast-in-bronze.png",
-    "sourceSlug": "cambria-cambria-county-cast-in-bronze",
-    "lat": 40.4812427,
-    "lng": -78.7245531,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Ebensburg, PA"
-  },
-  {
-    "id": "cameron-call-of-the-wilds-cameron-edition",
-    "county": "Cameron",
-    "title": "Call of the Wilds - Cameron Edition",
-    "artist": "Sarah Jane Daley, First Sergeant/USMC (Retired)",
-    "address": {
-      "venueName": "Cameron County Chamber of Commerce",
-      "street": "24 West Fourth Street",
-      "city": "Emporium",
-      "zip": "15834"
-    },
-    "imageUrl": "/bells/images/cameron-call-of-the-wilds-cameron-edition.png",
-    "placement": "indoors",
-    "sourceSlug": "cameron-call-of-the-wilds-cameron-edition",
-    "lat": 41.7764956,
-    "lng": -78.022639,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Coudersport, PA"
-  },
-  {
-    "id": "carbon-carbon-county-in-a-snapshot",
-    "county": "Carbon",
-    "title": "Carbon County in a Snapshot",
-    "artist": "Carbon Artist Collaboration",
-    "address": {
-      "venueName": "Weissport Park",
-      "street": "Bridge and Franklin Streets",
-      "city": "Weissport",
-      "zip": "18032"
-    },
-    "imageUrl": "/bells/images/carbon-carbon-county-in-a-snapshot.png",
-    "placement": "outdoors",
-    "sourceSlug": "carbon-carbon-county-in-a-snapshot",
-    "lat": 40.643736,
-    "lng": -75.459761,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Catasauqua, PA"
-  },
-  {
-    "id": "centre-centre-furnace-mansion",
-    "county": "Centre",
-    "title": "Centre Furnace Mansion",
-    "artist": "Jeff Mathison",
-    "address": {
-      "venueName": "Centre County Historical Society, Centre Furnace Mansion",
-      "street": "1001 E. College Ave.",
-      "city": "State College",
-      "zip": "16801"
-    },
-    "imageUrl": "/bells/images/centre-centre-furnace-mansion.png",
-    "placement": "outdoors",
-    "sourceSlug": "centre-centre-furnace-mansion",
-    "lat": 40.8066599,
-    "lng": -77.842139,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "State College, PA"
-  },
-  {
-    "id": "centre-eagle-iron-works-and-curtin-village-bell",
-    "county": "Centre",
-    "title": "Eagle Iron Works and Curtin Village Bell",
-    "artist": "Elody Gyekis",
-    "address": {
-      "venueName": "Eagle Iron Works and Curtin Village",
-      "street": "251 Curtin Road",
-      "city": "Howard",
-      "zip": "16841"
-    },
-    "imageUrl": "/bells/images/centre-eagle-iron-works-and-curtin-village-bell.png",
-    "sourceSlug": "centre-eagle-iron-works-and-curtin-village-bell",
-    "lat": 40.9609703,
-    "lng": -77.7414616,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Howard, PA"
-  },
-  {
-    "id": "centre-stories-of-our-railroad",
-    "county": "Centre",
-    "title": "Stories of Our Railroad",
-    "artist": "Holly Foy & James Farrah",
-    "address": {
-      "venueName": "Bellefonte Historical Railroad Society",
-      "street": "320 West High Street",
-      "city": "Bellefonte",
-      "zip": "16823"
-    },
-    "imageUrl": "/bells/images/centre-stories-of-our-railroad.png",
-    "placement": "outdoors",
-    "sourceSlug": "centre-stories-of-our-railroad",
-    "lat": 40.9113566,
-    "lng": -77.781803,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Bellefonte, PA"
-  },
-  {
-    "id": "centre-welcome-to-philipsburg",
-    "county": "Centre",
-    "title": "Welcome to Philipsburg",
-    "artist": "Pamela Snyder Etters",
-    "address": {
-      "street": "127 N. Front Street",
-      "city": "Philipsburg",
-      "zip": "16866"
-    },
-    "imageUrl": "/bells/images/centre-welcome-to-philipsburg.png",
-    "placement": "outdoors",
-    "sourceSlug": "centre-welcome-to-philipsburg",
-    "lat": 40.8966377,
-    "lng": -78.2236283,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philipsburg, PA"
-  },
-  {
-    "id": "chester-scenes-from-chester-county",
-    "county": "Chester",
-    "title": "Scenes From Chester County",
-    "artist": "Ashley Kolpak",
-    "address": {
-      "venueName": "Chester County Community Foundation",
-      "street": "28 W. Market Street",
-      "city": "West Chester",
-      "zip": "19382"
-    },
-    "imageUrl": "/bells/images/chester-scenes-from-chester-county.png",
-    "placement": "outdoors",
-    "sourceSlug": "chester-scenes-from-chester-county",
-    "lat": 39.9592188,
-    "lng": -75.605154,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "West Chester, PA"
-  },
-  {
-    "id": "clarion-treasures-of-clarion-county",
-    "county": "Clarion",
-    "title": "Treasures of Clarion County",
-    "artist": "Linda Moore",
-    "address": {
-      "venueName": "New Bethlehem Veterans Memorial Park",
-      "street": "Arch and Wood Streets",
-      "city": "New Bethlehem",
-      "zip": "16242"
-    },
-    "imageUrl": "/bells/images/clarion-treasures-of-clarion-county.png",
-    "placement": "outdoors",
-    "sourceSlug": "clarion-treasures-of-clarion-county",
-    "lat": 41.002694,
-    "lng": -79.331451,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "New Bethlehem, PA"
-  },
-  {
-    "id": "clearfield-the-great-shamokin-path-wilhelm-william-bloom-1752-1828-clearfield-county-pioneer",
-    "county": "Clearfield",
-    "title": "The Great Shamokin Path - Wilhelm (William) Bloom, 1752-1828, Clearfield County Pioneer",
-    "artist": "Linda Heberling",
-    "address": {
-      "street": "Clearfield County Historical Society Kerr House Museum 104 East Pine Street",
-      "city": "Clearfield",
-      "zip": "16830"
-    },
-    "imageUrl": "/bells/images/clearfield-the-great-shamokin-path-wilhelm-william-bloom-1752-1828-clearfield-county-pioneer.png",
-    "placement": "outdoors",
-    "sourceSlug": "clearfield-the-great-shamokin-path-wilhelm-william-bloom-1752-1828-clearfield-county-pioneer",
-    "lat": 41.02447,
-    "lng": -78.439753,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Clearfield, PA"
-  },
-  {
-    "id": "clinton-rivers-valleys-meet-mountains-sunsets",
-    "county": "Clinton",
-    "title": "Rivers & Valleys Meet Mountains & Sunsets",
-    "artist": "Kasey Dumm",
-    "address": {
-      "venueName": "Clinton County Courthouse",
-      "street": "230 E. Water Street",
-      "city": "Lock Haven",
-      "zip": "17745"
-    },
-    "imageUrl": "/bells/images/clinton-rivers-valleys-meet-mountains-sunsets.png",
-    "placement": "outdoors",
-    "sourceSlug": "clinton-rivers-valleys-meet-mountains-sunsets",
-    "lat": 41.1378985,
-    "lng": -77.4427558,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Lock Haven, PA"
-  },
-  {
-    "id": "columbia-columbia-the-gem",
-    "county": "Columbia",
-    "title": "Columbia The Gem",
-    "artist": "Mark Golomb",
-    "address": {
-      "street": "620 W 3rd St",
-      "city": "Bloomsburg",
-      "zip": "17815"
-    },
-    "imageUrl": "/bells/images/columbia-columbia-the-gem.png",
-    "placement": "outdoors",
-    "sourceSlug": "columbia-columbia-the-gem",
-    "lat": 40.960425,
-    "lng": -75.982132,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Hazleton, PA"
-  },
-  {
-    "id": "crawford-preserving-history-of-crawford-county",
-    "county": "Crawford",
-    "title": "Preserving History of Crawford County",
-    "artist": "Cruz Dragosavac",
-    "address": {
-      "venueName": "Shryock Memorial Park",
-      "street": "697 Terrace Street",
-      "city": "Meadville",
-      "zip": "16335"
-    },
-    "imageUrl": "/bells/images/crawford-preserving-history-of-crawford-county.png",
-    "placement": "outdoors",
-    "sourceSlug": "crawford-preserving-history-of-crawford-county",
-    "lat": 41.6444218,
-    "lng": -80.152705,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Meadville, PA"
-  },
-  {
-    "id": "cumberland-250-years-of-cumberland-county",
-    "county": "Cumberland",
-    "title": "250 Years of Cumberland County",
-    "artist": "Phil George",
-    "address": {
-      "city": "Carlisle",
-      "zip": "17103"
-    },
-    "imageUrl": "/bells/images/cumberland-250-years-of-cumberland-county.png",
-    "placement": "outdoors",
-    "sourceSlug": "cumberland-250-years-of-cumberland-county",
-    "lat": 40.201499,
-    "lng": -77.1890783,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Carlisle, PA"
-  },
-  {
-    "id": "dauphin-discover-dauphin-county",
-    "county": "Dauphin",
-    "title": "Discover Dauphin County",
-    "artist": "Hawk Krall",
-    "address": {
-      "venueName": "Hershey's Chocolate World",
-      "street": "101 Chocolate World Way",
-      "city": "Hershey",
-      "zip": "17033"
-    },
-    "imageUrl": "/bells/images/dauphin-discover-dauphin-county.png",
-    "sourceSlug": "dauphin-discover-dauphin-county",
-    "lat": 40.2880764,
-    "lng": -76.6610194,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Derry Township, PA"
-  },
-  {
-    "id": "dauphin-growing-a-nation",
-    "county": "Dauphin",
-    "title": "Growing A Nation",
-    "artist": "Cody Sabol",
-    "address": {
-      "venueName": "Farm Show Complex - Cameron Street Lobby",
-      "street": "2300 North Cameron Street",
-      "city": "Harrisburg",
-      "zip": "17110"
-    },
-    "imageUrl": "/bells/images/dauphin-growing-a-nation.png",
-    "placement": "indoors",
-    "sourceSlug": "dauphin-growing-a-nation",
-    "lat": 40.2857825,
-    "lng": -76.8826151,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Harrisburg, PA"
-  },
-  {
-    "id": "delaware-liberty-250",
-    "county": "Delaware",
-    "title": "Liberty 250",
-    "artist": "Joshua Ruggeri",
-    "address": {
-      "venueName": "Burns Family Neighborhood Markets, ShopRite of Drexeline",
-      "street": "5000 State Road",
-      "city": "Drexel Hill",
-      "zip": "19026"
-    },
-    "imageUrl": "/bells/images/delaware-liberty-250.png",
-    "placement": "indoors",
-    "sourceSlug": "delaware-liberty-250",
-    "lat": 39.946228,
-    "lng": -75.323774,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Drexel Hill, PA"
-  },
-  {
-    "id": "elk-the-united-colors-of-liberty",
-    "county": "Elk",
-    "title": "The United Colors of Liberty",
-    "artist": "School Students of Elk County 2025",
-    "address": {
-      "venueName": "Elk County Courthouse Lawn",
-      "street": "240 Main Street",
-      "city": "Ridgway",
-      "zip": "15853"
-    },
-    "imageUrl": "/bells/images/elk-the-united-colors-of-liberty.png",
-    "placement": "outdoors",
-    "sourceSlug": "elk-the-united-colors-of-liberty",
-    "lat": 41.421696,
-    "lng": -78.730224,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Ridgway, PA"
-  },
-  {
-    "id": "erie-the-pursuit-of-liberty",
-    "county": "Erie",
-    "title": "The Pursuit of Liberty",
-    "artist": "Nicholas Cardell Gore",
-    "address": {
-      "venueName": "expERIEnce Children's Museum",
-      "street": "420 French Street",
-      "city": "Erie",
-      "zip": "16507"
-    },
-    "imageUrl": "/bells/images/erie-the-pursuit-of-liberty.png",
-    "sourceSlug": "erie-the-pursuit-of-liberty",
-    "lat": 42.1312436,
-    "lng": -80.0850338,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Erie, PA"
-  },
-  {
-    "id": "fayette-revolution-to-resilience",
-    "county": "Fayette",
-    "title": "Revolution to Resilience",
-    "artist": "James Mochnsky with Touchstone Center for Crafts",
-    "address": {
-      "venueName": "Fayette County Courthouse",
-      "street": "61 E. Main Street",
-      "city": "Uniontown",
-      "zip": "15401"
-    },
-    "imageUrl": "/bells/images/fayette-revolution-to-resilience.png",
-    "sourceSlug": "fayette-revolution-to-resilience",
-    "lat": 39.9016595,
-    "lng": -79.7230161,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Uniontown, PA"
-  },
-  {
-    "id": "forest-forest-valleys",
-    "county": "Forest",
-    "title": "Forest Valleys",
-    "artist": "Skylar Austin & Cassie Rhoads",
-    "address": {
-      "venueName": "Four Seasons Trail Hub in Marienville",
-      "street": "105 S Forest St",
-      "city": "Marienville",
-      "zip": "16239"
-    },
-    "imageUrl": "/bells/images/forest-forest-valleys.png",
-    "sourceSlug": "forest-forest-valleys",
-    "lat": 41.468828,
-    "lng": -79.123397,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Marienville, PA"
-  },
-  {
-    "id": "franklin-franklin-county-america-s-history-and-present",
-    "county": "Franklin",
-    "title": "Franklin County - America's History and Present",
-    "artist": "Designed by Franklin County Artists; Painted by Andrea Finch",
-    "address": {
-      "venueName": "Franklin County Visitors Center",
-      "street": "15 S. Main Street",
-      "city": "Chambersburg",
-      "zip": "17201"
-    },
-    "imageUrl": "/bells/images/franklin-franklin-county-america-s-history-and-present.png",
-    "sourceSlug": "franklin-franklin-county-america-s-history-and-present",
-    "lat": 39.9372039,
-    "lng": -77.6618356,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Chambersburg, PA"
-  },
-  {
-    "id": "fulton-our-town-our-nation",
-    "county": "Fulton",
-    "title": "Our Town, Our Nation",
-    "artist": "Charles Harr",
-    "address": {
-      "venueName": "Friend of Fulton County",
-      "street": "101 Lincoln Way W",
-      "city": "McConnellsburg",
-      "zip": "17233"
-    },
-    "imageUrl": "/bells/images/fulton-our-town-our-nation.png",
-    "sponsor": "A Friend of Fulton County",
-    "sourceSlug": "fulton-our-town-our-nation",
-    "lat": 39.932526,
-    "lng": -77.999249,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "McConnellsburg, PA"
-  },
-  {
-    "id": "greene-coal-country",
-    "county": "Greene",
-    "title": "Coal & Country",
-    "artist": "Danielle Nyland",
-    "address": {
-      "venueName": "Greene County Historical Society Museum",
-      "street": "918 Rolling Meadows Rd",
-      "city": "Waynesburg",
-      "zip": "15370"
-    },
-    "imageUrl": "/bells/images/greene-coal-country.png",
-    "sourceSlug": "greene-coal-country",
-    "lat": 39.8890465,
-    "lng": -80.1243197,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Waynesburg, PA"
-  },
-  {
-    "id": "indiana-a-wonderful-life",
-    "county": "Indiana",
-    "title": "A Wonderful Life",
-    "artist": "Mark Altrogge",
-    "address": {
-      "venueName": "Indiana County Courthouse",
-      "street": "825 Philadelphia St",
-      "city": "Indiana",
-      "zip": "15701"
-    },
-    "imageUrl": "/bells/images/indiana-a-wonderful-life.png",
-    "sourceSlug": "indiana-a-wonderful-life",
-    "lat": 40.6233871,
-    "lng": -79.1551369,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Indiana, PA"
-  },
-  {
-    "id": "jefferson-punxsutawney-seasons",
-    "county": "Jefferson",
-    "title": "Punxsutawney Seasons",
-    "artist": "Monica Smatlak Liao",
-    "address": {
-      "venueName": "Punxsutawney Civic Center",
-      "street": "301 East Mahoning Street",
-      "city": "Punxsutawney",
-      "zip": "15767"
-    },
-    "imageUrl": "/bells/images/jefferson-punxsutawney-seasons.png",
-    "sourceSlug": "jefferson-punxsutawney-seasons",
-    "lat": 40.944443,
-    "lng": -78.9679373,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Punxsutawney, PA"
-  },
-  {
-    "id": "juniata-beauty-of-the-standing-stone",
-    "county": "Juniata",
-    "title": "Beauty of the Standing Stone",
-    "artist": "Hannah Tamanini",
-    "address": {
-      "venueName": "Pomeroy-Academia Covered Bridge",
-      "street": "70 Mill Road",
-      "city": "Port Royal",
-      "zip": "17082"
-    },
-    "imageUrl": "/bells/images/juniata-beauty-of-the-standing-stone.png",
-    "sourceSlug": "juniata-beauty-of-the-standing-stone",
-    "lat": 40.5041252,
-    "lng": -77.413931,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Turbett Township, PA"
-  },
-  {
-    "id": "lackawanna-a-state-of-giving-a-city-of-hope",
-    "county": "Lackawanna",
-    "title": "A State of Giving, A City of Hope",
-    "address": {
-      "venueName": "Scranton Area Community Foundation",
-      "street": "612 Jefferson Avenue",
-      "city": "Scranton",
-      "zip": "18510"
-    },
-    "imageUrl": "/bells/images/lackawanna-a-state-of-giving-a-city-of-hope.png",
-    "sourceSlug": "lackawanna-a-state-of-giving-a-city-of-hope",
-    "lat": 41.4112179,
-    "lng": -75.6552881,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Scranton, PA"
-  },
-  {
-    "id": "lackawanna-connecting-to-our-history-pioneering-progress",
-    "county": "Lackawanna",
-    "title": "Connecting to our History, Pioneering Progress",
-    "artist": "Allison LaRussa",
-    "address": {
-      "venueName": "Carbondale City Hall",
-      "street": "1 N. Main Street",
-      "city": "Carbondale",
-      "zip": "18407"
-    },
-    "imageUrl": "/bells/images/lackawanna-connecting-to-our-history-pioneering-progress.png",
-    "sourceSlug": "lackawanna-connecting-to-our-history-pioneering-progress",
-    "lat": 41.572217,
-    "lng": -75.502807,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Carbondale, PA"
-  },
-  {
-    "id": "lackawanna-healing-and-heritage-inspiring-health-for-america",
-    "county": "Lackawanna",
-    "title": "Healing and Heritage: Inspiring Health for America",
-    "artist": "Allison LaRussa",
-    "address": {
-      "venueName": "The Wright Center for Community Health Mid Valley",
-      "street": "5 S. Washington Ave.",
-      "city": "Jermyn",
-      "zip": "18433"
-    },
-    "imageUrl": "/bells/images/lackawanna-healing-and-heritage-inspiring-health-for-america.png",
-    "sourceSlug": "lackawanna-healing-and-heritage-inspiring-health-for-america",
-    "lat": 41.516247,
-    "lng": -75.547564,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Jermyn, PA"
-  },
-  {
-    "id": "lancaster-lancaster-pa-250th-celebration",
-    "county": "Lancaster",
-    "title": "Lancaster PA 250th Celebration",
-    "artist": "G. Robert Wagner",
-    "address": {
-      "venueName": "Historic Rock Ford",
-      "street": "881 Rockford Road",
-      "city": "Lancaster",
-      "zip": "17602"
-    },
-    "imageUrl": "/bells/images/lancaster-lancaster-pa-250th-celebration.png",
-    "sourceSlug": "lancaster-lancaster-pa-250th-celebration",
-    "lat": 40.0201127,
-    "lng": -76.2877217,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Lancaster, PA"
-  },
-  {
-    "id": "lawrence-presidential-pottery-bell",
-    "county": "Lawrence",
-    "title": "Presidential Pottery Bell",
-    "artist": "Kimberly B. Koller-Jones and Paige Kleinfelder",
-    "address": {
-      "venueName": "Arts & Education at the Hoyt",
-      "street": "124 East Leasure Ave.",
-      "city": "New Castle",
-      "zip": "16101"
-    },
-    "imageUrl": "/bells/images/lawrence-presidential-pottery-bell.png",
-    "sourceSlug": "lawrence-presidential-pottery-bell",
-    "lat": 41.013002,
-    "lng": -80.34422,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "New Castle, PA"
-  },
-  {
-    "id": "lebanon-field-of-sunflowers",
-    "county": "Lebanon",
-    "title": "Field of Sunflowers",
-    "artist": "James E. Rudegeair",
-    "address": {
-      "street": "80 Rocherty Rd",
-      "city": "Lebanon",
-      "zip": "17042"
-    },
-    "imageUrl": "/bells/images/lebanon-field-of-sunflowers.png",
-    "sourceSlug": "lebanon-field-of-sunflowers",
-    "lat": 40.305684,
-    "lng": -76.410756,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Lebanon, PA"
-  },
-  {
-    "id": "lehigh-moravian-historical-figures",
-    "county": "Lehigh",
-    "title": "Moravian Historical Figures",
-    "artist": "Ted Colegrove",
-    "address": {
-      "venueName": "Moravian University's Sports Medicine & Rehabilitation Center",
-      "street": "1441 Schoenersville Road",
-      "city": "Bethlehem",
-      "zip": "18018"
-    },
-    "imageUrl": "/bells/images/lehigh-moravian-historical-figures.png",
-    "sourceSlug": "lehigh-moravian-historical-figures",
-    "lat": 40.6325259,
-    "lng": -75.387922,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Bethlehem, PA"
-  },
-  {
-    "id": "luzerne-building-blocks-of-life",
-    "county": "Luzerne",
-    "title": "Building Blocks of Life",
-    "artist": "Anna Dowse",
-    "address": {
-      "venueName": "Mericle Family Center YMCA for Early Childhood Education",
-      "street": "1122 Oak St.",
-      "city": "Pittston Township",
-      "zip": "18640"
-    },
-    "imageUrl": "/bells/images/luzerne-building-blocks-of-life.png",
-    "sourceSlug": "luzerne-building-blocks-of-life",
-    "lat": 41.3078937,
-    "lng": -75.7697399,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Pittston Township, PA"
-  },
-  {
-    "id": "luzerne-celebrating-our-community-bringing-forth-unity",
-    "county": "Luzerne",
-    "title": "Celebrating our Community, Bringing Forth Unity",
-    "artist": "Allison LaRussa",
-    "address": {
-      "venueName": "The Wright Center: Wilkes-Barre Practice",
-      "street": "169 N. Pennsylvania Ave",
-      "city": "Wilkes-Barre",
-      "zip": "18701"
-    },
-    "imageUrl": "/bells/images/luzerne-celebrating-our-community-bringing-forth-unity.png",
-    "sourceSlug": "luzerne-celebrating-our-community-bringing-forth-unity",
-    "lat": 41.2459556,
-    "lng": -75.8745162,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Wilkes-Barre, PA"
-  },
-  {
-    "id": "luzerne-valley-and-surrounding",
-    "county": "Luzerne",
-    "title": "Valley and Surrounding",
-    "artist": "Kyle Stratton",
-    "address": {
-      "venueName": "Visit Luzerne County",
-      "street": "200 Old Train Station Road",
-      "city": "Wilkes-Barre",
-      "zip": "18702"
-    },
-    "imageUrl": "/bells/images/luzerne-valley-and-surrounding.png",
-    "placement": "indoors",
-    "sourceSlug": "luzerne-valley-and-surrounding",
-    "lat": 41.2417922,
-    "lng": -75.8801094,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Wilkes-Barre, PA"
-  },
-  {
-    "id": "lycoming-legacy-of-lycoming",
-    "county": "Lycoming",
-    "title": "Legacy of Lycoming",
-    "artist": "Mandi Engel",
-    "address": {
-      "venueName": "Lycoming County Visitors Center",
-      "street": "102 W 4th St",
-      "city": "Williamsport",
-      "zip": "17701"
-    },
-    "imageUrl": "/bells/images/lycoming-legacy-of-lycoming.png",
-    "sourceSlug": "lycoming-legacy-of-lycoming",
-    "lat": 41.2415139,
-    "lng": -77.0038016,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Williamsport, PA"
-  },
-  {
-    "id": "mckean-focus-on-freedom",
-    "county": "Mckean",
-    "title": "Focus on Freedom",
-    "artist": "Angela Janel Cornelius",
-    "address": {
-      "venueName": "McKean County Courthouse, Lobby Rotunda",
-      "street": "500 West Main Street",
-      "city": "Smethport",
-      "zip": "16749"
-    },
-    "imageUrl": "/bells/images/mckean-focus-on-freedom.png",
-    "placement": "indoors",
-    "sourceSlug": "mckean-focus-on-freedom",
-    "lat": 41.809644,
-    "lng": -78.446876,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Smethport, PA"
-  },
-  {
-    "id": "mercer-partners-through-time",
-    "county": "Mercer",
-    "title": "Partners Through Time",
-    "artist": "Glen Sanders",
-    "address": {
-      "venueName": "Grove City College - Carnegie Alumni Center",
-      "street": "260 S. Broad Street",
-      "city": "Grove City",
-      "zip": "16127"
-    },
-    "imageUrl": "/bells/images/mercer-partners-through-time.png",
-    "sourceSlug": "mercer-partners-through-time",
-    "lat": 41.1586657,
-    "lng": -80.0865921,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Grove City, PA"
-  },
-  {
-    "id": "mifflin-mifflin-county-celebrates",
-    "county": "Mifflin",
-    "title": "Mifflin County Celebrates",
-    "artist": "Jennifer Hartzler",
-    "address": {
-      "venueName": "Mifflin County Courthouse",
-      "street": "20 North Wayne Street",
-      "city": "Lewistown",
-      "zip": "17044"
-    },
-    "imageUrl": "/bells/images/mifflin-mifflin-county-celebrates.png",
-    "sourceSlug": "mifflin-mifflin-county-celebrates",
-    "lat": 40.5973066,
-    "lng": -77.5767252,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Lewistown, PA"
-  },
-  {
-    "id": "monroe-etna-in-remembrance-of-etna-bittenbender-",
-    "county": "Monroe",
-    "title": "Etna (In Remembrance of Etna Bittenbender)",
-    "artist": "Linda Stockman-Connors",
-    "address": {
-      "venueName": "Monroe County Historical Association",
-      "street": "900 Main Street",
-      "city": "Stroudsburg",
-      "zip": "18360"
-    },
-    "imageUrl": "/bells/images/monroe-etna-in-remembrance-of-etna-bittenbender-.png",
-    "sourceSlug": "monroe-etna-in-remembrance-of-etna-bittenbender-",
-    "lat": 40.9844658,
-    "lng": -75.1981518,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Stroudsburg, PA"
-  },
-  {
-    "id": "montgomery-liberty-and-justice-for-all",
-    "county": "Montgomery",
-    "title": "Liberty and Justice for All",
-    "artist": "Lisa Teller Short",
-    "address": {
-      "venueName": "Historic Trappe, The Speaker's House",
-      "street": "151 W. Main Street",
-      "city": "Trappe",
-      "zip": "19426"
-    },
-    "imageUrl": "/bells/images/montgomery-liberty-and-justice-for-all.png",
-    "placement": "outdoors",
-    "sourceSlug": "montgomery-liberty-and-justice-for-all",
-    "lat": 40.1956848,
-    "lng": -75.4678968,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Trappe, PA"
-  },
-  {
-    "id": "montour-shine-on",
-    "county": "Montour",
-    "title": "Shine On",
-    "artist": "Dave Tamkus",
-    "address": {
-      "venueName": "Canal Park",
-      "street": "463 Mill Street",
-      "city": "Danville",
-      "zip": "17821"
-    },
-    "imageUrl": "/bells/images/montour-shine-on.png",
-    "placement": "outdoors",
-    "sourceSlug": "montour-shine-on",
-    "lat": 40.964405,
-    "lng": -76.6162488,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Danville, PA"
-  },
-  {
-    "id": "northampton-a-story-of-stars-and-steel",
-    "county": "Northampton",
-    "title": "A Story of Stars and Steel",
-    "artist": "Keith Garubba",
-    "address": {
-      "venueName": "ShopRite of Bethlehem",
-      "street": "4701 Freemansburg Ave.",
-      "city": "Bethlehem",
-      "zip": "18045"
-    },
-    "imageUrl": "/bells/images/northampton-a-story-of-stars-and-steel.png",
-    "placement": "indoors",
-    "sourceSlug": "northampton-a-story-of-stars-and-steel",
-    "lat": 40.6512675,
-    "lng": -75.2933231,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Easton, PA"
-  },
-  {
-    "id": "northumberland-the-bell-of-light",
-    "county": "Northumberland",
-    "title": "The Bell of Light",
-    "artist": "Pedro Reyes",
-    "address": {
-      "venueName": "Northumberland County Courthouse",
-      "street": "201 Market St.",
-      "city": "Sunbury",
-      "zip": "17801"
-    },
-    "unveilingAddress": {
-      "venueName": "Northumberland County Courthouse",
-      "street": "201 Market St.",
-      "city": "Sunbury",
-      "zip": "17801"
-    },
-    "imageUrl": "/bells/images/northumberland-the-bell-of-light.png",
-    "placement": "indoors",
-    "sourceSlug": "northumberland-the-bell-of-light",
-    "lat": 40.8624995,
-    "lng": -76.7944955,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Sunbury, PA"
-  },
-  {
-    "id": "perry-pursuing-happiness",
-    "county": "Perry",
-    "title": "Pursuing Happiness",
-    "artist": "Jessica Burkholder",
-    "address": {
-      "venueName": "Perry County Economic Development Authority",
-      "street": "9 W. Main St",
-      "city": "New Bloomfield",
-      "zip": "17068"
-    },
-    "imageUrl": "/bells/images/perry-pursuing-happiness.png",
-    "placement": "indoors",
-    "sourceSlug": "perry-pursuing-happiness",
-    "lat": 40.4195461,
-    "lng": -77.1874391,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Bloomfield, PA"
-  },
-  {
-    "id": "philadelphia-19128-a-place-with-roots",
-    "county": "Philadelphia",
-    "title": "19128: A Place With Roots",
-    "artist": "Meghan Turbitt",
-    "address": {
-      "venueName": "Roxborough Business Improvement District, Roxborough Pocket Park",
-      "street": "6170 Ridge Ave.",
-      "city": "Philadelphia",
-      "zip": "19128"
-    },
-    "imageUrl": "/bells/images/philadelphia-19128-a-place-with-roots.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-19128-a-place-with-roots",
-    "lat": 40.0350043,
-    "lng": -75.216943,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-a-diagram-of-value",
-    "county": "Philadelphia",
-    "title": "A Diagram of Value",
-    "artist": "Michele Scott",
-    "address": {
-      "venueName": "Bartram's Garden",
-      "street": "5400 Lindbergh Blvd.",
-      "city": "Philadelphia",
-      "zip": "19143"
-    },
-    "imageUrl": "/bells/images/philadelphia-a-diagram-of-value.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-a-diagram-of-value",
-    "lat": 39.933341,
-    "lng": -75.215549,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-al-schmid-marine",
-    "county": "Philadelphia",
-    "title": "Al Schmid Marine",
-    "artist": "Nathaniel Lee",
-    "address": {
-      "venueName": "St. Matthew School",
-      "street": "3040 Cottman Avenue",
-      "city": "Philadelphia",
-      "zip": "19149"
-    },
-    "imageUrl": "/bells/images/philadelphia-al-schmid-marine.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-al-schmid-marine",
-    "lat": 40.0418771,
-    "lng": -75.0500237,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-a-tapestry-of-hidden-history",
-    "county": "Philadelphia",
-    "title": "A Tapestry of Hidden History",
-    "artist": "Parris Stancell",
-    "address": {
-      "venueName": "Mt. Airy Business Improvement District, United Lutheran Seminary",
-      "street": "7301 Germantown Ave.",
-      "city": "Philadelphia",
-      "zip": "19119"
-    },
-    "imageUrl": "/bells/images/philadelphia-a-tapestry-of-hidden-history.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-a-tapestry-of-hidden-history",
-    "lat": 40.061908,
-    "lng": -75.1922234,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-celebrate-mayfair",
-    "county": "Philadelphia",
-    "title": "Celebrate Mayfair",
-    "artist": "Alana Bogard and Madeleine Smith",
-    "address": {
-      "venueName": "Mayfair Business Improvement District",
-      "street": "7343 Frankford Ave.",
-      "city": "Philadelphia",
-      "zip": "19136"
-    },
-    "imageUrl": "/bells/images/philadelphia-celebrate-mayfair.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-celebrate-mayfair",
-    "lat": 40.0373194,
-    "lng": -75.0390904,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-connection-between-the-stars",
-    "county": "Philadelphia",
-    "title": "Connection Between the Stars",
-    "artist": "Cindy Lozito",
-    "address": {
-      "venueName": "Franklin Institute",
-      "street": "222 N. 20th St.",
-      "city": "Philadelphia",
-      "zip": "19103"
-    },
-    "imageUrl": "/bells/images/philadelphia-connection-between-the-stars.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-connection-between-the-stars",
-    "lat": 39.9582436,
-    "lng": -75.1730789,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-el-centro-de-oro",
-    "county": "Philadelphia",
-    "title": "El Centro de Oro",
-    "artist": "Symone Salib",
-    "address": {
-      "venueName": "HACE Community Development Corporation, City Commissioners Office",
-      "street": "2739 N. 5th St.",
-      "city": "Philadelphia",
-      "zip": "19133"
-    },
-    "imageUrl": "/bells/images/philadelphia-el-centro-de-oro.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-el-centro-de-oro",
-    "lat": 39.9931433,
-    "lng": -75.1397718,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-flight-pattern",
-    "county": "Philadelphia",
-    "title": "Flight Pattern",
-    "artist": "Paul Downie",
-    "address": {
-      "venueName": "Wawa Store #8131",
-      "street": "150 S. Independence Mall W.",
-      "city": "Philadelphia",
-      "zip": "19106"
-    },
-    "imageUrl": "/bells/images/philadelphia-flight-pattern.png",
-    "sourceSlug": "philadelphia-flight-pattern",
-    "lat": 39.9490779,
-    "lng": -75.1510749,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-freedom-rising",
-    "county": "Philadelphia",
-    "title": "Freedom Rising",
-    "artist": "Gail Gaines",
-    "address": {
-      "venueName": "Mother Bethel AME Church",
-      "street": "419 S. 6th Street",
-      "city": "Philadelphia",
-      "zip": "19147"
-    },
-    "imageUrl": "/bells/images/philadelphia-freedom-rising.png",
-    "placement": "indoors",
-    "sourceSlug": "philadelphia-freedom-rising",
-    "lat": 39.9433248,
-    "lng": -75.1517607,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-fun-facts-and-historical-treasures-of-fairmount-park",
-    "county": "Philadelphia",
-    "title": "Fun Facts and Historical Treasures of Fairmount Park",
-    "artist": "Parris Stancell",
-    "address": {
-      "street": "1538 Belmont Ave.",
-      "city": "Philadelphia",
-      "zip": "19131"
-    },
-    "imageUrl": "/bells/images/philadelphia-fun-facts-and-historical-treasures-of-fairmount-park.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-fun-facts-and-historical-treasures-of-fairmount-park",
-    "lat": 39.9770388,
-    "lng": -75.2133658,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-heartbeat-of-the-fox",
-    "county": "Philadelphia",
-    "title": "Heartbeat of the Fox",
-    "artist": "Sean Martorana",
-    "address": {
-      "venueName": "FoxRox Business Association, Lions Park",
-      "street": "7959 Oxford Ave.",
-      "city": "Philadelphia",
-      "zip": "19111"
-    },
-    "imageUrl": "/bells/images/philadelphia-heartbeat-of-the-fox.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-heartbeat-of-the-fox",
-    "lat": 40.076265,
-    "lng": -75.0849923,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-it-takes-a-village",
-    "county": "Philadelphia",
-    "title": "It Takes a Village",
-    "artist": "Chenlin Cai and Xingzi Liang",
-    "address": {
-      "venueName": "Philadelphia Chinatown Development Corporation",
-      "street": "10th Street Plaza (10th and Vine Sts.)",
-      "city": "Philadelphia",
-      "zip": "19107"
-    },
-    "imageUrl": "/bells/images/philadelphia-it-takes-a-village.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-it-takes-a-village",
-    "lat": 39.950283,
-    "lng": -75.157001,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-keeping-it-in-the-family",
-    "county": "Philadelphia",
-    "title": "Keeping It in the Family",
-    "artist": "Tykira Octaviah Mitchell",
-    "address": {
-      "venueName": "Ogontz Avenue Revitalization Corp. (OARC)",
-      "street": "7182 Ogontz Ave.",
-      "city": "Philadelphia",
-      "zip": "19138"
-    },
-    "imageUrl": "/bells/images/philadelphia-keeping-it-in-the-family.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-keeping-it-in-the-family",
-    "lat": 40.0639755,
-    "lng": -75.1535632,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-kensington-blooms",
-    "county": "Philadelphia",
-    "title": "Kensington Blooms",
-    "artist": "Arshayla Robinson",
-    "address": {
-      "venueName": "Esperanza Health Center",
-      "street": "861 East Allegheny Ave.",
-      "city": "Philadelphia",
-      "zip": "19134"
-    },
-    "imageUrl": "/bells/images/philadelphia-kensington-blooms.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-kensington-blooms",
-    "lat": 39.9967894,
-    "lng": -75.1134847,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-lancaster-living-legacy",
-    "county": "Philadelphia",
-    "title": "Lancaster Living Legacy",
-    "artist": "Akira Gordon",
-    "address": {
-      "venueName": "Lancaster Avenue 21st Century Business Association (LA21)",
-      "street": "3952-54 Lancaster Ave.",
-      "city": "Philadelphia",
-      "zip": "19104"
-    },
-    "imageUrl": "/bells/images/philadelphia-lancaster-living-legacy.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-lancaster-living-legacy",
-    "lat": 39.955315,
-    "lng": -75.187227,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-nature-to-industry-to-nature-again",
-    "county": "Philadelphia",
-    "title": "Nature to Industry to Nature Again",
-    "artist": "Bob Dix",
-    "address": {
-      "venueName": "Glen Foerd",
-      "street": "5001 Grant Ave.",
-      "city": "Philadelphia",
-      "zip": "19114"
-    },
-    "imageUrl": "/bells/images/philadelphia-nature-to-industry-to-nature-again.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-nature-to-industry-to-nature-again",
-    "lat": 40.0528525,
-    "lng": -74.9827524,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-open-everyday",
-    "county": "Philadelphia",
-    "title": "Open Everyday",
-    "artist": "Cindy Lozito",
-    "address": {
-      "venueName": "United Merchants of the S. 9th St Business Association, Association of Mexican Business Owners of Philadelphia, Piazza DiBruno",
-      "street": "914 S. 9th St.",
-      "city": "Philadelphia",
-      "zip": "19147"
-    },
-    "imageUrl": "/bells/images/philadelphia-open-everyday.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-open-everyday",
-    "lat": 39.938314,
-    "lng": -75.158095,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-philly-workforce-celebrating-our-past-building-the-future",
-    "county": "Philadelphia",
-    "title": "Philly Workforce: Celebrating Our Past, Building the Future",
-    "artist": "Akira Gordon",
-    "address": {
-      "venueName": "City of Philadelphia, Municipal Services Building",
-      "street": "1401 JFK Blvd.",
-      "city": "Philadelphia",
-      "zip": "19102"
-    },
-    "imageUrl": "/bells/images/philadelphia-philly-workforce-celebrating-our-past-building-the-future.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-philly-workforce-celebrating-our-past-building-the-future",
-    "lat": 39.95354,
-    "lng": -75.164055,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-stories-tolled",
-    "county": "Philadelphia",
-    "title": "Stories Tolled",
-    "artist": "Abigail Reeth",
-    "address": {
-      "venueName": "St. Joseph's University, Wynnefield Residents Association",
-      "street": "5320 City Ave.",
-      "city": "Philadelphia",
-      "zip": "19131"
-    },
-    "imageUrl": "/bells/images/philadelphia-stories-tolled.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-stories-tolled",
-    "lat": 39.9969481,
-    "lng": -75.2347987,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-the-ringing-railroad",
-    "county": "Philadelphia",
-    "title": "The Ringing Railroad",
-    "artist": "Sean Martorana",
-    "address": {
-      "venueName": "Amtrak, William H. Gray III 30th Street Station",
-      "street": "2955 Market St.",
-      "city": "Philadelphia",
-      "zip": "19104"
-    },
-    "imageUrl": "/bells/images/philadelphia-the-ringing-railroad.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-the-ringing-railroad",
-    "lat": 39.9559261,
-    "lng": -75.1819978,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-the-promise-of-what-s-to-come",
-    "county": "Philadelphia",
-    "title": "The Promise of What's to Come",
-    "artist": "Symone Salib",
-    "address": {
-      "venueName": "Point Breeze Business Association, Greater Philadelphia Community Alliance",
-      "street": "1336 S. 21st St.",
-      "city": "Philadelphia",
-      "zip": "19146"
-    },
-    "imageUrl": "/bells/images/philadelphia-the-promise-of-what-s-to-come.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-the-promise-of-what-s-to-come",
-    "lat": 39.9346205,
-    "lng": -75.17916,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-united-hunting-park",
-    "county": "Philadelphia",
-    "title": "United Hunting Park",
-    "artist": "Andrew \"Penthouse Art\" Daniels",
-    "address": {
-      "street": "1291 W. Hunting Park Ave.",
-      "city": "Philadelphia",
-      "zip": "19140"
-    },
-    "imageUrl": "/bells/images/philadelphia-united-hunting-park.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-united-hunting-park",
-    "lat": 40.016683,
-    "lng": -75.1469963,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-we-are-harrowgate",
-    "county": "Philadelphia",
-    "title": "We Are Harrowgate",
-    "artist": "Bob Dix",
-    "address": {
-      "venueName": "Harrowgate Park",
-      "street": "3455 Kensington Ave.",
-      "city": "Philadelphia",
-      "zip": "19134"
-    },
-    "imageUrl": "/bells/images/philadelphia-we-are-harrowgate.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-we-are-harrowgate",
-    "lat": 40.0002995,
-    "lng": -75.1063641,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-we-the-people",
-    "county": "Philadelphia",
-    "title": "We The People",
-    "artist": "Tara Jacoby",
-    "address": {
-      "venueName": "Philadelphia Visitor Center, Independence Visitor Center",
-      "street": "1 N. Independence Hall West",
-      "city": "Philadelphia",
-      "zip": "19106"
-    },
-    "imageUrl": "/bells/images/philadelphia-we-the-people.png",
-    "sourceSlug": "philadelphia-we-the-people",
-    "lat": 39.949223,
-    "lng": -75.150767,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-where-global-is-local",
-    "county": "Philadelphia",
-    "title": "Where Global is Local",
-    "artist": "Joanne Gallery",
-    "address": {
-      "venueName": "Olney Community Collaborative, Greater Olney Library",
-      "street": "5501 N. 5th St.",
-      "city": "Philadelphia",
-      "zip": "19120"
-    },
-    "imageUrl": "/bells/images/philadelphia-where-global-is-local.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-where-global-is-local",
-    "lat": 40.0350162,
-    "lng": -75.1305745,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-who-s-your-north-star-",
-    "county": "Philadelphia",
-    "title": "Who's Your North Star?",
-    "artist": "Emily Busch",
-    "address": {
-      "venueName": "Germantown United Community Development Corporation, Germantown Arts District, Joseph E. Coleman Northwest Regional Library",
-      "street": "68 W. Chelten Ave.",
-      "city": "Philadelphia",
-      "zip": "19144"
-    },
-    "imageUrl": "/bells/images/philadelphia-who-s-your-north-star-.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-who-s-your-north-star-",
-    "lat": 40.0340605,
-    "lng": -75.1760528,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "philadelphia-yorktown-historic-and-resilient",
-    "county": "Philadelphia",
-    "title": "Yorktown: Historic and Resilient",
-    "artist": "John J. Abner",
-    "address": {
-      "venueName": "Leon H. Sullivan Charitable Trust",
-      "street": "1415 N. Broad St.",
-      "city": "Philadelphia",
-      "zip": "19122"
-    },
-    "imageUrl": "/bells/images/philadelphia-yorktown-historic-and-resilient.png",
-    "placement": "outdoors",
-    "sourceSlug": "philadelphia-yorktown-historic-and-resilient",
-    "lat": 39.9747526,
-    "lng": -75.158623,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Philadelphia, PA"
-  },
-  {
-    "id": "pike-nature-rings-in-pike-county",
-    "county": "Pike",
-    "title": "Nature Rings in Pike County",
-    "artist": "Delaware High School AP Art Students and Art Faculty",
-    "address": {
-      "venueName": "Milford Community House",
-      "street": "201 Broad Street",
-      "city": "Milford",
-      "zip": "18337"
-    },
-    "imageUrl": "/bells/images/pike-nature-rings-in-pike-county.png",
-    "placement": "outdoors",
-    "sourceSlug": "pike-nature-rings-in-pike-county",
-    "lat": 41.3221356,
-    "lng": -74.8028666,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Milford, PA"
-  },
-  {
-    "id": "potter-land-of-the-free",
-    "county": "Potter",
-    "title": "Land of the Free",
-    "artist": "Miriam Howe",
-    "address": {
-      "venueName": "Gunzburger County Office Building",
-      "street": "One North Main Street",
-      "city": "Coudersport",
-      "zip": "16915"
-    },
-    "imageUrl": "/bells/images/potter-land-of-the-free.png",
-    "placement": "indoors",
-    "sourceSlug": "potter-land-of-the-free",
-    "lat": 41.773679,
-    "lng": -78.021069,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Coudersport, PA"
-  },
-  {
-    "id": "schuylkill-freedom-to-change",
-    "county": "Schuylkill",
-    "title": "Freedom to Change",
-    "artist": "Kimberly Woodward with Tamaqua Area Middle School Art Club 2025-2026",
-    "address": {
-      "venueName": "Liberty Tree Park",
-      "street": "35 N. Railroad Street",
-      "city": "Tamaqua",
-      "zip": "18252"
-    },
-    "imageUrl": "/bells/images/schuylkill-freedom-to-change.png",
-    "placement": "outdoors",
-    "sourceSlug": "schuylkill-freedom-to-change",
-    "lat": 40.7999769,
-    "lng": -75.970297,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Tamaqua, PA"
-  },
-  {
-    "id": "snyder-snyder-county-s-natural-heritage",
-    "county": "Snyder",
-    "title": "Snyder County's Natural Heritage",
-    "artist": "Laura Knorr",
-    "address": {
-      "venueName": "Selinsgrove Borough and Rudy Gelnett Memorial Library Building",
-      "street": "1 N. High Street",
-      "city": "Selinsgrove",
-      "zip": "17870"
-    },
-    "imageUrl": "/bells/images/snyder-snyder-county-s-natural-heritage.png",
-    "placement": "outdoors",
-    "sourceSlug": "snyder-snyder-county-s-natural-heritage",
-    "lat": 40.799721,
-    "lng": -76.863202,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Selinsgrove, PA"
-  },
-  {
-    "id": "somerset-unending-spirit",
-    "county": "Somerset",
-    "title": "Unending Spirit",
-    "artist": "Kathy Trexel Reed",
-    "address": {
-      "venueName": "Somerset County Annex Office Building",
-      "street": "300 North Center Avenue",
-      "city": "Somerset",
-      "zip": "15501"
-    },
-    "imageUrl": "/bells/images/somerset-unending-spirit.png",
-    "placement": "indoors",
-    "sourceSlug": "somerset-unending-spirit",
-    "lat": 40.010346,
-    "lng": -79.078453,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Somerset, PA"
-  },
-  {
-    "id": "sullivan-we-the-people",
-    "county": "Sullivan",
-    "title": "We The People",
-    "artist": "Robert Heinrich Jr.",
-    "address": {
-      "venueName": "Eagles Mere Inn",
-      "street": "29 Mary Avenue",
-      "city": "Eagles Mere",
-      "zip": "17731"
-    },
-    "imageUrl": "/bells/images/sullivan-we-the-people.png",
-    "placement": "outdoors",
-    "sourceSlug": "sullivan-we-the-people",
-    "lat": 41.4097143,
-    "lng": -76.5815911,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Eagles Mere, PA"
-  },
-  {
-    "id": "susquehanna-red-white-and-blueberry",
-    "county": "Susquehanna",
-    "title": "Red, White, and Blueberry",
-    "artist": "Kelly Finan",
-    "address": {
-      "venueName": "Susquehanna County Historical Society",
-      "street": "18 Monument Square",
-      "city": "Montrose",
-      "zip": "18801"
-    },
-    "imageUrl": "/bells/images/susquehanna-red-white-and-blueberry.png",
-    "placement": "outdoors",
-    "sourceSlug": "susquehanna-red-white-and-blueberry",
-    "lat": 41.8338383,
-    "lng": -75.876355,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Montrose, PA"
-  },
-  {
-    "id": "tioga-tioga-county-where-the-path-forks",
-    "county": "Tioga",
-    "title": "Tioga County - Where the Path Forks",
-    "artist": "Randy J. Owen",
-    "address": {
-      "street": "Gate House at Smythe Park 62 South Main Street",
-      "city": "Mansfield",
-      "zip": "16933"
-    },
-    "imageUrl": "/bells/images/tioga-tioga-county-where-the-path-forks.png",
-    "placement": "outdoors",
-    "sourceSlug": "tioga-tioga-county-where-the-path-forks",
-    "lat": 41.806183,
-    "lng": -77.07786,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Mansfield, PA"
-  },
-  {
-    "id": "union-bells-of-lbg",
-    "county": "Union",
-    "title": "Bells of LBG",
-    "artist": "Kate Murphy",
-    "address": {
-      "venueName": "Union County Courthouse",
-      "street": "103 S 2nd St",
-      "city": "Lewisburg",
-      "zip": "17837"
-    },
-    "imageUrl": "/bells/images/union-bells-of-lbg.png",
-    "placement": "indoors",
-    "sourceSlug": "union-bells-of-lbg",
-    "lat": 40.9636517,
-    "lng": -76.8823635,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Lewisburg, PA"
-  },
-  {
-    "id": "venango-progress",
-    "county": "Venango",
-    "title": "PROGRESS",
-    "artist": "Raven Nespor",
-    "address": {
-      "venueName": "Oil Region Venango Campus Rhoades Center",
-      "street": "1801 West First St",
-      "city": "Oil City",
-      "zip": "16301"
-    },
-    "imageUrl": "/bells/images/venango-progress.png",
-    "sourceSlug": "venango-progress",
-    "lat": 41.7737612,
-    "lng": -78.0227184,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Coudersport, PA"
-  },
-  {
-    "id": "warren-reflection-on-warren-s-allegheny-river",
-    "county": "Warren",
-    "title": "Reflection on Warren's Allegheny River",
-    "artist": "LeeAnn Waterhouse",
-    "address": {
-      "venueName": "Warren County Visitors Bureau",
-      "street": "22045 US-Route 6",
-      "city": "Warren",
-      "zip": "16365"
-    },
-    "unveilingAddress": {
-      "venueName": "Warren County Visitors Bureau",
-      "street": "22045 US-Route 6",
-      "city": "Warren",
-      "zip": "16365"
-    },
-    "imageUrl": "/bells/images/warren-reflection-on-warren-s-allegheny-river.png",
-    "placement": "indoors",
-    "sourceSlug": "warren-reflection-on-warren-s-allegheny-river",
-    "lat": 41.846609,
-    "lng": -79.23162,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Warren, PA"
-  },
-  {
-    "id": "washington-the-american-spirit",
-    "county": "Washington",
-    "title": "The American Spirit",
-    "artist": "James Sulkowski",
-    "address": {
-      "venueName": "The Washington County Historical Society",
-      "street": "49 E Maiden Street",
-      "city": "Washington",
-      "zip": "15301"
-    },
-    "imageUrl": "/bells/images/washington-the-american-spirit.png",
-    "placement": "indoors",
-    "sourceSlug": "washington-the-american-spirit",
-    "lat": 40.16812,
-    "lng": -80.2431516,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Washington, PA"
-  },
-  {
-    "id": "wayne-honoring-service-advancing-care",
-    "county": "Wayne",
-    "title": "Honoring Service, Advancing Care",
-    "artist": "Allison LaRussa",
-    "address": {
-      "venueName": "Wayne Memorial Hospital (1st Floor)",
-      "street": "601 Park Street",
-      "city": "Honesdale",
-      "zip": "18431"
-    },
-    "imageUrl": "/bells/images/wayne-honoring-service-advancing-care.png",
-    "placement": "indoors",
-    "sourceSlug": "wayne-honoring-service-advancing-care",
-    "lat": 41.576065,
-    "lng": -75.2603474,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Honesdale, PA"
-  },
-  {
-    "id": "westmoreland-more-energy-in-westmoreland",
-    "county": "Westmoreland",
-    "title": "MORE Energy in Westmoreland",
-    "artist": "Stacey Pydynkowski",
-    "address": {
-      "venueName": "Robert’s Trailhead Westmoreland Heritage Trail",
-      "street": "4301 William Penn Highway",
-      "city": "Murrysville"
-    },
-    "imageUrl": "/bells/images/westmoreland-more-energy-in-westmoreland.png",
-    "placement": "outdoors",
-    "sourceSlug": "westmoreland-more-energy-in-westmoreland",
-    "lat": 40.4270909,
-    "lng": -79.6830514,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Murrysville, PA"
-  },
-  {
-    "id": "westmoreland-there-s-more-in-westmoreland",
-    "county": "Westmoreland",
-    "title": "There’s MORE in Westmoreland",
-    "artist": "Mandy Sirofchuck",
-    "address": {
-      "venueName": "The Westmoreland Museum of American Art",
-      "street": "221 N. Main St.",
-      "city": "Greensburg",
-      "zip": "15601"
-    },
-    "imageUrl": "/bells/images/westmoreland-there-s-more-in-westmoreland.png",
-    "placement": "outdoors",
-    "sourceSlug": "westmoreland-there-s-more-in-westmoreland",
-    "lat": 40.3055905,
-    "lng": -79.5452441,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Greensburg, PA"
-  },
-  {
-    "id": "wyoming-community-united-through-strength",
-    "county": "Wyoming",
-    "title": "Community United Through Strength",
-    "artist": "Allison LaRussa",
-    "address": {
-      "venueName": "Wyoming County Healthcare Center (1st Floor)",
-      "street": "5950 U.S. Route 6",
-      "city": "Tunkhannock",
-      "zip": "18657"
-    },
-    "imageUrl": "/bells/images/wyoming-community-united-through-strength.png",
-    "placement": "indoors",
-    "sourceSlug": "wyoming-community-united-through-strength",
-    "lat": 41.55957,
-    "lng": -75.84899,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "Tunkhannock, PA"
-  },
-  {
-    "id": "york-we-the-people-we-were-here",
-    "county": "York",
-    "title": "We the People, We Were Here",
-    "artist": "Ophelia Chambliss",
-    "address": {
-      "venueName": "New Freedom Rail Trail",
-      "street": "117 N. Front Street",
-      "city": "New Freedom",
-      "zip": "17349"
-    },
-    "imageUrl": "/bells/images/york-we-the-people-we-were-here.png",
-    "sourceSlug": "york-we-the-people-we-were-here",
-    "lat": 39.7401012,
-    "lng": -76.7006369,
-    "geocodeQuality": "exact",
-    "geocodeSource": "opencage",
-    "localityLabel": "New Freedom, PA"
-  }
+	{
+		"id": "adams-for-the-people",
+		"county": "Adams",
+		"title": "For the People",
+		"artist": "Wendy Allen",
+		"address": {
+			"venueName": "Beyond the Battle Museum",
+			"street": "625 Biglerville Road",
+			"city": "Gettysburg",
+			"zip": "17325"
+		},
+		"imageUrl": "/bells/images/adams-for-the-people.png",
+		"sourceSlug": "adams-for-the-people",
+		"lat": 39.8416861,
+		"lng": -77.230595,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Gettysburg, PA"
+	},
+	{
+		"id": "allegheny-jefferson-memorial-cemetery-funeral-home-s-windows-into-history",
+		"county": "Allegheny",
+		"title": "Jefferson Memorial Cemetery & Funeral Home's Windows Into History",
+		"artist": "Scott Saloney",
+		"address": {
+			"venueName": "Jefferson Mausoleum",
+			"street": "301 Curry Hollow Road",
+			"city": "Pittsburgh",
+			"zip": "15236"
+		},
+		"imageUrl": "/bells/images/allegheny-jefferson-memorial-cemetery-funeral-home-s-windows-into-history.png",
+		"placement": "indoors",
+		"sourceSlug": "allegheny-jefferson-memorial-cemetery-funeral-home-s-windows-into-history",
+		"lat": 40.33614,
+		"lng": -79.972441,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Pittsburgh, PA"
+	},
+	{
+		"id": "allegheny-pittsburgh-s-250-bell",
+		"county": "Allegheny",
+		"title": "Pittsburgh's 250 Bell",
+		"artist": "Scott Saloney",
+		"address": {
+			"venueName": "Heinz History Center",
+			"street": "1212 Smallman Street",
+			"city": "Pittsburgh",
+			"zip": "15222"
+		},
+		"imageUrl": "/bells/images/allegheny-pittsburgh-s-250-bell.png",
+		"placement": "indoors",
+		"sourceSlug": "allegheny-pittsburgh-s-250-bell",
+		"lat": 40.4464508,
+		"lng": -79.9926773,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Pittsburgh, PA"
+	},
+	{
+		"id": "armstrong-echoes-of-armstrong",
+		"county": "Armstrong",
+		"title": "Echoes of Armstrong",
+		"artist": "Cathy Strate",
+		"address": {
+			"venueName": "Armstrong County Historical Museum",
+			"street": "300 North McKean Street",
+			"city": "Kittanning",
+			"zip": "16201"
+		},
+		"imageUrl": "/bells/images/armstrong-echoes-of-armstrong.png",
+		"placement": "outdoors",
+		"sourceSlug": "armstrong-echoes-of-armstrong",
+		"lat": 40.818247,
+		"lng": -79.5209007,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Kittanning, PA"
+	},
+	{
+		"id": "beaver-beaver-county-landmarks",
+		"county": "Beaver",
+		"title": "Beaver County Landmarks",
+		"artist": "Ana Truqui",
+		"address": {
+			"venueName": "Public Meeting Room, Beaver County Courthouse",
+			"street": "810 3rd Street",
+			"city": "Beaver",
+			"zip": "15009"
+		},
+		"imageUrl": "/bells/images/beaver-beaver-county-landmarks.png",
+		"sourceSlug": "beaver-beaver-county-landmarks",
+		"lat": 40.6946512,
+		"lng": -80.3084387,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Beaver, PA"
+	},
+	{
+		"id": "bedford-through-bob-s-eyes-a-visual-legacy-of-bedford-county",
+		"county": "Bedford",
+		"title": "Through Bob's Eyes - A Visual Legacy of Bedford County",
+		"artist": "Morgan Young and Bob Webb (posthumously)",
+		"address": {
+			"venueName": "Bedford County Courthouse",
+			"street": "200 S. Juliana Street",
+			"city": "Bedford",
+			"zip": "15522"
+		},
+		"imageUrl": "/bells/images/bedford-through-bob-s-eyes-a-visual-legacy-of-bedford-county.png",
+		"sourceSlug": "bedford-through-bob-s-eyes-a-visual-legacy-of-bedford-county",
+		"lat": 40.017302,
+		"lng": -78.503795,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Bedford, PA"
+	},
+	{
+		"id": "berks-everyone-goes-home",
+		"county": "Berks",
+		"title": "Everyone Goes Home",
+		"artist": "Benjamin E. Hoffman",
+		"address": {
+			"venueName": "Reading Fightin' Phils FirstEnergy Stadium",
+			"street": "1900 Centre Avenue",
+			"city": "Reading",
+			"zip": "19605"
+		},
+		"imageUrl": "/bells/images/berks-everyone-goes-home.png",
+		"placement": "outdoors",
+		"sourceSlug": "berks-everyone-goes-home",
+		"lat": 40.3657177,
+		"lng": -75.9337357,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Reading, PA"
+	},
+	{
+		"id": "blair-blair-county-a-part-of-america-s-story",
+		"county": "Blair",
+		"title": "Blair County - A Part Of America's Story",
+		"artist": "Leah McNaul",
+		"address": {
+			"venueName": "DelGrosso's Amusement Park",
+			"street": "4352 E. Pleasant Valley Blvd.",
+			"city": "Tipton",
+			"zip": "16684"
+		},
+		"imageUrl": "/bells/images/blair-blair-county-a-part-of-america-s-story.png",
+		"sourceSlug": "blair-blair-county-a-part-of-america-s-story",
+		"lat": 40.6306265,
+		"lng": -78.2915004,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Antis Township, PA"
+	},
+	{
+		"id": "bradford-flowing-thru-bradford-county",
+		"county": "Bradford",
+		"title": "Flowing thru Bradford County",
+		"artist": "Shauna M. Case",
+		"address": {
+			"venueName": "Bradford County Courthouse",
+			"street": "301 Main Street",
+			"city": "Towanda",
+			"zip": "18848"
+		},
+		"imageUrl": "/bells/images/bradford-flowing-thru-bradford-county.png",
+		"placement": "indoors",
+		"sourceSlug": "bradford-flowing-thru-bradford-county",
+		"lat": 41.767185,
+		"lng": -76.443,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Towanda, PA"
+	},
+	{
+		"id": "bucks-local-color",
+		"county": "Bucks",
+		"title": "Local Color",
+		"artist": "James Feehan",
+		"address": {
+			"venueName": "ShopRite of Yardley",
+			"street": "1603 Big Oak Road",
+			"city": "Yardley",
+			"zip": "19067"
+		},
+		"imageUrl": "/bells/images/bucks-local-color.png",
+		"placement": "indoors",
+		"sourceSlug": "bucks-local-color",
+		"lat": 40.1976386,
+		"lng": -74.8732351,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Middletown Township, PA"
+	},
+	{
+		"id": "butler-the-butler-bell",
+		"county": "Butler",
+		"title": "The Butler Bell",
+		"artist": "Tom Panei",
+		"address": {
+			"venueName": "Cranberry Township Municipal Building",
+			"street": "2525 Rochester Road",
+			"city": "Cranberry Township",
+			"zip": "16066"
+		},
+		"imageUrl": "/bells/images/butler-the-butler-bell.png",
+		"placement": "indoors",
+		"sourceSlug": "butler-the-butler-bell",
+		"lat": 40.6987761,
+		"lng": -80.1097118,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Cranberry Township, PA"
+	},
+	{
+		"id": "butler-the-butler-county-heritage-bell",
+		"county": "Butler",
+		"title": "The Butler County Heritage Bell",
+		"artist": "Paula Slomer",
+		"address": {
+			"venueName": "Butler County Courthouse",
+			"street": "124 W. Diamond St.",
+			"city": "Butler",
+			"zip": "16003"
+		},
+		"imageUrl": "/bells/images/butler-the-butler-county-heritage-bell.png",
+		"placement": "outdoors",
+		"sourceSlug": "butler-the-butler-county-heritage-bell",
+		"lat": 40.8584532,
+		"lng": -79.895787,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Butler, PA"
+	},
+	{
+		"id": "cambria-cambria-county-cast-in-bronze",
+		"county": "Cambria",
+		"title": "Cambria County: Cast in Bronze",
+		"artist": "Carol A. (Fatula) Cecere",
+		"address": {
+			"venueName": "Cambria County Courthouse",
+			"street": "200 South Center St",
+			"city": "Ebensburg",
+			"zip": "15931"
+		},
+		"imageUrl": "/bells/images/cambria-cambria-county-cast-in-bronze.png",
+		"sourceSlug": "cambria-cambria-county-cast-in-bronze",
+		"lat": 40.4812427,
+		"lng": -78.7245531,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Ebensburg, PA"
+	},
+	{
+		"id": "cameron-call-of-the-wilds-cameron-edition",
+		"county": "Cameron",
+		"title": "Call of the Wilds - Cameron Edition",
+		"artist": "Sarah Jane Daley, First Sergeant/USMC (Retired)",
+		"address": {
+			"venueName": "Cameron County Chamber of Commerce",
+			"street": "24 West Fourth Street",
+			"city": "Emporium",
+			"zip": "15834"
+		},
+		"imageUrl": "/bells/images/cameron-call-of-the-wilds-cameron-edition.png",
+		"placement": "indoors",
+		"sourceSlug": "cameron-call-of-the-wilds-cameron-edition",
+		"lat": 41.7764956,
+		"lng": -78.022639,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Coudersport, PA"
+	},
+	{
+		"id": "carbon-carbon-county-in-a-snapshot",
+		"county": "Carbon",
+		"title": "Carbon County in a Snapshot",
+		"artist": "Carbon Artist Collaboration",
+		"address": {
+			"venueName": "Weissport Park",
+			"street": "Bridge and Franklin Streets",
+			"city": "Weissport",
+			"zip": "18032"
+		},
+		"imageUrl": "/bells/images/carbon-carbon-county-in-a-snapshot.png",
+		"placement": "outdoors",
+		"sourceSlug": "carbon-carbon-county-in-a-snapshot",
+		"lat": 40.643736,
+		"lng": -75.459761,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Catasauqua, PA"
+	},
+	{
+		"id": "centre-centre-furnace-mansion",
+		"county": "Centre",
+		"title": "Centre Furnace Mansion",
+		"artist": "Jeff Mathison",
+		"address": {
+			"venueName": "Centre County Historical Society, Centre Furnace Mansion",
+			"street": "1001 E. College Ave.",
+			"city": "State College",
+			"zip": "16801"
+		},
+		"imageUrl": "/bells/images/centre-centre-furnace-mansion.png",
+		"placement": "outdoors",
+		"sourceSlug": "centre-centre-furnace-mansion",
+		"lat": 40.8066599,
+		"lng": -77.842139,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "State College, PA"
+	},
+	{
+		"id": "centre-eagle-iron-works-and-curtin-village-bell",
+		"county": "Centre",
+		"title": "Eagle Iron Works and Curtin Village Bell",
+		"artist": "Elody Gyekis",
+		"address": {
+			"venueName": "Eagle Iron Works and Curtin Village",
+			"street": "251 Curtin Road",
+			"city": "Howard",
+			"zip": "16841"
+		},
+		"imageUrl": "/bells/images/centre-eagle-iron-works-and-curtin-village-bell.png",
+		"sourceSlug": "centre-eagle-iron-works-and-curtin-village-bell",
+		"lat": 40.9609703,
+		"lng": -77.7414616,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Howard, PA"
+	},
+	{
+		"id": "centre-stories-of-our-railroad",
+		"county": "Centre",
+		"title": "Stories of Our Railroad",
+		"artist": "Holly Foy & James Farrah",
+		"address": {
+			"venueName": "Bellefonte Historical Railroad Society",
+			"street": "320 West High Street",
+			"city": "Bellefonte",
+			"zip": "16823"
+		},
+		"imageUrl": "/bells/images/centre-stories-of-our-railroad.png",
+		"placement": "outdoors",
+		"sourceSlug": "centre-stories-of-our-railroad",
+		"lat": 40.9113566,
+		"lng": -77.781803,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Bellefonte, PA"
+	},
+	{
+		"id": "centre-welcome-to-philipsburg",
+		"county": "Centre",
+		"title": "Welcome to Philipsburg",
+		"artist": "Pamela Snyder Etters",
+		"address": {
+			"street": "127 N. Front Street",
+			"city": "Philipsburg",
+			"zip": "16866"
+		},
+		"imageUrl": "/bells/images/centre-welcome-to-philipsburg.png",
+		"placement": "outdoors",
+		"sourceSlug": "centre-welcome-to-philipsburg",
+		"lat": 40.8966377,
+		"lng": -78.2236283,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philipsburg, PA"
+	},
+	{
+		"id": "chester-scenes-from-chester-county",
+		"county": "Chester",
+		"title": "Scenes From Chester County",
+		"artist": "Ashley Kolpak",
+		"address": {
+			"venueName": "Chester County Community Foundation",
+			"street": "28 W. Market Street",
+			"city": "West Chester",
+			"zip": "19382"
+		},
+		"imageUrl": "/bells/images/chester-scenes-from-chester-county.png",
+		"placement": "outdoors",
+		"sourceSlug": "chester-scenes-from-chester-county",
+		"lat": 39.9592188,
+		"lng": -75.605154,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "West Chester, PA"
+	},
+	{
+		"id": "clarion-treasures-of-clarion-county",
+		"county": "Clarion",
+		"title": "Treasures of Clarion County",
+		"artist": "Linda Moore",
+		"address": {
+			"venueName": "New Bethlehem Veterans Memorial Park",
+			"street": "Arch and Wood Streets",
+			"city": "New Bethlehem",
+			"zip": "16242"
+		},
+		"imageUrl": "/bells/images/clarion-treasures-of-clarion-county.png",
+		"placement": "outdoors",
+		"sourceSlug": "clarion-treasures-of-clarion-county",
+		"lat": 41.002694,
+		"lng": -79.331451,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "New Bethlehem, PA"
+	},
+	{
+		"id": "clearfield-the-great-shamokin-path-wilhelm-william-bloom-1752-1828-clearfield-county-pioneer",
+		"county": "Clearfield",
+		"title": "The Great Shamokin Path - Wilhelm (William) Bloom, 1752-1828, Clearfield County Pioneer",
+		"artist": "Linda Heberling",
+		"address": {
+			"street": "Clearfield County Historical Society Kerr House Museum 104 East Pine Street",
+			"city": "Clearfield",
+			"zip": "16830"
+		},
+		"imageUrl": "/bells/images/clearfield-the-great-shamokin-path-wilhelm-william-bloom-1752-1828-clearfield-county-pioneer.png",
+		"placement": "outdoors",
+		"sourceSlug": "clearfield-the-great-shamokin-path-wilhelm-william-bloom-1752-1828-clearfield-county-pioneer",
+		"lat": 41.02447,
+		"lng": -78.439753,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Clearfield, PA"
+	},
+	{
+		"id": "clinton-rivers-valleys-meet-mountains-sunsets",
+		"county": "Clinton",
+		"title": "Rivers & Valleys Meet Mountains & Sunsets",
+		"artist": "Kasey Dumm",
+		"address": {
+			"venueName": "Clinton County Courthouse",
+			"street": "230 E. Water Street",
+			"city": "Lock Haven",
+			"zip": "17745"
+		},
+		"imageUrl": "/bells/images/clinton-rivers-valleys-meet-mountains-sunsets.png",
+		"placement": "outdoors",
+		"sourceSlug": "clinton-rivers-valleys-meet-mountains-sunsets",
+		"lat": 41.1378985,
+		"lng": -77.4427558,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Lock Haven, PA"
+	},
+	{
+		"id": "columbia-columbia-the-gem",
+		"county": "Columbia",
+		"title": "Columbia The Gem",
+		"artist": "Mark Golomb",
+		"address": {
+			"street": "620 W 3rd St",
+			"city": "Bloomsburg",
+			"zip": "17815"
+		},
+		"imageUrl": "/bells/images/columbia-columbia-the-gem.png",
+		"placement": "outdoors",
+		"sourceSlug": "columbia-columbia-the-gem",
+		"lat": 40.960425,
+		"lng": -75.982132,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Hazleton, PA"
+	},
+	{
+		"id": "crawford-preserving-history-of-crawford-county",
+		"county": "Crawford",
+		"title": "Preserving History of Crawford County",
+		"artist": "Cruz Dragosavac",
+		"address": {
+			"venueName": "Shryock Memorial Park",
+			"street": "697 Terrace Street",
+			"city": "Meadville",
+			"zip": "16335"
+		},
+		"imageUrl": "/bells/images/crawford-preserving-history-of-crawford-county.png",
+		"placement": "outdoors",
+		"sourceSlug": "crawford-preserving-history-of-crawford-county",
+		"lat": 41.6444218,
+		"lng": -80.152705,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Meadville, PA"
+	},
+	{
+		"id": "cumberland-250-years-of-cumberland-county",
+		"county": "Cumberland",
+		"title": "250 Years of Cumberland County",
+		"artist": "Phil George",
+		"address": {
+			"city": "Carlisle",
+			"zip": "17103"
+		},
+		"imageUrl": "/bells/images/cumberland-250-years-of-cumberland-county.png",
+		"placement": "outdoors",
+		"sourceSlug": "cumberland-250-years-of-cumberland-county",
+		"lat": 40.201499,
+		"lng": -77.1890783,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Carlisle, PA"
+	},
+	{
+		"id": "dauphin-discover-dauphin-county",
+		"county": "Dauphin",
+		"title": "Discover Dauphin County",
+		"artist": "Hawk Krall",
+		"address": {
+			"venueName": "Hershey's Chocolate World",
+			"street": "101 Chocolate World Way",
+			"city": "Hershey",
+			"zip": "17033"
+		},
+		"imageUrl": "/bells/images/dauphin-discover-dauphin-county.png",
+		"sourceSlug": "dauphin-discover-dauphin-county",
+		"lat": 40.2880764,
+		"lng": -76.6610194,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Derry Township, PA"
+	},
+	{
+		"id": "dauphin-growing-a-nation",
+		"county": "Dauphin",
+		"title": "Growing A Nation",
+		"artist": "Cody Sabol",
+		"address": {
+			"venueName": "Farm Show Complex - Cameron Street Lobby",
+			"street": "2300 North Cameron Street",
+			"city": "Harrisburg",
+			"zip": "17110"
+		},
+		"imageUrl": "/bells/images/dauphin-growing-a-nation.png",
+		"placement": "indoors",
+		"sourceSlug": "dauphin-growing-a-nation",
+		"lat": 40.2857825,
+		"lng": -76.8826151,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Harrisburg, PA"
+	},
+	{
+		"id": "delaware-liberty-250",
+		"county": "Delaware",
+		"title": "Liberty 250",
+		"artist": "Joshua Ruggeri",
+		"address": {
+			"venueName": "Burns Family Neighborhood Markets, ShopRite of Drexeline",
+			"street": "5000 State Road",
+			"city": "Drexel Hill",
+			"zip": "19026"
+		},
+		"imageUrl": "/bells/images/delaware-liberty-250.png",
+		"placement": "indoors",
+		"sourceSlug": "delaware-liberty-250",
+		"lat": 39.946228,
+		"lng": -75.323774,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Drexel Hill, PA"
+	},
+	{
+		"id": "elk-the-united-colors-of-liberty",
+		"county": "Elk",
+		"title": "The United Colors of Liberty",
+		"artist": "School Students of Elk County 2025",
+		"address": {
+			"venueName": "Elk County Courthouse Lawn",
+			"street": "240 Main Street",
+			"city": "Ridgway",
+			"zip": "15853"
+		},
+		"imageUrl": "/bells/images/elk-the-united-colors-of-liberty.png",
+		"placement": "outdoors",
+		"sourceSlug": "elk-the-united-colors-of-liberty",
+		"lat": 41.421696,
+		"lng": -78.730224,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Ridgway, PA"
+	},
+	{
+		"id": "erie-the-pursuit-of-liberty",
+		"county": "Erie",
+		"title": "The Pursuit of Liberty",
+		"artist": "Nicholas Cardell Gore",
+		"address": {
+			"venueName": "expERIEnce Children's Museum",
+			"street": "420 French Street",
+			"city": "Erie",
+			"zip": "16507"
+		},
+		"imageUrl": "/bells/images/erie-the-pursuit-of-liberty.png",
+		"sourceSlug": "erie-the-pursuit-of-liberty",
+		"lat": 42.1312436,
+		"lng": -80.0850338,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Erie, PA"
+	},
+	{
+		"id": "fayette-revolution-to-resilience",
+		"county": "Fayette",
+		"title": "Revolution to Resilience",
+		"artist": "James Mochnsky with Touchstone Center for Crafts",
+		"address": {
+			"venueName": "Fayette County Courthouse",
+			"street": "61 E. Main Street",
+			"city": "Uniontown",
+			"zip": "15401"
+		},
+		"imageUrl": "/bells/images/fayette-revolution-to-resilience.png",
+		"sourceSlug": "fayette-revolution-to-resilience",
+		"lat": 39.9016595,
+		"lng": -79.7230161,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Uniontown, PA"
+	},
+	{
+		"id": "forest-forest-valleys",
+		"county": "Forest",
+		"title": "Forest Valleys",
+		"artist": "Skylar Austin & Cassie Rhoads",
+		"address": {
+			"venueName": "Four Seasons Trail Hub in Marienville",
+			"street": "105 S Forest St",
+			"city": "Marienville",
+			"zip": "16239"
+		},
+		"imageUrl": "/bells/images/forest-forest-valleys.png",
+		"sourceSlug": "forest-forest-valleys",
+		"lat": 41.468828,
+		"lng": -79.123397,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Marienville, PA"
+	},
+	{
+		"id": "franklin-franklin-county-america-s-history-and-present",
+		"county": "Franklin",
+		"title": "Franklin County - America's History and Present",
+		"artist": "Designed by Franklin County Artists; Painted by Andrea Finch",
+		"address": {
+			"venueName": "Franklin County Visitors Center",
+			"street": "15 S. Main Street",
+			"city": "Chambersburg",
+			"zip": "17201"
+		},
+		"imageUrl": "/bells/images/franklin-franklin-county-america-s-history-and-present.png",
+		"sourceSlug": "franklin-franklin-county-america-s-history-and-present",
+		"lat": 39.9372039,
+		"lng": -77.6618356,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Chambersburg, PA"
+	},
+	{
+		"id": "fulton-our-town-our-nation",
+		"county": "Fulton",
+		"title": "Our Town, Our Nation",
+		"artist": "Charles Harr",
+		"address": {
+			"venueName": "Friend of Fulton County",
+			"street": "101 Lincoln Way W",
+			"city": "McConnellsburg",
+			"zip": "17233"
+		},
+		"imageUrl": "/bells/images/fulton-our-town-our-nation.png",
+		"sponsor": "A Friend of Fulton County",
+		"sourceSlug": "fulton-our-town-our-nation",
+		"lat": 39.932526,
+		"lng": -77.999249,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "McConnellsburg, PA"
+	},
+	{
+		"id": "greene-coal-country",
+		"county": "Greene",
+		"title": "Coal & Country",
+		"artist": "Danielle Nyland",
+		"address": {
+			"venueName": "Greene County Historical Society Museum",
+			"street": "918 Rolling Meadows Rd",
+			"city": "Waynesburg",
+			"zip": "15370"
+		},
+		"imageUrl": "/bells/images/greene-coal-country.png",
+		"sourceSlug": "greene-coal-country",
+		"lat": 39.8890465,
+		"lng": -80.1243197,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Waynesburg, PA"
+	},
+	{
+		"id": "indiana-a-wonderful-life",
+		"county": "Indiana",
+		"title": "A Wonderful Life",
+		"artist": "Mark Altrogge",
+		"address": {
+			"venueName": "Indiana County Courthouse",
+			"street": "825 Philadelphia St",
+			"city": "Indiana",
+			"zip": "15701"
+		},
+		"imageUrl": "/bells/images/indiana-a-wonderful-life.png",
+		"sourceSlug": "indiana-a-wonderful-life",
+		"lat": 40.6233871,
+		"lng": -79.1551369,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Indiana, PA"
+	},
+	{
+		"id": "jefferson-punxsutawney-seasons",
+		"county": "Jefferson",
+		"title": "Punxsutawney Seasons",
+		"artist": "Monica Smatlak Liao",
+		"address": {
+			"venueName": "Punxsutawney Civic Center",
+			"street": "301 East Mahoning Street",
+			"city": "Punxsutawney",
+			"zip": "15767"
+		},
+		"imageUrl": "/bells/images/jefferson-punxsutawney-seasons.png",
+		"sourceSlug": "jefferson-punxsutawney-seasons",
+		"lat": 40.944443,
+		"lng": -78.9679373,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Punxsutawney, PA"
+	},
+	{
+		"id": "juniata-beauty-of-the-standing-stone",
+		"county": "Juniata",
+		"title": "Beauty of the Standing Stone",
+		"artist": "Hannah Tamanini",
+		"address": {
+			"venueName": "Pomeroy-Academia Covered Bridge",
+			"street": "70 Mill Road",
+			"city": "Port Royal",
+			"zip": "17082"
+		},
+		"imageUrl": "/bells/images/juniata-beauty-of-the-standing-stone.png",
+		"sourceSlug": "juniata-beauty-of-the-standing-stone",
+		"lat": 40.5041252,
+		"lng": -77.413931,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Turbett Township, PA"
+	},
+	{
+		"id": "lackawanna-a-state-of-giving-a-city-of-hope",
+		"county": "Lackawanna",
+		"title": "A State of Giving, A City of Hope",
+		"address": {
+			"venueName": "Scranton Area Community Foundation",
+			"street": "612 Jefferson Avenue",
+			"city": "Scranton",
+			"zip": "18510"
+		},
+		"imageUrl": "/bells/images/lackawanna-a-state-of-giving-a-city-of-hope.png",
+		"sourceSlug": "lackawanna-a-state-of-giving-a-city-of-hope",
+		"lat": 41.4112179,
+		"lng": -75.6552881,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Scranton, PA"
+	},
+	{
+		"id": "lackawanna-connecting-to-our-history-pioneering-progress",
+		"county": "Lackawanna",
+		"title": "Connecting to our History, Pioneering Progress",
+		"artist": "Allison LaRussa",
+		"address": {
+			"venueName": "Carbondale City Hall",
+			"street": "1 N. Main Street",
+			"city": "Carbondale",
+			"zip": "18407"
+		},
+		"imageUrl": "/bells/images/lackawanna-connecting-to-our-history-pioneering-progress.png",
+		"sourceSlug": "lackawanna-connecting-to-our-history-pioneering-progress",
+		"lat": 41.572217,
+		"lng": -75.502807,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Carbondale, PA"
+	},
+	{
+		"id": "lackawanna-healing-and-heritage-inspiring-health-for-america",
+		"county": "Lackawanna",
+		"title": "Healing and Heritage: Inspiring Health for America",
+		"artist": "Allison LaRussa",
+		"address": {
+			"venueName": "The Wright Center for Community Health Mid Valley",
+			"street": "5 S. Washington Ave.",
+			"city": "Jermyn",
+			"zip": "18433"
+		},
+		"imageUrl": "/bells/images/lackawanna-healing-and-heritage-inspiring-health-for-america.png",
+		"sourceSlug": "lackawanna-healing-and-heritage-inspiring-health-for-america",
+		"lat": 41.516247,
+		"lng": -75.547564,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Jermyn, PA"
+	},
+	{
+		"id": "lancaster-lancaster-pa-250th-celebration",
+		"county": "Lancaster",
+		"title": "Lancaster PA 250th Celebration",
+		"artist": "G. Robert Wagner",
+		"address": {
+			"venueName": "Historic Rock Ford",
+			"street": "881 Rockford Road",
+			"city": "Lancaster",
+			"zip": "17602"
+		},
+		"imageUrl": "/bells/images/lancaster-lancaster-pa-250th-celebration.png",
+		"sourceSlug": "lancaster-lancaster-pa-250th-celebration",
+		"lat": 40.0201127,
+		"lng": -76.2877217,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Lancaster, PA"
+	},
+	{
+		"id": "lawrence-presidential-pottery-bell",
+		"county": "Lawrence",
+		"title": "Presidential Pottery Bell",
+		"artist": "Kimberly B. Koller-Jones and Paige Kleinfelder",
+		"address": {
+			"venueName": "Arts & Education at the Hoyt",
+			"street": "124 East Leasure Ave.",
+			"city": "New Castle",
+			"zip": "16101"
+		},
+		"imageUrl": "/bells/images/lawrence-presidential-pottery-bell.png",
+		"sourceSlug": "lawrence-presidential-pottery-bell",
+		"lat": 41.013002,
+		"lng": -80.34422,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "New Castle, PA"
+	},
+	{
+		"id": "lebanon-field-of-sunflowers",
+		"county": "Lebanon",
+		"title": "Field of Sunflowers",
+		"artist": "James E. Rudegeair",
+		"address": {
+			"street": "80 Rocherty Rd",
+			"city": "Lebanon",
+			"zip": "17042"
+		},
+		"imageUrl": "/bells/images/lebanon-field-of-sunflowers.png",
+		"sourceSlug": "lebanon-field-of-sunflowers",
+		"lat": 40.305684,
+		"lng": -76.410756,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Lebanon, PA"
+	},
+	{
+		"id": "lehigh-moravian-historical-figures",
+		"county": "Lehigh",
+		"title": "Moravian Historical Figures",
+		"artist": "Ted Colegrove",
+		"address": {
+			"venueName": "Moravian University's Sports Medicine & Rehabilitation Center",
+			"street": "1441 Schoenersville Road",
+			"city": "Bethlehem",
+			"zip": "18018"
+		},
+		"imageUrl": "/bells/images/lehigh-moravian-historical-figures.png",
+		"sourceSlug": "lehigh-moravian-historical-figures",
+		"lat": 40.6325259,
+		"lng": -75.387922,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Bethlehem, PA"
+	},
+	{
+		"id": "luzerne-building-blocks-of-life",
+		"county": "Luzerne",
+		"title": "Building Blocks of Life",
+		"artist": "Anna Dowse",
+		"address": {
+			"venueName": "Mericle Family Center YMCA for Early Childhood Education",
+			"street": "1122 Oak St.",
+			"city": "Pittston Township",
+			"zip": "18640"
+		},
+		"imageUrl": "/bells/images/luzerne-building-blocks-of-life.png",
+		"sourceSlug": "luzerne-building-blocks-of-life",
+		"lat": 41.3078937,
+		"lng": -75.7697399,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Pittston Township, PA"
+	},
+	{
+		"id": "luzerne-celebrating-our-community-bringing-forth-unity",
+		"county": "Luzerne",
+		"title": "Celebrating our Community, Bringing Forth Unity",
+		"artist": "Allison LaRussa",
+		"address": {
+			"venueName": "The Wright Center: Wilkes-Barre Practice",
+			"street": "169 N. Pennsylvania Ave",
+			"city": "Wilkes-Barre",
+			"zip": "18701"
+		},
+		"imageUrl": "/bells/images/luzerne-celebrating-our-community-bringing-forth-unity.png",
+		"sourceSlug": "luzerne-celebrating-our-community-bringing-forth-unity",
+		"lat": 41.2459556,
+		"lng": -75.8745162,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Wilkes-Barre, PA"
+	},
+	{
+		"id": "luzerne-valley-and-surrounding",
+		"county": "Luzerne",
+		"title": "Valley and Surrounding",
+		"artist": "Kyle Stratton",
+		"address": {
+			"venueName": "Visit Luzerne County",
+			"street": "200 Old Train Station Road",
+			"city": "Wilkes-Barre",
+			"zip": "18702"
+		},
+		"imageUrl": "/bells/images/luzerne-valley-and-surrounding.png",
+		"placement": "indoors",
+		"sourceSlug": "luzerne-valley-and-surrounding",
+		"lat": 41.2417922,
+		"lng": -75.8801094,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Wilkes-Barre, PA"
+	},
+	{
+		"id": "lycoming-legacy-of-lycoming",
+		"county": "Lycoming",
+		"title": "Legacy of Lycoming",
+		"artist": "Mandi Engel",
+		"address": {
+			"venueName": "Lycoming County Visitors Center",
+			"street": "102 W 4th St",
+			"city": "Williamsport",
+			"zip": "17701"
+		},
+		"imageUrl": "/bells/images/lycoming-legacy-of-lycoming.png",
+		"sourceSlug": "lycoming-legacy-of-lycoming",
+		"lat": 41.2415139,
+		"lng": -77.0038016,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Williamsport, PA"
+	},
+	{
+		"id": "mckean-focus-on-freedom",
+		"county": "Mckean",
+		"title": "Focus on Freedom",
+		"artist": "Angela Janel Cornelius",
+		"address": {
+			"venueName": "McKean County Courthouse, Lobby Rotunda",
+			"street": "500 West Main Street",
+			"city": "Smethport",
+			"zip": "16749"
+		},
+		"imageUrl": "/bells/images/mckean-focus-on-freedom.png",
+		"placement": "indoors",
+		"sourceSlug": "mckean-focus-on-freedom",
+		"lat": 41.809644,
+		"lng": -78.446876,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Smethport, PA"
+	},
+	{
+		"id": "mercer-partners-through-time",
+		"county": "Mercer",
+		"title": "Partners Through Time",
+		"artist": "Glen Sanders",
+		"address": {
+			"venueName": "Grove City College - Carnegie Alumni Center",
+			"street": "260 S. Broad Street",
+			"city": "Grove City",
+			"zip": "16127"
+		},
+		"imageUrl": "/bells/images/mercer-partners-through-time.png",
+		"sourceSlug": "mercer-partners-through-time",
+		"lat": 41.1586657,
+		"lng": -80.0865921,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Grove City, PA"
+	},
+	{
+		"id": "mifflin-mifflin-county-celebrates",
+		"county": "Mifflin",
+		"title": "Mifflin County Celebrates",
+		"artist": "Jennifer Hartzler",
+		"address": {
+			"venueName": "Mifflin County Courthouse",
+			"street": "20 North Wayne Street",
+			"city": "Lewistown",
+			"zip": "17044"
+		},
+		"imageUrl": "/bells/images/mifflin-mifflin-county-celebrates.png",
+		"sourceSlug": "mifflin-mifflin-county-celebrates",
+		"lat": 40.5973066,
+		"lng": -77.5767252,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Lewistown, PA"
+	},
+	{
+		"id": "monroe-etna-in-remembrance-of-etna-bittenbender-",
+		"county": "Monroe",
+		"title": "Etna (In Remembrance of Etna Bittenbender)",
+		"artist": "Linda Stockman-Connors",
+		"address": {
+			"venueName": "Monroe County Historical Association",
+			"street": "900 Main Street",
+			"city": "Stroudsburg",
+			"zip": "18360"
+		},
+		"imageUrl": "/bells/images/monroe-etna-in-remembrance-of-etna-bittenbender-.png",
+		"sourceSlug": "monroe-etna-in-remembrance-of-etna-bittenbender-",
+		"lat": 40.9844658,
+		"lng": -75.1981518,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Stroudsburg, PA"
+	},
+	{
+		"id": "montgomery-liberty-and-justice-for-all",
+		"county": "Montgomery",
+		"title": "Liberty and Justice for All",
+		"artist": "Lisa Teller Short",
+		"address": {
+			"venueName": "Historic Trappe, The Speaker's House",
+			"street": "151 W. Main Street",
+			"city": "Trappe",
+			"zip": "19426"
+		},
+		"imageUrl": "/bells/images/montgomery-liberty-and-justice-for-all.png",
+		"placement": "outdoors",
+		"sourceSlug": "montgomery-liberty-and-justice-for-all",
+		"lat": 40.1956848,
+		"lng": -75.4678968,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Trappe, PA"
+	},
+	{
+		"id": "montour-shine-on",
+		"county": "Montour",
+		"title": "Shine On",
+		"artist": "Dave Tamkus",
+		"address": {
+			"venueName": "Canal Park",
+			"street": "463 Mill Street",
+			"city": "Danville",
+			"zip": "17821"
+		},
+		"imageUrl": "/bells/images/montour-shine-on.png",
+		"placement": "outdoors",
+		"sourceSlug": "montour-shine-on",
+		"lat": 40.964405,
+		"lng": -76.6162488,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Danville, PA"
+	},
+	{
+		"id": "northampton-a-story-of-stars-and-steel",
+		"county": "Northampton",
+		"title": "A Story of Stars and Steel",
+		"artist": "Keith Garubba",
+		"address": {
+			"venueName": "ShopRite of Bethlehem",
+			"street": "4701 Freemansburg Ave.",
+			"city": "Bethlehem",
+			"zip": "18045"
+		},
+		"imageUrl": "/bells/images/northampton-a-story-of-stars-and-steel.png",
+		"placement": "indoors",
+		"sourceSlug": "northampton-a-story-of-stars-and-steel",
+		"lat": 40.6512675,
+		"lng": -75.2933231,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Easton, PA"
+	},
+	{
+		"id": "northumberland-the-bell-of-light",
+		"county": "Northumberland",
+		"title": "The Bell of Light",
+		"artist": "Pedro Reyes",
+		"address": {
+			"venueName": "Northumberland County Courthouse",
+			"street": "201 Market St.",
+			"city": "Sunbury",
+			"zip": "17801"
+		},
+		"unveilingAddress": {
+			"venueName": "Northumberland County Courthouse",
+			"street": "201 Market St.",
+			"city": "Sunbury",
+			"zip": "17801"
+		},
+		"imageUrl": "/bells/images/northumberland-the-bell-of-light.png",
+		"placement": "indoors",
+		"sourceSlug": "northumberland-the-bell-of-light",
+		"lat": 40.8624995,
+		"lng": -76.7944955,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Sunbury, PA"
+	},
+	{
+		"id": "perry-pursuing-happiness",
+		"county": "Perry",
+		"title": "Pursuing Happiness",
+		"artist": "Jessica Burkholder",
+		"address": {
+			"venueName": "Perry County Economic Development Authority",
+			"street": "9 W. Main St",
+			"city": "New Bloomfield",
+			"zip": "17068"
+		},
+		"imageUrl": "/bells/images/perry-pursuing-happiness.png",
+		"placement": "indoors",
+		"sourceSlug": "perry-pursuing-happiness",
+		"lat": 40.4195461,
+		"lng": -77.1874391,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Bloomfield, PA"
+	},
+	{
+		"id": "philadelphia-19128-a-place-with-roots",
+		"county": "Philadelphia",
+		"title": "19128: A Place With Roots",
+		"artist": "Meghan Turbitt",
+		"address": {
+			"venueName": "Roxborough Business Improvement District, Roxborough Pocket Park",
+			"street": "6170 Ridge Ave.",
+			"city": "Philadelphia",
+			"zip": "19128"
+		},
+		"imageUrl": "/bells/images/philadelphia-19128-a-place-with-roots.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-19128-a-place-with-roots",
+		"lat": 40.0350043,
+		"lng": -75.216943,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-a-diagram-of-value",
+		"county": "Philadelphia",
+		"title": "A Diagram of Value",
+		"artist": "Michele Scott",
+		"address": {
+			"venueName": "Bartram's Garden",
+			"street": "5400 Lindbergh Blvd.",
+			"city": "Philadelphia",
+			"zip": "19143"
+		},
+		"imageUrl": "/bells/images/philadelphia-a-diagram-of-value.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-a-diagram-of-value",
+		"lat": 39.933341,
+		"lng": -75.215549,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-al-schmid-marine",
+		"county": "Philadelphia",
+		"title": "Al Schmid Marine",
+		"artist": "Nathaniel Lee",
+		"address": {
+			"venueName": "St. Matthew School",
+			"street": "3040 Cottman Avenue",
+			"city": "Philadelphia",
+			"zip": "19149"
+		},
+		"imageUrl": "/bells/images/philadelphia-al-schmid-marine.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-al-schmid-marine",
+		"lat": 40.0418771,
+		"lng": -75.0500237,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-a-tapestry-of-hidden-history",
+		"county": "Philadelphia",
+		"title": "A Tapestry of Hidden History",
+		"artist": "Parris Stancell",
+		"address": {
+			"venueName": "Mt. Airy Business Improvement District, United Lutheran Seminary",
+			"street": "7301 Germantown Ave.",
+			"city": "Philadelphia",
+			"zip": "19119"
+		},
+		"imageUrl": "/bells/images/philadelphia-a-tapestry-of-hidden-history.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-a-tapestry-of-hidden-history",
+		"lat": 40.061908,
+		"lng": -75.1922234,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-celebrate-mayfair",
+		"county": "Philadelphia",
+		"title": "Celebrate Mayfair",
+		"artist": "Alana Bogard and Madeleine Smith",
+		"address": {
+			"venueName": "Mayfair Business Improvement District",
+			"street": "7343 Frankford Ave.",
+			"city": "Philadelphia",
+			"zip": "19136"
+		},
+		"imageUrl": "/bells/images/philadelphia-celebrate-mayfair.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-celebrate-mayfair",
+		"lat": 40.0373194,
+		"lng": -75.0390904,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-connection-between-the-stars",
+		"county": "Philadelphia",
+		"title": "Connection Between the Stars",
+		"artist": "Cindy Lozito",
+		"address": {
+			"venueName": "Franklin Institute",
+			"street": "222 N. 20th St.",
+			"city": "Philadelphia",
+			"zip": "19103"
+		},
+		"imageUrl": "/bells/images/philadelphia-connection-between-the-stars.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-connection-between-the-stars",
+		"lat": 39.9582436,
+		"lng": -75.1730789,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-el-centro-de-oro",
+		"county": "Philadelphia",
+		"title": "El Centro de Oro",
+		"artist": "Symone Salib",
+		"address": {
+			"venueName": "HACE Community Development Corporation, City Commissioners Office",
+			"street": "2739 N. 5th St.",
+			"city": "Philadelphia",
+			"zip": "19133"
+		},
+		"imageUrl": "/bells/images/philadelphia-el-centro-de-oro.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-el-centro-de-oro",
+		"lat": 39.9931433,
+		"lng": -75.1397718,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-flight-pattern",
+		"county": "Philadelphia",
+		"title": "Flight Pattern",
+		"artist": "Paul Downie",
+		"address": {
+			"venueName": "Wawa Store #8131",
+			"street": "150 S. Independence Mall W.",
+			"city": "Philadelphia",
+			"zip": "19106"
+		},
+		"imageUrl": "/bells/images/philadelphia-flight-pattern.png",
+		"sourceSlug": "philadelphia-flight-pattern",
+		"lat": 39.9490779,
+		"lng": -75.1510749,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-freedom-rising",
+		"county": "Philadelphia",
+		"title": "Freedom Rising",
+		"artist": "Gail Gaines",
+		"address": {
+			"venueName": "Mother Bethel AME Church",
+			"street": "419 S. 6th Street",
+			"city": "Philadelphia",
+			"zip": "19147"
+		},
+		"imageUrl": "/bells/images/philadelphia-freedom-rising.png",
+		"placement": "indoors",
+		"sourceSlug": "philadelphia-freedom-rising",
+		"lat": 39.9433248,
+		"lng": -75.1517607,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-fun-facts-and-historical-treasures-of-fairmount-park",
+		"county": "Philadelphia",
+		"title": "Fun Facts and Historical Treasures of Fairmount Park",
+		"artist": "Parris Stancell",
+		"address": {
+			"street": "1538 Belmont Ave.",
+			"city": "Philadelphia",
+			"zip": "19131"
+		},
+		"imageUrl": "/bells/images/philadelphia-fun-facts-and-historical-treasures-of-fairmount-park.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-fun-facts-and-historical-treasures-of-fairmount-park",
+		"lat": 39.9770388,
+		"lng": -75.2133658,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-heartbeat-of-the-fox",
+		"county": "Philadelphia",
+		"title": "Heartbeat of the Fox",
+		"artist": "Sean Martorana",
+		"address": {
+			"venueName": "FoxRox Business Association, Lions Park",
+			"street": "7959 Oxford Ave.",
+			"city": "Philadelphia",
+			"zip": "19111"
+		},
+		"imageUrl": "/bells/images/philadelphia-heartbeat-of-the-fox.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-heartbeat-of-the-fox",
+		"lat": 40.076265,
+		"lng": -75.0849923,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-it-takes-a-village",
+		"county": "Philadelphia",
+		"title": "It Takes a Village",
+		"artist": "Chenlin Cai and Xingzi Liang",
+		"address": {
+			"venueName": "Philadelphia Chinatown Development Corporation",
+			"street": "10th Street Plaza (10th and Vine Sts.)",
+			"city": "Philadelphia",
+			"zip": "19107"
+		},
+		"imageUrl": "/bells/images/philadelphia-it-takes-a-village.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-it-takes-a-village",
+		"lat": 39.950283,
+		"lng": -75.157001,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-keeping-it-in-the-family",
+		"county": "Philadelphia",
+		"title": "Keeping It in the Family",
+		"artist": "Tykira Octaviah Mitchell",
+		"address": {
+			"venueName": "Ogontz Avenue Revitalization Corp. (OARC)",
+			"street": "7182 Ogontz Ave.",
+			"city": "Philadelphia",
+			"zip": "19138"
+		},
+		"imageUrl": "/bells/images/philadelphia-keeping-it-in-the-family.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-keeping-it-in-the-family",
+		"lat": 40.0639755,
+		"lng": -75.1535632,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-kensington-blooms",
+		"county": "Philadelphia",
+		"title": "Kensington Blooms",
+		"artist": "Arshayla Robinson",
+		"address": {
+			"venueName": "Esperanza Health Center",
+			"street": "861 East Allegheny Ave.",
+			"city": "Philadelphia",
+			"zip": "19134"
+		},
+		"imageUrl": "/bells/images/philadelphia-kensington-blooms.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-kensington-blooms",
+		"lat": 39.9967894,
+		"lng": -75.1134847,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-lancaster-living-legacy",
+		"county": "Philadelphia",
+		"title": "Lancaster Living Legacy",
+		"artist": "Akira Gordon",
+		"address": {
+			"venueName": "Lancaster Avenue 21st Century Business Association (LA21)",
+			"street": "3952-54 Lancaster Ave.",
+			"city": "Philadelphia",
+			"zip": "19104"
+		},
+		"imageUrl": "/bells/images/philadelphia-lancaster-living-legacy.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-lancaster-living-legacy",
+		"lat": 39.955315,
+		"lng": -75.187227,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-nature-to-industry-to-nature-again",
+		"county": "Philadelphia",
+		"title": "Nature to Industry to Nature Again",
+		"artist": "Bob Dix",
+		"address": {
+			"venueName": "Glen Foerd",
+			"street": "5001 Grant Ave.",
+			"city": "Philadelphia",
+			"zip": "19114"
+		},
+		"imageUrl": "/bells/images/philadelphia-nature-to-industry-to-nature-again.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-nature-to-industry-to-nature-again",
+		"lat": 40.0528525,
+		"lng": -74.9827524,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-open-everyday",
+		"county": "Philadelphia",
+		"title": "Open Everyday",
+		"artist": "Cindy Lozito",
+		"address": {
+			"venueName": "United Merchants of the S. 9th St Business Association, Association of Mexican Business Owners of Philadelphia, Piazza DiBruno",
+			"street": "914 S. 9th St.",
+			"city": "Philadelphia",
+			"zip": "19147"
+		},
+		"imageUrl": "/bells/images/philadelphia-open-everyday.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-open-everyday",
+		"lat": 39.938314,
+		"lng": -75.158095,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-philly-workforce-celebrating-our-past-building-the-future",
+		"county": "Philadelphia",
+		"title": "Philly Workforce: Celebrating Our Past, Building the Future",
+		"artist": "Akira Gordon",
+		"address": {
+			"venueName": "City of Philadelphia, Municipal Services Building",
+			"street": "1401 JFK Blvd.",
+			"city": "Philadelphia",
+			"zip": "19102"
+		},
+		"imageUrl": "/bells/images/philadelphia-philly-workforce-celebrating-our-past-building-the-future.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-philly-workforce-celebrating-our-past-building-the-future",
+		"lat": 39.95354,
+		"lng": -75.164055,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-stories-tolled",
+		"county": "Philadelphia",
+		"title": "Stories Tolled",
+		"artist": "Abigail Reeth",
+		"address": {
+			"venueName": "St. Joseph's University, Wynnefield Residents Association",
+			"street": "5320 City Ave.",
+			"city": "Philadelphia",
+			"zip": "19131"
+		},
+		"imageUrl": "/bells/images/philadelphia-stories-tolled.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-stories-tolled",
+		"lat": 39.9969481,
+		"lng": -75.2347987,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-the-ringing-railroad",
+		"county": "Philadelphia",
+		"title": "The Ringing Railroad",
+		"artist": "Sean Martorana",
+		"address": {
+			"venueName": "Amtrak, William H. Gray III 30th Street Station",
+			"street": "2955 Market St.",
+			"city": "Philadelphia",
+			"zip": "19104"
+		},
+		"imageUrl": "/bells/images/philadelphia-the-ringing-railroad.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-the-ringing-railroad",
+		"lat": 39.9559261,
+		"lng": -75.1819978,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-the-promise-of-what-s-to-come",
+		"county": "Philadelphia",
+		"title": "The Promise of What's to Come",
+		"artist": "Symone Salib",
+		"address": {
+			"venueName": "Point Breeze Business Association, Greater Philadelphia Community Alliance",
+			"street": "1336 S. 21st St.",
+			"city": "Philadelphia",
+			"zip": "19146"
+		},
+		"imageUrl": "/bells/images/philadelphia-the-promise-of-what-s-to-come.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-the-promise-of-what-s-to-come",
+		"lat": 39.9346205,
+		"lng": -75.17916,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-united-hunting-park",
+		"county": "Philadelphia",
+		"title": "United Hunting Park",
+		"artist": "Andrew \"Penthouse Art\" Daniels",
+		"address": {
+			"street": "1291 W. Hunting Park Ave.",
+			"city": "Philadelphia",
+			"zip": "19140"
+		},
+		"imageUrl": "/bells/images/philadelphia-united-hunting-park.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-united-hunting-park",
+		"lat": 40.016683,
+		"lng": -75.1469963,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-we-are-harrowgate",
+		"county": "Philadelphia",
+		"title": "We Are Harrowgate",
+		"artist": "Bob Dix",
+		"address": {
+			"venueName": "Harrowgate Park",
+			"street": "3455 Kensington Ave.",
+			"city": "Philadelphia",
+			"zip": "19134"
+		},
+		"imageUrl": "/bells/images/philadelphia-we-are-harrowgate.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-we-are-harrowgate",
+		"lat": 40.0002995,
+		"lng": -75.1063641,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-we-the-people",
+		"county": "Philadelphia",
+		"title": "We The People",
+		"artist": "Tara Jacoby",
+		"address": {
+			"venueName": "Philadelphia Visitor Center, Independence Visitor Center",
+			"street": "1 N. Independence Hall West",
+			"city": "Philadelphia",
+			"zip": "19106"
+		},
+		"imageUrl": "/bells/images/philadelphia-we-the-people.png",
+		"sourceSlug": "philadelphia-we-the-people",
+		"lat": 39.949223,
+		"lng": -75.150767,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-where-global-is-local",
+		"county": "Philadelphia",
+		"title": "Where Global is Local",
+		"artist": "Joanne Gallery",
+		"address": {
+			"venueName": "Olney Community Collaborative, Greater Olney Library",
+			"street": "5501 N. 5th St.",
+			"city": "Philadelphia",
+			"zip": "19120"
+		},
+		"imageUrl": "/bells/images/philadelphia-where-global-is-local.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-where-global-is-local",
+		"lat": 40.0350162,
+		"lng": -75.1305745,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-who-s-your-north-star-",
+		"county": "Philadelphia",
+		"title": "Who's Your North Star?",
+		"artist": "Emily Busch",
+		"address": {
+			"venueName": "Germantown United Community Development Corporation, Germantown Arts District, Joseph E. Coleman Northwest Regional Library",
+			"street": "68 W. Chelten Ave.",
+			"city": "Philadelphia",
+			"zip": "19144"
+		},
+		"imageUrl": "/bells/images/philadelphia-who-s-your-north-star-.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-who-s-your-north-star-",
+		"lat": 40.0340605,
+		"lng": -75.1760528,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "philadelphia-yorktown-historic-and-resilient",
+		"county": "Philadelphia",
+		"title": "Yorktown: Historic and Resilient",
+		"artist": "John J. Abner",
+		"address": {
+			"venueName": "Leon H. Sullivan Charitable Trust",
+			"street": "1415 N. Broad St.",
+			"city": "Philadelphia",
+			"zip": "19122"
+		},
+		"imageUrl": "/bells/images/philadelphia-yorktown-historic-and-resilient.png",
+		"placement": "outdoors",
+		"sourceSlug": "philadelphia-yorktown-historic-and-resilient",
+		"lat": 39.9747526,
+		"lng": -75.158623,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Philadelphia, PA"
+	},
+	{
+		"id": "pike-nature-rings-in-pike-county",
+		"county": "Pike",
+		"title": "Nature Rings in Pike County",
+		"artist": "Delaware High School AP Art Students and Art Faculty",
+		"address": {
+			"venueName": "Milford Community House",
+			"street": "201 Broad Street",
+			"city": "Milford",
+			"zip": "18337"
+		},
+		"imageUrl": "/bells/images/pike-nature-rings-in-pike-county.png",
+		"placement": "outdoors",
+		"sourceSlug": "pike-nature-rings-in-pike-county",
+		"lat": 41.3221356,
+		"lng": -74.8028666,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Milford, PA"
+	},
+	{
+		"id": "potter-land-of-the-free",
+		"county": "Potter",
+		"title": "Land of the Free",
+		"artist": "Miriam Howe",
+		"address": {
+			"venueName": "Gunzburger County Office Building",
+			"street": "One North Main Street",
+			"city": "Coudersport",
+			"zip": "16915"
+		},
+		"imageUrl": "/bells/images/potter-land-of-the-free.png",
+		"placement": "indoors",
+		"sourceSlug": "potter-land-of-the-free",
+		"lat": 41.773679,
+		"lng": -78.021069,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Coudersport, PA"
+	},
+	{
+		"id": "schuylkill-freedom-to-change",
+		"county": "Schuylkill",
+		"title": "Freedom to Change",
+		"artist": "Kimberly Woodward with Tamaqua Area Middle School Art Club 2025-2026",
+		"address": {
+			"venueName": "Liberty Tree Park",
+			"street": "35 N. Railroad Street",
+			"city": "Tamaqua",
+			"zip": "18252"
+		},
+		"imageUrl": "/bells/images/schuylkill-freedom-to-change.png",
+		"placement": "outdoors",
+		"sourceSlug": "schuylkill-freedom-to-change",
+		"lat": 40.7999769,
+		"lng": -75.970297,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Tamaqua, PA"
+	},
+	{
+		"id": "snyder-snyder-county-s-natural-heritage",
+		"county": "Snyder",
+		"title": "Snyder County's Natural Heritage",
+		"artist": "Laura Knorr",
+		"address": {
+			"venueName": "Selinsgrove Borough and Rudy Gelnett Memorial Library Building",
+			"street": "1 N. High Street",
+			"city": "Selinsgrove",
+			"zip": "17870"
+		},
+		"imageUrl": "/bells/images/snyder-snyder-county-s-natural-heritage.png",
+		"placement": "outdoors",
+		"sourceSlug": "snyder-snyder-county-s-natural-heritage",
+		"lat": 40.799721,
+		"lng": -76.863202,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Selinsgrove, PA"
+	},
+	{
+		"id": "somerset-unending-spirit",
+		"county": "Somerset",
+		"title": "Unending Spirit",
+		"artist": "Kathy Trexel Reed",
+		"address": {
+			"venueName": "Somerset County Annex Office Building",
+			"street": "300 North Center Avenue",
+			"city": "Somerset",
+			"zip": "15501"
+		},
+		"imageUrl": "/bells/images/somerset-unending-spirit.png",
+		"placement": "indoors",
+		"sourceSlug": "somerset-unending-spirit",
+		"lat": 40.010346,
+		"lng": -79.078453,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Somerset, PA"
+	},
+	{
+		"id": "sullivan-we-the-people",
+		"county": "Sullivan",
+		"title": "We The People",
+		"artist": "Robert Heinrich Jr.",
+		"address": {
+			"venueName": "Eagles Mere Inn",
+			"street": "29 Mary Avenue",
+			"city": "Eagles Mere",
+			"zip": "17731"
+		},
+		"imageUrl": "/bells/images/sullivan-we-the-people.png",
+		"placement": "outdoors",
+		"sourceSlug": "sullivan-we-the-people",
+		"lat": 41.4097143,
+		"lng": -76.5815911,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Eagles Mere, PA"
+	},
+	{
+		"id": "susquehanna-red-white-and-blueberry",
+		"county": "Susquehanna",
+		"title": "Red, White, and Blueberry",
+		"artist": "Kelly Finan",
+		"address": {
+			"venueName": "Susquehanna County Historical Society",
+			"street": "18 Monument Square",
+			"city": "Montrose",
+			"zip": "18801"
+		},
+		"imageUrl": "/bells/images/susquehanna-red-white-and-blueberry.png",
+		"placement": "outdoors",
+		"sourceSlug": "susquehanna-red-white-and-blueberry",
+		"lat": 41.8338383,
+		"lng": -75.876355,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Montrose, PA"
+	},
+	{
+		"id": "tioga-tioga-county-where-the-path-forks",
+		"county": "Tioga",
+		"title": "Tioga County - Where the Path Forks",
+		"artist": "Randy J. Owen",
+		"address": {
+			"street": "Gate House at Smythe Park 62 South Main Street",
+			"city": "Mansfield",
+			"zip": "16933"
+		},
+		"imageUrl": "/bells/images/tioga-tioga-county-where-the-path-forks.png",
+		"placement": "outdoors",
+		"sourceSlug": "tioga-tioga-county-where-the-path-forks",
+		"lat": 41.806183,
+		"lng": -77.07786,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Mansfield, PA"
+	},
+	{
+		"id": "union-bells-of-lbg",
+		"county": "Union",
+		"title": "Bells of LBG",
+		"artist": "Kate Murphy",
+		"address": {
+			"venueName": "Union County Courthouse",
+			"street": "103 S 2nd St",
+			"city": "Lewisburg",
+			"zip": "17837"
+		},
+		"imageUrl": "/bells/images/union-bells-of-lbg.png",
+		"placement": "indoors",
+		"sourceSlug": "union-bells-of-lbg",
+		"lat": 40.9636517,
+		"lng": -76.8823635,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Lewisburg, PA"
+	},
+	{
+		"id": "venango-progress",
+		"county": "Venango",
+		"title": "PROGRESS",
+		"artist": "Raven Nespor",
+		"address": {
+			"venueName": "Oil Region Venango Campus Rhoades Center",
+			"street": "1801 West First St",
+			"city": "Oil City",
+			"zip": "16301"
+		},
+		"imageUrl": "/bells/images/venango-progress.png",
+		"sourceSlug": "venango-progress",
+		"lat": 41.7737612,
+		"lng": -78.0227184,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Coudersport, PA"
+	},
+	{
+		"id": "warren-reflection-on-warren-s-allegheny-river",
+		"county": "Warren",
+		"title": "Reflection on Warren's Allegheny River",
+		"artist": "LeeAnn Waterhouse",
+		"address": {
+			"venueName": "Warren County Visitors Bureau",
+			"street": "22045 US-Route 6",
+			"city": "Warren",
+			"zip": "16365"
+		},
+		"unveilingAddress": {
+			"venueName": "Warren County Visitors Bureau",
+			"street": "22045 US-Route 6",
+			"city": "Warren",
+			"zip": "16365"
+		},
+		"imageUrl": "/bells/images/warren-reflection-on-warren-s-allegheny-river.png",
+		"placement": "indoors",
+		"sourceSlug": "warren-reflection-on-warren-s-allegheny-river",
+		"lat": 41.846609,
+		"lng": -79.23162,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Warren, PA"
+	},
+	{
+		"id": "washington-the-american-spirit",
+		"county": "Washington",
+		"title": "The American Spirit",
+		"artist": "James Sulkowski",
+		"address": {
+			"venueName": "The Washington County Historical Society",
+			"street": "49 E Maiden Street",
+			"city": "Washington",
+			"zip": "15301"
+		},
+		"imageUrl": "/bells/images/washington-the-american-spirit.png",
+		"placement": "indoors",
+		"sourceSlug": "washington-the-american-spirit",
+		"lat": 40.16812,
+		"lng": -80.2431516,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Washington, PA"
+	},
+	{
+		"id": "wayne-honoring-service-advancing-care",
+		"county": "Wayne",
+		"title": "Honoring Service, Advancing Care",
+		"artist": "Allison LaRussa",
+		"address": {
+			"venueName": "Wayne Memorial Hospital (1st Floor)",
+			"street": "601 Park Street",
+			"city": "Honesdale",
+			"zip": "18431"
+		},
+		"imageUrl": "/bells/images/wayne-honoring-service-advancing-care.png",
+		"placement": "indoors",
+		"sourceSlug": "wayne-honoring-service-advancing-care",
+		"lat": 41.576065,
+		"lng": -75.2603474,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Honesdale, PA"
+	},
+	{
+		"id": "westmoreland-more-energy-in-westmoreland",
+		"county": "Westmoreland",
+		"title": "MORE Energy in Westmoreland",
+		"artist": "Stacey Pydynkowski",
+		"address": {
+			"venueName": "Robert’s Trailhead Westmoreland Heritage Trail",
+			"street": "4301 William Penn Highway",
+			"city": "Murrysville"
+		},
+		"imageUrl": "/bells/images/westmoreland-more-energy-in-westmoreland.png",
+		"placement": "outdoors",
+		"sourceSlug": "westmoreland-more-energy-in-westmoreland",
+		"lat": 40.4270909,
+		"lng": -79.6830514,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Murrysville, PA"
+	},
+	{
+		"id": "westmoreland-there-s-more-in-westmoreland",
+		"county": "Westmoreland",
+		"title": "There’s MORE in Westmoreland",
+		"artist": "Mandy Sirofchuck",
+		"address": {
+			"venueName": "The Westmoreland Museum of American Art",
+			"street": "221 N. Main St.",
+			"city": "Greensburg",
+			"zip": "15601"
+		},
+		"imageUrl": "/bells/images/westmoreland-there-s-more-in-westmoreland.png",
+		"placement": "outdoors",
+		"sourceSlug": "westmoreland-there-s-more-in-westmoreland",
+		"lat": 40.3055905,
+		"lng": -79.5452441,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Greensburg, PA"
+	},
+	{
+		"id": "wyoming-community-united-through-strength",
+		"county": "Wyoming",
+		"title": "Community United Through Strength",
+		"artist": "Allison LaRussa",
+		"address": {
+			"venueName": "Wyoming County Healthcare Center (1st Floor)",
+			"street": "5950 U.S. Route 6",
+			"city": "Tunkhannock",
+			"zip": "18657"
+		},
+		"imageUrl": "/bells/images/wyoming-community-united-through-strength.png",
+		"placement": "indoors",
+		"sourceSlug": "wyoming-community-united-through-strength",
+		"lat": 41.55957,
+		"lng": -75.84899,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "Tunkhannock, PA"
+	},
+	{
+		"id": "york-we-the-people-we-were-here",
+		"county": "York",
+		"title": "We the People, We Were Here",
+		"artist": "Ophelia Chambliss",
+		"address": {
+			"venueName": "New Freedom Rail Trail",
+			"street": "117 N. Front Street",
+			"city": "New Freedom",
+			"zip": "17349"
+		},
+		"imageUrl": "/bells/images/york-we-the-people-we-were-here.png",
+		"sourceSlug": "york-we-the-people-we-were-here",
+		"lat": 39.7401012,
+		"lng": -76.7006369,
+		"geocodeQuality": "exact",
+		"geocodeSource": "opencage",
+		"localityLabel": "New Freedom, PA"
+	}
 ]
