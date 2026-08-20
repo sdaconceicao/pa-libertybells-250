@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.0](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.5.0...v0.6.0) (2026-08-20)
+
+
+### Features
+
+* Added new bells, and fixed issue with sync removing entries ([#78](https://github.com/sdaconceicao/pa-libertybells-250/issues/78)) ([eb0fba0](https://github.com/sdaconceicao/pa-libertybells-250/commit/eb0fba070c84923654016af2a23cce9505ca9835))
+* Lago setup ([#75](https://github.com/sdaconceicao/pa-libertybells-250/issues/75)) ([669c061](https://github.com/sdaconceicao/pa-libertybells-250/commit/669c061353acc8eb3e2e5dc0bbbd6005a9f58675))
+
 ## [0.5.0](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.4.0...v0.5.0) (2026-07-22)
 
 
