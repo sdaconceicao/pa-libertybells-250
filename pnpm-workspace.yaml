@@ -2,5 +2,6 @@ allowBuilds:
   esbuild: false
   sharp: false
 
-minimumReleaseAgeExclude:
-  - '@code-x/lago@0.7.0'
+# Security overrides, all sourced from `pnpm audit`. Keys are version-scoped
+overrides:
+  "undici@^7": "^7.29.0"
