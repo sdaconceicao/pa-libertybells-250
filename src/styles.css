@@ -134,12 +134,16 @@
 		color: HighlightText;
 	}
 }
-
 @media (max-width: 767px) {
+	* {
+		--avatar-size: var(--mobile-control-height);
+	}
 	:root {
-		/* Shrink the account circle to match the search input on mobile; the
-       header reserve below it tracks this automatically. */
-		--account-circle-size: var(--mobile-control-height);
+		--account-circle-reserve: calc(
+			var(--account-circle-inset) +
+			var(--mobile-control-height) +
+			0.75rem
+		);
 	}
 }
 
