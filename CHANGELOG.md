@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.6.0...v0.6.1) (2026-09-02)
+
+
+### Bug Fixes
+
+* Avatar Layout fix, google fix ([#84](https://github.com/sdaconceicao/pa-libertybells-250/issues/84)) ([a5eca5f](https://github.com/sdaconceicao/pa-libertybells-250/commit/a5eca5fb858b7b2bc65afb8584a42895a62a8bcf))
+
 ## [0.6.0](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.5.0...v0.6.0) (2026-08-20)
 
 
