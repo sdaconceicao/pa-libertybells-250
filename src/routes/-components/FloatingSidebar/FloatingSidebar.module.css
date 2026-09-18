@@ -1,7 +1,4 @@
 .sidebar {
-	--sidebar-width: min(22rem, calc(100vw - 2rem));
-	--sidebar-handle-width: 1.25rem;
-
 	position: absolute;
 	top: 0;
 	left: 0;

@@ -7,6 +7,7 @@ type Props = {
 	bells: Bell[];
 	onBellHover?: (bellId: string | null) => void;
 	onBellSelect?: (bellId: string) => void;
+	onInteract?: () => void;
 	showLogo?: boolean;
 	variant?: "desktop" | "mobile" | "mobileMap" | "map";
 };
@@ -15,6 +16,7 @@ export function ListHeader({
 	bells,
 	onBellHover,
 	onBellSelect,
+	onInteract,
 	showLogo = true,
 	variant = "desktop",
 }: Props) {
@@ -39,6 +41,7 @@ export function ListHeader({
 				className={styles.search}
 				onBellHover={onBellHover}
 				onBellSelect={onBellSelect}
+				onInteract={onInteract}
 			/>
 		</div>
 	);

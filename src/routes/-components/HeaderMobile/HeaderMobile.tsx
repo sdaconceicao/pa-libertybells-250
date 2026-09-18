@@ -7,6 +7,7 @@ type Props = {
 	bells: Bell[];
 	onBellHover: (bellId: string | null) => void;
 	onBellSelect: (bellId: string) => void;
+	onInteract?: () => void;
 	showInstallBanner?: boolean;
 };
 
@@ -14,6 +15,7 @@ export function HeaderMobile({
 	bells,
 	onBellHover,
 	onBellSelect,
+	onInteract,
 	showInstallBanner = false,
 }: Props) {
 	return (
@@ -23,6 +25,7 @@ export function HeaderMobile({
 					bells={bells}
 					onBellHover={onBellHover}
 					onBellSelect={onBellSelect}
+					onInteract={onInteract}
 					variant="mobileMap"
 				/>
 			</div>

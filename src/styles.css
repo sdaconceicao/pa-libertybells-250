@@ -18,6 +18,9 @@
 	--color-chip-border: rgba(215, 161, 41, 0.35);
 	--shadow-sm: 0 4px 24px rgba(23, 7, 78, 0.12);
 	--shadow-lg: 0 8px 32px rgba(23, 7, 78, 0.16);
+	/* Desktop list/filter column (src/routes/-components/FloatingSidebar). */
+	--sidebar-width: min(22rem, calc(100vw - 2rem));
+	--sidebar-handle-width: 1.25rem;
 	/* Shared height for the mobile header controls (search input, account
      circle, and logo) so they line up at the same size. */
 	--mobile-control-height: 2.25rem;

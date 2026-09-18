@@ -10,6 +10,7 @@ type Props = {
 	className?: string;
 	onBellHover?: (bellId: string | null) => void;
 	onBellSelect?: (bellId: string) => void;
+	onInteract?: () => void;
 };
 
 export function BellSearch({
@@ -17,8 +18,19 @@ export function BellSearch({
 	className,
 	onBellHover,
 	onBellSelect,
+	onInteract,
 }: Props) {
 	const [query, setQuery] = useState("");
+
+	const handleQueryChange = useCallback(
+		(value: string) => {
+			setQuery(value);
+			if (value) {
+				onInteract?.();
+			}
+		},
+		[onInteract],
+	);
 
 	// A suggestion only carries `id` and `label`, so renderSuggestion looks the
 	// bell back up to draw its thumbnail and details.
@@ -47,7 +59,7 @@ export function BellSearch({
 			placeholder="Search titles or artists"
 			value={query}
 			debounceDelay={0}
-			onChange={setQuery}
+			onChange={handleQueryChange}
 			loadSuggestions={loadSuggestions}
 			renderSuggestion={(suggestion) => {
 				const bell = bellsById.get(suggestion.id);
