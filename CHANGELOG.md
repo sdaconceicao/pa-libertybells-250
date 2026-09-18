@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.7.0](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.6.0...v0.7.0) (2026-09-18)
+
+
+### Features
+
+* Landing page ([#88](https://github.com/sdaconceicao/pa-libertybells-250/issues/88)) ([fed342f](https://github.com/sdaconceicao/pa-libertybells-250/commit/fed342f8db9c806a1e9d1d0378800bd9b7c89e71))
+
+
+### Bug Fixes
+
+* Avatar Layout fix, google fix ([#84](https://github.com/sdaconceicao/pa-libertybells-250/issues/84)) ([a5eca5f](https://github.com/sdaconceicao/pa-libertybells-250/commit/a5eca5fb858b7b2bc65afb8584a42895a62a8bcf))
+* Updated logo ([#87](https://github.com/sdaconceicao/pa-libertybells-250/issues/87)) ([d6bec46](https://github.com/sdaconceicao/pa-libertybells-250/commit/d6bec46204aad81a170b34518a1f91ac6424891d))
+
 ## [0.6.0](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.5.0...v0.6.0) (2026-08-20)
 
 
