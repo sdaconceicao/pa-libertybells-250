@@ -6,8 +6,14 @@ import styles from "./AccountMenu.module.css";
 
 type Mode = "login" | "register";
 
-export function AuthForm({ onSuccess }: { onSuccess?: () => void }) {
-	const [mode, setMode] = useState<Mode>("login");
+export function AuthForm({
+	onSuccess,
+	initialMode = "login",
+}: {
+	onSuccess?: () => void;
+	initialMode?: Mode;
+}) {
+	const [mode, setMode] = useState<Mode>(initialMode);
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
