@@ -149,7 +149,11 @@ export function LandingOverlay({
 								key={bell.id}
 								type="button"
 								className={styles.featuredCard}
-								aria-label={`${bell.title}, ${bell.county} County`}
+								aria-label={
+									bell.artist
+										? `${bell.title} by ${bell.artist}, ${bell.county} County`
+										: `${bell.title}, ${bell.county} County`
+								}
 								onClick={() => handleFeaturedSelect(bell.id)}
 							>
 								<div className={styles.featuredMediaFrame}>
@@ -163,6 +167,9 @@ export function LandingOverlay({
 								<div className={styles.featuredInfo}>
 									<div>
 										<p className={styles.featuredName}>{bell.title}</p>
+										{bell.artist ? (
+											<p className={styles.featuredArtist}>by {bell.artist}</p>
+										) : null}
 										<p className={styles.featuredCounty}>
 											{bell.county} County
 										</p>

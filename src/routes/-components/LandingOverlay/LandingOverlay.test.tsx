@@ -101,7 +101,9 @@ describe("LandingOverlay", () => {
 			}),
 		).toBeTruthy();
 		expect(screen.getByTestId("logo-circle")).toBeTruthy();
-		expect(screen.queryByText("by James Sulkowski")).toBeNull();
+		expect(screen.getByText("by James Sulkowski")).toBeTruthy();
+		expect(screen.getByText("by Tom Panei")).toBeTruthy();
+		expect(screen.getByText("by Scott Saloney")).toBeTruthy();
 		const overlay = screen.getByTestId("landing-overlay");
 		expect(overlay.tagName).toBe("SECTION");
 		expect(overlay.getAttribute("aria-modal")).toBeNull();

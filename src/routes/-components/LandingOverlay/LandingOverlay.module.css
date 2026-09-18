@@ -2,8 +2,10 @@
 	position: absolute;
 	/* Above the account avatar (1200) and below the auth modal (2000). */
 	z-index: 1400;
-	top: 1rem;
-	bottom: 1rem;
+	top: 50%;
+	translate: 0 -50%;
+	height: min(850px, calc(100% - 2rem));
+	max-height: 850px;
 	display: flex;
 	flex-direction: column;
 	min-width: 0;
@@ -278,6 +280,16 @@
 	overflow: hidden;
 }
 
+.featuredArtist {
+	margin: 0.25rem 0 0;
+	font-size: 0.8125rem;
+	font-weight: 600;
+	color: var(--color-text-muted);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 .featuredCounty {
 	margin: 0.25rem 0 0;
 	font-size: 0.75rem;
@@ -289,6 +301,12 @@
 
 .featuredArrow {
 	color: var(--color-text-muted);
+}
+
+@container (max-height: 20rem) {
+	.featuredArtist {
+		display: none;
+	}
 }
 
 @container (max-height: 16rem) {
@@ -303,8 +321,9 @@
 	.panelSidebarClosed {
 		left: 1rem;
 		right: 1rem;
-		top: 1rem;
-		bottom: calc(var(--mobile-toggle-reserve) + 0.5rem);
+		top: calc((100% - var(--mobile-toggle-reserve) + 0.5rem) / 2);
+		translate: 0 -50%;
+		height: min(850px, calc(100% - var(--mobile-toggle-reserve) - 1.5rem));
 		padding: 1.5rem 1.25rem 1.25rem;
 	}
 
