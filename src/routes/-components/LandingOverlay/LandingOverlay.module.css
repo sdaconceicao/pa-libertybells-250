@@ -312,7 +312,20 @@
 }
 
 @container (max-height: 16rem) {
+	.featuredGrid {
+		grid-template-rows: 7rem auto;
+		min-height: 0;
+	}
+
+	.featuredMediaFrame {
+		min-height: 0;
+	}
+
 	.featuredInfo {
+		padding: 0 0.75rem 0.75rem;
+	}
+
+	.featuredArrow {
 		display: none;
 	}
 }

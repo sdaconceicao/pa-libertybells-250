@@ -87,9 +87,7 @@ export function LandingOverlay({
 						Find. Visit. Collect. For America’s 250th Anniversary.
 					</p>
 					<p className={styles.body}>
-						Explore the bells, visit them in person, and collect their stories
-						as we celebrate Pennsylvania’s people, places, and the enduring
-						spirit of liberty.
+						Explore the state's Liberty Bells, visit them in person, and learn about their stories as we celebrate Pennsylvania's people, places, and history.
 					</p>
 				</div>
 				<div className={styles.brand}>
