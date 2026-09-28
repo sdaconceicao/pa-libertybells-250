@@ -12,6 +12,22 @@ import { AuthModalProvider } from "./-components/AuthModal/AuthModalContext";
 import { VisitStatusProvider } from "../lib/visits/VisitStatusContext";
 import appCss from "../styles.css?url";
 
+const umamiScripts =
+	import.meta.env.VITE_VERCEL_ENV === "production"
+		? [
+				{
+					defer: true,
+					src: "https://umami-pearl-three.vercel.app/script.js",
+					"data-website-id": "80329246-14f4-45ba-a231-0974e903efe3",
+				},
+				{
+					defer: true,
+					src: "https://umami-pearl-three.vercel.app/recorder.js",
+					"data-website-id": "80329246-14f4-45ba-a231-0974e903efe3",
+				},
+			]
+		: [];
+
 export const Route = createRootRoute({
 	head: () => ({
 		meta: [
@@ -84,6 +100,7 @@ export const Route = createRootRoute({
 			},
 		],
 		scripts: [
+			...umamiScripts,
 			{
 				// Register service worker — runs only in the browser
 				children: `if ('serviceWorker' in navigator) {
