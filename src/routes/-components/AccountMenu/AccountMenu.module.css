@@ -51,9 +51,8 @@
 }
 
 @media (max-width: 767px) {
-	/* --account-circle-size lands on Lago's `md` step here; follow it with the
-     matching type size so initials stay in proportion. */
 	.avatar {
+		--avatar-size: var(--mobile-control-height);
 		--avatar-font-size: var(--font-size);
 	}
 }

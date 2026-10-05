@@ -8,9 +8,11 @@ import {
 } from "react";
 import { AuthModal } from "./AuthModal";
 
+export type AuthModalMode = "login" | "register";
+
 type AuthModalContextValue = {
 	isOpen: boolean;
-	openAuthModal: () => void;
+	openAuthModal: (mode?: AuthModalMode) => void;
 	closeAuthModal: () => void;
 };
 
@@ -18,8 +20,12 @@ const AuthModalContext = createContext<AuthModalContextValue | null>(null);
 
 export function AuthModalProvider({ children }: { children: ReactNode }) {
 	const [isOpen, setIsOpen] = useState(false);
+	const [mode, setMode] = useState<AuthModalMode>("login");
 
-	const openAuthModal = useCallback(() => setIsOpen(true), []);
+	const openAuthModal = useCallback((nextMode: AuthModalMode = "login") => {
+		setMode(nextMode);
+		setIsOpen(true);
+	}, []);
 	const closeAuthModal = useCallback(() => setIsOpen(false), []);
 
 	const value = useMemo(
@@ -30,7 +36,9 @@ export function AuthModalProvider({ children }: { children: ReactNode }) {
 	return (
 		<AuthModalContext.Provider value={value}>
 			{children}
-			{isOpen ? <AuthModal onClose={closeAuthModal} /> : null}
+			{isOpen ? (
+				<AuthModal onClose={closeAuthModal} initialMode={mode} />
+			) : null}
 		</AuthModalContext.Provider>
 	);
 }

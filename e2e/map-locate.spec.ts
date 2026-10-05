@@ -1,4 +1,5 @@
 import { expect, type Page, test } from "@playwright/test";
+import { skipLandingOverlay } from "./helpers/landingOverlay";
 import { waitForMapCenteredOnBell, waitForMapTiles } from "./helpers/leaflet";
 
 // A location comfortably inside Pennsylvania so the recenter is unambiguous.
@@ -32,6 +33,7 @@ test("locate button centers the map on the visitor's granted location", async ({
 		longitude: MY_LOCATION.lng,
 	});
 
+	await skipLandingOverlay(page);
 	await page.goto("/");
 	await expect(page.locator(".leaflet-container")).toBeVisible({
 		timeout: 15_000,
@@ -60,6 +62,7 @@ test("locate button warns when location access is denied", async ({
 	// No geolocation permission granted → the browser reports PERMISSION_DENIED.
 	await context.clearPermissions();
 
+	await skipLandingOverlay(page);
 	await page.goto("/");
 	await expect(page.locator(".leaflet-container")).toBeVisible({
 		timeout: 15_000,

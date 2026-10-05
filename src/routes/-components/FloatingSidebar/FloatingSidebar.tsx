@@ -11,12 +11,14 @@ type Props = Omit<
 	isOpen: boolean;
 	onClose: () => void;
 	onOpen: () => void;
+	onInteract?: () => void;
 };
 
 export function FloatingSidebar({
 	isOpen,
 	onClose,
 	onOpen,
+	onInteract,
 	bells,
 	onBellHover,
 	onBellSelect,
@@ -30,13 +32,14 @@ export function FloatingSidebar({
 		.join(" ");
 
 	return (
-		<aside className={sidebarClassName}>
+		<aside className={sidebarClassName} onPointerDownCapture={onInteract}>
 			{isOpen ? (
 				<div className={styles.sidebarHeader}>
 					<ListHeader
 						bells={bells}
 						onBellHover={onBellHover}
 						onBellSelect={onBellSelect}
+						onInteract={onInteract}
 						variant="desktop"
 					/>
 				</div>

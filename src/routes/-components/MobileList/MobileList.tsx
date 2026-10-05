@@ -9,22 +9,28 @@ type Props = Omit<
 	"filtersPlacement" | "listVariant"
 > & {
 	showInstallBanner?: boolean;
+	onInteract?: () => void;
 };
 
 export function MobileList({
 	bells,
 	onBellHover,
 	onBellSelect,
+	onInteract,
 	showInstallBanner = false,
 	...panelProps
 }: Props) {
 	return (
-		<section className={styles.mobileListLayer}>
+		<section
+			className={styles.mobileListLayer}
+			onPointerDownCapture={onInteract}
+		>
 			<header className={styles.mobileListHeader}>
 				<ListHeader
 					bells={bells}
 					onBellHover={onBellHover}
 					onBellSelect={onBellSelect}
+					onInteract={onInteract}
 					variant="mobile"
 				/>
 			</header>

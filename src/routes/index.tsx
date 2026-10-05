@@ -6,6 +6,11 @@ import { BellsMap } from "./-components/BellsMap";
 import { FloatingSidebar } from "./-components/FloatingSidebar/FloatingSidebar";
 import { HeaderDesktop } from "./-components/HeaderDesktop/HeaderDesktop";
 import { HeaderMobile } from "./-components/HeaderMobile/HeaderMobile";
+import { LandingOverlay } from "./-components/LandingOverlay";
+import {
+	LandingOverlayProvider,
+	useLandingOverlayState,
+} from "./-components/LandingOverlay/useLandingOverlay";
 import { MobileList } from "./-components/MobileList/MobileList";
 import { MobileViewToggle } from "./-components/MobileViewToggle/MobileViewToggle";
 import { useGeolocation } from "../hooks/useGeolocation";
@@ -24,6 +29,15 @@ export const Route = createFileRoute("/")({
 });
 
 function BellsPage() {
+	return (
+		<LandingOverlayProvider>
+			<BellsPageContent />
+		</LandingOverlayProvider>
+	);
+}
+
+function BellsPageContent() {
+	const { dismiss: dismissLanding } = useLandingOverlayState();
 	const bells = Route.useLoaderData();
 	const {
 		isMobile,
@@ -97,6 +111,13 @@ function BellsPage() {
 		showMap,
 		showList,
 	});
+	const selectBell = useCallback(
+		(bellId: string) => {
+			dismissLanding();
+			handleBellSelect(bellId);
+		},
+		[dismissLanding, handleBellSelect],
+	);
 
 	const showMobileMap = isMobile && mobileView === "map";
 	const showDesktopMap = !isMobile;
@@ -116,7 +137,7 @@ function BellsPage() {
 		bells: visibleBells,
 		hasActiveFilters,
 		onBellHover: handleBellHover,
-		onBellSelect: handleBellSelect,
+		onBellSelect: selectBell,
 		countyOptions,
 		draft,
 		applied,
@@ -155,21 +176,23 @@ function BellsPage() {
 					isMobile={isMobile}
 					highlightRef={highlightBellRef}
 					selectedBellId={selectedBellId}
-					onBellSelect={handleBellSelect}
+					onBellSelect={selectBell}
 				/>
 				{showMapHeader ? (
 					isMobile ? (
 						<HeaderMobile
 							bells={visibleBells}
 							onBellHover={handleBellHover}
-							onBellSelect={handleBellSelect}
+							onBellSelect={selectBell}
+							onInteract={dismissLanding}
 							showInstallBanner={showInstallBanner && mobileView === "map"}
 						/>
 					) : (
 						<HeaderDesktop
 							bells={visibleBells}
 							onBellHover={handleBellHover}
-							onBellSelect={handleBellSelect}
+							onBellSelect={selectBell}
+							onInteract={dismissLanding}
 						/>
 					)
 				) : null}
@@ -178,6 +201,7 @@ function BellsPage() {
 			{renderMobileList ? (
 				<MobileList
 					{...bellsPanelProps}
+					onInteract={dismissLanding}
 					showInstallBanner={showInstallBanner}
 				/>
 			) : null}
@@ -187,6 +211,7 @@ function BellsPage() {
 					isOpen={sidebarOpen}
 					onClose={closeSidebar}
 					onOpen={openSidebar}
+					onInteract={dismissLanding}
 					{...bellsPanelProps}
 				/>
 			) : null}
@@ -198,6 +223,12 @@ function BellsPage() {
 					onShowList={handleShowList}
 				/>
 			) : null}
+
+			<LandingOverlay
+				bells={bells}
+				onBellSelect={selectBell}
+				sidebarOpen={renderDesktopSidebar && sidebarOpen}
+			/>
 		</main>
 	);
 }

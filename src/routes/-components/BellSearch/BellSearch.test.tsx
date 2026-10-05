@@ -105,6 +105,22 @@ describe("BellSearch", () => {
 		expect(input.value).toBe("");
 	});
 
+	it("notifies onInteract when the query changes", async () => {
+		const user = userEvent.setup();
+		const onInteract = vi.fn();
+
+		render(
+			<BellSearch
+				bells={[makeBell({ id: "a", title: "Gettysburg Bell" })]}
+				onInteract={onInteract}
+			/>,
+		);
+
+		await user.type(screen.getByRole("searchbox"), "g");
+
+		expect(onInteract).toHaveBeenCalled();
+	});
+
 	it("shows an empty message when nothing matches", async () => {
 		const user = userEvent.setup();
 		render(

@@ -7,9 +7,15 @@ type Props = {
 	bells: Bell[];
 	onBellHover: (bellId: string | null) => void;
 	onBellSelect: (bellId: string) => void;
+	onInteract?: () => void;
 };
 
-export function HeaderDesktop({ bells, onBellHover, onBellSelect }: Props) {
+export function HeaderDesktop({
+	bells,
+	onBellHover,
+	onBellSelect,
+	onInteract,
+}: Props) {
 	return (
 		<>
 			<div className={styles.mapHeader}>
@@ -17,6 +23,7 @@ export function HeaderDesktop({ bells, onBellHover, onBellSelect }: Props) {
 					bells={bells}
 					onBellHover={onBellHover}
 					onBellSelect={onBellSelect}
+					onInteract={onInteract}
 					className={styles.mapHeaderSearch}
 				/>
 			</div>

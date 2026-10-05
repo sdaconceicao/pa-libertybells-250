@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { skipLandingOverlay } from "./helpers/landingOverlay";
 import {
 	getMapTileState,
 	tileDistance,
@@ -18,6 +19,7 @@ const MAX_TILE_DISTANCE = 2;
 test("list view loads, selecting a bell shows detail and centers the map", async ({
 	page,
 }) => {
+	await skipLandingOverlay(page);
 	await page.goto("/");
 
 	await expect(page.locator(".leaflet-container")).toBeVisible({

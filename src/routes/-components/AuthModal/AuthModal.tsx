@@ -2,9 +2,16 @@ import { IconButton } from "@code-x/lago";
 import { X } from "lucide-react";
 import { useEffect } from "react";
 import { AuthForm } from "../AccountMenu/AuthForm";
+import type { AuthModalMode } from "./AuthModalContext";
 import styles from "./AuthModal.module.css";
 
-export function AuthModal({ onClose }: { onClose: () => void }) {
+export function AuthModal({
+	onClose,
+	initialMode = "login",
+}: {
+	onClose: () => void;
+	initialMode?: AuthModalMode;
+}) {
 	useEffect(() => {
 		function handleKey(event: KeyboardEvent) {
 			if (event.key === "Escape") onClose();
@@ -42,7 +49,7 @@ export function AuthModal({ onClose }: { onClose: () => void }) {
 						Track the bells you want to visit and the ones you’ve been to.
 					</p>
 				</div>
-				<AuthForm onSuccess={onClose} />
+				<AuthForm onSuccess={onClose} initialMode={initialMode} />
 			</div>
 		</div>
 	);
