@@ -1,4 +1,4 @@
-.bellCluster:global(.leaflet-div-icon) {
+.bellCluster {
 	background: transparent;
 	border: none;
 }

@@ -72,7 +72,7 @@ Add the same env vars (`BETTER_AUTH_SECRET`, `DATABASE_URL`, and the four OAuth 
 - [TanStack Start](https://tanstack.com/start) and [TanStack Router](https://tanstack.com/router) (file-based routes in `src/routes/`)
 - [React](https://react.dev/) 19
 - [Vite](https://vite.dev/) 7 with [Nitro](https://nitro.build/)
-- [Leaflet](https://leafletjs.com/) / [react-leaflet](https://react-leaflet.js.org/) for the map
+- [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/) with [OpenFreeMap](https://openfreemap.org/) vector tiles for the map
 - [Better Auth](https://better-auth.com/) for authentication (email/password + Google + Facebook)
 - [Neon](https://neon.tech/) Postgres with [Drizzle ORM](https://orm.drizzle.team/)
 - [Biome](https://biomejs.dev/) for linting and formatting

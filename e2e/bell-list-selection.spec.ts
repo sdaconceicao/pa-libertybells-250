@@ -5,7 +5,7 @@ import {
 	tileDistance,
 	waitForMapCenteredOnBell,
 	waitForMapTiles,
-} from "./helpers/leaflet";
+} from "./helpers/maplibre";
 
 const FIRST_BELL = {
 	title: "For the People",
@@ -22,11 +22,11 @@ test("list view loads, selecting a bell shows detail and centers the map", async
 	await skipLandingOverlay(page);
 	await page.goto("/");
 
-	await expect(page.locator(".leaflet-container")).toBeVisible({
+	await expect(page.locator(".maplibregl-map")).toBeVisible({
 		timeout: 15_000,
 	});
 	await expect(
-		page.getByRole("button", { name: new RegExp(FIRST_BELL.title, "i") }),
+		page.getByRole("button", { name: new RegExp(`${FIRST_BELL.title} ${FIRST_BELL.title}`, "i") }),
 	).toBeVisible();
 	await expect(page.getByRole("region", { name: "Filter bells" })).toBeVisible();
 
@@ -36,7 +36,7 @@ test("list view loads, selecting a bell shows detail and centers the map", async
 	expect(mapStateBefore.zoom).toBeLessThan(SELECT_ZOOM);
 
 	await page
-		.getByRole("button", { name: new RegExp(FIRST_BELL.title, "i") })
+		.getByRole("button", { name: new RegExp(`${FIRST_BELL.title} ${FIRST_BELL.title}`, "i") })
 		.click();
 
 	const popup = page.getByTestId("bell-popup");

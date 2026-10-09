@@ -1,6 +1,8 @@
-.bellMarker:global(.leaflet-div-icon) {
+.bellMarker {
 	background: transparent;
 	border: none;
+	padding: 0;
+	cursor: pointer;
 }
 
 .bellMarker svg {
