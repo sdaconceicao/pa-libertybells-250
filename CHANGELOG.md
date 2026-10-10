@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.7.0...v0.8.0) (2026-10-10)
+
+
+### Features
+
+* MapLibre integration ([#95](https://github.com/sdaconceicao/pa-libertybells-250/issues/95)) ([fda1dc5](https://github.com/sdaconceicao/pa-libertybells-250/commit/fda1dc5b1361ffa7acdb6bf05bb8c0c24d771c0e))
+
 ## [0.7.0](https://github.com/sdaconceicao/pa-libertybells-250/compare/v0.6.0...v0.7.0) (2026-09-29)
 
 
