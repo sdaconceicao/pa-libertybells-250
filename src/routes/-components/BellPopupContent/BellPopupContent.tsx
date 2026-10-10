@@ -68,12 +68,21 @@ export function BellPopupContent({
 						<X size={16} aria-hidden="true" />
 					</IconButton>
 				) : null}
-				<ImagePlaceholder
-					src={getBellMediumUrl(bell.imageUrl)}
-					alt={`Image for bell ${bell.title}`}
-					className={styles.headerMedia}
-					errorCode={null}
-				/>
+				<div className={styles.headerImageFrame}>
+					<ImagePlaceholder
+						src={getBellMediumUrl(bell.imageUrl)}
+						alt={`Image for bell ${bell.title}`}
+						className={[
+							styles.headerMedia,
+							bell.id === "beaver-beaver-county-landmarks"
+								? styles.headerMediaCrop
+								: "",
+						]
+							.filter(Boolean)
+							.join(" ")}
+						errorCode={null}
+					/>
+				</div>
 				<MetaBar
 					nav={
 						showNavigation ? (

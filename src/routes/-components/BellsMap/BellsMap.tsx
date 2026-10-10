@@ -2,7 +2,7 @@ import { ClientOnly } from "@tanstack/react-router";
 import type { RefObject } from "react";
 import type { Bell } from "../../../lib/bells/types";
 import { MapLoading } from "../MapLoading/MapLoading";
-import { LeafletMap } from "../LeafletMap/LeafletMap";
+import { MapLibreMap } from "../MapLibreMap/MapLibreMap";
 
 type Props = {
 	bells: Bell[];
@@ -23,7 +23,7 @@ export function BellsMap({
 }: Props) {
 	return (
 		<ClientOnly fallback={<MapLoading />}>
-			<LeafletMap
+			<MapLibreMap
 				bells={bells}
 				sidebarOpen={sidebarOpen}
 				isMobile={isMobile}

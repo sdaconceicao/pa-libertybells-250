@@ -88,10 +88,10 @@ export const Route = createRootRoute({
 				rel: "stylesheet",
 				href: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap",
 			},
-			// Warm up the tile server connection before Leaflet requests tiles.
+			// Warm up the vector tile server connection.
 			{
 				rel: "preconnect",
-				href: "https://a.tile.openstreetmap.org",
+				href: "https://tiles.openfreemap.org",
 				crossOrigin: "anonymous",
 			},
 			{

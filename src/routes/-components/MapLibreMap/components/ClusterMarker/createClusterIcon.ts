@@ -1,5 +1,3 @@
-import type * as Leaflet from "leaflet";
-
 import clusterSvg from "./cluster.svg?raw";
 import styles from "./ClusterMarker.module.css";
 
@@ -54,20 +52,4 @@ export function getClusterIconDimensions(tier: ClusterTier): {
 
 export function buildClusterIconHtml(count: number): string {
 	return `<div class="${styles.clusterMarker}">${clusterSvg}<span class="${styles.clusterCount}" aria-hidden="true">${count}</span></div>`;
-}
-
-export function createClusterIconFactory(L: typeof Leaflet) {
-	return (cluster: Leaflet.MarkerCluster) => {
-		const count = cluster.getChildCount();
-		const tier = getClusterTier(count);
-		const sizeClass = getClusterSizeClass(tier);
-		const { iconSize, iconAnchor } = getClusterIconDimensions(tier);
-
-		return L.divIcon({
-			html: buildClusterIconHtml(count),
-			className: `${styles.bellCluster} ${sizeClass}`,
-			iconSize,
-			iconAnchor,
-		});
-	};
 }

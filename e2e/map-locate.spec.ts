@@ -1,6 +1,6 @@
 import { expect, type Page, test } from "@playwright/test";
 import { skipLandingOverlay } from "./helpers/landingOverlay";
-import { waitForMapCenteredOnBell, waitForMapTiles } from "./helpers/leaflet";
+import { waitForMapCenteredOnBell, waitForMapTiles } from "./helpers/maplibre";
 
 // A location comfortably inside Pennsylvania so the recenter is unambiguous.
 const MY_LOCATION = {
@@ -35,7 +35,7 @@ test("locate button centers the map on the visitor's granted location", async ({
 
 	await skipLandingOverlay(page);
 	await page.goto("/");
-	await expect(page.locator(".leaflet-container")).toBeVisible({
+	await expect(page.locator(".maplibregl-map")).toBeVisible({
 		timeout: 15_000,
 	});
 	await waitForMapTiles(page);
@@ -64,7 +64,7 @@ test("locate button warns when location access is denied", async ({
 
 	await skipLandingOverlay(page);
 	await page.goto("/");
-	await expect(page.locator(".leaflet-container")).toBeVisible({
+	await expect(page.locator(".maplibregl-map")).toBeVisible({
 		timeout: 15_000,
 	});
 	await waitForMapTiles(page);
