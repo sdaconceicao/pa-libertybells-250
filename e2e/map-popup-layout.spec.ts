@@ -7,26 +7,35 @@ test("bell popups and images have a consistent size", async ({ page }) => {
   await page.goto("/");
   await waitForMapTiles(page);
   await page.getByRole("button", { name: "Close bells list" }).click();
-  await page.waitForTimeout(300);
-
+  await page.mouse.move(0, 0);
+  await expect(page.locator(".maplibregl-popup-content")).toBeHidden();
   const markers = page.locator('.maplibregl-marker[aria-label]:not([aria-label^="Zoom to"])');
   await expect.poll(() => markers.count()).toBeGreaterThanOrEqual(2);
+  const titles = await markers.evaluateAll((elements) => elements.slice(0, 2).map((element) => element.getAttribute("aria-label")));
+  expect(titles[0]).toBeTruthy();
+  expect(titles[1]).toBeTruthy();
+  expect(titles[0]).not.toBe(titles[1]);
   const dimensions: Array<{ popupWidth: number; popupHeight: number; imageWidth: number; imageHeight: number }> = [];
 
-  for (let index = 0; index < 2; index++) {
-    const marker = markers.nth(index);
-    await marker.hover();
+  for (const title of titles) {
+    if (!title) throw new Error("Bell marker is missing its title");
+    const marker = page.locator(`.maplibregl-marker[aria-label=${JSON.stringify(title)}]`);
+    await marker.dispatchEvent("mouseenter");
     const popup = page.locator(".maplibregl-popup-content");
-    await expect(popup).toBeVisible();
-    const image = popup.locator('img[alt^="Image for bell"]');
-    await expect(image).toBeVisible();
-    const popupBox = await popup.boundingBox();
-    const imageBox = await image.boundingBox();
-    expect(popupBox && imageBox).toBeTruthy();
-    if (!popupBox || !imageBox) continue;
-    dimensions.push({ popupWidth: popupBox.width, popupHeight: popupBox.height, imageWidth: imageBox.width, imageHeight: imageBox.height });
-    await page.locator(".maplibregl-popup-close-button").dispatchEvent("click");
-    await expect(popup).toBeHidden();
+    let size: (typeof dimensions)[number] | null = null;
+    await expect.poll(async () => {
+      size = await popup.evaluate((element, expectedTitle) => {
+        const image = [...element.querySelectorAll("img")].find((item) => item.alt === `Image for bell ${expectedTitle}`);
+        if (!image) return null;
+        const popupBox = element.getBoundingClientRect();
+        const imageBox = image.getBoundingClientRect();
+        if (!popupBox.width || !popupBox.height || !imageBox.width || !imageBox.height) return null;
+        return { popupWidth: popupBox.width, popupHeight: popupBox.height, imageWidth: imageBox.width, imageHeight: imageBox.height };
+      }, title).catch(() => null);
+      return size !== null;
+    }).toBe(true);
+    if (!size) throw new Error("Popup and image did not render with measurable dimensions");
+    dimensions.push(size);
   }
 
   expect(dimensions).toHaveLength(2);
