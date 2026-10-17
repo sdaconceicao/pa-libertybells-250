@@ -253,6 +253,7 @@ describe("useMapLibreMap", () => {
 
 	afterEach(() => {
 		cleanup();
+		vi.restoreAllMocks();
 		vi.unstubAllGlobals();
 	});
 
@@ -299,6 +300,30 @@ describe("useMapLibreMap", () => {
 		expect(map.easeTo).toHaveBeenCalledWith(
 			expect.objectContaining({ center: [-80, 40], zoom: 12 }),
 		);
+	});
+
+	it("keeps off-screen bells mounted before and throughout panning", async () => {
+		vi.spyOn(fake.Map.prototype, "getBounds").mockReturnValue({
+			getWest: () => -81,
+			getSouth: () => 39,
+			getEast: () => -79,
+			getNorth: () => 41,
+		});
+		const offscreen = east;
+		renderMap({ bells: [west, offscreen] });
+		const map = await readyMap();
+		const marker = bellMarker(offscreen.id);
+		expect(offscreen.lat).toBeGreaterThan(map.getBounds().getNorth());
+		const markerCount = fake.Marker.instances.length;
+		act(() => {
+			map.center = [offscreen.lng, offscreen.lat];
+			map.emit("move");
+		});
+		expect(bellMarker(offscreen.id)).toBe(marker);
+		act(() => map.emit("moveend"));
+		expect(bellMarker(offscreen.id)).toBe(marker);
+		expect(fake.Marker.instances).toHaveLength(markerCount);
+		expect(marker.removed).toBe(false);
 	});
 
 	it("opens a bell popup on hover, highlights markers, and closes on departure", async () => {

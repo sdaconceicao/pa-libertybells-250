@@ -6,6 +6,12 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Supercluster from "supercluster";
 import type { Bell } from "../../../../lib/bells/types";
 import {
+	PA_MAP_EAST,
+	PA_MAP_NORTH,
+	PA_MAP_SOUTH,
+	PA_MAP_WEST,
+} from "../../../../lib/bells/paMapBounds";
+import {
 	getGeolocationErrorMessage,
 	GEOLOCATION_MESSAGES,
 } from "../../../../lib/geolocation/geolocation";
@@ -69,7 +75,8 @@ export function useMapLibreMap({
 	const locationMarkerRef = useRef<Marker | null>(null);
 	const [libre, setLibre] = useState<MapLibreModule | null>(null);
 	const [mapReady, setMapReady] = useState(false);
-	const [viewportVersion, setViewportVersion] = useState(0);
+	const [mapZoom, setMapZoom] = useState(7);
+	const clusterZoom = Math.min(Math.floor(mapZoom), SELECT_ZOOM);
 	const [popupBellId, setPopupBellId] = useState<string | null>(null);
 	const [popupNode] = useState(() =>
 		typeof document === "undefined" ? null : document.createElement("div"),
@@ -151,7 +158,7 @@ export function useMapLibreMap({
 			map.getContainer().dataset.mapCenter = `${center.lng},${center.lat}`;
 			map.getContainer().dataset.mapZoom = `${map.getZoom()}`;
 			map.getContainer().dataset.mapMinZoom = `${map.getMinZoom()}`;
-			setViewportVersion((version) => version + 1);
+			setMapZoom(map.getZoom());
 		};
 		map.on("moveend", syncMapState);
 		map.on("load", syncMapState);
@@ -199,16 +206,9 @@ export function useMapLibreMap({
 	useEffect(() => {
 		const map = mapRef.current;
 		if (!mapReady || !map || !libre) return;
-		void viewportVersion;
-		const bounds = map.getBounds();
 		const clusters = clusterIndex.getClusters(
-			[
-				bounds.getWest(),
-				bounds.getSouth(),
-				bounds.getEast(),
-				bounds.getNorth(),
-			],
-			Math.min(Math.floor(map.getZoom()), SELECT_ZOOM),
+			[PA_MAP_WEST, PA_MAP_SOUTH, PA_MAP_EAST, PA_MAP_NORTH],
+			clusterZoom,
 		);
 		const next = new Map<string, Marker>();
 		for (const feature of clusters) {
@@ -269,7 +269,7 @@ export function useMapLibreMap({
 		};
 	}, [
 		mapReady,
-		viewportVersion,
+		clusterZoom,
 		clusterIndex,
 		bells,
 		libre,
