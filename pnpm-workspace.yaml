@@ -2,9 +2,17 @@ allowBuilds:
   esbuild: false
   sharp: false
 
-# Security overrides, all sourced from `pnpm audit`. Keys are version-scoped
+minimumReleaseAgeStrict: true
+
+# Security overrides, all sourced from `pnpm audit`. Keys are version-scoped.
 overrides:
   "undici@^7": "^7.29.1"
   "undici@^8": "^8.10.2"
-  # @tanstack/react-router and @tanstack/start-client-core pin different patch versions of router-core
-  "@tanstack/router-core": "1.171.34"
+  "esbuild@~0.18.20": "^0.25.12"
+  "fast-uri@^3": "^3.1.8"
+  "js-yaml@^4": "^4.3.2"
+  "brace-expansion@^2": "^2.1.7"
+  "brace-expansion@^5": "^5.0.12"
+  "seroval@^1": "^1.6.7"
+  "source-map-js@^1": "^1.2.2"
+  "shell-quote@^1": "^1.11.0"
