@@ -223,6 +223,8 @@ function renderMap(overrides: Partial<UseMapLibreMapOptions> = {}) {
 
 async function readyMap() {
 	await waitFor(() => expect(current.mapReady).toBe(true));
+	// Flush the initial camera fit and resulting marker updates before use.
+	await act(async () => {});
 	return last(fake.Map.instances);
 }
 
